@@ -6,7 +6,7 @@ export const projectsData = [
     year: "2026",
     description: "Engineered an enterprise data pipeline extracting 4,500+ localized Google Play reviews across MyGP, MyBL, and MyRobi. Utilized an LLM semantic pipeline to normalize multilingual feedback (Bangla, English, Banglish) and built an interactive Power BI dashboard with custom DAX KPIs.",
     tags: ["Python", "LLM APIs", "Power BI", "DAX", "Star Schema"],
-    media: null, // or "assets/images/projects/voc-demo.gif"
+    media: "assets/images/projects/voc-dashboard.png",
     mediaAlt: "Power BI VoC intelligence preview",
     githubUrl: "https://github.com/rh61632/telecom-Voice-of-Customer_intelligence",
     caseStudyUrl: "projects/voc-telecom.html", // Dedicated static page
