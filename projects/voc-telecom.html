@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cross-Operator VoC Intelligence Engine | Case Study</title>
+
+  <!-- OpenGraph Metadata for LinkedIn, WhatsApp & Social Previews -->
+  <meta property="og:title" content="Cross-Operator VoC Intelligence Engine — Telecom Analytics Case Study">
+  <meta property="og:description" content="End-to-end data pipeline analyzing 4,500+ localized app reviews across MyGP, MyBL, and MyRobi using semantic LLMs, star-schema modeling, and Power BI DAX KPIs.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rh61632.github.io/projects/voc-telecom.html">
+  <meta property="og:image" content="https://rh61632.github.io/assets/images/profile.jpg">
+
+  <!-- Inter & Plus Jakarta Sans Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74',
+              400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
+              800: '#9a3412', 900: '#7c2d12', 950: '#431407',
+            },
+            surface: {
+              light: '#fbfbfd',
+              card: '#161922',
+              dark: '#0c0e14',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Relative path to styles.css from subfolder -->
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Fixed Top Header -->
+  <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none">
+    <nav class="pointer-events-auto bg-white/90 dark:bg-surface-card/90 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full border border-slate-200/80 dark:border-slate-800 shadow-lg flex items-center justify-between gap-4 w-full max-w-[92vw] xl:max-w-screen-2xl">
+      <a href="../index.html" class="flex items-center gap-2 group text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-600 transition">
+        <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-1 transition"></i>
+        <span>Back to Portfolio</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">
+          <i class="fa-regular fa-sun text-sm dark:hidden"></i>
+          <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
+        </button>
+        <a href="https://github.com/rh61632/telecom-Voice-of-Customer_intelligence" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-slate-900 dark:bg-slate-800 hover:bg-brand-600 transition flex items-center gap-1.5">
+          <i class="fa-brands fa-github text-sm"></i> GitHub Repo
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Case Study Content -->
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
+    
+    <!-- Hero Header -->
+    <div class="mb-12 max-w-4xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/40">
+        Case Study • Telecom Business Intelligence
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
+        Cross-Operator Voice of Customer (VoC) Intelligence Engine
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        An enterprise end-to-end data processing and business intelligence system aggregating and evaluating 4,500+ localized user reviews across Grameenphone (MyGP), Banglalink (MyBL), and Robi Axiata (MyRobi).
+      </p>
+
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Python 3.10</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Google-Play-Scraper</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Semantic LLM APIs</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Power BI</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">DAX</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Star Schema</span>
+      </div>
+    </div>
+
+    <!-- Key Performance Highlights Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-14">
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">4,500+</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Ingested Reviews</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Parsed from Play Store across 3 major mobile network operators.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">3 Languages</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Normalized Semantics</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Standardized Bengali, English, and phonetic Banglish sentiment.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">12 DAX KPIs</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Analytical Dashboard</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Calculated Churn Risk Index, Net Sentiment Score, and App Rating trends.</p>
+      </div>
+    </div>
+
+    <!-- Technical Narrative Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- Left Column: Detailed Case Study Narrative (8 Cols) -->
+      <div class="lg:col-span-8 space-y-10">
+        
+        <!-- Section: Problem Statement -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">The Engineering Challenge</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Mobile self-care applications serve as the primary customer interface for telecommunications providers in Bangladesh. However, user reviews are extremely fragmented and linguistic, combining pure Bengali script, formal English, and code-mixed phonetic Banglish. Traditional keyword matching fails on nuances like sarcasm, localized telecom slang (e.g., <em>"megabyte kete niyeche"</em>), or specific complaints regarding balance recharges and OTP delivery delays.
+          </p>
+        </section>
+
+        <!-- Section: Data Pipeline Architecture -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Pipeline Architecture</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The solution was built as a multi-stage data processing pipeline:
+          </p>
+          <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-2.5 list-disc list-inside leading-relaxed">
+            <li><strong>Automated Ingestion:</strong> Python script extracting raw user reviews, timestamps, ratings, and app version numbers across MyGP, MyBL, and MyRobi.</li>
+            <li><strong>Semantic Classification:</strong> Implemented batch prompt pipelines using LLM APIs to categorize feedback into standardized issue vectors: Billing/Recharge, Network/Connectivity, UI/UX Friction, and Promotional Spam.</li>
+            <li><strong>Data Modeling:</strong> Modeled a clean star schema with a central sentiment fact table linked to dimension tables for operators, date calendars, and issue taxonomies.</li>
+          </ul>
+        </section>
+
+        <!-- Section: Power BI & Business Impact -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Business Intelligence & DAX Measures</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The modeled dataset was connected to Power BI to provide executive-level monitoring:
+          </p>
+          <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-2.5 list-disc list-inside leading-relaxed">
+            <li><strong>Net Sentiment Score (NSS):</strong> Custom DAX metric tracking $(% \text{ Positive} - % \text{ Negative})$ over time across releases.</li>
+            <li><strong>Feature Regression Detection:</strong> Automated flags identifying sudden drops in user ratings directly correlated with specific mobile app build updates.</li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Right Column: Sidebar Metadata & Links (4 Cols) -->
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-5">
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">
+            Project Quick Facts
+          </h3>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">ROLE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Data Pipeline & BI Engineer</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">DOMAIN</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Telecommunications Analytics</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">TARGET APPS</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">MyGP, MyBL, MyRobi</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">TIMELINE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Early 2026</div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800">
+            <a href="https://github.com/rh61632/telecom-Voice-of-Customer_intelligence" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-xl text-center text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md transition flex items-center justify-center gap-2">
+              <i class="fa-brands fa-github text-sm"></i> Inspect GitHub Source
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500">
+    <p>© 2026 Md. Ratul Hasan • <a href="../index.html" class="text-brand-600 hover:underline">Back to Homepage</a></p>
+  </footer>
+
+  <script>
+    // Theme toggle matching the main page
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    });
+  </script>
+</body>
+</html>

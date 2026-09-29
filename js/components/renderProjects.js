@@ -17,17 +17,29 @@ export function renderProjects(projects, targetElementId) {
       `
       : '';
 
-    const actionLink = project.githubUrl 
-      ? `
-        <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-500 flex items-center gap-1.5 transition">
-          <i class="fa-brands fa-github"></i> View Repo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-        </a>
-      `
-      : `
-        <span class="font-semibold text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
-          <i class="fa-solid fa-circle-check"></i> Complete
-        </span>
-      `;
+    // Title links to dedicated case study if available
+    const titleHeader = project.caseStudyUrl
+      ? `<a href="${project.caseStudyUrl}" class="group-hover:text-brand-600 transition inline-block">
+           <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 font-display flex items-center gap-2">
+             ${project.title} <i class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition"></i>
+           </h3>
+         </a>`
+      : `<h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 font-display">${project.title}</h3>`;
+
+    // Action button links: View Repo + Case Study
+    const primaryLink = project.caseStudyUrl
+      ? `<a href="${project.caseStudyUrl}" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-500 flex items-center gap-1.5 transition">
+           Case Study <i class="fa-solid fa-arrow-right text-[10px]"></i>
+         </a>`
+      : `<span class="font-semibold text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
+           <i class="fa-solid fa-circle-check"></i> Complete
+         </span>`;
+
+    const repoLink = project.githubUrl
+      ? `<a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition" title="GitHub Repository">
+           <i class="fa-brands fa-github text-base"></i>
+         </a>`
+      : '';
 
     const tagPills = project.tags
       .map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">${tag}</span>`)
@@ -44,9 +56,7 @@ export function renderProjects(projects, targetElementId) {
             <span class="text-xs font-mono text-slate-400">${project.year}</span>
           </div>
 
-          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 font-display">
-            ${project.title}
-          </h3>
+          ${titleHeader}
 
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
             ${project.description}
@@ -58,7 +68,10 @@ export function renderProjects(projects, targetElementId) {
         </div>
 
         <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
-          ${actionLink}
+          <div class="flex items-center gap-3">
+            ${primaryLink}
+            ${repoLink}
+          </div>
           <span class="text-slate-400 font-mono text-[11px]">${project.badgeText}</span>
         </div>
       </div>
