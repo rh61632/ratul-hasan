@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md. Ratul Hasan | Academic & Engineering Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74',
+              400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
+              800: '#9a3412', 900: '#7c2d12', 950: '#431407',
+            },
+            surface: {
+              light: '#fbfbfd',
+              card: '#161922',
+              dark: '#0c0e14',
+            }
+          },
+          boxShadow: {
+            'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+            'glow': '0 0 25px -5px rgba(234, 88, 12, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Fixed Top Navigation -->
+  <div class="fixed top-4 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
+    <nav class="pointer-events-auto bg-white/90 dark:bg-surface-card/90 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full border border-slate-200/80 dark:border-slate-800 shadow-lg flex items-center justify-between gap-3 sm:gap-8 w-full max-w-[92vw] xl:max-w-screen-2xl">
+      
+      <a href="#about" class="flex items-center gap-2 group shrink-0 whitespace-nowrap">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-brand-700 via-brand-600 to-brand-400 flex items-center justify-center text-white font-display font-bold text-xs tracking-wider shadow-sm group-hover:scale-105 transition-transform shrink-0">
+          RH
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-white leading-tight font-display whitespace-nowrap">Md. Ratul Hasan</span>
+          <span class="text-[9px] sm:text-[10px] font-mono text-brand-600 dark:text-brand-400 leading-none whitespace-nowrap hidden sm:inline">EEE • JUST</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 whitespace-nowrap shrink-0 overflow-x-auto no-scrollbar">
+        <a href="#about" class="px-2.5 sm:px-3 py-1 rounded-full hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50/80 dark:hover:bg-brand-950/40 transition whitespace-nowrap">About</a>
+        <a href="#focus" class="px-2.5 sm:px-3 py-1 rounded-full hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50/80 dark:hover:bg-brand-950/40 transition whitespace-nowrap">Domains</a>
+        <a href="#projects" class="px-2.5 sm:px-3 py-1 rounded-full hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50/80 dark:hover:bg-brand-950/40 transition whitespace-nowrap">Projects</a>
+        <a href="#awards" class="px-2.5 sm:px-3 py-1 rounded-full hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50/80 dark:hover:bg-brand-950/40 transition whitespace-nowrap">Awards</a>
+        <a href="#experience" class="px-2.5 sm:px-3 py-1 rounded-full hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50/80 dark:hover:bg-brand-950/40 transition whitespace-nowrap">Experience</a>
+        <a href="#training" class="px-2.5 sm:px-3 py-1 rounded-full hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50/80 dark:hover:bg-brand-950/40 transition whitespace-nowrap">Training</a>
+        <a href="#education" class="px-2.5 sm:px-3 py-1 rounded-full hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50/80 dark:hover:bg-brand-950/40 transition whitespace-nowrap">Education</a>
+      </div>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition shrink-0">
+          <i class="fa-regular fa-sun text-sm dark:hidden"></i>
+          <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
+        </button>
+
+        <a href="#contact" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 shadow-sm transition whitespace-nowrap shrink-0">
+          Contact
+        </a>
+      </div>
+
+    </nav>
+  </div>
+
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-16 w-full">
+
+    <!-- About Section -->
+    <section id="about" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-36">
+      <div class="space-y-4 mb-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800/40">
+          <span class="relative flex h-2 w-2 shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-600"></span>
+          </span>
+          <span>Graduation Expected Late 2026 • Coursework Completed</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.18] font-display w-full">
+          Synthesizing <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-600 via-brand-500 to-amber-600">signal & data processing</span>, machine learning & telecommunications.
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Electrical & Electronic Engineering graduate from <strong>Jashore University of Science and Technology (JUST)</strong> with hands-on research experience in <strong>biomedical engineering</strong>, focusing on physiological signal interpretation and complex biological datasets. Through this work, I have cultivated strong capabilities in <strong>data analysis</strong> and visualization to extract actionable, predictive patterns from noisy environments. Driven by modern connectivity and infrastructure, I am channeling this foundation into the <strong>telecommunications industry</strong>—leveraging <strong>machine learning</strong> and robust data pipelines to optimize communication channels, telemetry systems, and network intelligence.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-1">
+            <a href="https://linkedin.com/in/ratulhasan-just" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-200 shadow-sm">
+              <i class="fa-brands fa-linkedin-in text-[#0077b5]"></i> LinkedIn
+            </a>
+            <a href="https://github.com/rh61632" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-200 shadow-sm">
+              <i class="fa-brands fa-github text-slate-700 dark:text-slate-300"></i> GitHub
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <div class="space-y-1">
+              <span class="text-[11px] font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-bold block">Signals</span>
+              <div class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-display">Biomedical Foundation</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Physiological data acquisition & digital filtering</p>
+            </div>
+            <div class="space-y-1">
+              <span class="text-[11px] font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-bold block">ML & Data</span>
+              <div class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-display">Data Analysis & Visualization</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Predictive workflows & robust data pipelines</p>
+            </div>
+            <div class="space-y-1">
+              <span class="text-[11px] font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-bold block">Telecom</span>
+              <div class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-display">Network & Telemetry</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Prospective focus in wireless systems & telemetry</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div class="relative w-full max-w-md sm:max-w-lg">
+            <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-600/30 to-amber-500/20 rounded-2xl blur-lg"></div>
+            <div class="relative bg-white dark:bg-surface-card p-3 rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-800">
+              <div class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 relative group">
+                <img 
+                  id="profileImg"
+                  src="assets/images/profile.jpg" 
+                  alt="Md. Ratul Hasan"
+                  class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80';"
+                />
+                <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs py-1.5 px-3 rounded-lg border border-white/10 flex items-center gap-1.5 shadow-sm">
+                  <i class="fa-solid fa-location-dot text-brand-400"></i>
+                  <span class="text-slate-200 font-medium">Dhaka, Bangladesh</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Domains Section -->
+    <section id="focus" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-28">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold">// Domains</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 font-display">
+            Research & Technical Focus
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md sm:text-right">
+          Bridging real-world signal analysis and data visualization with a dedicated interest in modern telecommunications.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white dark:bg-surface-card p-6 sm:p-7 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-subtle hover:border-brand-500/50 transition duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/50 flex items-center justify-center text-brand-600 dark:text-brand-400 text-lg mb-4">
+              <i class="fa-solid fa-wave-square"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display">
+              Signal Processing & Deep Learning
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              Acquiring physiological signals (sEMG), implementing digital filtering to remove noise, and training deep learning models (TensorFlow) to decode hand gestures in real time to directly actuate a physical prosthetic hand.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">sEMG Signals</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">TensorFlow</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Digital Filters</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Hand Actuation</span>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-surface-card p-6 sm:p-7 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-subtle hover:border-brand-500/50 transition duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/50 flex items-center justify-center text-brand-600 dark:text-brand-400 text-lg mb-4">
+              <i class="fa-solid fa-chart-simple"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display">
+              Data Analysis & Visualization
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              Transforming raw, multi-dimensional datasets into structured quantitative insights. Performing exploratory data analysis (EDA), pattern discovery, and clear visual interpretations using Python and spreadsheet tools.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Python (Pandas, NumPy)</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Matplotlib</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Exploratory Analysis</span>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-surface-card p-6 sm:p-7 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-subtle hover:border-brand-500/50 transition duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/50 flex items-center justify-center text-brand-600 dark:text-brand-400 text-lg mb-4">
+              <i class="fa-solid fa-tower-broadcast"></i>
+            </div>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white font-display">
+                Telecommunications & Networks
+              </h3>
+            </div>
+            <span class="inline-block text-[9px] font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-bold bg-brand-50 dark:bg-brand-950/60 px-2 py-0.5 rounded mb-2 border border-brand-200 dark:border-brand-800/40">
+              Prospective Interest
+            </span>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              An active area of future focus where I aim to channel my signal processing foundation and analytical toolkit. Keen to explore wireless communication systems, network telemetry, and data-driven network optimization.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Wireless Systems</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Network Telemetry</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Applied Analytics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section (Mounted via JS) -->
+    <section id="projects" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-28">
+      <div class="mb-8">
+        <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold">// Portfolio</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 font-display">
+          Thesis & Featured Projects
+        </h2>
+      </div>
+
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-28">
+      <div class="mb-8">
+        <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold">// Recognition</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 font-display">
+          Competitions & Honors
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-brand-200/90 dark:border-brand-900/60 shadow-subtle relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute top-0 right-0 w-20 h-20 bg-brand-500/10 rounded-bl-full pointer-events-none"></div>
+          <div>
+            <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 mb-2">
+              <i class="fa-solid fa-trophy text-base"></i>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider">Champion</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">
+              IEEE BD Section SYW Idea Pitching
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+              Vitality Enhancement Summit
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+              Collaborated in "Team Dynamite"—a cross-functional group of 5 students from 5 universities—evaluating concepts, co-pitching the finalized solution under tight time constraints, and defending the proposal during the rigorous panel Q&A.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-400">
+            Aug 2025
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 mb-2">
+              <i class="fa-solid fa-award text-base"></i>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider">2nd Runner-Up</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">
+              REACT 2026 Poster Presentation
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+              Southeast University & IEEE SEU SB
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+              Awarded 2nd Runner-Up in the poster presentation segment of REACT 2026, presenting technical research before an evaluation panel.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-400">
+            Sep 2026
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 mb-2">
+              <i class="fa-solid fa-microphone-lines text-base"></i>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider">2nd Runner-Up</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">
+              INDCon 2025 Presentation Contest
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+              National Technical Presentation
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+              Represented a 3-member university team to deliver the technical presentation, recognized for structured slide organization and clear communication.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-400">
+            Dec 2025
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section (Mounted via JS) -->
+    <section id="experience" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-28">
+      <div class="mb-8">
+        <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold">// Leadership & Operations</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 font-display">
+          Work & Leadership Experience
+        </h2>
+      </div>
+
+      <div id="experience-list" class="space-y-5"></div>
+    </section>
+
+    <!-- Training & Audits Section (Mounted via JS) -->
+    <section id="training" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-28">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold">// Fieldwork & Certifications</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 font-display">
+            Industrial Audit, Training & Visits
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md sm:text-right">
+          Practical industry exposure across energy management, industrial automation, and power infrastructure.
+        </p>
+      </div>
+
+      <!-- Feature Card: Industrial Energy Audit -->
+      <div id="audit-card" class="mb-6 p-6 sm:p-8 rounded-2xl bg-white dark:bg-surface-card border border-brand-200/80 dark:border-brand-900/50 shadow-subtle hover:border-brand-500/50 transition"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-certificate text-brand-600 dark:text-brand-400 text-sm"></i>
+            <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white uppercase tracking-wider">
+              Technical Training Programs
+            </h3>
+          </div>
+          <div id="training-courses" class="space-y-4"></div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-4">
+          <div class="flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-industry text-brand-600 dark:text-brand-400 text-sm"></i>
+            <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white uppercase tracking-wider">
+              Industrial Field Visits
+            </h3>
+          </div>
+
+          <div id="field-visits" class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-4"></div>
+
+          <div class="p-4 rounded-xl bg-brand-50/60 dark:bg-brand-950/30 border border-brand-200/70 dark:border-brand-900/40 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <span class="font-bold text-brand-700 dark:text-brand-400 font-display block mb-0.5">High-Voltage Infrastructure Exposure</span>
+            Gained first-hand understanding of turbine synchronizers, dual-fuel cycles, switchgear safety, and national grid transmission lines.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-28">
+      <div class="mb-8">
+        <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold">// Academic Credentials</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 font-display">
+          Education
+        </h2>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <div>
+          <h3 class="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-white">
+            B.Sc. in Electrical and Electronic Engineering
+          </h3>
+          <p class="text-xs sm:text-sm font-semibold text-brand-600 dark:text-brand-400 mt-0.5">
+            Jashore University of Science and Technology (JUST)
+          </p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2">
+            Completed all coursework and final examinations; official publication of results expected late 2026.
+          </p>
+        </div>
+        <div class="text-left sm:text-right">
+          <span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800/40 whitespace-nowrap">
+            Graduation Expected Late 2026
+          </span>
+          <p class="text-xs text-slate-400 mt-1.5 font-mono">Jashore, Bangladesh</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact" class="w-full max-w-screen-2xl mx-auto rounded-3xl bg-gradient-to-br from-brand-700 via-brand-600 to-amber-700 text-white p-8 sm:p-14 shadow-xl border border-brand-500/20 relative overflow-hidden">
+      <div class="relative z-10 space-y-5 max-w-3xl">
+        <span class="inline-block px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-white/20 text-white border border-white/30 backdrop-blur-sm">
+          Get in Touch
+        </span>
+
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight font-display">
+          Let's connect for research or technical roles.
+        </h2>
+
+        <p class="text-sm sm:text-base text-brand-100 leading-relaxed max-w-2xl">
+          Open to graduate research, technical R&D roles, and collaborative projects across digital signal processing, telecommunications, and applied machine learning.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rh61632@gmail.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm bg-white text-brand-800 hover:bg-brand-50 shadow-md transition flex items-center gap-2 whitespace-nowrap">
+            <i class="fa-solid fa-envelope"></i> rh61632@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/ratulhasan-just" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm bg-brand-800/80 hover:bg-brand-800 text-white border border-brand-400/40 transition flex items-center gap-2 whitespace-nowrap">
+            <i class="fa-brands fa-linkedin-in"></i> LinkedIn Profile
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-10 mt-8 border-t border-white/20 text-xs text-brand-100 flex flex-col sm:flex-row items-center justify-between gap-3 relative z-10">
+        <p>© 2026 Md. Ratul Hasan. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="#about" class="hover:text-white flex items-center gap-1 transition">
+            Back to Top <i class="fa-solid fa-arrow-up text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
