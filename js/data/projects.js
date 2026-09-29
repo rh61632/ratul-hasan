@@ -19,10 +19,10 @@ export const projectsData = [
     year: "2025 – 2026",
     description: "Assembled physical multi-articulated prosthetic hand hardware and integrated deep learning models to process biological surface electromyography (sEMG) signals. Enabled an ESP32 microcontroller setup to decode user intent and mimic human gestures in real time.",
     tags: ["ESP32", "C++", "Python", "TensorFlow", "sEMG Sensors"],
-    media: null,
+    media: "assets/images/projects/prosthetic.jpg",
     mediaAlt: "Prosthetic hand prototype",
     githubUrl: null,
-    caseStudyUrl: null, // Can add "projects/prosthetic-hand.html" later
+    caseStudyUrl: "projects/prosthetic-arm.html", // Links to your new thesis page
     badgeText: "B.Sc. Capstone"
   },
   {
