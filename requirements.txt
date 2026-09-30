@@ -1,14 +1,2 @@
 # Dependencies for image processing and local thumbnail generation
 Pillow>=10.0.0
-
-# ==============================================================================
-# ONE-TIME SETUP ON A NEW MACHINE:
-#
-# When cloning this repository onto a new machine, run this command once:
-#     ./setup.sh
-#
-# (Alternatively: pip install -r requirements.txt && git config core.hooksPath .githooks)
-#
-# After running setup.sh once, thumbnail generation will happen 100% automatically 
-# on every 'git commit' on that machine.
-# ==============================================================================
