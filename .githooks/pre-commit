@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "📸 [Hook] Generating image thumbnails..."
+python3 scripts/generate_thumbnails.py
+if [ -d "assets/images/thumbnails" ]; then
+    git add assets/images/thumbnails/
+fi
