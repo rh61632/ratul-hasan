@@ -2,21 +2,22 @@ export function renderProjects(projects, targetElementId) {
   const container = document.getElementById(targetElementId);
   if (!container) return;
 
+  const defaultProjectCover = "assets/images/thumbnails/default-project.jpg";
+
   container.innerHTML = projects.map(project => {
-    // 1. Static image container (removed group-hover:scale-105)
-    const mediaBlock = project.media 
-      ? `
-        <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
-          <img 
-            src="${project.media}" 
-            alt="${project.mediaAlt || project.title}" 
-            loading="lazy"
-            onerror="this.parentElement.style.display='none'"
-            class="w-full h-full object-contain p-2"
-          />
-        </div>
-      `
-      : '';
+    // 16:9 beautifully rounded cover image matching competition cards, with default fallback
+    const imageSrc = project.media || defaultProjectCover;
+    const mediaBlock = `
+      <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
+        <img 
+          src="${imageSrc}" 
+          alt="${project.mediaAlt || project.title}" 
+          loading="lazy"
+          onerror="this.src='${defaultProjectCover}'"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    `;
 
     // Title links to dedicated case study if available
     const titleHeader = project.caseStudyUrl
@@ -29,26 +30,29 @@ export function renderProjects(projects, targetElementId) {
 
     // Action button links: View Repo + Case Study
     const primaryLink = project.caseStudyUrl
-      ? `<a href="${project.caseStudyUrl}" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-500 flex items-center gap-1.5 transition">
-           Case Study <i class="fa-solid fa-arrow-right text-[10px]"></i>
-         </a>`
+      ? `<span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 transition">
+           Case Study <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
+         </span>`
       : `<span class="font-semibold text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
            <i class="fa-solid fa-circle-check"></i> Complete
          </span>`;
 
     const repoLink = project.githubUrl
-      ? `<a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition" title="GitHub Repository">
+      ? `<a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="relative z-20 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition" title="GitHub Repository">
            <i class="fa-brands fa-github text-base"></i>
          </a>`
-      : '';
+      : "";
 
     const tagPills = project.tags
       .map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">${tag}</span>`)
-      .join('');
+      .join("");
 
-    // 2. Entire card lifts up smoothly on hover (hover:-translate-y-1.5 hover:shadow-xl)
+    const cursorClass = project.caseStudyUrl ? "cursor-pointer" : "cursor-default";
+    const dataUrlAttr = project.caseStudyUrl ? `data-url="${project.caseStudyUrl}"` : "";
+
+    // Entire card lifts up smoothly on hover and indicates clickability
     return `
-      <div class="group bg-white dark:bg-surface-card rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-7 flex flex-col justify-between hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+      <div class="project-card group bg-white dark:bg-surface-card rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-7 flex flex-col justify-between hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ${cursorClass}" ${dataUrlAttr}>
         <div>
           ${mediaBlock}
           <div class="flex items-center justify-between mb-3">
@@ -78,5 +82,26 @@ export function renderProjects(projects, targetElementId) {
         </div>
       </div>
     `;
-  }).join('');
+  }).join("");
+
+  // Attach card-level click handler so clicking anywhere on the card navigates to the detailed page
+  container.querySelectorAll(".project-card").forEach(card => {
+    const url = card.dataset.url;
+    if (url) {
+      card.addEventListener("click", (e) => {
+        // If clicking secondary interactive elements like GitHub repository link, allow it without navigating card
+        const clickedAnchor = e.target.closest("a");
+        if (clickedAnchor && clickedAnchor.getAttribute("href") !== url) {
+          return;
+        }
+
+        // Support opening in new tab via Cmd/Ctrl + Click
+        if (e.metaKey || e.ctrlKey) {
+          window.open(url, "_blank");
+        } else {
+          window.location.href = url;
+        }
+      });
+    }
+  });
 }

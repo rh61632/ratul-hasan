@@ -1,6 +1,7 @@
 import { initThemeToggle } from './theme.js';
 import { projectsData } from './data/projects.js';
 import { renderProjects } from './components/renderProjects.js';
+import { awardsData } from './data/awards.js';
 import { experienceData } from './data/experience.js';
 import { auditData, trainingCourses, industrialVisits } from './data/training.js';
 
@@ -10,6 +11,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Projects (Cards with Image/GIF Support)
   renderProjects(projectsData, 'projects-grid');
+
+  // Render Awards & Competitions (Cards with Picture/Media Support and default placeholder)
+  const awardsContainer = document.getElementById('awards-grid');
+  if (awardsContainer) {
+    awardsContainer.innerHTML = awardsData.map(award => {
+      const defaultAwardCover = 'assets/images/thumbnails/default-award.jpg';
+      const imageSrc = award.media || defaultAwardCover;
+      const mediaBlock = `
+        <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
+          <img 
+            src="${imageSrc}" 
+            alt="${award.mediaAlt || award.title}" 
+            loading="lazy"
+            onerror="this.src='assets/images/thumbnails/default-award.jpg'"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      `;
+
+      const championDecoration = award.isChampion
+        ? `<div class="absolute top-0 right-0 w-20 h-20 bg-brand-500/10 rounded-bl-full pointer-events-none"></div>`
+        : '';
+
+      const borderStyle = award.isChampion
+        ? 'border-brand-200/90 dark:border-brand-900/60'
+        : 'border-slate-200 dark:border-slate-800';
+
+      return `
+        <div class="group p-6 rounded-2xl bg-white dark:bg-surface-card border ${borderStyle} shadow-subtle hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+          ${championDecoration}
+          <div>
+            ${mediaBlock}
+            <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 mb-2">
+              <i class="${award.icon} text-base"></i>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider">${award.rank}</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">
+              ${award.title}
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+              ${award.event}
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+              ${award.description}
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-400">
+            ${award.date}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
 
   // Render Experience
   const expContainer = document.getElementById('experience-list');
