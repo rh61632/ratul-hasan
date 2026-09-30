@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hall Dining Operations & Inventory Management System | Case Study</title>
+
+  <!-- OpenGraph Metadata for Social & Professional Sharing -->
+  <meta property="og:title" content="Hall Dining Operations & Inventory Management System — Operations ERP Case Study">
+  <meta property="og:description" content="A real-world digital transformation replacing manual paper registers with an automated operations ERP across 1,100+ residential students, tracking ~9,000 monthly meals with dual-slot menu forecasting, physical token auditing, and cash/bKash reconciliation.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rh61632.github.io/projects/hall-dining-erp.html">
+  <meta property="og:image" content="https://rh61632.github.io/assets/images/thumbnails/dining-erp.png">
+
+  <!-- Inter & Plus Jakarta Sans Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74',
+              400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
+              800: '#9a3412', 900: '#7c2d12', 950: '#431407',
+            },
+            surface: {
+              light: '#fbfbfd',
+              card: '#161922',
+              dark: '#0c0e14',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Fixed Top Header -->
+  <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none">
+    <nav class="pointer-events-auto bg-white/90 dark:bg-surface-card/90 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full border border-slate-200/80 dark:border-slate-800 shadow-lg flex items-center justify-between gap-4 w-full max-w-[92vw] xl:max-w-screen-2xl">
+      <a href="../index.html#projects" 
+         onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }" 
+         class="flex items-center gap-2 group text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition">
+        <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-1 transition"></i>
+        <span>Back to Portfolio</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">
+          <i class="fa-regular fa-sun text-sm dark:hidden"></i>
+          <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
+        </button>
+        <a href="https://docs.google.com/spreadsheets/d/1YMRC2m48c165kfrgP7JzAwUkWMylTQVxI6k5dHKIv54/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm transition flex items-center gap-1.5">
+          <i class="fa-solid fa-table"></i> Live Google Sheet
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Case Study Content -->
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
+    
+    <!-- Hero Header -->
+    <div class="mb-10 max-w-4xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/40">
+        Case Study • Operations Analytics & ERP Systems
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
+        Hall Dining Operations & Inventory Management System
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        A real-world operational ERP engineered during tenure as Dining Manager at Shaheed Mashiur Rahman Hall, Jashore University of Science and Technology (JUST). Digitized a legacy, error-prone manual ledger into an automated cloud database tracking ~9,000 monthly meals across 1,100+ residents, featuring daily kitchen protein forecasting, physical token serial audits, and digital bKash financial reconciliation.
+      </p>
+
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Google Sheets ERP</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Operations Research</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Supply Chain Forecasting</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Token Audit & Security</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">bKash MFS Reconciliation</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Financial Modeling</span>
+      </div>
+    </div>
+
+    <!-- Key Performance Highlights Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">8,786</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Monthly Meals Tracked</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">5,941 Chicken, 1,836 Fish, and 1,009 Egg meals logged with zero discrepancies.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-sky-600 dark:text-sky-400 font-display">1,102</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Residents Mapped</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Structured across 210 residential hall rooms with anonymized student records.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">200 – 411</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Daily Meal Range</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Daily aggregated protein requirements provided to cooks for accurate procurement.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-purple-600 dark:text-purple-400 font-display">3-Way</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Audit Reconciliation</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Reconciled counter cash, bKash MFS statements, and physical token serial batches.</p>
+      </div>
+    </div>
+
+    <!-- System Visual Showcase -->
+    <section class="mb-16 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+        <div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Architecture Overview // Operational Interface</span>
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Dual-Slot Matrix & Executive Operations Dashboard</h2>
+        </div>
+        <a href="https://docs.google.com/spreadsheets/d/1YMRC2m48c165kfrgP7JzAwUkWMylTQVxI6k5dHKIv54/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1.5">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Live Google Sheet
+        </a>
+      </div>
+
+      <div class="relative w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-100 dark:bg-surface-card">
+        <div class="px-4 py-2.5 bg-slate-100 dark:bg-slate-800/70 border-b border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-400/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400/80"></span>
+          </div>
+          <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400">Google Sheets ERP • January 2030 Tracking Matrix & Dashboard</span>
+          <div class="w-10"></div>
+        </div>
+
+        <img 
+          src="../assets/images/projects/dining-erp.png" 
+          alt="Dining operations ERP dashboard preview" 
+          loading="lazy"
+          class="w-full h-auto block"
+        />
+      </div>
+
+      <p class="text-xs text-center text-slate-500 dark:text-slate-400 font-mono">
+        <i class="fa-solid fa-circle-info text-brand-600 dark:text-brand-400 mr-1"></i>
+        Figure 1: High-level overview of the dual-slot monthly meal matrix (left) and the executive audit & reconciliation dashboard (right).
+      </p>
+    </section>
+
+    <!-- Narrative Architecture Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+      
+      <!-- Narrative Columns (8 Cols) -->
+      <div class="lg:col-span-8 space-y-10">
+        
+        <!-- Challenge -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">The Operational Challenge</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            University residential hall dining facilities in Bangladesh traditionally operate on manual, handwritten registers (<em>"khata"</em>). Managing a dining hall serving 200–400+ meals per session for over 1,100 students across 210 residential rooms under paper ledgers generated chronic systemic issues:
+          </p>
+          <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-2.5 list-disc list-inside leading-relaxed">
+            <li><strong>Tally & Calculation Errors:</strong> Daily meal tallies and individual billing balances were computed manually at month-end, resulting in accounting disputes, miscalculated dues, and delayed vendor payments.</li>
+            <li><strong>Food Wastage & Inaccurate Procurement:</strong> Kitchen cooks had no real-time forecasting of how many students would choose chicken vs. fish vs. egg on a given day. This caused either food shortages or severe perishables spoilage.</li>
+            <li><strong>Token Leakage & Audit Blindspots:</strong> Without strict serial number reconciliation between physical tokens issued at counters and kitchen distribution, tokens were vulnerable to reuse, unauthorized duplication, or unaccounted sales.</li>
+            <li><strong>Hybrid Payment Chaos:</strong> Balancing physical counter cash collections alongside digital Mobile Financial Services (bKash) led to unverified ledger discrepancies.</li>
+          </ul>
+        </section>
+
+        <!-- System Architecture -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">System Architecture & Relational Matrix</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            To eliminate manual bottlenecks, a relational spreadsheet ERP architecture was engineered from scratch. The system was structured into two synchronized operational tiers:
+          </p>
+          
+          <div class="space-y-4 pt-2">
+            <div class="p-5 rounded-xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+              <h3 class="font-display font-bold text-base text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-table-cells text-brand-600 dark:text-brand-400 text-sm"></i>
+                1. Dual-Slot Monthly Tracking Matrix
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Organized into 1,102 student rows mapped sequentially by Hall Room number. For each of the 31 calendar days, the matrix splits into dedicated Lunch and Dinner columns with active protein tracking:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 font-mono text-xs">
+                <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800">
+                  <span class="text-brand-600 dark:text-brand-400 font-bold block mb-1">☀️ Lunch Slot</span>
+                  <span class="text-slate-600 dark:text-slate-300">Chicken 🍗 vs. Egg 🥚 option tallies</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800">
+                  <span class="text-sky-600 dark:text-sky-400 font-bold block mb-1">🌙 Dinner Slot</span>
+                  <span class="text-slate-600 dark:text-slate-300">Fish 🐟 vs. Egg 🥚 option tallies</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+              <h3 class="font-display font-bold text-base text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-kitchen-set text-emerald-600 dark:text-emerald-400 text-sm"></i>
+                2. Live Kitchen Demand & Procurement Engine
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Dynamic aggregation formulas at the base of every day compute total requirements across protein types (e.g. 242 Chicken, 20 Egg, 62 Fish). Cooks and grocery buyers received exact morning figures, cutting perishables spoilage by aligning procurement directly with consumption demand.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Audit & Fraud Prevention -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Fraud Prevention & 3-Way Audit Protocol</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            A key innovation of the system was embedding a strict executive audit workflow to eliminate leakage and ensure that physical inventory, digital logs, and financial balances matched perfectly at the close of every shift:
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-5 rounded-xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-2">
+              <span class="text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase block">// Physical Audit</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Token Serial Range Tracking</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Tokens were issued in serialized batches (<code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">c</code> for Chicken, <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">f</code> for Fish, <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">e</code> for Egg). Counter managers logged initial and final token numbers. The delta (<code class="text-xs font-mono">Final - Initial</code>) had to equal the exact counter meals recorded.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-2">
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold uppercase block">// Financial Audit</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Cash Drawer & bKash Reconciliation</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Opening cash float (<code class="text-xs font-mono">Initial Taka</code>) was reconciled with lunch and dinner physical revenue, digital bKash MFS transaction statements, and petty expenses (<code class="text-xs font-mono">Extra</code>), achieving 100% financial balancing with zero unexplained loss.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Operational Results -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Operational Impact & Results</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-800 text-center">
+              <div class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 font-display">100%</div>
+              <div class="text-xs font-mono text-slate-500 dark:text-slate-400 mt-1">Digital Transparency</div>
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1">Eliminated billing disputes through instant student ID lookup.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-800 text-center">
+              <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">0%</div>
+              <div class="text-xs font-mono text-slate-500 dark:text-slate-400 mt-1">Token Leakage</div>
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1">Physical serial verification prevented fraudulent token reuse.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-800 text-center">
+              <div class="text-2xl font-extrabold text-sky-600 dark:text-sky-400 font-display">~9,000</div>
+              <div class="text-xs font-mono text-slate-500 dark:text-slate-400 mt-1">Meals Audited/Mo</div>
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1">Scaled flawlessly without manual record bookkeeping overhead.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Quick Facts Sidebar (4 Cols) -->
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-5">
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">
+            Project Quick Facts
+          </h3>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">ROLE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Dining Manager & Systems Architect</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">ORGANIZATION</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Shaheed Mashiur Rahman Hall, JUST</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">DOMAIN</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Operations Analytics & Supply Chain ERP</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">SCALE & CAPACITY</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">1,102 Residents • 210 Rooms • 200–411 Daily Meals</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">CORE TOOLS</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Google Sheets, Financial Modeling, Relational Lookups</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">PERIOD</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Sep 2025 – Mar 2026</div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2">
+            <a href="https://docs.google.com/spreadsheets/d/1YMRC2m48c165kfrgP7JzAwUkWMylTQVxI6k5dHKIv54/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-xl text-center text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 shadow-md transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-table"></i> View Live Google Sheet
+            </a>
+            <a href="../index.html#experience" class="w-full py-2 px-4 rounded-xl text-center text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-briefcase text-xs"></i> View Dining Manager Role
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- Footer Navigation -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500">
+    <p>© 2026 Md. Ratul Hasan • <a href="../index.html#projects" onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
+  </footer>
+
+  <script>
+    // Dark / Light Theme Sync
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    });
+  </script>
+</body>
+</html>

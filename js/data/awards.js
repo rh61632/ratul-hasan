@@ -34,6 +34,18 @@ export const awardsData = [
     isChampion: false,
     media: null, // e.g. "assets/images/awards/indcon-2025.jpg"
     mediaAlt: "INDCon 2025 Presentation Contest Award"
+  },
+  {
+    id: "skill-expedition-canva",
+    rank: "Honorary Speaker",
+    icon: "fa-solid fa-chalkboard-user",
+    title: "Basics of Creative Graphic Design on Canva",
+    event: "Skill Development Expedition 1.0 • IEEE JUST SB",
+    description: "Co-launched the branch's flagship Skill Development Expedition initiative and conducted the inaugural offline masterclass at FET Gallery. Delivered hands-on live Canva design demonstrations and visual principles, recognized with an official crest of honor.",
+    date: "Sep 2025",
+    isChampion: false,
+    media: null,
+    mediaAlt: "IEEE JUST SB Skill Development Expedition 1.0 Speaker Crest",
+    caseStudyUrl: "projects/canva-workshop.html"
   }
 ];
-

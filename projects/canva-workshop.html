@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basics of Creative Graphic Design on Canva | Skill Development Expedition 1.0</title>
+
+  <!-- OpenGraph Metadata for Professional Sharing -->
+  <meta property="og:title" content="Basics of Creative Graphic Design on Canva — Skill Development Expedition 1.0">
+  <meta property="og:description" content="Inaugural offline masterclass for IEEE JUST Student Branch's Skill Development Expedition 1.0, covering visual design principles, academic research aesthetics, and live Canva workflows.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rh61632.github.io/projects/canva-workshop.html">
+
+  <!-- Inter & Plus Jakarta Sans Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74',
+              400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
+              800: '#9a3412', 900: '#7c2d12', 950: '#431407',
+            },
+            surface: {
+              light: '#fbfbfd',
+              card: '#161922',
+              dark: '#0c0e14',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Fixed Top Header -->
+  <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none">
+    <nav class="pointer-events-auto bg-white/90 dark:bg-surface-card/90 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full border border-slate-200/80 dark:border-slate-800 shadow-lg flex items-center justify-between gap-4 w-full max-w-[92vw] xl:max-w-screen-2xl">
+      <a href="../index.html#awards" 
+         onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }" 
+         class="flex items-center gap-2 group text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition">
+        <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-1 transition"></i>
+        <span>Back to Portfolio</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">
+          <i class="fa-regular fa-sun text-sm dark:hidden"></i>
+          <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
+        </button>
+        <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/40 flex items-center gap-1.5">
+          <i class="fa-solid fa-award text-xs"></i> Speaker Crest of Honor
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
+    
+    <!-- Hero Header -->
+    <div class="mb-10 max-w-4xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/40">
+        Initiative Case Study • Skill Development Expedition 1.0
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
+        Basics of Creative Graphic Design on Canva
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        The inaugural in-person masterclass launching IEEE JUST Student Branch's flagship <em>Skill Development Expedition 1.0</em>. Delivered live at the FET Gallery to an audience of IEEE members and students, the workshop bridged core visual design theory, typography hierarchy, and real-time Canva demonstrations to empower members in academic research presentation, technical branding, and digital media.
+      </p>
+
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Canva Masterclass</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Visual Communication</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Live Software Demo</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">IEEE JUST Student Branch</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Typography & Hierarchy</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Public Speaking</span>
+      </div>
+    </div>
+
+    <!-- Highlights Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">Session #01</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Expedition Kickoff</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Inaugural milestone launching the branch's brand-new Skill Development series.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-sky-600 dark:text-sky-400 font-display">In-Person</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Offline Delivery</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Conducted live at FET Gallery, Sir Jagadish Chandra Bose Academic Building.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">Hands-On</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Live Canva Demo</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Demonstrated real-time asset composition, contrast rules, and spatial balance.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-purple-600 dark:text-purple-400 font-display">Honored</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Crest & Certificate</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Awarded an official IEEE Crest of Honor for workshop leadership and instruction.</p>
+      </div>
+    </div>
+
+    <!-- Narrative & Details Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+      
+      <!-- Narrative Columns (8 Cols) -->
+      <div class="lg:col-span-8 space-y-10">
+        
+        <!-- The Vision & Context -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">The Vision Behind Skill Development Expedition 1.0</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The <em>Skill Development Expedition</em> was conceived and launched by the IEEE JUST Student Branch as a flagship capacity-building initiative. The mission was straightforward: groom university members into well-rounded leaders by equipping them with practical industry, academic, and creative skills before they step into executive leadership roles.
+          </p>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Graphic design and visual communication were deliberately chosen as <strong>Session #01</strong>. In engineering and scientific academia, technical depth often goes unnoticed when paired with unorganized slides, cluttered research posters, or poor visual hierarchy. This workshop was designed to transform how students approach design—demystifying it from an artistic mystery into an accessible, structured methodology.
+          </p>
+        </section>
+
+        <!-- Workshop Curriculum & Live Delivery -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Curriculum & Interactive Delivery</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Conducted jointly alongside Branch Chair Abdullah Shadek Fahim, the session provided both strategic justification and deep technical execution:
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+            <div class="p-5 rounded-xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-2">
+              <span class="text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase block">// Core Foundations</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Why Visual Design Matters</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Deconstructed the psychological foundations of design—how negative space guides reader attention, how color palettes evoke emotion, and why high-contrast typography ensures readability across academic and professional media.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-2">
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold uppercase block">// Real-Time Practice</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Live Hands-On Canva Demonstrations</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Walked participants through a live Canva canvas from scratch. Demonstrated grid snapping, font pairing ratios, element layering, custom color hex balancing, and vector asset optimization in real time.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-2">
+              <span class="text-xs font-mono text-sky-600 dark:text-sky-400 font-bold uppercase block">// Practical Applications</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Academic & Research Visuals</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Addressed exact university student needs: how to format IEEE conference posters, design clean graphical abstracts for research manuscripts, and build slide decks that command room presence during panel presentations.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-2">
+              <span class="text-xs font-mono text-purple-600 dark:text-purple-400 font-bold uppercase block">// Audience Retention</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Interactive Slido Quiz & Q&A</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Concluded with an interactive competitive quiz hosted on Slido by Technical Vice-Chair Musavvir Haque, reinforcing visual concepts and engaging the audience in active learning.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recognition & Leadership Evolution -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Recognition & Foundation for GDCC Wing</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            At the conclusion of the workshop, executive branch leadership (Vice-Chair Technical Musavvir Haque and Secretary Md. Musfiqur Rahman) formally honored the conductors with Certificates of Appreciation and official Crests of Honor.
+          </p>
+          <div class="p-5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/40 space-y-2">
+            <span class="text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold uppercase block">// Organizational Legacy</span>
+            <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Catalyst for the GDCC Wing</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              The overwhelming engagement and success of this inaugural session directly paved the way for the institutionalization of the <strong>Graphic Design & Content Creation (GDCC) Wing</strong> within the IEEE JUST Student Branch, which I subsequently led as Wing Lead throughout the remainder of my executive tenure.
+            </p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Quick Facts Sidebar (4 Cols) -->
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-5">
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">
+            Workshop Quick Facts
+          </h3>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">ROLE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Session Conductor & Lead Designer</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">CO-CONDUCTOR</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Abdullah Shadek Fahim (Branch Chair)</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">INITIATIVE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Skill Development Expedition 1.0 (Session #01)</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">ORGANIZATION</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">IEEE JUST Student Branch</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">VENUE & FORMAT</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">FET Gallery, Sir Jagadish Chandra Bose Academic Bldg (Offline)</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">DATE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">September 6, 2025 • 10:30 AM (BST)</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">RECOGNITION</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Official Crest of Honor & Certificate of Appreciation</div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2">
+            <a href="../index.html#experience" class="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-briefcase text-xs"></i> View IEEE Leadership Role
+            </a>
+            <a href="../index.html#awards" class="w-full py-2 px-4 rounded-xl text-center text-xs font-semibold text-brand-600 dark:text-brand-400 hover:bg-brand-50/50 dark:hover:bg-brand-950/40 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-trophy text-xs"></i> View Competitions & Honors
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- Footer Navigation -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500">
+    <p>© 2026 Md. Ratul Hasan • <a href="../index.html" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
+  </footer>
+
+  <script>
+    // Dark / Light Theme Sync
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    });
+  </script>
+</body>
+</html>

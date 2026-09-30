@@ -26,6 +26,19 @@ export const projectsData = [
     badgeText: "B.Sc. Capstone"
   },
   {
+    id: "hall-dining-erp",
+    title: "Hall Dining Operations & Inventory Management System",
+    category: "Operations Analytics",
+    year: "2025 – 2026",
+    description: "Spearheaded the complete digital transformation of university hall dining operations, replacing manual paper registers with an automated ERP spreadsheet system. Handled 1,100+ residents, tracked ~9,000 monthly meals across dual-slot menus, and engineered automated token audits with bKash cash reconciliation.",
+    tags: ["Google Sheets", "Financial Audit", "Supply Chain", "Operations Research", "Data Modeling"],
+    media: "assets/images/thumbnails/dining-erp.png",
+    mediaAlt: "Hall dining operations ERP preview",
+    githubUrl: "https://docs.google.com/spreadsheets/d/1YMRC2m48c165kfrgP7JzAwUkWMylTQVxI6k5dHKIv54/edit?usp=sharing",
+    caseStudyUrl: "projects/hall-dining-erp.html",
+    badgeText: "Operations ERP"
+  },
+  {
     id: "limiteye",
     title: "LimitEye: Speed & License Plate Recognition",
     category: "Archived Prototype",

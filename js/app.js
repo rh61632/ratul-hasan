@@ -38,8 +38,23 @@ document.addEventListener('DOMContentLoaded', () => {
         ? 'border-brand-200/90 dark:border-brand-900/60'
         : 'border-slate-200 dark:border-slate-800';
 
+      const cursorClass = award.caseStudyUrl ? 'cursor-pointer' : '';
+      const dataUrlAttr = award.caseStudyUrl ? `data-url="${award.caseStudyUrl}"` : '';
+
+      const titleMarkup = award.caseStudyUrl
+        ? `<h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+             ${award.title} <i class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition"></i>
+           </h3>`
+        : `<h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">${award.title}</h3>`;
+
+      const footerExtra = award.caseStudyUrl
+        ? `<span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 text-xs transition">
+             Details <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
+           </span>`
+        : '';
+
       return `
-        <div class="group p-6 rounded-2xl bg-white dark:bg-surface-card border ${borderStyle} shadow-subtle hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+        <div class="award-card group p-6 rounded-2xl bg-white dark:bg-surface-card border ${borderStyle} shadow-subtle hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${cursorClass}" ${dataUrlAttr}>
           ${championDecoration}
           <div>
             ${mediaBlock}
@@ -47,9 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <i class="${award.icon} text-base"></i>
               <span class="text-xs font-mono font-bold uppercase tracking-wider">${award.rank}</span>
             </div>
-            <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">
-              ${award.title}
-            </h3>
+            ${titleMarkup}
             <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
               ${award.event}
             </p>
@@ -57,12 +70,29 @@ document.addEventListener('DOMContentLoaded', () => {
               ${award.description}
             </p>
           </div>
-          <div class="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-400">
-            ${award.date}
+          <div class="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-400 flex items-center justify-between">
+            <span>${award.date}</span>
+            ${footerExtra}
           </div>
         </div>
       `;
     }).join('');
+
+    // Attach click handlers for award cards with case study URLs
+    awardsContainer.querySelectorAll('.award-card').forEach(card => {
+      const url = card.dataset.url;
+      if (url) {
+        card.addEventListener('click', (e) => {
+          const clickedAnchor = e.target.closest('a');
+          if (clickedAnchor) return;
+          if (e.metaKey || e.ctrlKey) {
+            window.open(url, '_blank');
+          } else {
+            window.location.href = url;
+          }
+        });
+      }
+    });
   }
 
   // Render Experience
