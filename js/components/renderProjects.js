@@ -52,7 +52,7 @@ export function renderProjects(projects, targetElementId) {
 
     // Entire card lifts up smoothly on hover and indicates clickability
     return `
-      <div class="project-card group bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl rounded-2xl border border-white/80 dark:border-white/10 p-6 sm:p-7 flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(234,88,12,0.12)] hover:-translate-y-1.5 transition-all duration-300 ${cursorClass}" ${dataUrlAttr}>
+      <div class="project-card group bg-white/30 dark:bg-slate-900/30 backdrop-blur-2xl rounded-2xl border border-white/40 dark:border-white/[0.08] ring-1 ring-white/20 dark:ring-white/[0.05] p-6 sm:p-7 flex flex-col justify-between shadow-[0_8px_32px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgb(0,0,0,0.35)] hover:bg-white/40 dark:hover:bg-slate-900/40 hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(234,88,12,0.12)] hover:-translate-y-1.5 transition-all duration-300 ${cursorClass}" ${dataUrlAttr}>
         <div>
           ${mediaBlock}
           <div class="flex items-center justify-between mb-3">

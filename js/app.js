@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         : '';
 
       const borderStyle = award.isChampion
-        ? 'border-brand-200/90 dark:border-brand-900/60'
-        : 'border-slate-200 dark:border-slate-800';
+        ? 'border-brand-200/50 dark:border-brand-900/40'
+        : 'border-white/40 dark:border-white/[0.08]';
 
       const cursorClass = award.caseStudyUrl ? 'cursor-pointer' : '';
       const dataUrlAttr = award.caseStudyUrl ? `data-url="${award.caseStudyUrl}"` : '';
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         : '';
 
       return `
-        <div class="award-card group p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border ${borderStyle} shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(234,88,12,0.12)] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${cursorClass}" ${dataUrlAttr}>
+        <div class="award-card group p-6 rounded-2xl bg-white/30 dark:bg-slate-900/30 backdrop-blur-2xl border ${borderStyle} ring-1 ring-white/20 dark:ring-white/[0.05] shadow-[0_8px_32px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgb(0,0,0,0.35)] hover:bg-white/40 dark:hover:bg-slate-900/40 hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(234,88,12,0.12)] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${cursorClass}" ${dataUrlAttr}>
           ${championDecoration}
           <div>
             ${mediaBlock}
