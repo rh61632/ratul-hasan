@@ -1,0 +1,4 @@
+# Ignore everything inside temp/ except this file and the README
+*
+!.gitignore
+!README.md
