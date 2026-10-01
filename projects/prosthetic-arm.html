@@ -153,15 +153,24 @@
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
-          <div class="text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">The Polarization</div>
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">
+            <i class="fa-solid fa-scale-unbalanced text-sm"></i>
+            <span>The Polarization</span>
+          </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Commercial multi-articulating bionic hands offer high functional dexterity but cost tens of thousands of dollars, whereas low-cost alternatives are predominantly passive or body-powered hooks with limited active control.</p>
         </div>
         <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
-          <div class="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">The Bottleneck</div>
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
+            <i class="fa-solid fa-server text-sm"></i>
+            <span>The Bottleneck</span>
+          </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Modern research systems typically depend on high-density electrode arrays and desktop GPUs or single-board computers (Raspberry Pi, Jetson Nano), introducing boot times, high power draw, and bulky form factors that hinder real-world wearable adoption.</p>
         </div>
         <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
-          <div class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">The Objective</div>
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
+            <i class="fa-solid fa-bullseye text-sm"></i>
+            <span>The Objective</span>
+          </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Bridge this divide by engineering a fully standalone, low-cost prosthetic system using a sparse three-channel sensor array, analog signal conditioning, and edge-deployed deep learning — no external compute required.</p>
         </div>
       </div>
@@ -179,15 +188,24 @@
       <div class="space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
-            <div class="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">Sparse Anatomical Array</div>
+            <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
+              <i class="fa-solid fa-wave-square text-sm"></i>
+              <span>Sparse Anatomical Array</span>
+            </div>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Three distinct functional forearm compartments — <strong>Flexor Carpi Radialis (FCR)</strong>, <strong>Brachioradialis (BR)</strong>, and <strong>Extensor Digitorum (ED)</strong> — capture maximum biomechanical variance across gross grasping and finger extension postures.</p>
           </div>
           <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
-            <div class="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">Analog Front-End</div>
+            <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
+              <i class="fa-solid fa-sliders text-sm"></i>
+              <span>Analog Front-End</span>
+            </div>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">sEMG modules perform differential amplification, full-wave rectification, and envelope smoothing at the hardware level. Hardware-level analog conditioning eliminated secondary digital filtering — freeing processor cycles and removing filter phase delays.</p>
           </div>
           <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
-            <div class="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">Electrical Isolation</div>
+            <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
+              <i class="fa-solid fa-shield-halved text-sm"></i>
+              <span>Electrical Isolation</span>
+            </div>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Sensitive microvolt biopotentials are protected from motor switching noise and transient voltage drops via strict isolation of the analog sensing supply from the high-current servo bus using a <strong>star-grounding topology</strong>.</p>
           </div>
         </div>
@@ -208,12 +226,12 @@
       <div>
         <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-3">Functional Gesture Vocabulary (ADL-Aligned)</div>
         <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300">Rest</span>
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300">Hand Open</span>
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300">Hand Close</span>
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300">Index Finger Extension</span>
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300">Thumb Extension</span>
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300">Little Finger Extension</span>
+          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-minus"></i> Rest</span>
+          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-hand text-sm"></i> Hand Open</span>
+          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-fist-raised text-sm"></i> Hand Close</span>
+          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-hand-point-up text-sm"></i> Index Finger Extension</span>
+          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-thumbs-up text-sm"></i> Thumb Extension</span>
+          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-hand-peace text-sm"></i> Little Finger Extension</span>
         </div>
       </div>
 
@@ -223,19 +241,31 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div class="p-4 rounded-xl border-2 border-brand-400 dark:border-brand-600 bg-brand-50/50 dark:bg-brand-950/30 space-y-1.5 relative">
             <div class="absolute -top-2.5 left-3 px-2 py-0.5 rounded-full bg-brand-500 text-white text-[10px] font-bold font-mono">SELECTED</div>
-            <div class="text-sm font-bold text-slate-900 dark:text-white font-display">1D-CNN + GAP</div>
+            <div class="flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-table-cells text-brand-500 text-base"></i>
+              <div class="text-sm font-bold text-slate-900 dark:text-white font-display">1D-CNN + GAP</div>
+            </div>
             <p class="text-xs text-slate-600 dark:text-slate-300">Best generalization. Convolutional kernels capture spatial co-activation across channels with minimal parameter footprint.</p>
           </div>
           <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-1.5">
-            <div class="text-sm font-bold text-slate-900 dark:text-white font-display">1D-ResNet</div>
+            <div class="flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-circle-nodes text-sky-500 text-base"></i>
+              <div class="text-sm font-bold text-slate-900 dark:text-white font-display">1D-ResNet</div>
+            </div>
             <p class="text-xs text-slate-600 dark:text-slate-300">Residual architecture evaluated across multi-posture and multi-session trials.</p>
           </div>
           <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-1.5">
-            <div class="text-sm font-bold text-slate-900 dark:text-white font-display">LSTM</div>
+            <div class="flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-rotate text-purple-500 text-base"></i>
+              <div class="text-sm font-bold text-slate-900 dark:text-white font-display">LSTM</div>
+            </div>
             <p class="text-xs text-slate-600 dark:text-slate-300">Recurrent model suffered from temporal overfitting on short isometric contractions.</p>
           </div>
           <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-1.5">
-            <div class="text-sm font-bold text-slate-900 dark:text-white font-display">Hybrid CNN-LSTM</div>
+            <div class="flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-code-merge text-emerald-500 text-base"></i>
+              <div class="text-sm font-bold text-slate-900 dark:text-white font-display">Hybrid CNN-LSTM</div>
+            </div>
             <p class="text-xs text-slate-600 dark:text-slate-300">Combined spatial-temporal model evaluated but outweighed by added complexity.</p>
           </div>
         </div>
@@ -259,15 +289,24 @@
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
-          <div class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">Under-Actuated Hand</div>
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
+            <i class="fa-solid fa-hand-sparkles text-sm"></i>
+            <span>Under-Actuated Hand</span>
+          </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">3D-printed anthropomorphic hand using a <strong>tendon-driven mechanism</strong>. High-torque metal-gear servos drive load-bearing digits; a dedicated micro servo handles independent thumb opposition.</p>
         </div>
         <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
-          <div class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">Majority-Vote Smoothing</div>
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
+            <i class="fa-solid fa-filter text-sm"></i>
+            <span>Majority-Vote Smoothing</span>
+          </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">A temporal <strong>majority-vote filter</strong> prevents mechanical flutter from transient misclassifications. Sustained classification consensus across a rolling decision horizon is required before dispatching kinematic commands — ensuring smooth, reliable grasps.</p>
         </div>
         <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
-          <div class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">Deterministic Latency</div>
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
+            <i class="fa-solid fa-stopwatch text-sm"></i>
+            <span>Deterministic Latency</span>
+          </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">The entire pipeline — ADC acquisition, dynamic normalization, forward-pass inference, and servo PWM dispatch — runs well within the strict biomechanical delay threshold required for responsive, natural control.</p>
         </div>
       </div>
@@ -284,16 +323,25 @@
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
-          <div class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">Generalization vs. Calibration</div>
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">
+            <i class="fa-solid fa-arrows-split-up-and-left text-sm"></i>
+            <span>Generalization vs. Calibration</span>
+          </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Leave-One-Subject-Out (LOSO) cross-validation showed that while convolutional networks learn shared kinematic representations across users, individual anatomical variations (muscle geometry, tissue impedance) create performance shifts on unseen subjects — underscoring that user-specific calibration is essential for clinical deployment.</p>
         </div>
         <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
-          <div class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">Crosstalk Dynamics</div>
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">
+            <i class="fa-solid fa-arrows-to-circle text-sm"></i>
+            <span>Crosstalk Dynamics</span>
+          </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Synergistic grasps (Hand Open, Hand Close, Rest) demonstrated high stability. Fine single-finger movements encountered natural muscular crosstalk due to shared dorsal muscle bellies — a fundamental physiological constraint at sparse channel counts.</p>
         </div>
       </div>
       <div class="p-5 rounded-2xl border border-brand-200/60 dark:border-brand-900/50 bg-brand-50/40 dark:bg-brand-950/20 space-y-3">
-        <div class="text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">Roadmap</div>
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">
+          <i class="fa-solid fa-compass text-sm"></i>
+          <span>Roadmap</span>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div class="flex items-start gap-2">
             <i class="fa-solid fa-circle-arrow-right text-brand-500 mt-0.5 text-xs shrink-0"></i>
@@ -308,14 +356,6 @@
             <p class="text-xs text-slate-600 dark:text-slate-300">Consolidating discrete modules into a <strong>unified custom PCB</strong></p>
           </div>
         </div>
-      </div>
-
-      <!-- Publication Note -->
-      <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
-        <i class="fa-solid fa-lock text-slate-400 mt-0.5 shrink-0"></i>
-        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-          <span class="font-semibold text-slate-600 dark:text-slate-300">Publication in progress.</span> Quantitative performance metrics are intentionally withheld pending peer review and publication. Full results will be disclosed upon acceptance.
-        </p>
       </div>
     </section>
 
