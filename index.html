@@ -44,11 +44,19 @@
   </script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
+
+  <!-- Ambient Glassmorphism Glow Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-32 -left-32 w-[520px] h-[520px] bg-brand-500/15 dark:bg-brand-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute top-1/4 -right-32 w-[480px] h-[480px] bg-purple-500/15 dark:bg-purple-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute top-2/3 -left-32 w-[520px] h-[520px] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-10 right-1/4 w-[420px] h-[420px] bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-[100px]"></div>
+  </div>
 
   <!-- Fixed Top Navigation -->
   <div class="fixed top-4 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
-    <nav class="pointer-events-auto bg-white/90 dark:bg-surface-card/90 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full border border-slate-200/80 dark:border-slate-800 shadow-lg flex items-center justify-between gap-3 sm:gap-8 w-full max-w-[92vw] xl:max-w-screen-2xl">
+    <nav class="pointer-events-auto bg-white/75 dark:bg-surface-card/75 backdrop-blur-xl px-4 sm:px-6 py-2.5 rounded-full border border-white/80 dark:border-white/10 shadow-lg shadow-black/[0.03] dark:shadow-black/20 flex items-center justify-between gap-3 sm:gap-8 w-full max-w-[92vw] xl:max-w-screen-2xl">
       
       <a href="#about" class="flex items-center gap-2 group shrink-0 whitespace-nowrap">
         <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-brand-700 via-brand-600 to-brand-400 flex items-center justify-center text-white font-display font-bold text-xs tracking-wider shadow-sm group-hover:scale-105 transition-transform shrink-0">
@@ -89,7 +97,7 @@
     <!-- About Section -->
     <section id="about" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-36">
       <div class="space-y-4 mb-8">
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800/40">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-brand-950/50 backdrop-blur-md text-brand-700 dark:text-brand-300 border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
           <span class="relative flex h-2 w-2 shrink-0">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-600"></span>
@@ -109,15 +117,15 @@
           </p>
 
           <div class="flex flex-wrap items-center gap-3 pt-1">
-            <a href="https://linkedin.com/in/ratulhasan-just" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-200 shadow-sm">
+            <a href="https://linkedin.com/in/ratulhasan-just" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white/70 dark:bg-surface-card/60 backdrop-blur-md border border-white/80 dark:border-white/10 hover:border-brand-500 hover:-translate-y-0.5 transition-all duration-200 shadow-sm">
               <i class="fa-brands fa-linkedin-in text-[#0077b5]"></i> LinkedIn
             </a>
-            <a href="https://github.com/rh61632" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-200 shadow-sm">
+            <a href="https://github.com/rh61632" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white/70 dark:bg-surface-card/60 backdrop-blur-md border border-white/80 dark:border-white/10 hover:border-brand-500 hover:-translate-y-0.5 transition-all duration-200 shadow-sm">
               <i class="fa-brands fa-github text-slate-700 dark:text-slate-300"></i> GitHub
             </a>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-slate-200/70 dark:border-slate-800/80">
             <div class="space-y-1">
               <span class="text-[11px] font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-bold block">Signals</span>
               <div class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-display">Biomedical Foundation</div>
@@ -139,7 +147,7 @@
         <div class="lg:col-span-5 flex flex-col items-center justify-center">
           <div class="relative w-full max-w-md sm:max-w-lg">
             <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-600/30 to-amber-500/20 rounded-2xl blur-lg"></div>
-            <div class="relative bg-white dark:bg-surface-card p-3 rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-800">
+            <div class="relative bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl p-3 rounded-2xl shadow-xl border border-white/80 dark:border-white/10">
               <div class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 relative group">
                 <img 
                   id="profileImg"
@@ -174,9 +182,9 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white dark:bg-surface-card p-6 sm:p-7 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-subtle hover:border-brand-500/50 transition duration-300 flex flex-col justify-between">
+        <div class="bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl p-6 sm:p-7 rounded-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(234,88,12,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/50 flex items-center justify-center text-brand-600 dark:text-brand-400 text-lg mb-4">
+            <div class="w-11 h-11 rounded-xl bg-brand-500/10 dark:bg-brand-950/60 border border-brand-300/40 dark:border-brand-800/50 flex items-center justify-center text-brand-600 dark:text-brand-400 text-lg mb-4 shadow-sm">
               <i class="fa-solid fa-wave-square"></i>
             </div>
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display">
@@ -187,16 +195,16 @@
             </p>
           </div>
           <div class="flex flex-wrap gap-1.5 pt-2">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">sEMG Signals</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">TensorFlow</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Digital Filters</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Hand Actuation</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">sEMG Signals</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">TensorFlow</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">Digital Filters</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">Hand Actuation</span>
           </div>
         </div>
 
-        <div class="bg-white dark:bg-surface-card p-6 sm:p-7 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-subtle hover:border-brand-500/50 transition duration-300 flex flex-col justify-between">
+        <div class="bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl p-6 sm:p-7 rounded-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(234,88,12,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/50 flex items-center justify-center text-brand-600 dark:text-brand-400 text-lg mb-4">
+            <div class="w-11 h-11 rounded-xl bg-brand-500/10 dark:bg-brand-950/60 border border-brand-300/40 dark:border-brand-800/50 flex items-center justify-center text-brand-600 dark:text-brand-400 text-lg mb-4 shadow-sm">
               <i class="fa-solid fa-chart-simple"></i>
             </div>
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display">
@@ -207,15 +215,15 @@
             </p>
           </div>
           <div class="flex flex-wrap gap-1.5 pt-2">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Python (Pandas, NumPy)</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Matplotlib</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Exploratory Analysis</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">Python (Pandas, NumPy)</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">Matplotlib</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">Exploratory Analysis</span>
           </div>
         </div>
 
-        <div class="bg-white dark:bg-surface-card p-6 sm:p-7 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-subtle hover:border-brand-500/50 transition duration-300 flex flex-col justify-between">
+        <div class="bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl p-6 sm:p-7 rounded-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(234,88,12,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/50 flex items-center justify-center text-brand-600 dark:text-brand-400 text-lg mb-4">
+            <div class="w-11 h-11 rounded-xl bg-brand-500/10 dark:bg-brand-950/60 border border-brand-300/40 dark:border-brand-800/50 flex items-center justify-center text-brand-600 dark:text-brand-400 text-lg mb-4 shadow-sm">
               <i class="fa-solid fa-tower-broadcast"></i>
             </div>
             <div class="flex items-center gap-2 mb-1">
@@ -223,7 +231,7 @@
                 Telecommunications & Networks
               </h3>
             </div>
-            <span class="inline-block text-[9px] font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-bold bg-brand-50 dark:bg-brand-950/60 px-2 py-0.5 rounded mb-2 border border-brand-200 dark:border-brand-800/40">
+            <span class="inline-block text-[9px] font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-bold bg-brand-500/10 dark:bg-brand-950/60 px-2 py-0.5 rounded mb-2 border border-brand-300/40 dark:border-brand-800/40">
               Prospective Interest
             </span>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
@@ -231,9 +239,9 @@
             </p>
           </div>
           <div class="flex flex-wrap gap-1.5 pt-2">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Wireless Systems</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Network Telemetry</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Applied Analytics</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">Wireless Systems</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">Network Telemetry</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">Applied Analytics</span>
           </div>
         </div>
       </div>
@@ -260,8 +268,8 @@
         </h2>
       </div>
 
-      <div id="awards-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-brand-200/90 dark:border-brand-900/60 shadow-subtle relative overflow-hidden flex flex-col justify-between group hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+      <div id="awards-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-brand-200/90 dark:border-brand-900/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] relative overflow-hidden flex flex-col justify-between group hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
           <div class="absolute top-0 right-0 w-20 h-20 bg-brand-500/10 rounded-bl-full pointer-events-none"></div>
           <div>
             <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
@@ -287,17 +295,17 @@
               Collaborated in "Team Dynamite"—a cross-functional group of 5 students from 5 universities—evaluating concepts, co-pitching the finalized solution under tight time constraints, and defending the proposal during the rigorous panel Q&A.
             </p>
           </div>
-          <div class="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-400">
+          <div class="mt-5 pt-3 border-t border-slate-200/70 dark:border-slate-800 text-xs font-mono text-slate-400">
             Aug 2025
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle flex flex-col justify-between group hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] flex flex-col justify-between group hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
           <div>
             <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
               <img 
-                src="assets/images/thumbnails/react-2026.jpg" 
-                alt="REACT 2026 Poster Presentation" 
+                src="assets/images/thumbnails/react-2026-winners-stage.jpg" 
+                alt="REACT 2026 Grand Prize Giving Ceremony Stage" 
                 loading="lazy"
                 onerror="this.parentElement.style.display='none'"
                 class="w-full h-full object-cover"
@@ -314,15 +322,15 @@
               Southeast University & IEEE SEU SB
             </p>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-              Awarded 2nd Runner-Up in the poster presentation segment of REACT 2026, presenting technical research before an evaluation panel.
+              Awarded 2nd Runner-Up (3rd Place Nationwide) representing Team TruePulse (JUST) in the poster presentation segment of REACT 2026, presenting technical research before an expert evaluation panel.
             </p>
           </div>
-          <div class="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-400">
+          <div class="mt-5 pt-3 border-t border-slate-200/70 dark:border-slate-800 text-xs font-mono text-slate-400">
             Sep 2026
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle flex flex-col justify-between group hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] flex flex-col justify-between group hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
           <div>
             <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
               <img 
@@ -347,7 +355,7 @@
               Represented a 3-member university team to deliver the technical presentation, recognized for structured slide organization and clear communication.
             </p>
           </div>
-          <div class="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-400">
+          <div class="mt-5 pt-3 border-t border-slate-200/70 dark:border-slate-800 text-xs font-mono text-slate-400">
             Dec 2025
           </div>
         </div>
@@ -381,7 +389,7 @@
       </div>
 
       <!-- Feature Card: Industrial Energy Audit -->
-      <div id="audit-card" class="mb-6 p-6 sm:p-8 rounded-2xl bg-white dark:bg-surface-card border border-brand-200/80 dark:border-brand-900/50 shadow-subtle hover:border-brand-500/50 transition"></div>
+      <div id="audit-card" class="mb-6 p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/50 transition duration-300"></div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div class="lg:col-span-7 space-y-4">
@@ -402,9 +410,9 @@
             </h3>
           </div>
 
-          <div id="field-visits" class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-4"></div>
+          <div id="field-visits" class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4"></div>
 
-          <div class="p-4 rounded-xl bg-brand-50/60 dark:bg-brand-950/30 border border-brand-200/70 dark:border-brand-900/40 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          <div class="p-4 rounded-xl bg-brand-500/[0.07] dark:bg-brand-950/40 backdrop-blur-md border border-brand-300/40 dark:border-brand-900/40 text-xs text-slate-600 dark:text-slate-300 leading-relaxed shadow-sm">
             <span class="font-bold text-brand-700 dark:text-brand-400 font-display block mb-0.5">High-Voltage Infrastructure Exposure</span>
             Gained first-hand understanding of turbine synchronizers, dual-fuel cycles, switchgear safety, and national grid transmission lines.
           </div>
@@ -421,7 +429,7 @@
         </h2>
       </div>
 
-      <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+      <div class="p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] flex flex-col sm:flex-row sm:items-center justify-between gap-5 transition duration-300">
         <div>
           <h3 class="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-white">
             B.Sc. in Electrical and Electronic Engineering
@@ -434,7 +442,7 @@
           </p>
         </div>
         <div class="text-left sm:text-right">
-          <span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800/40 whitespace-nowrap">
+          <span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-brand-500/10 dark:bg-brand-950/60 backdrop-blur-md text-brand-700 dark:text-brand-300 border border-brand-300/40 dark:border-brand-800/40 whitespace-nowrap shadow-sm">
             Graduation Expected Late 2026
           </span>
           <p class="text-xs text-slate-400 mt-1.5 font-mono">Jashore, Bangladesh</p>
@@ -443,9 +451,9 @@
     </section>
 
     <!-- Contact & Footer -->
-    <section id="contact" class="w-full max-w-screen-2xl mx-auto rounded-3xl bg-gradient-to-br from-brand-700 via-brand-600 to-amber-700 text-white p-8 sm:p-14 shadow-xl border border-brand-500/20 relative overflow-hidden">
+    <section id="contact" class="w-full max-w-screen-2xl mx-auto rounded-3xl bg-gradient-to-br from-brand-700/95 via-brand-600/90 to-amber-700/95 backdrop-blur-2xl text-white p-8 sm:p-14 shadow-2xl border border-white/20 relative overflow-hidden">
       <div class="relative z-10 space-y-5 max-w-3xl">
-        <span class="inline-block px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-white/20 text-white border border-white/30 backdrop-blur-sm">
+        <span class="inline-block px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-white/20 text-white border border-white/30 backdrop-blur-sm shadow-sm">
           Get in Touch
         </span>
 
@@ -458,10 +466,10 @@
         </p>
 
         <div class="flex flex-wrap items-center gap-3 pt-2">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rh61632@gmail.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm bg-white text-brand-800 hover:bg-brand-50 shadow-md transition flex items-center gap-2 whitespace-nowrap">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rh61632@gmail.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm bg-white/95 text-brand-800 hover:bg-white shadow-lg transition flex items-center gap-2 whitespace-nowrap backdrop-blur-md">
             <i class="fa-solid fa-envelope"></i> rh61632@gmail.com
           </a>
-          <a href="https://linkedin.com/in/ratulhasan-just" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm bg-brand-800/80 hover:bg-brand-800 text-white border border-brand-400/40 transition flex items-center gap-2 whitespace-nowrap">
+          <a href="https://linkedin.com/in/ratulhasan-just" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm bg-brand-900/60 hover:bg-brand-900/80 text-white border border-white/30 backdrop-blur-md shadow-md transition flex items-center gap-2 whitespace-nowrap">
             <i class="fa-brands fa-linkedin-in"></i> LinkedIn Profile
           </a>
         </div>

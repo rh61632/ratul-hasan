@@ -18,11 +18,11 @@ export const awardsData = [
     icon: "fa-solid fa-award",
     title: "REACT 2026 Poster Presentation",
     event: "Southeast University & IEEE SEU SB",
-    description: "Awarded 2nd Runner-Up in the poster presentation segment of REACT 2026, presenting technical research before an evaluation panel.",
+    description: "Awarded 2nd Runner-Up (3rd Place Nationwide) representing Team TruePulse (JUST) in the poster presentation segment of REACT 2026, presenting technical research before an expert evaluation panel.",
     date: "Sep 2026",
     isChampion: false,
-    media: "assets/images/thumbnails/react-2026.jpg",
-    mediaAlt: "REACT 2026 Poster Presentation Award",
+    media: "assets/images/thumbnails/react-2026-winners-stage.jpg",
+    mediaAlt: "REACT 2026 Grand Prize Giving Ceremony Stage",
     caseStudyUrl: "projects/react-2026.html"
   },
   {

@@ -44,7 +44,7 @@ export function renderProjects(projects, targetElementId) {
       : "";
 
     const tagPills = project.tags
-      .map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">${tag}</span>`)
+      .map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">${tag}</span>`)
       .join("");
 
     const cursorClass = project.caseStudyUrl ? "cursor-pointer" : "cursor-default";
@@ -52,11 +52,11 @@ export function renderProjects(projects, targetElementId) {
 
     // Entire card lifts up smoothly on hover and indicates clickability
     return `
-      <div class="project-card group bg-white dark:bg-surface-card rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-7 flex flex-col justify-between hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ${cursorClass}" ${dataUrlAttr}>
+      <div class="project-card group bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl rounded-2xl border border-white/80 dark:border-white/10 p-6 sm:p-7 flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(234,88,12,0.12)] hover:-translate-y-1.5 transition-all duration-300 ${cursorClass}" ${dataUrlAttr}>
         <div>
           ${mediaBlock}
           <div class="flex items-center justify-between mb-3">
-            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/60 px-2.5 py-0.5 rounded border border-brand-200 dark:border-brand-800/40">
+            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 bg-brand-500/10 dark:bg-brand-950/60 px-2.5 py-0.5 rounded border border-brand-300/40 dark:border-brand-800/40 shadow-sm">
               ${project.category}
             </span>
             <span class="text-xs font-mono text-slate-400">${project.year}</span>
@@ -73,7 +73,7 @@ export function renderProjects(projects, targetElementId) {
           </div>
         </div>
 
-        <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
+        <div class="pt-4 border-t border-slate-200/70 dark:border-slate-800/80 flex items-center justify-between text-xs">
           <div class="flex items-center gap-3">
             ${primaryLink}
             ${repoLink}
