@@ -48,7 +48,7 @@ export const projectsData = [
     media: null,
     mediaAlt: "LimitEye pipeline",
     githubUrl: null,
-    caseStudyUrl: null,
+    caseStudyUrl: "projects/limiteye.html",
     badgeText: "Vision Pipeline"
   }
 ];

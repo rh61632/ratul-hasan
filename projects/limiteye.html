@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LimitEye: Speed & License Plate Recognition | Ratul Hasan</title>
+  <meta property="og:title" content="LimitEye: Speed & License Plate Recognition">
+  <meta property="og:description" content="A computer vision system to monitor vehicular speed and perform automated license plate recognition from video streams.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rh61632.github.io/projects/limiteye.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74',
+              400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
+              800: '#9a3412', 900: '#7c2d12', 950: '#431407',
+            },
+            surface: { light: '#fbfbfd', card: '#161922', dark: '#0c0e14' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Fixed Top Header -->
+  <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none">
+    <nav class="pointer-events-auto bg-white/90 dark:bg-surface-card/90 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full border border-slate-200/80 dark:border-slate-800 shadow-lg flex items-center justify-between gap-4 w-full max-w-[92vw] xl:max-w-screen-2xl">
+      <a href="../index.html#projects"
+         onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }"
+         class="flex items-center gap-2 group text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition">
+        <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-1 transition"></i>
+        <span>Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">
+          <i class="fa-regular fa-sun text-sm dark:hidden"></i>
+          <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
+        </button>
+        <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/40 flex items-center gap-1.5">
+          <i class="fa-solid fa-eye text-xs"></i> Archived Prototype
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
+
+    <!-- Hero Header -->
+    <div class="mb-10 max-w-4xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/40">
+        Archived Prototype • Computer Vision
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
+        LimitEye: Speed & License Plate Recognition
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        A computer vision pipeline engineered to monitor vehicular movement from video streams — calculating transit speed across calibrated reference coordinates and extracting license plate characters via automated recognition (ALPR).
+      </p>
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Python</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">OpenCV</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">ALPR</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Object Tracking</span>
+      </div>
+    </div>
+
+    <!-- Highlights Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-14">
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">Speed</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Detection</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Calculates vehicle velocity from calibrated reference points within video frames.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-sky-600 dark:text-sky-400 font-display">ALPR</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Plate Recognition</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Automated license plate detection and character extraction from live or recorded streams.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle">
+        <div class="text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-display">CV</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Pipeline</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Built on OpenCV with object tracking and real-time frame analysis.</p>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+      <div class="lg:col-span-8 space-y-10">
+
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Overview</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+            LimitEye was developed as an early exploration into applied computer vision for traffic monitoring. The system is capable of ingesting video streams and performing two simultaneous tasks: estimating vehicle speed using frame-to-frame object displacement against calibrated coordinate references, and extracting license plate text through an automated recognition pipeline.
+          </p>
+          <div class="p-4 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/40 text-xs text-slate-600 dark:text-slate-300">
+            <span class="font-bold text-amber-700 dark:text-amber-400 font-display block mb-0.5">Archived Prototype</span>
+            This project is archived. More details will be added here soon.
+          </div>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Technical Approach</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-2">
+              <span class="text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase block">// Speed Estimation</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Coordinate Calibration</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Vehicles tracked across calibrated reference points in the frame to calculate transit velocity.
+              </p>
+            </div>
+            <div class="p-5 rounded-xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-2">
+              <span class="text-xs font-mono text-sky-600 dark:text-sky-400 font-bold uppercase block">// Plate Recognition</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">ALPR Pipeline</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Automated license plate detection and character segmentation using OpenCV-based processing.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-5">
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">
+            Project Quick Facts
+          </h3>
+          <div>
+            <div class="text-xs font-mono text-slate-400">CATEGORY</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Archived Prototype</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">DOMAIN</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Computer Vision</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">STACK</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Python, OpenCV, ALPR</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">STATUS</div>
+            <div class="text-sm font-semibold text-amber-600 dark:text-amber-400">Archived</div>
+          </div>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800">
+            <a href="../index.html#projects" class="w-full py-2 px-4 rounded-xl text-center text-xs font-semibold text-brand-600 dark:text-brand-400 hover:bg-brand-50/50 dark:hover:bg-brand-950/40 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-arrow-left text-xs"></i> Back to Projects
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500">
+    <p>© 2026 Md. Ratul Hasan • <a href="../index.html" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    themeToggleBtn.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    });
+  </script>
+</body>
+</html>

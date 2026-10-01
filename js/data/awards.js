@@ -9,7 +9,8 @@ export const awardsData = [
     date: "Aug 2025",
     isChampion: true,
     media: null, // e.g. "assets/images/awards/ieee-syw.jpg"
-    mediaAlt: "IEEE BD Section SYW Idea Pitching Championship"
+    mediaAlt: "IEEE BD Section SYW Idea Pitching Championship",
+    caseStudyUrl: "projects/ieee-syw-2025.html"
   },
   {
     id: "react-2026",
@@ -21,7 +22,8 @@ export const awardsData = [
     date: "Sep 2026",
     isChampion: false,
     media: "assets/images/thumbnails/react-2026.jpg",
-    mediaAlt: "REACT 2026 Poster Presentation Award"
+    mediaAlt: "REACT 2026 Poster Presentation Award",
+    caseStudyUrl: "projects/react-2026.html"
   },
   {
     id: "indcon-2025",
@@ -33,7 +35,8 @@ export const awardsData = [
     date: "Dec 2025",
     isChampion: false,
     media: null, // e.g. "assets/images/awards/indcon-2025.jpg"
-    mediaAlt: "INDCon 2025 Presentation Contest Award"
+    mediaAlt: "INDCon 2025 Presentation Contest Award",
+    caseStudyUrl: "projects/indcon-2025.html"
   },
   {
     id: "skill-expedition-canva",
