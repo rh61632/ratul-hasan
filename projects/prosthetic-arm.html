@@ -41,11 +41,19 @@
   </script>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
+
+  <!-- Ambient Glassmorphism Glow Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-32 -left-32 w-[520px] h-[520px] bg-brand-500/15 dark:bg-brand-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute top-1/3 -right-32 w-[480px] h-[480px] bg-purple-500/15 dark:bg-purple-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-1/4 -left-32 w-[520px] h-[520px] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-10 right-1/4 w-[420px] h-[420px] bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-[100px]"></div>
+  </div>
 
   <!-- Fixed Top Header -->
   <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none">
-    <nav class="pointer-events-auto bg-white/90 dark:bg-surface-card/90 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full border border-slate-200/80 dark:border-slate-800 shadow-lg flex items-center justify-between gap-4 w-full max-w-[92vw] xl:max-w-screen-2xl">
+    <nav class="pointer-events-auto bg-white/75 dark:bg-surface-card/75 backdrop-blur-xl px-4 sm:px-6 py-2.5 rounded-full border border-white/80 dark:border-white/10 shadow-lg shadow-black/[0.03] dark:shadow-black/20 flex items-center justify-between gap-4 w-full max-w-[92vw] xl:max-w-screen-2xl">
       <a href="../index.html#projects"
          onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }"
          class="flex items-center gap-2 group text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition">
@@ -57,7 +65,7 @@
           <i class="fa-regular fa-sun text-sm dark:hidden"></i>
           <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
         </button>
-        <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/40 flex items-center gap-1.5">
+        <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 backdrop-blur-md border border-brand-300/40 dark:border-brand-800/40 flex items-center gap-1.5 shadow-sm">
           <i class="fa-solid fa-graduation-cap text-xs"></i> B.Sc. Capstone
         </span>
       </div>
@@ -68,7 +76,7 @@
 
     <!-- Hero Header -->
     <div class="mb-10 max-w-4xl space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/40">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
         Undergraduate Thesis • Biomedical Engineering & Embedded ML
       </div>
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
@@ -78,22 +86,22 @@
         End-to-end design, development, and validation of an accessible, intelligent transradial prosthetic arm that executes deep learning intent classification directly on a commodity edge microcontroller. By shifting complex inference from power-hungry single-board computers to bare-metal hardware, the project demonstrates that high-dexterity myoelectric control can be achieved using a minimal sensor footprint and low-cost embedded electronics.
       </p>
       <div class="flex flex-wrap gap-2 pt-2">
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">sEMG Signal Processing</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">TinyML / TensorFlow Lite</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">ESP32-S3</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">1D-CNN</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">3D-Printed Kinematics</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Tendon-Driven Actuation</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Edge Deployment</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">sEMG Signal Processing</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">TinyML / TensorFlow Lite</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">ESP32-S3</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">1D-CNN</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">3D-Printed Kinematics</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Tendon-Driven Actuation</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Edge Deployment</span>
       </div>
     </div>
 
     <!-- Video Showcase Section -->
-    <section class="mb-14 bg-white dark:bg-surface-card p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-subtle">
+    <section class="mb-14 bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         <!-- Video Container -->
         <div class="md:col-span-5 flex justify-center">
-          <div class="relative w-full max-w-[280px] sm:max-w-[300px] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950 aspect-[9/16]">
+          <div class="relative w-full max-w-[280px] sm:max-w-[300px] rounded-2xl overflow-hidden border border-white/60 dark:border-white/10 shadow-2xl bg-slate-950 aspect-[9/16]">
             <div class="absolute top-0 inset-x-0 z-10 px-3 py-2 bg-slate-900/80 backdrop-blur-md border-b border-white/10 flex items-center justify-between">
               <div class="flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-red-400/80"></span>
@@ -121,19 +129,28 @@
           <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
             Demonstration of continuous physical gesture replication. The participant performs natural muscle contractions, which are captured, conditioned at the analog front-end, and classified in real time by the on-device model to actuate the corresponding mechanical fingers and hold grasping states.
           </p>
-          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-3">
+          <div class="pt-3 border-t border-slate-200/60 dark:border-slate-800 space-y-3">
             <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">Core System Pipeline</h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800">
-                <div class="font-bold text-slate-900 dark:text-white font-display mb-1">1. Sensing</div>
+              <div class="p-3.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm">
+                <div class="font-bold text-slate-900 dark:text-white font-display mb-1 flex items-center gap-1.5">
+                  <i class="fa-solid fa-wave-square text-brand-500 text-xs"></i>
+                  <span>1. Sensing</span>
+                </div>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">3-channel sparse array targeting FCR, BR & ED forearm compartments.</p>
               </div>
-              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800">
-                <div class="font-bold text-slate-900 dark:text-white font-display mb-1">2. Inference</div>
+              <div class="p-3.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm">
+                <div class="font-bold text-slate-900 dark:text-white font-display mb-1 flex items-center gap-1.5">
+                  <i class="fa-solid fa-brain text-purple-500 text-xs"></i>
+                  <span>2. Inference</span>
+                </div>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">1D-CNN with GAP running via TFLM on ESP32-S3 bare-metal.</p>
               </div>
-              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800">
-                <div class="font-bold text-slate-900 dark:text-white font-display mb-1">3. Actuation</div>
+              <div class="p-3.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm">
+                <div class="font-bold text-slate-900 dark:text-white font-display mb-1 flex items-center gap-1.5">
+                  <i class="fa-solid fa-hand text-emerald-500 text-xs"></i>
+                  <span>3. Actuation</span>
+                </div>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">Tendon-driven 3D-printed hand with majority-vote motion smoothing.</p>
               </div>
             </div>
@@ -143,30 +160,30 @@
     </section>
 
     <!-- Section 1: Problem Statement -->
-    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-5">
+    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-5 transition-all duration-300">
       <div class="flex items-center gap-3 mb-1">
-        <div class="w-8 h-8 rounded-lg bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/40 flex items-center justify-center text-brand-600 dark:text-brand-400 text-sm shrink-0">
+        <div class="w-8 h-8 rounded-lg bg-brand-500/10 dark:bg-brand-950/60 border border-brand-300/40 dark:border-brand-800/40 backdrop-blur-md flex items-center justify-center text-brand-600 dark:text-brand-400 text-sm shrink-0 shadow-sm">
           <i class="fa-solid fa-circle-exclamation"></i>
         </div>
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">§ 01</span>
         <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Problem Statement & Motivation</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm hover:border-brand-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">
             <i class="fa-solid fa-scale-unbalanced text-sm"></i>
             <span>The Polarization</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Commercial multi-articulating bionic hands offer high functional dexterity but cost tens of thousands of dollars, whereas low-cost alternatives are predominantly passive or body-powered hooks with limited active control.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
             <i class="fa-solid fa-server text-sm"></i>
             <span>The Bottleneck</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Modern research systems typically depend on high-density electrode arrays and desktop GPUs or single-board computers (Raspberry Pi, Jetson Nano), introducing boot times, high power draw, and bulky form factors that hinder real-world wearable adoption.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
             <i class="fa-solid fa-bullseye text-sm"></i>
             <span>The Objective</span>
@@ -177,9 +194,9 @@
     </section>
 
     <!-- Section 2: Sensing & Hardware -->
-    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-5">
+    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-5 transition-all duration-300">
       <div class="flex items-center gap-3 mb-1">
-        <div class="w-8 h-8 rounded-lg bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/40 flex items-center justify-center text-sky-600 dark:text-sky-400 text-sm shrink-0">
+        <div class="w-8 h-8 rounded-lg bg-sky-500/10 dark:bg-sky-950/60 border border-sky-300/40 dark:border-sky-800/40 backdrop-blur-md flex items-center justify-center text-sky-600 dark:text-sky-400 text-sm shrink-0 shadow-sm">
           <i class="fa-solid fa-microchip"></i>
         </div>
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">§ 02</span>
@@ -187,21 +204,21 @@
       </div>
       <div class="space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
+          <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
             <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
               <i class="fa-solid fa-wave-square text-sm"></i>
               <span>Sparse Anatomical Array</span>
             </div>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Three distinct functional forearm compartments — <strong>Flexor Carpi Radialis (FCR)</strong>, <strong>Brachioradialis (BR)</strong>, and <strong>Extensor Digitorum (ED)</strong> — capture maximum biomechanical variance across gross grasping and finger extension postures.</p>
           </div>
-          <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
+          <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
             <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
               <i class="fa-solid fa-sliders text-sm"></i>
               <span>Analog Front-End</span>
             </div>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">sEMG modules perform differential amplification, full-wave rectification, and envelope smoothing at the hardware level. Hardware-level analog conditioning eliminated secondary digital filtering — freeing processor cycles and removing filter phase delays.</p>
           </div>
-          <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
+          <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
             <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
               <i class="fa-solid fa-shield-halved text-sm"></i>
               <span>Electrical Isolation</span>
@@ -213,9 +230,9 @@
     </section>
 
     <!-- Section 3: Machine Learning & Edge Deployment -->
-    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-5">
+    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-5 transition-all duration-300">
       <div class="flex items-center gap-3 mb-1">
-        <div class="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center text-purple-600 dark:text-purple-400 text-sm shrink-0">
+        <div class="w-8 h-8 rounded-lg bg-purple-500/10 dark:bg-purple-950/60 border border-purple-300/40 dark:border-purple-800/40 backdrop-blur-md flex items-center justify-center text-purple-600 dark:text-purple-400 text-sm shrink-0 shadow-sm">
           <i class="fa-solid fa-brain"></i>
         </div>
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">§ 03</span>
@@ -226,12 +243,12 @@
       <div>
         <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-3">Functional Gesture Vocabulary (ADL-Aligned)</div>
         <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-minus"></i> Rest</span>
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-hand text-sm"></i> Hand Open</span>
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-fist-raised text-sm"></i> Hand Close</span>
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-hand-point-up text-sm"></i> Index Finger Extension</span>
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-thumbs-up text-sm"></i> Thumb Extension</span>
-          <span class="px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-hand-peace text-sm"></i> Little Finger Extension</span>
+          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-minus"></i> Rest</span>
+          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-hand text-sm"></i> Hand Open</span>
+          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-fist-raised text-sm"></i> Hand Close</span>
+          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-hand-point-up text-sm"></i> Index Finger Extension</span>
+          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-thumbs-up text-sm"></i> Thumb Extension</span>
+          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-hand-peace text-sm"></i> Little Finger Extension</span>
         </div>
       </div>
 
@@ -239,29 +256,29 @@
       <div>
         <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-3">Architecture Benchmarking</div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          <div class="p-4 rounded-xl border-2 border-brand-400 dark:border-brand-600 bg-brand-50/50 dark:bg-brand-950/30 space-y-1.5 relative">
-            <div class="absolute -top-2.5 left-3 px-2 py-0.5 rounded-full bg-brand-500 text-white text-[10px] font-bold font-mono">SELECTED</div>
+          <div class="p-4 rounded-xl border-2 border-brand-500/60 dark:border-brand-500/80 bg-brand-500/10 dark:bg-brand-950/40 backdrop-blur-md shadow-lg shadow-brand-500/10 space-y-1.5 relative">
+            <div class="absolute -top-2.5 left-3 px-2 py-0.5 rounded-full bg-brand-500 text-white text-[10px] font-bold font-mono shadow-sm">SELECTED</div>
             <div class="flex items-center gap-2 mb-1">
               <i class="fa-solid fa-table-cells text-brand-500 text-base"></i>
               <div class="text-sm font-bold text-slate-900 dark:text-white font-display">1D-CNN + GAP</div>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-300">Best generalization. Convolutional kernels capture spatial co-activation across channels with minimal parameter footprint.</p>
           </div>
-          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-1.5">
+          <div class="p-4 rounded-xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-1.5">
             <div class="flex items-center gap-2 mb-1">
               <i class="fa-solid fa-circle-nodes text-sky-500 text-base"></i>
               <div class="text-sm font-bold text-slate-900 dark:text-white font-display">1D-ResNet</div>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-300">Residual architecture evaluated across multi-posture and multi-session trials.</p>
           </div>
-          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-1.5">
+          <div class="p-4 rounded-xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-purple-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-1.5">
             <div class="flex items-center gap-2 mb-1">
               <i class="fa-solid fa-rotate text-purple-500 text-base"></i>
               <div class="text-sm font-bold text-slate-900 dark:text-white font-display">LSTM</div>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-300">Recurrent model suffered from temporal overfitting on short isometric contractions.</p>
           </div>
-          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-1.5">
+          <div class="p-4 rounded-xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-1.5">
             <div class="flex items-center gap-2 mb-1">
               <i class="fa-solid fa-code-merge text-emerald-500 text-base"></i>
               <div class="text-sm font-bold text-slate-900 dark:text-white font-display">Hybrid CNN-LSTM</div>
@@ -272,37 +289,40 @@
       </div>
 
       <!-- Edge Deployment -->
-      <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
-        <div class="text-xs font-mono font-bold text-purple-600 dark:text-purple-400 uppercase">Bare-Metal TinyML Execution</div>
+      <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-purple-600 dark:text-purple-400 uppercase">
+          <i class="fa-solid fa-microchip text-sm"></i>
+          <span>Bare-Metal TinyML Execution</span>
+        </div>
         <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">The trained model was converted via <strong>TensorFlow Lite for Microcontrollers (TFLM)</strong> and serialized into static memory on an <strong>ESP32-S3</strong> microcontroller. Executing natively in unquantized 32-bit floating-point precision within a single-core polling loop preserves offline decision boundaries while completely avoiding heap memory fragmentation and OS scheduling jitter.</p>
       </div>
     </section>
 
     <!-- Section 4: Mechatronics -->
-    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-5">
+    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-5 transition-all duration-300">
       <div class="flex items-center gap-3 mb-1">
-        <div class="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-sm shrink-0">
+        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-950/60 border border-emerald-300/40 dark:border-emerald-800/40 backdrop-blur-md flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-sm shrink-0 shadow-sm">
           <i class="fa-solid fa-hand"></i>
         </div>
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">§ 04</span>
         <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Mechatronic Integration & Physical Control</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
+        <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
             <i class="fa-solid fa-hand-sparkles text-sm"></i>
             <span>Under-Actuated Hand</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">3D-printed anthropomorphic hand using a <strong>tendon-driven mechanism</strong>. High-torque metal-gear servos drive load-bearing digits; a dedicated micro servo handles independent thumb opposition.</p>
         </div>
-        <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
+        <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
             <i class="fa-solid fa-filter text-sm"></i>
             <span>Majority-Vote Smoothing</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">A temporal <strong>majority-vote filter</strong> prevents mechanical flutter from transient misclassifications. Sustained classification consensus across a rolling decision horizon is required before dispatching kinematic commands — ensuring smooth, reliable grasps.</p>
         </div>
-        <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
+        <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
             <i class="fa-solid fa-stopwatch text-sm"></i>
             <span>Deterministic Latency</span>
@@ -313,23 +333,23 @@
     </section>
 
     <!-- Section 5: Findings & Roadmap -->
-    <section class="mb-14 p-6 sm:p-8 rounded-3xl bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 shadow-subtle space-y-5">
+    <section class="mb-14 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-5 transition-all duration-300">
       <div class="flex items-center gap-3 mb-1">
-        <div class="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/40 flex items-center justify-center text-amber-600 dark:text-amber-400 text-sm shrink-0">
+        <div class="w-8 h-8 rounded-lg bg-amber-500/10 dark:bg-amber-950/60 border border-amber-300/40 dark:border-amber-800/40 backdrop-blur-md flex items-center justify-center text-amber-600 dark:text-amber-400 text-sm shrink-0 shadow-sm">
           <i class="fa-solid fa-chart-line"></i>
         </div>
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">§ 05</span>
         <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Key Findings & Future Directions</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
+        <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-amber-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">
             <i class="fa-solid fa-arrows-split-up-and-left text-sm"></i>
             <span>Generalization vs. Calibration</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Leave-One-Subject-Out (LOSO) cross-validation showed that while convolutional networks learn shared kinematic representations across users, individual anatomical variations (muscle geometry, tissue impedance) create performance shifts on unseen subjects — underscoring that user-specific calibration is essential for clinical deployment.</p>
         </div>
-        <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 space-y-2">
+        <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-amber-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">
             <i class="fa-solid fa-arrows-to-circle text-sm"></i>
             <span>Crosstalk Dynamics</span>
@@ -337,7 +357,7 @@
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Synergistic grasps (Hand Open, Hand Close, Rest) demonstrated high stability. Fine single-finger movements encountered natural muscular crosstalk due to shared dorsal muscle bellies — a fundamental physiological constraint at sparse channel counts.</p>
         </div>
       </div>
-      <div class="p-5 rounded-2xl border border-brand-200/60 dark:border-brand-900/50 bg-brand-50/40 dark:bg-brand-950/20 space-y-3">
+      <div class="p-5 rounded-2xl border border-brand-400/40 dark:border-brand-500/30 bg-brand-500/[0.07] dark:bg-brand-950/30 backdrop-blur-md shadow-sm space-y-3">
         <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">
           <i class="fa-solid fa-compass text-sm"></i>
           <span>Roadmap</span>
@@ -363,7 +383,7 @@
     <div class="flex justify-center pt-4">
       <a href="../index.html#projects"
          onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }"
-         class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white dark:bg-surface-card border border-slate-200 dark:border-slate-800 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 shadow-sm transition">
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white/70 dark:bg-surface-card/70 backdrop-blur-xl border border-white/80 dark:border-white/10 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 shadow-md transition-all">
         <i class="fa-solid fa-arrow-left text-xs"></i>
         <span>Return to Portfolio</span>
       </a>
@@ -371,7 +391,7 @@
 
   </main>
 
-  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500">
+  <footer class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500 backdrop-blur-md">
     <p>© 2026 Md. Ratul Hasan • <a href="../index.html#projects" onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
   </footer>
 
@@ -382,6 +402,7 @@
     } else {
       document.documentElement.classList.remove("dark");
     }
+
     themeToggleBtn.addEventListener("click", () => {
       if (document.documentElement.classList.contains("dark")) {
         document.documentElement.classList.remove("dark");
