@@ -1,16 +1,16 @@
 export const projectsData = [
   {
     id: "voc-telecom",
-    title: "Cross-Operator VoC Intelligence Engine",
-    category: "Telecom Analytics",
+    title: "Telecom Voice-of-Customer (VoC) Intelligence Engine",
+    category: "NLP & Production Intelligence",
     year: "2026",
-    description: "Engineered an enterprise data pipeline extracting 4,500+ localized Google Play reviews across MyGP, MyBL, and MyRobi. Utilized an LLM semantic pipeline to normalize multilingual feedback (Bangla, English, Banglish) and built an interactive Power BI dashboard with custom DAX KPIs.",
-    tags: ["Python", "LLM APIs", "Power BI", "DAX", "Star Schema"],
+    description: "Engineered an enterprise NLP & Business Intelligence pipeline analyzing 83,417 standardized reviews across Grameenphone, Banglalink, and Robi over a 402-day common temporal duration. Developed a Soft-Voting Ensemble (82.0% Acc) capturing phonetic Banglish, benchmarked against a 100% human-verified Gold Standard (N=600), and generated publication-grade 300 DPI analytics.",
+    tags: ["Python 3.10", "NLP & Deep Learning", "Soft-Voting Ensemble", "PyTorch BiLSTM", "Human-in-the-Loop", "300 DPI Visuals"],
     media: "assets/images/projects/voc-dashboard.png",
     mediaAlt: "Power BI VoC intelligence preview",
     githubUrl: "https://github.com/rh61632/telecom-Voice-of-Customer_intelligence",
     caseStudyUrl: "projects/voc-telecom.html", // Dedicated static page
-    badgeText: "Telecom BI"
+    badgeText: "Enterprise NLP"
   },
   {
     id: "prosthetic-thesis",
