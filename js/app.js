@@ -162,9 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
               ${auditData.organization}
             </p>
 
-            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-1.5">
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1.5">
               <i class="fa-solid fa-location-dot text-brand-500 text-[11px] shrink-0"></i>
               <span>${auditData.location} • ${auditData.team}</span>
+            </p>
+
+            <p class="text-[11px] font-mono text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-1.5">
+              <i class="fa-solid fa-chalkboard-user text-brand-500 text-[11px] shrink-0"></i>
+              <span>${auditData.supervisor}</span>
             </p>
 
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${auditData.description}</p>

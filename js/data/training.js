@@ -1,17 +1,19 @@
 export const auditData = {
   title: "Industrial Energy Audit",
-  badge: "Field Energy Audit",
+  badge: "EEE-4121 • Energy Audit",
   organization: "Asian Marble Industries Bangladesh Ltd.",
-  focus: "Data Analysis & Resource Optimization",
+  focus: "Energy Management & Demand Analysis",
   period: "22 May 2025",
-  location: "Hatbila, Shakhari Gati, Jashore",
-  team: "4-Member Engineering Team",
+  location: "Hatbila, Narendrapur, Jashore",
+  team: "4-Member Engineering Delegation (EEE, JUST)",
+  supervisor: "Supervised by Dr. Engr. Imran Khan (Chairman, Dept. of EEE, JUST)",
+  metrics: "118,603 sq ft • 273,252 kWh/yr • 10–15% Savings Scope",
   caseStudyUrl: "projects/asian-marble.html",
   media: "assets/images/thumbnails/asian-marble.jpg",
   mediaAlt: "Asian Marble Industries Bangladesh Ltd. — Industrial Energy Audit",
   photoCount: "45 Field Photos",
-  description: "Collaborated in a 4-member engineering team to conduct a comprehensive energy audit for Asian Marble Industries Bangladesh Ltd. Analyzed electrical distribution systems, PFI capacitor banks, and industrial motor drives to formulate strategic efficiency improvements and cost-reduction proposals.",
-  tags: ["Energy Auditing", "PFI & Power Factor", "Motor Load Profiling", "Resource Optimization", "45 Field Photos"]
+  description: "Conducted an industrial energy audit for Asian Marble Industries Bangladesh Ltd. under course EEE-4121 (Dept. of EEE, JUST), supervised by Dr. Engr. Imran Khan. Profiled a 118,603 sq ft facility consuming 273,252 kWh/yr, identifying 10%–15% cost reduction via PFI capacitor upgrade and motor slip analysis on the primary 150 HP (110 kW) gang saw drive.",
+  tags: ["EEE-4121 JUST", "118,603 sq ft", "273.3k kWh/yr", "PFI & Power Factor", "150 HP Gang Saw", "45 Field Photos"]
 };
 
 export const trainingCourses = [
