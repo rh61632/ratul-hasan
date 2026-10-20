@@ -26,8 +26,9 @@ This installs Python dependencies (`Pillow`) and enables the local git hook so t
 
 1. Drop the original photo into:
    - `assets/images/awards/` (for competition awards)
-   - `assets/images/projects/` (for project covers)
-2. In `js/data/awards.js` or `js/data/projects.js`, point the `media` property to the thumbnail:
+   - ssets/images/projects/ (for project covers)
+   - ssets/images/visits/ (for industrial field visits)
+2. In `js/data/awards.js`, `js/data/projects.js`, or `js/data/training.js`, point the `media` property to the thumbnail:
    ```javascript
    media: "assets/images/thumbnails/your-photo.jpg",
    ```

@@ -8,6 +8,7 @@ os.makedirs(THUMB_DIR, exist_ok=True)
 SOURCE_DIRS = [
     "assets/images/awards",
     "assets/images/projects",
+    "assets/images/visits",
 ]
 
 TARGET_WIDTH = 1200

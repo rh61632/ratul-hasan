@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khulna 330 MW Dual-Fuel Combined Cycle Power Plant — Industrial Field Study | Md. Ratul Hasan</title>
+  <meta property="og:title" content="Khulna 330 MW Dual-Fuel Combined Cycle Power Plant — Industrial Field Study">
+  <meta property="og:description" content="Technical field study of the landmark BPDB 330 MW Dual-Fuel Combined Cycle Power Plant in Khalishpur, Khulna, organized by IEEE JUST Student Branch under PowerTech Explorers 2.0.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rh61632.github.io/projects/khulna-330mw.html">
+  <meta property="og:image" content="https://rh61632.github.io/assets/images/thumbnails/khulna-330mw.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74',
+              400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
+              800: '#9a3412', 900: '#7c2d12', 950: '#431407',
+            },
+            surface: { light: '#fbfbfd', card: '#161922', dark: '#0c0e14' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
+
+  <!-- Ambient Glassmorphism Glow Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-32 -left-32 w-[520px] h-[520px] bg-brand-500/15 dark:bg-brand-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute top-1/3 -right-32 w-[480px] h-[480px] bg-purple-500/15 dark:bg-purple-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-1/4 -left-32 w-[520px] h-[520px] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-10 right-1/4 w-[420px] h-[420px] bg-amber-500/10 dark:bg-amber-500/5 rounded-full blur-[100px]"></div>
+  </div>
+
+  <!-- Fixed Top Header -->
+  <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none">
+    <nav class="pointer-events-auto bg-white/75 dark:bg-surface-card/75 backdrop-blur-xl px-4 sm:px-6 py-2.5 rounded-full border border-white/80 dark:border-white/10 shadow-lg shadow-black/[0.03] dark:shadow-black/20 flex items-center justify-between gap-4 w-full max-w-[92vw] xl:max-w-screen-2xl">
+      <a href="../index.html#training"
+         onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }"
+         class="flex items-center gap-2 group text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition">
+        <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-1 transition"></i>
+        <span>Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">
+          <i class="fa-regular fa-sun text-sm dark:hidden"></i>
+          <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
+        </button>
+        <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 backdrop-blur-md border border-brand-300/40 dark:border-brand-800/40 flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-industry text-xs"></i> PowerTech Explorers 2.0
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
+
+    <!-- Hero Header -->
+    <div class="mb-10 max-w-4xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
+        Industrial Expedition • IEEE JUST Student Branch
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
+        Khulna 330 MW Dual-Fuel Combined Cycle Power Plant
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        On <strong>August 13, 2025</strong>, the <strong>IEEE JUST Student Branch</strong> successfully completed another landmark chapter in its technical exposure journey under the banner of <strong>PowerTech Explorers 2.0</strong>. A 37-member delegation—comprising students, 7 female engineers, and 3 faculty mentors led by <strong>Dr. Mehedi Hassan Jewel Sir</strong>—conducted an intensive on-site study of the <strong>BPDB 330 MW Dual-Fuel Combined Cycle Power Plant</strong> in Khalishpur, Khulna, gaining direct access to the control room, turbine blocks, and Chief Engineer <strong>Md. Zahid Hossain</strong>.
+      </p>
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">BPDB Landmark Facility</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Dual-Fuel Combined Cycle</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">37-Member Delegation</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">3 Faculty Mentors</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">13 August 2025</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Khalishpur, Khulna</span>
+      </div>
+    </div>
+
+    <!-- Official Event Banner (Compact & Centered) -->
+    <div class="mb-14 max-w-3xl mx-auto rounded-3xl overflow-hidden border border-white/80 dark:border-white/10 shadow-[0_12px_40px_rgb(0,0,0,0.08)] dark:shadow-[0_12px_40px_rgb(0,0,0,0.35)] bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl relative">
+      <div class="w-full overflow-hidden bg-slate-950 flex items-center justify-center">
+        <img 
+          src="../assets/images/visits/khulna-330mw.jpg" 
+          alt="Official Event Banner — Khulna 330 MW Dual-Fuel Combined Cycle Power Plant"
+          class="w-full h-auto block"
+        />
+      </div>
+      <div class="p-3.5 sm:p-4 bg-white/85 dark:bg-surface-card/85 backdrop-blur-xl border-t border-white/60 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-600 dark:text-slate-300">
+        <span class="font-medium flex items-center gap-2">
+          <i class="fa-solid fa-flag text-brand-500"></i>
+          Official Event Banner • Khulna 330 MW Dual-Fuel Combined Cycle Power Plant
+        </span>
+        <span class="font-mono text-slate-400 text-[11px]">PowerTech Explorers 2.0 • IEEE JUST SB</span>
+      </div>
+    </div>
+
+    <!-- Highlights Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-brand-300/80 dark:border-brand-800/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-16 h-16 bg-brand-500/10 rounded-bl-full pointer-events-none"></div>
+        <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">330 MW</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Installed Capacity</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Combined cycle gas and steam turbine block providing major baseload support to the national grid.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-3xl font-extrabold text-sky-600 dark:text-sky-400 font-display">37 Members</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Delegation Size</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Comprising 37 members, including 7 female participants and 3 university teachers from JUST.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-display">Chief Engr.</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Executive Interaction</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Chief Engineer Md. Zahid Hossain personally hosted the delegation and received the honor crest.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">13 Aug 2025</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Tour Day</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">7:30 AM departure to 7:00 PM return, covering Jashore–Khulna Zero Point & Khalishpur.</p>
+      </div>
+    </div>
+
+    <!-- Tour Photo Gallery Section (Full Width Showcase) -->
+    <section class="mb-16 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+      <div class="mb-6 border-b border-slate-200/60 dark:border-slate-800 pb-5">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-1">
+          <i class="fa-solid fa-camera-retro"></i>
+          <span>Visual Chronicle • 20 Photographs</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
+          Expedition Photo Gallery & Key Moments
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-2xl">
+          A comprehensive visual documentation of the tour captured by Ratul Hasan—from the morning bus ride and plant entry to control room telemetry, turbine halls, and the Chief Engineer meeting.
+        </p>
+      </div>
+
+      <!-- Photo Grid -->
+      <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"></div>
+    </section>
+
+    <!-- Main Content + Sidebar -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+      <div class="lg:col-span-8 space-y-10">
+
+        <!-- The Journey Narrative -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-route text-brand-600 dark:text-brand-400 text-lg"></i>
+            The Journey & On-Site Experience
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The day began at <strong>7:30 am</strong> on the JUST campus with an opening photoshoot under a beautifully cloudy sky that set an enthusiastic mood for the journey ahead. With 37 members—including 7 female engineers and 3 dedicated faculty members—the delegation boarded the tour bus, where breakfast was served on route. The scenic ride from Jashore to Khulna was accompanied by gentle monsoon drizzles, vibrant discussions, and light-hearted bonding.
+          </p>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Upon arrival at the <strong>Khulna 330 MW Power Plant</strong> in Khalishpur, the delegation was accorded exceptional hospitality by the plant authority, treated with the warmth and respect of honored academic guests rather than conventional visitors.
+          </p>
+          <div class="p-5 rounded-2xl bg-brand-500/[0.06] dark:bg-brand-950/40 backdrop-blur-md border border-brand-300/40 dark:border-brand-900/40 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed italic shadow-sm">
+            <span class="font-bold text-brand-700 dark:text-brand-400 font-display block mb-1.5 not-italic">Reflections from the Delegation:</span>
+            "We came back with not only some photographs, but also enormous experience and learning. Apart from technical learning, the day was also filled with moments of bonding. From enjoying meals together to taking memorable group photos that captured our unity and enthusiasm—the tour was totally worth it. It was about experiencing, asking, networking and understanding the world where our engineering knowledge is applied."
+          </div>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            A key highlight was meeting <strong>Md. Zahid Hossain</strong>, Chief Engineer of the plant, who spent valuable personal time with the delegation, discussing operational infrastructure, grid stabilization challenges, and maintenance protocols. As a gesture of institutional gratitude, the IEEE JUST SB delegation presented a commemorative crest to the Chief Engineer before concluding the site visit at 2:30 pm and stopping for lunch at <em>Golpata Rosui Ghor</em> at Khulna Zero Point.
+          </p>
+        </section>
+
+        <!-- Technical Deep Dive -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-gears text-brand-600 dark:text-brand-400 text-lg"></i>
+            Technical Architecture & Engineering Insights
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            During the walk-through led by BPDB engineers, the delegation inspected each critical phase of the combined-cycle power block:
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold text-sm">
+                <i class="fa-solid fa-fire-burner"></i>
+                <span>Combined Cycle (Brayton-Rankine)</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Examined how exhaust gases from the high-temperature gas turbine are channeled directly into a Heat Recovery Steam Generator (HRSG) to power a steam turbine block without consuming additional fuel, achieving elevated thermal efficiency exceeding 52%.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-sky-600 dark:text-sky-400 font-semibold text-sm">
+                <i class="fa-solid fa-gas-pump"></i>
+                <span>Dual-Fuel Agility (Gas & Diesel)</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Inspected the automated fuel transfer manifold designed to run primarily on natural gas while retaining full, automated capability to switch to high-speed diesel (HSD/HFO) during gas transmission line pressure drops, ensuring regional grid security.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold text-sm">
+                <i class="fa-solid fa-arrows-spin"></i>
+                <span>Turbine Governors & Synchronizers</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Studied electro-hydraulic turbine governors, automated synchro-check relays, and automatic voltage regulators (AVR) matching frequency, voltage amplitude, and phase angle before tying into the 230 kV national grid.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold text-sm">
+                <i class="fa-solid fa-desktop"></i>
+                <span>Central SCADA & DCS Control Room</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Observed real-time telemetry screens monitoring bearing vibrations, rotor eccentricity, boiler steam pressures, and dispatch setpoints sent from the National Load Despatch Centre (NLDC).
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Switchyard & Safety -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-bolt text-brand-600 dark:text-brand-400 text-lg"></i>
+            Substation Switchyard & Industrial Safety
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The outdoor switchyard inspection highlighted high-voltage protection and grid delivery equipment:
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-2.5 list-disc list-inside leading-relaxed bg-white/50 dark:bg-white/[0.03] p-5 rounded-2xl border border-slate-200/60 dark:border-white/10">
+            <li><strong>Step-Up Transformers (GSU):</strong> Stepping up generated voltage from 15.75 kV to 230 kV for long-distance national transmission with minimal transmission loss.</li>
+            <li><strong>SF6 Gas Circuit Breakers:</strong> Advanced arc-quenching circuit breakers capable of interrupting massive short-circuit fault currents within milliseconds.</li>
+            <li><strong>Cooling Towers & Water Treatment:</strong> Circulating cooling water systems incorporating demineralization (DM) plants to prevent turbine blade scaling and corrosion.</li>
+            <li><strong>Safety Standards & Emergency Measures:</strong> Plant fire-suppression systems, transformer deluge valves, and emergency auxiliary diesel generators.</li>
+          </ul>
+        </section>
+
+        <!-- Leadership & Organizing Team -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-users-rays text-brand-600 dark:text-brand-400 text-lg"></i>
+            Mentorship, Leadership & Organizing Team
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The success of this extensive tour was made possible through dedicated leadership and collaborative teamwork:
+          </p>
+
+          <div class="space-y-3">
+            <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/[0.08] flex items-start gap-3">
+              <div class="w-9 h-9 rounded-full bg-brand-500/10 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-chalkboard-user"></i>
+              </div>
+              <div class="text-xs sm:text-sm leading-relaxed">
+                <span class="font-bold text-slate-900 dark:text-white block">Faculty Mentors & Departmental Guidance</span>
+                Heartfelt gratitude to <strong>Dr. Mehedi Hassan Jewel Sir</strong>, without whom the visit would not have been possible in the first place, alongside <strong>Rabiul Islam Sir</strong> and <strong>Shuvo Dev Sir</strong> for their active presence and valuable academic guidance throughout the day.
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/[0.08] flex items-start gap-3">
+              <div class="w-9 h-9 rounded-full bg-sky-500/10 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+              <div class="text-xs sm:text-sm leading-relaxed">
+                <span class="font-bold text-slate-900 dark:text-white block">Ratul Hasan — Visual Documentation & Photography</span>
+                Responsible for capturing key moments and putting efforts behind the camera, documenting the delegation's engineering insights, group sessions, and institutional crest handover.
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/[0.08] flex items-start gap-3">
+              <div class="w-9 h-9 rounded-full bg-emerald-500/10 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-people-group"></i>
+              </div>
+              <div class="text-xs sm:text-sm leading-relaxed">
+                <span class="font-bold text-slate-900 dark:text-white block">IEEE JUST Student Branch Executive Committee</span>
+                Special thanks to Chair <strong>Abdullah Fahim</strong> for tireless leadership; <strong>Iftiar Rahman Emon</strong> for bus, food, and agency communication; <strong>Saklain Mustak</strong> for polo merchandise; <strong>Md. Shahiduzzaman</strong> for registration and finance; and <strong>Jahidul Islam</strong> for crest and banner production.
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-6">
+
+        <!-- Quick Facts Card -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-200/60 dark:border-slate-800 pb-3 flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-brand-500"></i>
+            Quick Facts
+          </h3>
+          <div>
+            <div class="text-xs font-mono text-slate-400">EXPEDITION</div>
+            <div class="text-sm font-semibold text-brand-600 dark:text-brand-400">PowerTech Explorers 2.0</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">FACILITY</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Khulna 330 MW Power Plant</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">OPERATING AUTHORITY</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Bangladesh Power Development Board (BPDB)</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">HOST & CHIEF ENGINEER</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Md. Zahid Hossain</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">TECHNOLOGY</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Dual-Fuel Combined Cycle (CCPP)</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">CAPACITY</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">330 Megawatts (MW)</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">DATE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">August 13, 2025</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">DELEGATION</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">37 Members (7 Females, 3 Faculty)</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">FACULTY GUIDES</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Dr. Mehedi Hassan Jewel Sir<br>Rabiul Islam Sir<br>Shuvo Dev Sir</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">RATUL'S ROLE</div>
+            <div class="text-sm font-semibold text-brand-600 dark:text-brand-400">Delegate & Visual Documentation</div>
+          </div>
+        </div>
+
+        <!-- Expedition Timeline Card -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-200/60 dark:border-slate-800 pb-3 flex items-center gap-2">
+            <i class="fa-solid fa-clock text-brand-500"></i>
+            Tour Timeline
+          </h3>
+          <div class="space-y-3 text-xs">
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">07:30 AM</span>
+              <span class="text-slate-600 dark:text-slate-300">Opening photoshoot at JUST campus & bus departure. Breakfast served on board.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">10:00 AM</span>
+              <span class="text-slate-600 dark:text-slate-300">Arrival at BPDB Khulna 330MW facility. Warm reception by authority.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">10:30 AM</span>
+              <span class="text-slate-600 dark:text-slate-300">Comprehensive inspection of turbines, HRSG, generators, and SCADA control room.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">01:30 PM</span>
+              <span class="text-slate-600 dark:text-slate-300">Interactive session with Chief Engineer Md. Zahid Hossain; presented crest of gratitude.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">02:30 PM</span>
+              <span class="text-slate-600 dark:text-slate-300">Departure & lunch at Golpata Rosui Ghor, Khulna Zero Point.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">07:00 PM</span>
+              <span class="text-slate-600 dark:text-slate-300">Safe arrival back at JUST campus, safe and satisfied.</span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200/70 dark:border-slate-800 space-y-2">
+            <a href="../index.html#training" class="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 transition flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-arrow-left text-xs"></i> Back to Fieldwork & Training
+            </a>
+            <a href="../index.html#projects" class="w-full py-2 px-4 rounded-xl text-center text-xs font-semibold text-brand-600 dark:text-brand-400 hover:bg-brand-50/50 dark:hover:bg-brand-950/40 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-diagram-project text-xs"></i> View Engineering Projects
+            </a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+  </main>
+
+  <!-- Fullscreen Modal / Lightbox for High-Res Inspection -->
+  <div id="imageLightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-300">
+    <button id="lightboxClose" aria-label="Close Lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition z-20">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Prev Button -->
+    <button id="lightboxPrev" aria-label="Previous Photo" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center text-base sm:text-lg transition z-20 backdrop-blur-md">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Next Button -->
+    <button id="lightboxNext" aria-label="Next Photo" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center text-base sm:text-lg transition z-20 backdrop-blur-md">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Image + Caption Container -->
+    <div class="max-w-5xl w-full flex flex-col items-center justify-center">
+      <div class="relative max-h-[72vh] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-slate-950">
+        <img id="lightboxImg" src="" alt="Photo inspection" class="max-w-full max-h-[72vh] object-contain">
+      </div>
+      <div class="mt-4 text-center max-w-3xl">
+        <div class="flex items-center justify-center gap-2 mb-1.5">
+          <span id="lightboxCounter" class="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">1 / 20</span>
+          <span id="lightboxCategory" class="text-xs font-mono text-slate-400">Category</span>
+        </div>
+        <h4 id="lightboxTitle" class="text-base sm:text-lg font-bold font-display text-white">Title</h4>
+        <p id="lightboxCaption" class="mt-1 text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500 backdrop-blur-md">
+    <p>© 2026 Md. Ratul Hasan • <a href="../index.html#training" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    themeToggleBtn.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    });
+
+    // 20 Tour Photographs Data
+    const tourPhotos = [
+      {
+        id: "01",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-01.jpg",
+        full: "../assets/images/visits/khulna-330/photo-01.jpg",
+        categoryKey: "delegation",
+        category: "Briefing Session",
+        title: "Executive Technical Briefing",
+        caption: "Dr. Mehedi Hassan sir, accompanying faculty mentors, and student delegates receiving an in-depth orientation on plant operations and industrial safety protocols."
+      },
+      {
+        id: "02",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-02.jpg",
+        full: "../assets/images/visits/khulna-330/photo-02.jpg",
+        categoryKey: "delegation",
+        category: "Departure",
+        title: "Morning Departure from JUST Campus",
+        caption: "The delegation gathering in front of the university bus at 7:30 AM with the official PowerTech Explorers 2.0 banner before departing Jashore for Khulna."
+      },
+      {
+        id: "03",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-03.jpg",
+        full: "../assets/images/visits/khulna-330/photo-03.jpg",
+        categoryKey: "delegation",
+        category: "Executive Ceremony",
+        title: "Crest Presentation to Chief Engineer",
+        caption: "Faculty mentor Dr. Mehedi Hassan sir, IEEE JUST SB Chair Abdullah Fahim, and student delegates presenting an official crest of gratitude to Chief Engineer Md. Zahid Hossain."
+      },
+      {
+        id: "04",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-04.jpg",
+        full: "../assets/images/visits/khulna-330/photo-04.jpg",
+        categoryKey: "turbines",
+        category: "Plant Walkthrough",
+        title: "Walkthrough Past Generation Blocks",
+        caption: "Delegates walking through the facility grounds past heavy power blocks, closed-loop cooling towers, and switchyard interconnection bays."
+      },
+      {
+        id: "05",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-05.jpg",
+        full: "../assets/images/visits/khulna-330/photo-05.jpg",
+        categoryKey: "control",
+        category: "SCADA Control",
+        title: "Delegation Banner in Control Room",
+        caption: "Official delegation group photo holding the tour banner inside the central control room with real-time SCADA telemetry displays in the background."
+      },
+      {
+        id: "06",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-06.jpg",
+        full: "../assets/images/visits/khulna-330/photo-06.jpg",
+        categoryKey: "control",
+        category: "SCADA Control",
+        title: "Telemetry Dashboard Demonstration",
+        caption: "Senior plant control engineers demonstrating real-time Distributed Control System (DCS) telemetry, monitoring turbine vibrations and boiler steam pressures."
+      },
+      {
+        id: "07",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-07.jpg",
+        full: "../assets/images/visits/khulna-330/photo-07.jpg",
+        categoryKey: "turbines",
+        category: "Generation Block",
+        title: "Delegates at the 330MW Power Block",
+        caption: "Student engineers holding the expedition banner in front of the massive blue dual-fuel combined cycle generation building."
+      },
+      {
+        id: "08",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-08.jpg",
+        full: "../assets/images/visits/khulna-330/photo-08.jpg",
+        categoryKey: "turbines",
+        category: "Switchyard",
+        title: "230kV High-Voltage Switchyard",
+        caption: "Engineers inspecting the high-voltage substation switchyard, observing SF6 gas circuit breakers, current transformers, and grid busbar lines."
+      },
+      {
+        id: "09",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-09.jpg",
+        full: "../assets/images/visits/khulna-330/photo-09.jpg",
+        categoryKey: "delegation",
+        category: "Memorabilia",
+        title: "Official Tour Identity & Lanyard",
+        caption: "Commemorative IEEE JUST Student Branch PowerTech Explorers 2.0 lanyard captured against the industrial gantry railing."
+      },
+      {
+        id: "10",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-10.jpg",
+        full: "../assets/images/visits/khulna-330/photo-10.jpg",
+        categoryKey: "turbines",
+        category: "Steam Infrastructure",
+        title: "Field Briefing beside Steam Piping",
+        caption: "Plant engineer briefing student delegates on condenser steam dynamics, thermal insulation, and closed-circuit cooling loops."
+      },
+      {
+        id: "11",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-11.jpg",
+        full: "../assets/images/visits/khulna-330/photo-11.jpg",
+        categoryKey: "delegation",
+        category: "Field Study",
+        title: "Recording Technical Observations",
+        caption: "Delegates diligently recording engineering metrics, turbine rotational speeds, and operational parameters in their field notebooks."
+      },
+      {
+        id: "12",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-12.jpg",
+        full: "../assets/images/visits/khulna-330/photo-12.jpg",
+        categoryKey: "turbines",
+        category: "Transformers",
+        title: "Generator Step-Up (GSU) Transformers",
+        caption: "Heavy oil-immersed step-up power transformers with surge arresters and blast-protective concrete firewall partitions stepping voltage from 15.75kV to 230kV."
+      },
+      {
+        id: "13",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-13.jpg",
+        full: "../assets/images/visits/khulna-330/photo-13.jpg",
+        categoryKey: "delegation",
+        category: "Engineering Mentorship",
+        title: "Outdoor Technical Discussion",
+        caption: "Interactive outdoor discussion between plant engineers, faculty guides, and students on fuel economics and dual-fuel switching reliability."
+      },
+      {
+        id: "14",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-14.jpg",
+        full: "../assets/images/visits/khulna-330/photo-14.jpg",
+        categoryKey: "turbines",
+        category: "Turbine Block",
+        title: "Inside the Gas Turbine Block",
+        caption: "Close-up inspection of the gas turbine combustion casing, multi-stage fuel manifolds, and high-temperature thermal blankets."
+      },
+      {
+        id: "15",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-15.jpg",
+        full: "../assets/images/visits/khulna-330/photo-15.jpg",
+        categoryKey: "turbines",
+        category: "Plant Walkthrough",
+        title: "Ascending to the Turbine Deck",
+        caption: "The delegation climbing the gantry stairway up to the elevated turbine hall and Heat Recovery Steam Generator (HRSG) walkway."
+      },
+      {
+        id: "16",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-16.jpg",
+        full: "../assets/images/visits/khulna-330/photo-16.jpg",
+        categoryKey: "turbines",
+        category: "HRSG Deck",
+        title: "Heat Recovery Steam Generator Deck",
+        caption: "Walking along the industrial deck adjoining the HRSG and massive insulated high-pressure steam headers."
+      },
+      {
+        id: "17",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-17.jpg",
+        full: "../assets/images/visits/khulna-330/photo-17.jpg",
+        categoryKey: "delegation",
+        category: "Grand Group Photo",
+        title: "Complete 37-Member Delegation",
+        caption: "The full 37-member delegation—students, 7 female engineers, and faculty mentors—gathered for the flagship group photograph at the facility."
+      },
+      {
+        id: "18",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-18.jpg",
+        full: "../assets/images/visits/khulna-330/photo-18.jpg",
+        categoryKey: "delegation",
+        category: "Field Study",
+        title: "Field Notes on Synchronous Generation",
+        caption: "A student delegate meticulously transcribing notes on automatic voltage regulation, synchro-check relays, and turbine speed governing."
+      },
+      {
+        id: "19",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-19.jpg",
+        full: "../assets/images/visits/khulna-330/photo-19.jpg",
+        categoryKey: "delegation",
+        category: "Executive Lecture",
+        title: "Lecture by Chief Engineer Md. Zahid Hossain",
+        caption: "Chief Engineer Md. Zahid Hossain delivering an insightful technical lecture discussing baseload operation, fuel diversification, and grid dispatch."
+      },
+      {
+        id: "20",
+        thumb: "../assets/images/thumbnails/khulna-330/photo-20.jpg",
+        full: "../assets/images/visits/khulna-330/photo-20.jpg",
+        categoryKey: "turbines",
+        category: "Generator Stator",
+        title: "Turbine Generator End-Casing Inspection",
+        caption: "Students examining the massive rotor bearing housing, hydrogen/air cooling seals, and stator frame of the synchronous generator."
+      }
+    ];
+
+    // Render Gallery Grid
+    const galleryGrid = document.getElementById('galleryGrid');
+    function renderGallery() {
+      galleryGrid.innerHTML = tourPhotos.map((item, index) => `
+        <div class="gallery-card group p-3 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between" data-index="${index}">
+          <div>
+            <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-slate-950 flex items-center justify-center">
+              <img 
+                src="${item.thumb}" 
+                alt="${item.title}" 
+                loading="lazy" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3 pointer-events-none">
+                <span class="text-[11px] text-white font-medium flex items-center gap-1.5">
+                  <i class="fa-solid fa-magnifying-glass-plus text-brand-400"></i> Click to Inspect
+                </span>
+              </div>
+              <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-slate-950/70 backdrop-blur-md text-white border border-white/20">
+                #${item.id}
+              </span>
+            </div>
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[10px] font-mono text-brand-600 dark:text-brand-400 font-bold uppercase tracking-wider">${item.category}</span>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 dark:text-white text-xs sm:text-sm line-clamp-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">${item.title}</h4>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">${item.caption}</p>
+        </div>
+      `).join('');
+
+      // Attach click handlers
+      galleryGrid.querySelectorAll('.gallery-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const idx = parseInt(card.dataset.index, 10);
+          openLightbox(idx);
+        });
+      });
+    }
+
+    renderGallery();
+
+    // Lightbox Functionality
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxCategory = document.getElementById('lightboxCategory');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+
+    let currentLightboxIndex = 0;
+
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      updateLightbox();
+      lightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      const photo = tourPhotos[currentLightboxIndex];
+      lightboxImg.src = photo.full;
+      lightboxImg.alt = photo.title;
+      lightboxTitle.textContent = photo.title;
+      lightboxCaption.textContent = photo.caption;
+      lightboxCategory.textContent = photo.category;
+      lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${tourPhotos.length}`;
+    }
+
+    function prevPhoto() {
+      currentLightboxIndex = (currentLightboxIndex - 1 + tourPhotos.length) % tourPhotos.length;
+      updateLightbox();
+    }
+
+    function nextPhoto() {
+      currentLightboxIndex = (currentLightboxIndex + 1) % tourPhotos.length;
+      updateLightbox();
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); prevPhoto(); });
+    lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); nextPhoto(); });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.closest('#lightboxClose')) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevPhoto();
+      if (e.key === 'ArrowRight') nextPhoto();
+    });
+  </script>
+</body>
+</html>

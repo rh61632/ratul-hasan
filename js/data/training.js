@@ -29,20 +29,42 @@ export const trainingCourses = [
 export const industrialVisits = [
   {
     name: "Khulna 330MW Power Plant",
-    period: "Aug 2025",
+    period: "13 Aug 2025",
+    category: "Dual Fuel Combined Cycle",
     type: "Dual Fuel Combined Cycle • Khalishpur, Khulna",
-    organizer: "Organized by IEEE JUST Student Branch"
+    location: "Khalishpur, Khulna",
+    organizer: "IEEE JUST SB • PowerTech Explorers 2.0",
+    badge: "Combined Cycle",
+    caseStudyUrl: "projects/khulna-330mw.html",
+    media: "assets/images/thumbnails/khulna-330mw.jpg",
+    mediaAlt: "Khulna 330MW Dual Fuel Combined Cycle Power Plant",
+    description: "Joined a 37-member IEEE JUST SB delegation with 3 faculty mentors to explore BPDB's 330MW dual-fuel plant. Inspected gas & steam turbine blocks, HRSG cycles, and the SCADA control room, meeting Chief Engineer Md. Zahid Hossain.",
+    tags: ["Dual-Fuel Cycle", "HRSG", "Turbine Synchronizer", "SCADA Telemetry", "PowerTech Explorers 2.0"]
   },
   {
     name: "132/33 KV Grid Sub-station",
     period: "Nov 2024",
+    category: "High-Voltage Distribution & Grid",
     type: "West Zone Power Distribution (WZPDCL) • Chanchra, Jashore",
-    organizer: "Dept. of EEE, JUST Field Study"
+    location: "Chanchra, Jashore",
+    organizer: "Dept. of EEE, JUST Field Study",
+    badge: "Grid Substation",
+    media: "assets/images/thumbnails/default-visit.jpg",
+    mediaAlt: "132/33 KV Grid Sub-station WZPDCL",
+    description: "Inspected high-voltage power transmission infrastructure, including step-down power transformers, SF6 gas circuit breakers, busbar protection schemes, capacitor banks, and distribution control room telemetry.",
+    tags: ["132/33 KV Grid", "SF6 Circuit Breakers", "Power Transformers", "Switchgear Safety"]
   },
   {
     name: "Bheramara 410MW Power Plant",
     period: "Oct 2023",
+    category: "Combined Cycle Power Plant",
     type: "Combined Cycle Power Plant • Bheramara, Kushtia",
-    organizer: "IEEE JUST SB SPAx • PowerTech Explorers"
+    location: "Bheramara, Kushtia",
+    organizer: "IEEE JUST SB SPAx • PowerTech Explorers",
+    badge: "Combined Cycle",
+    media: "assets/images/thumbnails/default-visit.jpg",
+    mediaAlt: "Bheramara 410MW Combined Cycle Power Plant",
+    description: "Analyzed baseload generation efficiency in a 410MW multi-shaft combined-cycle block. Studied high-temperature gas turbine exhaust utilization, cooling water systems, and 230kV switchyard synchronization.",
+    tags: ["Combined Cycle", "Gas & Steam Turbines", "Cooling Towers", "Grid Interconnection"]
   }
 ];
