@@ -6,7 +6,7 @@ export const projectsData = [
     year: "2026",
     description: "Engineered an enterprise NLP & Business Intelligence pipeline analyzing 248,501 standardized customer reviews across Grameenphone Ltd., Robi Axiata Limited, and Banglalink Digital Communications Limited over a 1,072-day common temporal window (Oct 2023 – Sep 2026). Developed a Soft-Voting Ensemble (87.5% CV Acc) capturing phonetic Banglish, benchmarked multi-year trajectories (2020–2026), and generated publication-grade 300 DPI analytics.",
     tags: ["Python 3.10", "NLP & Deep Learning", "Soft-Voting Ensemble (87.5%)", "248.5k Reviews", "Common Window Benchmark", "300 DPI Visuals"],
-    media: "assets/images/projects/voc-dashboard.png",
+    media: "assets/images/thumbnails/voc-dashboard.png",
     mediaAlt: "Power BI VoC intelligence preview",
     githubUrl: "https://github.com/rh61632/telecom-Voice-of-Customer_intelligence",
     caseStudyUrl: "projects/voc-telecom.html", // Dedicated static page
