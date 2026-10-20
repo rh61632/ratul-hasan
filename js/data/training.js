@@ -1,10 +1,17 @@
 export const auditData = {
   title: "Industrial Energy Audit",
-  badge: "Audit Project",
+  badge: "Field Energy Audit",
   organization: "Asian Marble Industries Bangladesh Ltd.",
   focus: "Data Analysis & Resource Optimization",
-  description: "Collaborated in a 4-member engineering team to conduct a comprehensive energy audit for Asian Marble Industries Bangladesh Ltd. Analyzed electrical distribution systems and HVAC operational loads to formulate strategic, data-driven efficiency improvements and cost-reduction proposals.",
-  tags: ["Energy Auditing", "HVAC Analysis", "Electrical Load Profiling", "Resource Optimization"]
+  period: "22 May 2025",
+  location: "Hatbila, Shakhari Gati, Jashore",
+  team: "4-Member Engineering Team",
+  caseStudyUrl: "projects/asian-marble.html",
+  media: "assets/images/thumbnails/asian-marble.jpg",
+  mediaAlt: "Asian Marble Industries Bangladesh Ltd. — Industrial Energy Audit",
+  photoCount: "45 Field Photos",
+  description: "Collaborated in a 4-member engineering team to conduct a comprehensive energy audit for Asian Marble Industries Bangladesh Ltd. Analyzed electrical distribution systems, PFI capacitor banks, and industrial motor drives to formulate strategic efficiency improvements and cost-reduction proposals.",
+  tags: ["Energy Auditing", "PFI & Power Factor", "Motor Load Profiling", "Resource Optimization", "45 Field Photos"]
 };
 
 export const trainingCourses = [

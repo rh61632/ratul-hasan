@@ -119,27 +119,80 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Energy Audit Feature Card
   const auditContainer = document.getElementById('audit-card');
   if (auditContainer) {
+    auditContainer.classList.add('group', 'cursor-pointer', 'hover:-translate-y-1', 'transition-all', 'duration-300');
+    auditContainer.dataset.url = auditData.caseStudyUrl;
+
+    const mediaMarkup = auditData.media ? `
+      <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-200/60 dark:border-slate-800 shadow-sm shrink-0">
+        <img 
+          src="${auditData.media}" 
+          alt="${auditData.mediaAlt || auditData.title}" 
+          loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-3.5">
+          <span class="text-xs font-mono font-semibold text-white flex items-center gap-1.5 drop-shadow">
+            <i class="fa-solid fa-camera-retro text-brand-400"></i> ${auditData.photoCount || '45 Photos'}
+          </span>
+        </div>
+      </div>
+    ` : '';
+
     auditContainer.innerHTML = `
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-        <div class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-xl bg-brand-500/10 dark:bg-brand-950/60 border border-brand-300/40 dark:border-brand-800/50 flex items-center justify-center text-brand-600 dark:text-brand-400 text-xl shrink-0 shadow-sm">
-            <i class="fa-solid fa-leaf"></i>
-          </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-5">
+          ${mediaMarkup}
+        </div>
+        <div class="lg:col-span-7 flex flex-col justify-between">
           <div>
-            <div class="flex items-center gap-2">
-              <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-xl">${auditData.title}</h3>
-              <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-brand-500/10 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-300/40 dark:border-brand-800/40 shadow-sm">${auditData.badge}</span>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 px-2.5 py-0.5 rounded border border-brand-300/40 dark:border-brand-800/40 shadow-sm">
+                ${auditData.badge}
+              </span>
+              <span class="text-xs font-mono text-brand-600 dark:text-brand-400 font-semibold">${auditData.period}</span>
             </div>
-            <p class="text-xs sm:text-sm font-semibold text-brand-600 dark:text-brand-400">${auditData.organization}</p>
+
+            <h3 class="font-display font-bold text-slate-900 dark:text-white text-lg sm:text-xl mb-1.5 flex items-center gap-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
+              ${auditData.title}
+              <i class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition text-brand-600 dark:text-brand-400"></i>
+            </h3>
+
+            <p class="text-xs sm:text-sm font-semibold text-brand-600 dark:text-brand-400 mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-industry text-[11px]"></i>
+              ${auditData.organization}
+            </p>
+
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-1.5">
+              <i class="fa-solid fa-location-dot text-brand-500 text-[11px] shrink-0"></i>
+              <span>${auditData.location} • ${auditData.team}</span>
+            </p>
+
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${auditData.description}</p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200/60 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap gap-1.5">
+              ${auditData.tags.map(t => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">${t}</span>`).join('')}
+            </div>
+            <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 text-xs transition">
+              View Detailed Audit & Photos <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
+            </span>
           </div>
         </div>
-        <span class="text-xs font-mono text-slate-400 shrink-0">${auditData.focus}</span>
-      </div>
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${auditData.description}</p>
-      <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-200/60 dark:border-slate-800/80">
-        ${auditData.tags.map(t => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">${t}</span>`).join('')}
       </div>
     `;
+
+    auditContainer.addEventListener('click', (e) => {
+      const clickedAnchor = e.target.closest('a');
+      if (clickedAnchor) return;
+      if (auditData.caseStudyUrl) {
+        if (e.metaKey || e.ctrlKey) {
+          window.open(auditData.caseStudyUrl, '_blank');
+        } else {
+          window.location.href = auditData.caseStudyUrl;
+        }
+      }
+    });
   }
 
   // Render Technical Training

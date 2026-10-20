@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asian Marble Industries — Industrial Energy Audit & Field Study | Md. Ratul Hasan</title>
+  <meta property="og:title" content="Asian Marble Industries Bangladesh Ltd. — Industrial Energy Audit">
+  <meta property="og:description" content="Comprehensive industrial energy audit and field study conducted at Asian Marble Industries Bangladesh Ltd. by a 4-member engineering team. Evaluated electrical distribution, PFI capacitor banks, motor loads, and process water recycling.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rh61632.github.io/projects/asian-marble.html">
+  <meta property="og:image" content="https://rh61632.github.io/assets/images/thumbnails/asian-marble.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74',
+              400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
+              800: '#9a3412', 900: '#7c2d12', 950: '#431407',
+            },
+            surface: { light: '#fbfbfd', card: '#161922', dark: '#0c0e14' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
+
+  <!-- Ambient Glassmorphism Glow Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-32 -left-32 w-[520px] h-[520px] bg-brand-500/15 dark:bg-brand-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute top-1/3 -right-32 w-[480px] h-[480px] bg-emerald-500/15 dark:bg-emerald-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-1/4 -left-32 w-[520px] h-[520px] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-10 right-1/4 w-[420px] h-[420px] bg-amber-500/10 dark:bg-amber-500/5 rounded-full blur-[100px]"></div>
+  </div>
+
+  <!-- Fixed Top Header -->
+  <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none">
+    <nav class="pointer-events-auto bg-white/75 dark:bg-surface-card/75 backdrop-blur-xl px-4 sm:px-6 py-2.5 rounded-full border border-white/80 dark:border-white/10 shadow-lg shadow-black/[0.03] dark:shadow-black/20 flex items-center justify-between gap-4 w-full max-w-[92vw] xl:max-w-screen-2xl">
+      <a href="../index.html#training"
+         onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }"
+         class="flex items-center gap-2 group text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition">
+        <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-1 transition"></i>
+        <span>Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">
+          <i class="fa-regular fa-sun text-sm dark:hidden"></i>
+          <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
+        </button>
+        <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 backdrop-blur-md border border-brand-300/40 dark:border-brand-800/40 flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-bolt text-xs"></i> Energy Audit Fieldwork
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
+
+    <!-- Hero Header -->
+    <div class="mb-10 max-w-4xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
+        Industrial Energy Audit • Engineering Fieldwork
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
+        Asian Marble Industries Bangladesh Ltd.
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        On <strong>May 22, 2025</strong>, a collaborative <strong>4-member engineering team</strong> conducted a rigorous industrial energy audit at the manufacturing facility of <strong>Asian Marble Industries Bangladesh Ltd.</strong> located in Hatbila, Shakhari Gati, Jashore. The audit focused on end-to-end electrical distribution analysis, Power Factor Improvement (PFI) capacitor bank efficiency, mechanical motor drive profiling (up to 110 kW/150 HP), water slurry recirculation pumping systems, and pneumatic auxiliary loads to identify energy wastage and formulate data-backed optimization recommendations.
+      </p>
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Asian Marble Industries Bangladesh Ltd.</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Hatbila, Shakhari Gati, Jashore</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">4-Member Engineering Team</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">22 May 2025</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">PFI & Capacitor Banks</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">45 Field Photographs</span>
+      </div>
+    </div>
+
+    <!-- Official Facility Banner -->
+    <div class="mb-14 max-w-4xl mx-auto rounded-3xl overflow-hidden border border-white/80 dark:border-white/10 shadow-[0_12px_40px_rgb(0,0,0,0.08)] dark:shadow-[0_12px_40px_rgb(0,0,0,0.35)] bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl relative">
+      <div class="w-full overflow-hidden bg-slate-950 flex items-center justify-center">
+        <img 
+          src="../assets/images/audits/asian-marble.jpg" 
+          alt="Asian Marble Industries Bangladesh Ltd. — Facility Entrance"
+          class="w-full h-auto block"
+        />
+      </div>
+      <div class="p-3.5 sm:p-4 bg-white/85 dark:bg-surface-card/85 backdrop-blur-xl border-t border-white/60 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-600 dark:text-slate-300">
+        <span class="font-medium flex items-center gap-2">
+          <i class="fa-solid fa-industry text-brand-500"></i>
+          Asian Marble Industries Bangladesh Ltd. • Main Plant Entrance
+        </span>
+        <span class="font-mono text-slate-400 text-[11px]">Hatbila, Shakhari Gati, Jashore • Audit Date: 22 May 2025</span>
+      </div>
+    </div>
+
+    <!-- Highlights Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-brand-300/80 dark:border-brand-800/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-16 h-16 bg-brand-500/10 rounded-bl-full pointer-events-none"></div>
+        <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">4 Members</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Audit Team</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Collaborative engineering delegation conducting on-site measurement, logging, and energy assessment.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-3xl font-extrabold text-sky-600 dark:text-sky-400 font-display">110 kW</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Peak Motor Rating</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Heavy 3-phase induction motors (150 HP, 192 A) driving gang saw blocks and multi-disc cutting heads.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">PFI System</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Power Factor Bank</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Dedicated capacitor banks examined for reactive power compensation and low-power-factor penalty mitigation.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-display">45 Photos</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Visual Chronicle</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Exhaustive photographic documentation covering switchgear, machinery, slurry recycling, and field testing.</p>
+      </div>
+    </div>
+
+    <!-- Tour Photo Gallery Section -->
+    <section class="mb-16 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+      <div class="mb-6 border-b border-slate-200/60 dark:border-slate-800 pb-5">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-1">
+          <i class="fa-solid fa-camera-retro"></i>
+          <span>Visual Documentation • 45 Photographs</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
+          Field Energy Audit Photo Gallery & Equipment Log
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-2xl">
+          Visual documentation of the energy audit walkthrough at Asian Marble Industries—capturing switchgear panels, PFI capacitor banks, motor tachometer speed checks, multi-blade gang saws, automated slab polishing lines, and slurry water settling systems.
+        </p>
+
+        <!-- Gallery Category Filter Pills -->
+        <div class="flex flex-wrap gap-2 mt-5" id="galleryFilters">
+          <button data-filter="all" class="filter-btn active px-3.5 py-1.5 rounded-full text-xs font-medium bg-brand-600 text-white shadow-sm transition">All (45)</button>
+          <button data-filter="facility" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Facility & Storage</button>
+          <button data-filter="electrical" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Electrical & Power</button>
+          <button data-filter="cutting" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Cutting & Gang Saws</button>
+          <button data-filter="polishing" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Polishing & Finishing</button>
+          <button data-filter="auxiliary" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Water & Auxiliary</button>
+          <button data-filter="team" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Audit Team</button>
+        </div>
+      </div>
+
+      <!-- Photo Grid -->
+      <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"></div>
+    </section>
+
+    <!-- Main Content + Sidebar -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+      <div class="lg:col-span-8 space-y-10">
+
+        <!-- Narrative Overview -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-clipboard-check text-brand-600 dark:text-brand-400 text-lg"></i>
+            Audit Scope & Industrial Context
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            <strong>Asian Marble Industries Bangladesh Ltd.</strong> is a prominent stone manufacturing and slab processing enterprise headquartered in Jashore. The processing facility transforms raw natural stone and imported marble blocks into precision-finished tiles, kitchen tops, and dimensioned architectural slabs through heavy mechanical sawing, water-lubricated milling, and multistage polishing.
+          </p>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Given the continuous operation of high-power three-phase induction motors (ranging from 15 kW up to 110 kW), continuous pumping loads for slurry water recycling, and pneumatic actuation systems, energy expenditures constitute a major portion of operational costs. The 4-member engineering audit team was tasked with performing a comprehensive facility walkthrough, documenting electrical balance, examining Power Factor Improvement (PFI) mechanisms, and identifying specific avenues to reduce kW consumption and optimize plant utility.
+          </p>
+          <div class="p-5 rounded-2xl bg-brand-500/[0.06] dark:bg-brand-950/40 backdrop-blur-md border border-brand-300/40 dark:border-brand-900/40 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed italic shadow-sm">
+            <span class="font-bold text-brand-700 dark:text-brand-400 font-display block mb-1.5 not-italic">Core Audit Objective:</span>
+            "Identify electrical power factor deficiencies, quantify motor running conditions and transmission belt slippage, evaluate water recirculation pump efficiencies, and recommend actionable energy management protocols that enhance equipment longevity while delivering measurable monthly electricity savings."
+          </div>
+        </section>
+
+        <!-- Technical Deep Dive -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-gears text-brand-600 dark:text-brand-400 text-lg"></i>
+            Key Technical Audit Focus Areas
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The engineering audit assessed the facility across four core operational subsystems:
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold text-sm">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Power Factor & Capacitor Banks</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Inspected the low-voltage Power Factor Improvement (PFI) panel, assessing contactors, capacitor cell integrity, and automatic switching relays. Proper reactive power compensation prevents utility penalties and reduces I²R distribution line thermal losses.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-sky-600 dark:text-sky-400 font-semibold text-sm">
+                <i class="fa-solid fa-arrows-spin"></i>
+                <span>Heavy Motor Drives & Gang Saws</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Examined 110 kW (150 HP, 192 A) induction motors driving multi-blade diamond gang saws and block cutters. Logged rated vs. operational RPM using a digital non-contact tachometer to verify slip factors and belt tension integrity.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold text-sm">
+                <i class="fa-solid fa-water"></i>
+                <span>Closed-Loop Slurry Water Recycling</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Surveyed the multi-stage sedimentation ponds and centrifugal pump station. Water is continuously separated from stone slurry and recirculated to blade cooling nozzles, conserving fresh groundwater while optimizing pumping head.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold text-sm">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span>Pneumatic Compressors & Auxiliaries</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Inspected belt-driven reciprocating air compressor receiver tanks, pressure regulator gauges, and distribution airlines used for pneumatic stone clamping and gantry feed controls.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recommendations & Efficiency Measures -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-lightbulb text-brand-600 dark:text-brand-400 text-lg"></i>
+            Data-Backed Recommendations & Findings
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Based on the on-site measurements and operational observations, the audit formulated the following key engineering recommendations:
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-2.5 list-disc list-inside leading-relaxed bg-white/50 dark:bg-white/[0.03] p-5 rounded-2xl border border-slate-200/60 dark:border-white/10">
+            <li><strong>Capacitor Bank Routine Servicing:</strong> Periodically measure individual capacitance values in the PFI cabinet to detect degraded capacitors and maintain an active plant power factor above 0.95, avoiding tariff surcharges.</li>
+            <li><strong>Drive Belt Tensioning & Alignment:</strong> Maintain systematic tensioning schedules for the multi-V-belt sheaves on high-power gang saw motors to reduce transmission slip losses and bearing wear.</li>
+            <li><strong>Water Recirculation Pump Scheduling:</strong> Coordinate pump operating duty with sawing station operational schedules to eliminate unloaded running and reduce hydraulic friction head.</li>
+            <li><strong>Compressed Air Leak Auditing:</strong> Implement periodic leak detection routines across pneumatic fittings and quick-release valves on bridge cutting and polishing stations to minimize compressor cycling frequency.</li>
+          </ul>
+        </section>
+
+        <!-- Audit Team Section -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-users-rays text-brand-600 dark:text-brand-400 text-lg"></i>
+            4-Member Engineering Audit Team
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The field energy audit was executed collaboratively by a dedicated 4-member student engineering delegation:
+          </p>
+
+          <div class="space-y-3">
+            <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/[0.08] flex items-start gap-3">
+              <div class="w-9 h-9 rounded-full bg-brand-500/10 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div class="text-xs sm:text-sm leading-relaxed">
+                <span class="font-bold text-slate-900 dark:text-white block">Ratul Hasan — Electrical Load Profiling & Photographic Documentation</span>
+                Conducted electrical panel and motor nameplate load profiling, took operational RPM measurements using digital tachometry, and comprehensively documented the facility's machinery infrastructure across all 45 log photos.
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/[0.08] flex items-start gap-3">
+              <div class="w-9 h-9 rounded-full bg-sky-500/10 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div class="text-xs sm:text-sm leading-relaxed">
+                <span class="font-bold text-slate-900 dark:text-white block">Engineering Team Members</span>
+                Collaborated closely across machine walk-throughs, water recycling flow analysis, PFI capacitor inspection, and post-audit report compilation presented to plant management.
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-6">
+
+        <!-- Quick Facts Card -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+          <h3 class="font-bold font-display text-slate-900 dark:text-white text-base flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-brand-500"></i> Audit Quick Facts
+          </h3>
+
+          <div class="space-y-3 text-xs">
+            <div class="flex items-start justify-between gap-2 border-b border-slate-200/60 dark:border-slate-800 pb-2">
+              <span class="text-slate-400 font-mono">Enterprise</span>
+              <span class="font-semibold text-slate-800 dark:text-slate-200 text-right">Asian Marble Industries Bangladesh Ltd.</span>
+            </div>
+            <div class="flex items-start justify-between gap-2 border-b border-slate-200/60 dark:border-slate-800 pb-2">
+              <span class="text-slate-400 font-mono">Location</span>
+              <span class="font-semibold text-slate-800 dark:text-slate-200 text-right">Hatbila, Shakhari Gati, Jashore</span>
+            </div>
+            <div class="flex items-start justify-between gap-2 border-b border-slate-200/60 dark:border-slate-800 pb-2">
+              <span class="text-slate-400 font-mono">Date</span>
+              <span class="font-semibold text-slate-800 dark:text-slate-200 text-right">22 May 2025</span>
+            </div>
+            <div class="flex items-start justify-between gap-2 border-b border-slate-200/60 dark:border-slate-800 pb-2">
+              <span class="text-slate-400 font-mono">Delegation</span>
+              <span class="font-semibold text-slate-800 dark:text-slate-200 text-right">4-Member Engineering Team</span>
+            </div>
+            <div class="flex items-start justify-between gap-2 border-b border-slate-200/60 dark:border-slate-800 pb-2">
+              <span class="text-slate-400 font-mono">Primary Focus</span>
+              <span class="font-semibold text-slate-800 dark:text-slate-200 text-right">Energy Auditing & Motor Load Analysis</span>
+            </div>
+            <div class="flex items-start justify-between gap-2 pb-2">
+              <span class="text-slate-400 font-mono">Documentation</span>
+              <span class="font-semibold text-slate-800 dark:text-slate-200 text-right">45 Field Log Photographs</span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200/70 dark:border-slate-800 space-y-2">
+            <a href="../index.html#training" class="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 transition flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-arrow-left text-xs"></i> Back to Fieldwork & Training
+            </a>
+            <a href="khulna-330mw.html" class="w-full py-2 px-4 rounded-xl text-center text-xs font-semibold text-brand-600 dark:text-brand-400 hover:bg-brand-50/50 dark:hover:bg-brand-950/40 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-industry text-xs"></i> View Khulna 330 MW Study
+            </a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+  </main>
+
+  <!-- Fullscreen Modal / Lightbox for High-Res Inspection -->
+  <div id="imageLightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-300">
+    <button id="lightboxClose" aria-label="Close Lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition z-20">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Prev Button -->
+    <button id="lightboxPrev" aria-label="Previous Photo" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center text-base sm:text-lg transition z-20 backdrop-blur-md">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Next Button -->
+    <button id="lightboxNext" aria-label="Next Photo" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center text-base sm:text-lg transition z-20 backdrop-blur-md">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Image + Caption Container -->
+    <div class="max-w-5xl w-full flex flex-col items-center justify-center">
+      <div class="relative max-h-[72vh] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-slate-950">
+        <img id="lightboxImg" src="" alt="Photo inspection" class="max-w-full max-h-[72vh] object-contain">
+      </div>
+      <div class="mt-4 text-center max-w-3xl">
+        <div class="flex items-center justify-center gap-2 mb-1.5">
+          <span id="lightboxCounter" class="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">1 / 45</span>
+          <span id="lightboxCategory" class="text-xs font-mono text-slate-400">Category</span>
+        </div>
+        <h4 id="lightboxTitle" class="text-base sm:text-lg font-bold font-display text-white">Title</h4>
+        <p id="lightboxCaption" class="mt-1 text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500 backdrop-blur-md">
+    <p>© 2026 Md. Ratul Hasan • <a href="../index.html#training" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    themeToggleBtn.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    });
+
+    // 45 Audit Photographs Data
+    const auditPhotos = [
+      {
+        id: "01",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-01.jpg",
+        full: "../assets/images/audits/asian-marble/photo-01.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Facility Grounds & Raw Material Yard",
+        caption: "Outdoor perimeter of Asian Marble Industries showing raw stone blocks and slurry collection basin."
+      },
+      {
+        id: "02",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-02.jpg",
+        full: "../assets/images/audits/asian-marble/photo-02.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Factory Exterior & Processing Shed Entrance",
+        caption: "Exterior view of the main manufacturing shed with finished stone slabs staged near the entrance."
+      },
+      {
+        id: "03",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-03.jpg",
+        full: "../assets/images/audits/asian-marble/photo-03.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Main Factory Gate & Signboard",
+        caption: "Official entrance of Asian Marble Industries Bangladesh Limited located at Hatbila, Shakhari Gati, Jashore."
+      },
+      {
+        id: "04",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-04.jpg",
+        full: "../assets/images/audits/asian-marble/photo-04.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Outdoor Slab Storage Corridor",
+        caption: "Storage walkway flanked by vertically stacked marble and granite slabs awaiting final processing and dispatch."
+      },
+      {
+        id: "05",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-05.jpg",
+        full: "../assets/images/audits/asian-marble/photo-05.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Indoor Raw Marble Block Storage",
+        caption: "High-ceiling raw material storage bay with large quarried marble blocks staged for primary sawing."
+      },
+      {
+        id: "06",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-06.jpg",
+        full: "../assets/images/audits/asian-marble/photo-06.jpg",
+        categoryKey: "polishing",
+        category: "Polishing & Finishing",
+        title: "Wet Stone Polishing Bed",
+        caption: "Automated stone slab polishing bed with surface cooling water and abrasive polishing heads."
+      },
+      {
+        id: "07",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-07.jpg",
+        full: "../assets/images/audits/asian-marble/photo-07.jpg",
+        categoryKey: "cutting",
+        category: "Cutting & Gang Saws",
+        title: "Heavy Circular Saw Blade Station",
+        caption: "Large-diameter segmented circular saw blades positioned at the block cutting station."
+      },
+      {
+        id: "08",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-08.jpg",
+        full: "../assets/images/audits/asian-marble/photo-08.jpg",
+        categoryKey: "electrical",
+        category: "Electrical & Power Distribution",
+        title: "Power Factor Improvement (PFI) Cabinet",
+        caption: "Power factor correction panel showing contactors, circuit fuses, and cylindrical power capacitors."
+      },
+      {
+        id: "09",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-09.jpg",
+        full: "../assets/images/audits/asian-marble/photo-09.jpg",
+        categoryKey: "electrical",
+        category: "Electrical & Power Distribution",
+        title: "PFI Power Capacitor Unit",
+        caption: "Close-up of three-phase power capacitor unit utilized for reactive power compensation and power factor correction."
+      },
+      {
+        id: "10",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-10.jpg",
+        full: "../assets/images/audits/asian-marble/photo-10.jpg",
+        categoryKey: "electrical",
+        category: "Electrical & Power Distribution",
+        title: "Capacitor Bank Wiring & Bus Connection",
+        caption: "Internal wiring arrangement and phase connections of the low-voltage capacitor bank."
+      },
+      {
+        id: "11",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-11.jpg",
+        full: "../assets/images/audits/asian-marble/photo-11.jpg",
+        categoryKey: "electrical",
+        category: "Electrical & Power Distribution",
+        title: "Electrical Control & Metering Panel",
+        caption: "Control cabinet door interior showing metering controller, terminal blocks, indicator wiring, and selector switches."
+      },
+      {
+        id: "12",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-12.jpg",
+        full: "../assets/images/audits/asian-marble/photo-12.jpg",
+        categoryKey: "electrical",
+        category: "Electrical & Power Distribution",
+        title: "Heavy Induction Motor Nameplate",
+        caption: "110 kW (150 HP) 3-phase induction motor rating plate inspected for rated current (192 A), power factor, and RPM."
+      },
+      {
+        id: "13",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-13.jpg",
+        full: "../assets/images/audits/asian-marble/photo-13.jpg",
+        categoryKey: "electrical",
+        category: "Electrical & Power Distribution",
+        title: "Motor RPM Measurement with Digital Tachometer",
+        caption: "Energy audit team member taking rotational speed measurements on the multi-V-belt motor pulley using a digital tachometer."
+      },
+      {
+        id: "14",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-14.jpg",
+        full: "../assets/images/audits/asian-marble/photo-14.jpg",
+        categoryKey: "cutting",
+        category: "Cutting & Gang Saws",
+        title: "Multi-Blade Diamond Gang Saw Assembly",
+        caption: "Array of circular diamond-tipped saw blades configured for simultaneous vertical block slitting."
+      },
+      {
+        id: "15",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-15.jpg",
+        full: "../assets/images/audits/asian-marble/photo-15.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Numbered Cut Marble Blocks",
+        caption: "Primary sawn marble blocks marked with batch identification numbers in the storage bay."
+      },
+      {
+        id: "16",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-16.jpg",
+        full: "../assets/images/audits/asian-marble/photo-16.jpg",
+        categoryKey: "cutting",
+        category: "Cutting & Gang Saws",
+        title: "Multiple Diamond Disc Cutting Array",
+        caption: "Concentric perspective of the heavy gang saw blade set demonstrating blade spacing and diamond segments."
+      },
+      {
+        id: "17",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-17.jpg",
+        full: "../assets/images/audits/asian-marble/photo-17.jpg",
+        categoryKey: "polishing",
+        category: "Polishing & Finishing",
+        title: "Automated Continuous Slab Polishing Line",
+        caption: "Linear polishing machine processing full-size stone slabs with continuous water lubrication."
+      },
+      {
+        id: "18",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-18.jpg",
+        full: "../assets/images/audits/asian-marble/photo-18.jpg",
+        categoryKey: "polishing",
+        category: "Polishing & Finishing",
+        title: "Rotary Polishing Spindle on Marble Surface",
+        caption: "Detail of the motorized rotating spindle and abrasive head smoothing wet stone slab."
+      },
+      {
+        id: "19",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-19.jpg",
+        full: "../assets/images/audits/asian-marble/photo-19.jpg",
+        categoryKey: "polishing",
+        category: "Polishing & Finishing",
+        title: "Polishing Line Gantry & Transverse Bridge",
+        caption: "Overhead motorized gantry carriage guiding the polishing spindle across the width of the slab."
+      },
+      {
+        id: "20",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-20.jpg",
+        full: "../assets/images/audits/asian-marble/photo-20.jpg",
+        categoryKey: "polishing",
+        category: "Polishing & Finishing",
+        title: "Stone Slab Polishing Conveyor Bed",
+        caption: "Conveyor table advancing wet marble slabs steadily beneath polishing heads."
+      },
+      {
+        id: "21",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-21.jpg",
+        full: "../assets/images/audits/asian-marble/photo-21.jpg",
+        categoryKey: "polishing",
+        category: "Polishing & Finishing",
+        title: "Drive Motor & Cable Carrier Chain",
+        caption: "Electric drive motor and articulated cable drag chain supplying power to moving machine components."
+      },
+      {
+        id: "22",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-22.jpg",
+        full: "../assets/images/audits/asian-marble/photo-22.jpg",
+        categoryKey: "cutting",
+        category: "Cutting & Gang Saws",
+        title: "Block Cutting Rig & Overhead Water Supply",
+        caption: "Industrial cutting enclosure equipped with overhead water hoses for continuous dust suppression and blade cooling."
+      },
+      {
+        id: "23",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-23.jpg",
+        full: "../assets/images/audits/asian-marble/photo-23.jpg",
+        categoryKey: "cutting",
+        category: "Cutting & Gang Saws",
+        title: "Heavy Industrial Marble Gang Saw Frame",
+        caption: "Heavy-duty structural steel gantry and housing for the primary stone block cutting machinery."
+      },
+      {
+        id: "24",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-24.jpg",
+        full: "../assets/images/audits/asian-marble/photo-24.jpg",
+        categoryKey: "polishing",
+        category: "Polishing & Finishing",
+        title: "Slab Polishing Line Production Bay",
+        caption: "Longitudinal view down the wet polishing section showing drive rails and slab processing stations."
+      },
+      {
+        id: "25",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-25.jpg",
+        full: "../assets/images/audits/asian-marble/photo-25.jpg",
+        categoryKey: "cutting",
+        category: "Cutting & Gang Saws",
+        title: "Bridge Saw Marble Slab Trimming",
+        caption: "Circular blade trimming stone slab with pressurized water jet stream on slatted steel bed."
+      },
+      {
+        id: "26",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-26.jpg",
+        full: "../assets/images/audits/asian-marble/photo-26.jpg",
+        categoryKey: "auxiliary",
+        category: "Water & Auxiliary Systems",
+        title: "Belt-Driven Air Compressor & Receiver Tank",
+        caption: "Horizontal air receiver tank and motor-driven compressor supplying pneumatic air for machine clamping and actuation."
+      },
+      {
+        id: "27",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-27.jpg",
+        full: "../assets/images/audits/asian-marble/photo-27.jpg",
+        categoryKey: "cutting",
+        category: "Cutting & Gang Saws",
+        title: "Circular Saw Blade Maintenance Rig",
+        caption: "Dedicated workshop rig for inspecting, truing, and dressing large circular diamond saw blades."
+      },
+      {
+        id: "28",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-28.jpg",
+        full: "../assets/images/audits/asian-marble/photo-28.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Outdoor Slab Yard & A-Frame Storage",
+        caption: "Yard staging area holding finished and semi-finished marble slabs organized on heavy A-frames."
+      },
+      {
+        id: "29",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-29.jpg",
+        full: "../assets/images/audits/asian-marble/photo-29.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Polished Granite & Marble Slab Display",
+        caption: "Various granite and marble slabs of diverse patterns and textures stored outdoors."
+      },
+      {
+        id: "30",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-30.jpg",
+        full: "../assets/images/audits/asian-marble/photo-30.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Stacked Marble Tiles & Dimensioned Slabs",
+        caption: "Neatly stacked uniform stone tiles ready for packaging and commercial distribution."
+      },
+      {
+        id: "31",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-31.jpg",
+        full: "../assets/images/audits/asian-marble/photo-31.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Processed Tile Stock Along Factory Wall",
+        caption: "Outdoor vertical inventory of precision cut marble tiles stacked along the factory building."
+      },
+      {
+        id: "32",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-32.jpg",
+        full: "../assets/images/audits/asian-marble/photo-32.jpg",
+        categoryKey: "auxiliary",
+        category: "Water & Auxiliary Systems",
+        title: "Water Recirculation & Settling Basin",
+        caption: "Multi-chamber sedimentation basin allowing stone cutting slurry to settle out before recycling water."
+      },
+      {
+        id: "33",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-33.jpg",
+        full: "../assets/images/audits/asian-marble/photo-33.jpg",
+        categoryKey: "auxiliary",
+        category: "Water & Auxiliary Systems",
+        title: "Recirculation Pump Station & Piping",
+        caption: "Electric motor-driven centrifugal pumps and suction pipe manifold delivering recycled water back to machines."
+      },
+      {
+        id: "34",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-34.jpg",
+        full: "../assets/images/audits/asian-marble/photo-34.jpg",
+        categoryKey: "auxiliary",
+        category: "Water & Auxiliary Systems",
+        title: "Slurry Settling Pond & Overflow Channels",
+        caption: "Open sedimentation pond ensuring closed-loop industrial water management and resource conservation."
+      },
+      {
+        id: "35",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-35.jpg",
+        full: "../assets/images/audits/asian-marble/photo-35.jpg",
+        categoryKey: "polishing",
+        category: "Polishing & Finishing",
+        title: "Radial Arm Stone Polishing Machine",
+        caption: "Articulated radial arm manual/semi-automated stone polishing machine with vertical motor spindle."
+      },
+      {
+        id: "36",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-36.jpg",
+        full: "../assets/images/audits/asian-marble/photo-36.jpg",
+        categoryKey: "polishing",
+        category: "Polishing & Finishing",
+        title: "Polishing Bay Workshop Overview",
+        caption: "Wide view of the polishing department showing multiple workstations, drainage floor, and marble slabs."
+      },
+      {
+        id: "37",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-37.jpg",
+        full: "../assets/images/audits/asian-marble/photo-37.jpg",
+        categoryKey: "cutting",
+        category: "Cutting & Gang Saws",
+        title: "Bridge Cutting Machine & Water Coolant Setup",
+        caption: "Bridge cutter with adjustable spindle height and water nozzle directed at the circular blade contact point."
+      },
+      {
+        id: "38",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-38.jpg",
+        full: "../assets/images/audits/asian-marble/photo-38.jpg",
+        categoryKey: "electrical",
+        category: "Electrical & Power Distribution",
+        title: "Machine Terminal Box & Wiring Inspection",
+        caption: "Audit inspection of motor terminal box, power supply conduit, and protective grounding connections."
+      },
+      {
+        id: "39",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-39.jpg",
+        full: "../assets/images/audits/asian-marble/photo-39.jpg",
+        categoryKey: "auxiliary",
+        category: "Water & Auxiliary Systems",
+        title: "Pressure Gauge & Fluid Line Monitoring",
+        caption: "Bourdon tube dial pressure gauge monitoring operating line pressure in the auxiliary water or air system."
+      },
+      {
+        id: "40",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-40.jpg",
+        full: "../assets/images/audits/asian-marble/photo-40.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Overhead Gantry Crane in Block Storage Shed",
+        caption: "High-capacity overhead travelling crane and lifting hoist for maneuvering multi-ton raw marble blocks."
+      },
+      {
+        id: "41",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-41.jpg",
+        full: "../assets/images/audits/asian-marble/photo-41.jpg",
+        categoryKey: "cutting",
+        category: "Cutting & Gang Saws",
+        title: "Heavy Winch Drum & Reduction Gearbox",
+        caption: "Heavy-duty winch drum, wire rope, and reduction gear assembly driving block feed mechanisms."
+      },
+      {
+        id: "42",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-42.jpg",
+        full: "../assets/images/audits/asian-marble/photo-42.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Elevated View of Raw Marble Block Storage Bay",
+        caption: "High perspective of the storage bay illustrating volume of stored marble and building clearance."
+      },
+      {
+        id: "43",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-43.jpg",
+        full: "../assets/images/audits/asian-marble/photo-43.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Factory Interior & Raw Material Inventory",
+        caption: "Comprehensive interior perspective of the processing hall, roof lighting panels, and raw material inventory."
+      },
+      {
+        id: "44",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-44.jpg",
+        full: "../assets/images/audits/asian-marble/photo-44.jpg",
+        categoryKey: "facility",
+        category: "Facility & Storage",
+        title: "Finished Marble Handicrafts & Showroom Display",
+        caption: "Factory showroom counter displaying precision crafted marble artifacts, sculptures, and tabletop pieces."
+      },
+      {
+        id: "45",
+        thumb: "../assets/images/thumbnails/asian-marble/photo-45.jpg",
+        full: "../assets/images/audits/asian-marble/photo-45.jpg",
+        categoryKey: "team",
+        category: "Audit Team",
+        title: "4-Member Engineering Audit Delegation at Main Gate",
+        caption: "The 4-member energy audit engineering team standing at the entrance gate of Asian Marble Industries Bangladesh Limited upon completion of on-site measurements."
+      }
+    ];
+
+    // Lightbox & Filter Logic
+    let currentFilter = 'all';
+    let filteredIndices = [];
+    let currentLightboxFilteredIndex = 0;
+
+    const galleryGrid = document.getElementById('galleryGrid');
+    const imageLightbox = document.getElementById('imageLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const lightboxCategory = document.getElementById('lightboxCategory');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+
+    function updateFilteredIndices() {
+      filteredIndices = [];
+      auditPhotos.forEach((photo, idx) => {
+        if (currentFilter === 'all' || photo.categoryKey === currentFilter) {
+          filteredIndices.push(idx);
+        }
+      });
+    }
+
+    function renderGallery() {
+      updateFilteredIndices();
+      galleryGrid.innerHTML = '';
+
+      if (filteredIndices.length === 0) {
+        galleryGrid.innerHTML = `<div class="col-span-full py-12 text-center text-sm text-slate-400">No photographs found under this filter.</div>`;
+        return;
+      }
+
+      filteredIndices.forEach((photoIdx, positionInFilter) => {
+        const photo = auditPhotos[photoIdx];
+        const card = document.createElement('div');
+        card.className = "group relative rounded-2xl overflow-hidden bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_6px_24px_rgb(0,0,0,0.03)] dark:shadow-[0_6px_24px_rgb(0,0,0,0.2)] hover:border-brand-500/50 hover:shadow-[0_12px_32px_0_rgba(234,88,12,0.12)] hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between";
+        card.innerHTML = `
+          <div class="relative w-full aspect-[4/3] bg-slate-900 overflow-hidden">
+            <img 
+              src="${photo.thumb}" 
+              alt="${photo.title}" 
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+              <span class="text-[11px] font-mono text-white flex items-center gap-1.5 drop-shadow-md">
+                <i class="fa-solid fa-up-right-and-down-left-from-center text-[10px]"></i> Inspect Full Photo
+              </span>
+            </div>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-black/60 text-white backdrop-blur-md border border-white/10">
+              #${photo.id}
+            </span>
+          </div>
+          <div class="p-3.5 flex flex-col justify-between flex-grow">
+            <div>
+              <span class="text-[10px] font-mono font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 block mb-1">
+                ${photo.category}
+              </span>
+              <h4 class="font-display font-bold text-slate-900 dark:text-white text-xs sm:text-sm line-clamp-1 mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
+                ${photo.title}
+              </h4>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                ${photo.caption}
+              </p>
+            </div>
+          </div>
+        `;
+        card.addEventListener('click', () => {
+          openLightbox(positionInFilter);
+        });
+        galleryGrid.appendChild(card);
+      });
+    }
+
+    // Filter Buttons Listener
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-brand-600', 'text-white');
+          b.classList.add('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+        });
+        btn.classList.add('active', 'bg-brand-600', 'text-white');
+        btn.classList.remove('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+
+        currentFilter = btn.dataset.filter;
+        renderGallery();
+      });
+    });
+
+    // Lightbox Controls
+    function openLightbox(positionInFilter) {
+      currentLightboxFilteredIndex = positionInFilter;
+      showLightboxImage();
+      imageLightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      imageLightbox.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function showLightboxImage() {
+      const realIndex = filteredIndices[currentLightboxFilteredIndex];
+      const photo = auditPhotos[realIndex];
+
+      lightboxImg.src = photo.full;
+      lightboxImg.alt = photo.title;
+      lightboxTitle.textContent = photo.title;
+      lightboxCaption.textContent = photo.caption;
+      lightboxCategory.textContent = photo.category;
+      lightboxCounter.textContent = `${currentLightboxFilteredIndex + 1} / ${filteredIndices.length}`;
+    }
+
+    function nextPhoto() {
+      if (filteredIndices.length === 0) return;
+      currentLightboxFilteredIndex = (currentLightboxFilteredIndex + 1) % filteredIndices.length;
+      showLightboxImage();
+    }
+
+    function prevPhoto() {
+      if (filteredIndices.length === 0) return;
+      currentLightboxFilteredIndex = (currentLightboxFilteredIndex - 1 + filteredIndices.length) % filteredIndices.length;
+      showLightboxImage();
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxNext.addEventListener('click', nextPhoto);
+    lightboxPrev.addEventListener('click', prevPhoto);
+
+    imageLightbox.addEventListener('click', (e) => {
+      if (e.target === imageLightbox) {
+        closeLightbox();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!imageLightbox.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextPhoto();
+        if (e.key === 'ArrowLeft') prevPhoto();
+      }
+    });
+
+    // Initial Render
+    renderGallery();
+  </script>
+</body>
+</html>
