@@ -21,7 +21,7 @@ export const trainingCourses = [
     title: "Industrial Technology on Electrical Engineering & Instrumentation",
     institution: "Training Institute for Chemical Industries (TICI) • Polash, Narsingdi",
     period: "Jun 2025 – Jul 2025",
-    description: "Completed an intensive 56-hour hands-on curriculum covering power generation principles, Programmable Logic Controllers (PLC), Distributed Control Systems (DCS), and factory automation with SCADA telemetry.",
+    description: "Completed an intensive 56-hour hands-on training program covering power generation principles, Programmable Logic Controllers (PLC), Distributed Control Systems (DCS), and factory automation with SCADA telemetry.",
     durationTag: "56-Hour Intensive",
     tags: ["PLC", "DCS", "SCADA Automation", "Power Generation"]
   },
