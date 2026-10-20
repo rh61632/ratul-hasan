@@ -1,23 +1,23 @@
+import { getThemedHeaderMarkup } from './cardBanners.js';
+
 export function renderProjects(projects, targetElementId) {
   const container = document.getElementById(targetElementId);
   if (!container) return;
 
-  const defaultProjectCover = "assets/images/thumbnails/default-project.jpg";
-
   container.innerHTML = projects.map(project => {
-    // 16:9 beautifully rounded cover image matching competition cards, with default fallback
-    const imageSrc = project.media || defaultProjectCover;
-    const mediaBlock = `
-      <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
-        <img 
-          src="${imageSrc}" 
-          alt="${project.mediaAlt || project.title}" 
-          loading="lazy"
-          onerror="this.src='${defaultProjectCover}'"
-          class="w-full h-full object-cover"
-        />
-      </div>
-    `;
+    // 16:9 dedicated cover image or bespoke themed engineering graphic header
+    const mediaBlock = project.media
+      ? `
+        <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
+          <img 
+            src="${project.media}" 
+            alt="${project.mediaAlt || project.title}" 
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      `
+      : getThemedHeaderMarkup(project, 'project');
 
     // Title links to dedicated case study if available
     const titleHeader = project.caseStudyUrl

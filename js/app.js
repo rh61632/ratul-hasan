@@ -4,31 +4,31 @@ import { renderProjects } from './components/renderProjects.js';
 import { awardsData } from './data/awards.js';
 import { experienceData } from './data/experience.js';
 import { auditData, trainingCourses, industrialVisits } from './data/training.js';
+import { getThemedHeaderMarkup } from './components/cardBanners.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Theme Toggle
   initThemeToggle();
 
-  // Render Projects (Cards with Image/GIF Support)
+  // Render Projects (Cards with Image/GIF Support or Themed Tech Headers)
   renderProjects(projectsData, 'projects-grid');
 
-  // Render Awards & Competitions (Cards with Picture/Media Support and default placeholder)
+  // Render Awards & Competitions (Cards with Picture/Media Support or Themed Tech Headers)
   const awardsContainer = document.getElementById('awards-grid');
   if (awardsContainer) {
     awardsContainer.innerHTML = awardsData.map(award => {
-      const defaultAwardCover = 'assets/images/thumbnails/default-award.jpg';
-      const imageSrc = award.media || defaultAwardCover;
-      const mediaBlock = `
-        <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
-          <img 
-            src="${imageSrc}" 
-            alt="${award.mediaAlt || award.title}" 
-            loading="lazy"
-            onerror="this.src='assets/images/thumbnails/default-award.jpg'"
-            class="w-full h-full object-cover"
-          />
-        </div>
-      `;
+      const mediaBlock = award.media
+        ? `
+          <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
+            <img 
+              src="${award.media}" 
+              alt="${award.mediaAlt || award.title}" 
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        `
+        : getThemedHeaderMarkup(award, 'award');
 
       const championDecoration = award.isChampion
         ? `<div class="absolute top-0 right-0 w-20 h-20 bg-brand-500/10 rounded-bl-full pointer-events-none"></div>`
@@ -168,20 +168,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Industrial Visits as Full-Fledged Cards
   const visitsContainer = document.getElementById('field-visits');
   if (visitsContainer) {
-    const defaultVisitCover = 'assets/images/thumbnails/default-visit.jpg';
     visitsContainer.innerHTML = industrialVisits.map(visit => {
-      const imageSrc = visit.media || defaultVisitCover;
-      const mediaBlock = `
-        <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
-          <img 
-            src="${imageSrc}" 
-            alt="${visit.mediaAlt || visit.name}" 
-            loading="lazy"
-            onerror="this.src='${defaultVisitCover}'"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-      `;
+      const mediaBlock = visit.media
+        ? `
+          <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
+            <img 
+              src="${visit.media}" 
+              alt="${visit.mediaAlt || visit.name}" 
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        `
+        : getThemedHeaderMarkup(visit, 'visit');
 
       const tagPills = (visit.tags || [])
         .map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">${tag}</span>`)

@@ -49,7 +49,7 @@ export const industrialVisits = [
     location: "Chanchra, Jashore",
     organizer: "Dept. of EEE, JUST Field Study",
     badge: "Grid Substation",
-    media: "assets/images/thumbnails/default-visit.jpg",
+    media: null,
     mediaAlt: "132/33 KV Grid Sub-station WZPDCL",
     description: "Inspected high-voltage power transmission infrastructure, including step-down power transformers, SF6 gas circuit breakers, busbar protection schemes, capacitor banks, and distribution control room telemetry.",
     tags: ["132/33 KV Grid", "SF6 Circuit Breakers", "Power Transformers", "Switchgear Safety"]
@@ -62,7 +62,7 @@ export const industrialVisits = [
     location: "Bheramara, Kushtia",
     organizer: "IEEE JUST SB SPAx • PowerTech Explorers",
     badge: "Combined Cycle",
-    media: "assets/images/thumbnails/default-visit.jpg",
+    media: null,
     mediaAlt: "Bheramara 410MW Combined Cycle Power Plant",
     description: "Analyzed baseload generation efficiency in a 410MW multi-shaft combined-cycle block. Studied high-temperature gas turbine exhaust utilization, cooling water systems, and 230kV switchyard synchronization.",
     tags: ["Combined Cycle", "Gas & Steam Turbines", "Cooling Towers", "Grid Interconnection"]
