@@ -37,6 +37,25 @@
     }
   </script>
   <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    #sliderTrack::-webkit-scrollbar {
+      height: 6px;
+    }
+    #sliderTrack::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 9999px;
+    }
+    .dark #sliderTrack::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    #sliderTrack::-webkit-scrollbar-thumb {
+      background: rgba(249, 115, 22, 0.45);
+      border-radius: 9999px;
+    }
+    #sliderTrack::-webkit-scrollbar-thumb:hover {
+      background: rgba(249, 115, 22, 0.8);
+    }
+  </style>
 </head>
 <body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
 
@@ -141,33 +160,99 @@
     </div>
 
     <!-- Tour Photo Gallery Section -->
-    <section class="mb-16 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+    <section id="photoGallerySection" class="mb-16 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
       <div class="mb-6 border-b border-slate-200/60 dark:border-slate-800 pb-5">
-        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-1">
-          <i class="fa-solid fa-camera-retro"></i>
-          <span>Visual Documentation • 45 Photographs</span>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+            <i class="fa-solid fa-camera-retro"></i>
+            <span>Visual Documentation • 45 Photographs</span>
+          </div>
+          <div class="text-[11px] font-mono text-slate-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-expand text-[10px] text-brand-500"></i> Click any photo to inspect full resolution
+          </div>
         </div>
+
         <h2 class="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
           Field Energy Audit Photo Gallery & Equipment Log
         </h2>
-        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-2xl">
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-3xl">
           Complete photographic logging from the audit walkthrough—capturing the 11 kV transformer, PFI capacitor panel, 110 kW Alstom gang saw drive, digital tachometer RPM checks, automated slab polishing line, dual-segment settling ponds, and the 4-member delegation.
         </p>
 
-        <!-- Gallery Category Filter Pills -->
-        <div class="flex flex-wrap gap-2 mt-5" id="galleryFilters">
-          <button data-filter="all" class="filter-btn active px-3.5 py-1.5 rounded-full text-xs font-medium bg-brand-600 text-white shadow-sm transition">All (45)</button>
-          <button data-filter="facility" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Facility & Storage</button>
-          <button data-filter="electrical" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Electrical & Power</button>
-          <button data-filter="cutting" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Cutting & Gang Saws</button>
-          <button data-filter="polishing" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Polishing & Finishing</button>
-          <button data-filter="auxiliary" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Water & Auxiliary</button>
-          <button data-filter="team" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Audit Team</button>
+        <!-- Gallery Controls: Filters + View Mode Switcher -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mt-5">
+          <!-- Category Filter Pills -->
+          <div class="flex flex-wrap gap-1.5 sm:gap-2" id="galleryFilters">
+            <button data-filter="all" class="filter-btn active px-3.5 py-1.5 rounded-full text-xs font-medium bg-brand-600 text-white shadow-sm transition">All (45)</button>
+            <button data-filter="facility" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Facility & Storage</button>
+            <button data-filter="electrical" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Electrical & Power</button>
+            <button data-filter="cutting" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Cutting & Gang Saws</button>
+            <button data-filter="polishing" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Polishing & Finishing</button>
+            <button data-filter="auxiliary" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Water & Auxiliary</button>
+            <button data-filter="team" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Audit Team</button>
+          </div>
+
+          <!-- View Mode Toggle: 3-Row Slider vs Expandable Grid -->
+          <div class="inline-flex items-center p-1 rounded-full bg-slate-200/70 dark:bg-surface-card border border-slate-300/60 dark:border-white/10 shrink-0 self-start md:self-auto shadow-sm">
+            <button id="modeSliderBtn" class="px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition bg-brand-600 text-white shadow-sm" title="Arrange photos in 3 slidable rows">
+              <i class="fa-solid fa-arrows-left-right text-xs"></i>
+              <span>3-Row Slider</span>
+            </button>
+            <button id="modeGridBtn" class="px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400" title="Curated grid with expand section">
+              <i class="fa-solid fa-table-cells text-xs"></i>
+              <span>Expandable Grid</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Photo Grid -->
-      <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"></div>
+      <!-- Mode 1: 3-Row Slidable Showcase (Default) -->
+      <div id="sliderContainer" class="relative w-full">
+        <!-- Floating Navigation Arrow: Left -->
+        <button id="sliderPrevBtn" aria-label="Slide Left" class="absolute -left-3 sm:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 dark:bg-surface-card/95 text-slate-800 dark:text-white shadow-xl border border-slate-200/80 dark:border-white/15 flex items-center justify-center z-20 hover:bg-brand-600 hover:text-white transition disabled:opacity-20 disabled:pointer-events-none backdrop-blur-md">
+          <i class="fa-solid fa-chevron-left text-xs sm:text-sm"></i>
+        </button>
+
+        <!-- Floating Navigation Arrow: Right -->
+        <button id="sliderNextBtn" aria-label="Slide Right" class="absolute -right-3 sm:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 dark:bg-surface-card/95 text-slate-800 dark:text-white shadow-xl border border-slate-200/80 dark:border-white/15 flex items-center justify-center z-20 hover:bg-brand-600 hover:text-white transition disabled:opacity-20 disabled:pointer-events-none backdrop-blur-md">
+          <i class="fa-solid fa-chevron-right text-xs sm:text-sm"></i>
+        </button>
+
+        <!-- Slidable Multi-Row Track (3 Rows x Multiple Columns) -->
+        <div id="sliderTrack" class="grid grid-rows-3 grid-flow-col auto-cols-[280px] sm:auto-cols-[320px] md:auto-cols-[340px] gap-3 sm:gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 px-1 select-none">
+          <!-- Dynamically populated with 3-row cards -->
+        </div>
+
+        <!-- Slider Footer: Progress Bar & Info -->
+        <div class="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-slate-400">
+          <span class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+            <i class="fa-solid fa-arrows-left-right text-brand-500 text-[11px]"></i>
+            <span id="sliderStatus">Slide with arrows, mouse drag, or trackpad swipe</span>
+          </span>
+
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <div class="flex-grow sm:w-48 h-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800 overflow-hidden">
+              <div id="sliderProgressBar" class="h-full bg-gradient-to-r from-brand-500 to-brand-600 rounded-full transition-all duration-200" style="width: 15%;"></div>
+            </div>
+            <span id="sliderPhotoCounter" class="text-slate-600 dark:text-slate-300 font-semibold whitespace-nowrap">45 Photos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mode 2: Expandable Grid (Hidden by default, toggled via mode switcher) -->
+      <div id="gridContainer" class="hidden">
+        <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Expand / Collapse Action Wrapper -->
+        <div id="expandBtnWrapper" class="mt-8 pt-4 border-t border-slate-200/60 dark:border-slate-800/80 text-center">
+          <button id="toggleExpandBtn" class="px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 transition-all duration-300 inline-flex items-center gap-2 group">
+            <span id="expandBtnText">Show All 45 Photographs (Expand)</span>
+            <i id="expandBtnIcon" class="fa-solid fa-chevron-down text-xs group-hover:translate-y-0.5 transition-transform"></i>
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- Main Content + Sidebar -->
@@ -1038,12 +1123,30 @@
       }
     ];
 
-    // Lightbox & Filter Logic
+    // Lightbox & Filter & Gallery State
     let currentFilter = 'all';
     let filteredIndices = [];
     let currentLightboxFilteredIndex = 0;
+    let currentViewMode = 'slider'; // 'slider' (3-Row Slidable) or 'grid' (Expandable Grid)
+    let isGridExpanded = false;
 
+    const photoGallerySection = document.getElementById('photoGallerySection');
+    const sliderContainer = document.getElementById('sliderContainer');
+    const gridContainer = document.getElementById('gridContainer');
+    const sliderTrack = document.getElementById('sliderTrack');
+    const sliderPrevBtn = document.getElementById('sliderPrevBtn');
+    const sliderNextBtn = document.getElementById('sliderNextBtn');
+    const sliderProgressBar = document.getElementById('sliderProgressBar');
+    const sliderStatus = document.getElementById('sliderStatus');
+    const sliderPhotoCounter = document.getElementById('sliderPhotoCounter');
+    const modeSliderBtn = document.getElementById('modeSliderBtn');
+    const modeGridBtn = document.getElementById('modeGridBtn');
     const galleryGrid = document.getElementById('galleryGrid');
+    const expandBtnWrapper = document.getElementById('expandBtnWrapper');
+    const toggleExpandBtn = document.getElementById('toggleExpandBtn');
+    const expandBtnText = document.getElementById('expandBtnText');
+    const expandBtnIcon = document.getElementById('expandBtnIcon');
+
     const imageLightbox = document.getElementById('imageLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxTitle = document.getElementById('lightboxTitle');
@@ -1065,14 +1168,140 @@
 
     function renderGallery() {
       updateFilteredIndices();
-      galleryGrid.innerHTML = '';
+      if (currentViewMode === 'slider') {
+        renderSlider();
+      } else {
+        renderGrid();
+      }
+    }
+
+    // 1. Render 3-Row Slidable Showcase
+    function renderSlider() {
+      sliderTrack.innerHTML = '';
+      sliderPhotoCounter.textContent = `${filteredIndices.length} Photos`;
 
       if (filteredIndices.length === 0) {
-        galleryGrid.innerHTML = `<div class="col-span-full py-12 text-center text-sm text-slate-400">No photographs found under this filter.</div>`;
+        sliderTrack.className = "flex items-center justify-center py-16 text-center text-sm text-slate-400 w-full";
+        sliderTrack.innerHTML = '<div>No photographs found under this filter.</div>';
+        sliderProgressBar.style.width = '100%';
+        sliderPrevBtn.disabled = true;
+        sliderNextBtn.disabled = true;
         return;
       }
 
+      // Re-apply 3-row horizontal grid
+      sliderTrack.className = "grid grid-rows-3 grid-flow-col auto-cols-[280px] sm:auto-cols-[320px] md:auto-cols-[340px] gap-3 sm:gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 px-1 select-none";
+
       filteredIndices.forEach((photoIdx, positionInFilter) => {
+        const photo = auditPhotos[photoIdx];
+        const card = document.createElement('div');
+        card.className = "snap-start group relative rounded-2xl overflow-hidden bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_4px_16px_rgb(0,0,0,0.03)] dark:shadow-[0_4px_16px_rgb(0,0,0,0.2)] hover:border-brand-500/50 hover:shadow-[0_8px_24px_0_rgba(234,88,12,0.14)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex flex-col justify-between h-[180px] sm:h-[190px]";
+        card.innerHTML = `
+          <div class="relative h-[110px] sm:h-[118px] w-full bg-slate-950 overflow-hidden shrink-0">
+            <img 
+              src="${photo.thumb}" 
+              alt="${photo.title}" 
+              loading="lazy"
+              draggable="false"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+              <span class="text-[10px] font-mono text-white flex items-center gap-1.5 drop-shadow">
+                <i class="fa-solid fa-up-right-and-down-left-from-center text-[9px]"></i> View Full
+              </span>
+            </div>
+            <span class="absolute top-2 right-2 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-black/60 text-white backdrop-blur-md border border-white/10">
+              #${photo.id}
+            </span>
+          </div>
+          <div class="p-2.5 sm:p-3 flex flex-col justify-between flex-grow">
+            <div>
+              <span class="text-[9px] font-mono font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 block truncate">
+                ${photo.category}
+              </span>
+              <h4 class="font-display font-bold text-slate-900 dark:text-white text-xs truncate mt-0.5 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition" title="${photo.title}">
+                ${photo.title}
+              </h4>
+            </div>
+          </div>
+        `;
+        card.addEventListener('click', () => {
+          openLightbox(positionInFilter);
+        });
+        sliderTrack.appendChild(card);
+      });
+
+      sliderTrack.scrollLeft = 0;
+      updateSliderProgress();
+    }
+
+    // Slider Scroll & Progress Updates
+    function updateSliderProgress() {
+      const maxScroll = sliderTrack.scrollWidth - sliderTrack.clientWidth;
+      if (maxScroll <= 5) {
+        sliderProgressBar.style.width = '100%';
+        sliderPrevBtn.disabled = true;
+        sliderNextBtn.disabled = true;
+      } else {
+        const progress = (sliderTrack.scrollLeft / maxScroll) * 100;
+        sliderProgressBar.style.width = `${Math.min(100, Math.max(10, progress))}%`;
+        sliderPrevBtn.disabled = sliderTrack.scrollLeft <= 10;
+        sliderNextBtn.disabled = sliderTrack.scrollLeft >= maxScroll - 10;
+      }
+    }
+
+    sliderTrack.addEventListener('scroll', updateSliderProgress);
+
+    sliderPrevBtn.addEventListener('click', () => {
+      const scrollAmount = Math.max(300, sliderTrack.clientWidth * 0.75);
+      sliderTrack.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    sliderNextBtn.addEventListener('click', () => {
+      const scrollAmount = Math.max(300, sliderTrack.clientWidth * 0.75);
+      sliderTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    // Mouse drag scrolling for slider
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragScrollLeft = 0;
+
+    sliderTrack.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      sliderTrack.classList.add('cursor-grabbing');
+      dragStartX = e.pageX - sliderTrack.offsetLeft;
+      dragScrollLeft = sliderTrack.scrollLeft;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        sliderTrack.classList.remove('cursor-grabbing');
+      }
+    });
+
+    sliderTrack.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - sliderTrack.offsetLeft;
+      const walk = (x - dragStartX) * 1.5;
+      sliderTrack.scrollLeft = dragScrollLeft - walk;
+    });
+
+    // 2. Render Expandable Grid
+    function renderGrid() {
+      galleryGrid.innerHTML = '';
+
+      if (filteredIndices.length === 0) {
+        galleryGrid.innerHTML = `<div class="col-span-full py-16 text-center text-sm text-slate-400">No photographs found under this filter.</div>`;
+        expandBtnWrapper.classList.add('hidden');
+        return;
+      }
+
+      const itemsToShow = isGridExpanded ? filteredIndices : filteredIndices.slice(0, 8);
+
+      itemsToShow.forEach((photoIdx, positionInFilter) => {
         const photo = auditPhotos[photoIdx];
         const card = document.createElement('div');
         card.className = "group relative rounded-2xl overflow-hidden bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_6px_24px_rgb(0,0,0,0.03)] dark:shadow-[0_6px_24px_rgb(0,0,0,0.2)] hover:border-brand-500/50 hover:shadow-[0_12px_32px_0_rgba(234,88,12,0.12)] hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between";
@@ -1112,9 +1341,53 @@
         });
         galleryGrid.appendChild(card);
       });
+
+      // Expand / Collapse Button handling
+      if (filteredIndices.length <= 8) {
+        expandBtnWrapper.classList.add('hidden');
+      } else {
+        expandBtnWrapper.classList.remove('hidden');
+        if (isGridExpanded) {
+          expandBtnText.textContent = `Collapse to 8 Photographs`;
+          expandBtnIcon.className = "fa-solid fa-chevron-up text-xs group-hover:-translate-y-0.5 transition-transform";
+        } else {
+          expandBtnText.textContent = `Show All ${filteredIndices.length} Photographs (Expand)`;
+          expandBtnIcon.className = "fa-solid fa-chevron-down text-xs group-hover:translate-y-0.5 transition-transform";
+        }
+      }
     }
 
-    // Filter Buttons Listener
+    // Expand / Collapse Action
+    toggleExpandBtn.addEventListener('click', () => {
+      isGridExpanded = !isGridExpanded;
+      renderGrid();
+      if (!isGridExpanded) {
+        photoGallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    // View Mode Toggle Listeners
+    modeSliderBtn.addEventListener('click', () => {
+      if (currentViewMode === 'slider') return;
+      currentViewMode = 'slider';
+      modeSliderBtn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition bg-brand-600 text-white shadow-sm";
+      modeGridBtn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400";
+      sliderContainer.classList.remove('hidden');
+      gridContainer.classList.add('hidden');
+      renderSlider();
+    });
+
+    modeGridBtn.addEventListener('click', () => {
+      if (currentViewMode === 'grid') return;
+      currentViewMode = 'grid';
+      modeGridBtn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition bg-brand-600 text-white shadow-sm";
+      modeSliderBtn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400";
+      gridContainer.classList.remove('hidden');
+      sliderContainer.classList.add('hidden');
+      renderGrid();
+    });
+
+    // Category Filter Buttons Listener
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
