@@ -29,9 +29,13 @@ export const trainingCourses = [
     title: "Solar System Planning, Design, Installation and Operation",
     institution: "Daffodil International University (DIU) • Dhaka, Bangladesh",
     period: "Apr 2026",
-    description: "Completed 32 hours of practical training in solar photovoltaic system architecture, load estimation, panel orientation, inverters, and long-term operational maintenance.",
-    durationTag: "32-Hour Training",
-    tags: ["Solar PV Design", "Renewable Energy", "Installation & O&M"]
+    caseStudyUrl: "projects/diu-solar.html",
+    media: "assets/images/thumbnails/diu-solar.jpg",
+    mediaAlt: "Solar System Planning, Design, Installation and Operation — Daffodil International University (DIU)",
+    photoCount: "21 Field Photos",
+    description: "Completed 32 hours of certified practical training at DIU's Renewable Energy Lab and 24 kWp rooftop solar plant. Hands-on experience spanning PV array sizing, solar radiation geometry, I-V curve tracer diagnostics, Growatt & hybrid inverters, tubular battery banks, and AC/DC protection switchgear.",
+    durationTag: "32-Hour Certified",
+    tags: ["Solar PV Design", "24 kWp Rooftop Plant", "I-V Diagnostics", "Hybrid Inverters", "21 Field Photos"]
   }
 ];
 

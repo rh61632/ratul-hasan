@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar System Planning, Design, Installation and Operation — Certified Training | Md. Ratul Hasan</title>
+  <meta property="og:title" content="Solar System Planning, Design, Installation and Operation — Certified Practical Training">
+  <meta property="og:description" content="32-hour practical professional training program at the Renewable Energy Lab, Dept. of EEE, Daffodil International University (DIU), covering PV array sizing, inverters, tubular storage, I-V diagnostics, and 24 kWp rooftop commissioning.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rh61632.github.io/projects/diu-solar.html">
+  <meta property="og:image" content="https://rh61632.github.io/assets/images/thumbnails/diu-solar.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74',
+              400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
+              800: '#9a3412', 900: '#7c2d12', 950: '#431407',
+            },
+            surface: { light: '#fbfbfd', card: '#161922', dark: '#0c0e14' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    #sliderTrack::-webkit-scrollbar {
+      height: 6px;
+    }
+    #sliderTrack::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 9999px;
+    }
+    .dark #sliderTrack::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    #sliderTrack::-webkit-scrollbar-thumb {
+      background: rgba(249, 115, 22, 0.45);
+      border-radius: 9999px;
+    }
+    #sliderTrack::-webkit-scrollbar-thumb:hover {
+      background: rgba(249, 115, 22, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
+
+  <!-- Ambient Glassmorphism Glow Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-32 -left-32 w-[520px] h-[520px] bg-amber-500/15 dark:bg-amber-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute top-1/3 -right-32 w-[480px] h-[480px] bg-brand-500/15 dark:bg-brand-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-1/4 -left-32 w-[520px] h-[520px] bg-emerald-500/15 dark:bg-emerald-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-10 right-1/4 w-[420px] h-[420px] bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-[100px]"></div>
+  </div>
+
+  <!-- Fixed Top Header -->
+  <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none">
+    <nav class="pointer-events-auto bg-white/75 dark:bg-surface-card/75 backdrop-blur-xl px-4 sm:px-6 py-2.5 rounded-full border border-white/80 dark:border-white/10 shadow-lg shadow-black/[0.03] dark:shadow-black/20 flex items-center justify-between gap-4 w-full max-w-[92vw] xl:max-w-screen-2xl">
+      <a href="../index.html#training"
+         onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }"
+         class="flex items-center gap-2 group text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition">
+        <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-1 transition"></i>
+        <span>Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">
+          <i class="fa-regular fa-sun text-sm dark:hidden"></i>
+          <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
+        </button>
+        <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 backdrop-blur-md border border-brand-300/40 dark:border-brand-800/40 flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-solar-panel text-xs"></i> DIU Renewable Energy Lab
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
+
+    <!-- Hero Header -->
+    <div class="mb-10 max-w-4xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
+        Practical Engineering Training • Department of EEE, DIU
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
+        Solar System Planning, Design, Installation and Operation
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        Completed an intensive <strong>32-hour practical professional training program</strong> hosted by the <strong>Department of Electrical & Electronic Engineering (EEE)</strong> at <strong>Daffodil International University (DIU)</strong>, Savar, Dhaka. The curriculum integrated rigorous solar photovoltaics theory with extensive laboratory testing and hands-on commissioning across DIU's <strong>24 kWp rooftop solar installation</strong>—covering solar radiation geometry, crystalline PV module testing, I-V curve tracing, on-grid and hybrid inverter topologies (Growatt, JFY, NEXT), tubular deep-cycle storage banks, and AC/DC protection switchgear.
+      </p>
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Dept. of EEE, DIU</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">32-Hour Practical Training</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">24 kWp Rooftop Plant</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">I-V Curve Diagnostics</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Hybrid & Grid-Tied Inverters</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">April 2026</span>
+      </div>
+    </div>
+
+    <!-- Official Highlight Banner (Compact & Centered) -->
+    <div class="mb-14 max-w-4xl mx-auto rounded-3xl overflow-hidden border border-white/80 dark:border-white/10 shadow-[0_12px_40px_rgb(0,0,0,0.08)] dark:shadow-[0_12px_40px_rgb(0,0,0,0.35)] bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl relative">
+      <div class="w-full overflow-hidden bg-slate-950 flex items-center justify-center">
+        <img 
+          src="../assets/images/thumbnails/diu-solar.jpg" 
+          alt="Solar System Planning, Design, Installation and Operation — Daffodil International University"
+          class="w-full h-auto max-h-[500px] object-cover block"
+        />
+      </div>
+      <div class="p-3.5 sm:p-4 bg-white/85 dark:bg-surface-card/85 backdrop-blur-xl border-t border-white/60 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-600 dark:text-slate-300">
+        <span class="font-medium flex items-center gap-2">
+          <i class="fa-solid fa-flask-vial text-brand-500"></i>
+          Renewable Energy Lab Hands-On Session • Solar Simulator Characterization & 24 kWp System Model
+        </span>
+        <span class="font-mono text-slate-400 text-[11px]">Daffodil Smart City, Savar, Dhaka</span>
+      </div>
+    </div>
+
+    <!-- Highlights Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-brand-300/80 dark:border-brand-800/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-16 h-16 bg-brand-500/10 rounded-bl-full pointer-events-none"></div>
+        <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">32 Hours</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Intensive Training</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Comprehensive hands-on training spanning theoretical design, equipment sizing, and field commissioning.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-display">24 kWp</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Rooftop Installation</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Analyzed DIU's 11 kWp on-grid, 5 kWp hybrid EV charging, and 8 kWp lab research solar arrays.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-3xl font-extrabold text-sky-600 dark:text-sky-400 font-display">I-V Tracer</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Diagnostic Fieldwork</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Direct field operation of portable I-V curve tracers, testing open-circuit voltage, short-circuit current, and fill factor.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">Certified</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Dept. of EEE, DIU</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Officially certified upon successfully completing all practical competencies, calculations, and safety assessments.</p>
+      </div>
+    </div>
+
+    <!-- Tour Photo Gallery Section (Full Width Showcase) -->
+    <section id="photoGallerySection" class="mb-16 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+      <div class="mb-6 border-b border-slate-200/60 dark:border-slate-800 pb-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+            <i class="fa-solid fa-camera-retro"></i>
+            <span>Visual Chronicle • 21 Photographs</span>
+          </div>
+          <div class="text-[11px] font-mono text-slate-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-expand text-[10px] text-brand-500"></i> Click any photo to inspect full resolution
+          </div>
+        </div>
+
+        <h2 class="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
+          Practical Fieldwork & Training Chronicle
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-3xl">
+          Comprehensive visual documentation captured during the training program—from rooftop string inspections and solar geometry demonstrations to inverter wiring, battery bank safety, and computer-aided system simulation.
+        </p>
+
+        <!-- Gallery Controls: Filters + View Mode Switcher -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mt-5">
+          <!-- Category Filter Pills -->
+          <div class="flex flex-wrap gap-1.5 sm:gap-2" id="galleryFilters">
+            <button data-filter="all" class="filter-btn active px-3.5 py-1.5 rounded-full text-xs font-medium bg-brand-600 text-white shadow-sm transition">All (21)</button>
+            <button data-filter="rooftop" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Rooftop Arrays & Geometry</button>
+            <button data-filter="inverters" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Inverters, Storage & Switchgear</button>
+            <button data-filter="diagnostics" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Testing & Simulation</button>
+            <button data-filter="cohort" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition">Cohort & Certification</button>
+          </div>
+
+          <!-- View Mode Toggle: 3-Row Slider vs Expandable Grid -->
+          <div class="inline-flex items-center p-1 rounded-full bg-slate-200/70 dark:bg-surface-card border border-slate-300/60 dark:border-white/10 shrink-0 self-start md:self-auto shadow-sm">
+            <button id="modeSliderBtn" class="px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition bg-brand-600 text-white shadow-sm" title="Arrange photos in 3 slidable rows">
+              <i class="fa-solid fa-arrows-left-right text-xs"></i>
+              <span>3-Row Slider</span>
+            </button>
+            <button id="modeGridBtn" class="px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400" title="Curated grid with expand section">
+              <i class="fa-solid fa-table-cells text-xs"></i>
+              <span>Expandable Grid</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mode 1: 3-Row Slidable Showcase (Default) -->
+      <div id="sliderContainer" class="relative w-full">
+        <!-- Floating Navigation Arrow: Left -->
+        <button id="sliderPrevBtn" aria-label="Slide Left" class="absolute -left-3 sm:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 dark:bg-surface-card/95 text-slate-800 dark:text-white shadow-xl border border-slate-200/80 dark:border-white/15 flex items-center justify-center z-20 hover:bg-brand-600 hover:text-white transition disabled:opacity-20 disabled:pointer-events-none backdrop-blur-md">
+          <i class="fa-solid fa-chevron-left text-xs sm:text-sm"></i>
+        </button>
+
+        <!-- Floating Navigation Arrow: Right -->
+        <button id="sliderNextBtn" aria-label="Slide Right" class="absolute -right-3 sm:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 dark:bg-surface-card/95 text-slate-800 dark:text-white shadow-xl border border-slate-200/80 dark:border-white/15 flex items-center justify-center z-20 hover:bg-brand-600 hover:text-white transition disabled:opacity-20 disabled:pointer-events-none backdrop-blur-md">
+          <i class="fa-solid fa-chevron-right text-xs sm:text-sm"></i>
+        </button>
+
+        <!-- Slidable Multi-Row Track (3 Rows x Multiple Columns) -->
+        <div id="sliderTrack" class="grid grid-rows-3 grid-flow-col auto-cols-[280px] sm:auto-cols-[320px] md:auto-cols-[340px] gap-3 sm:gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 px-1 select-none">
+          <!-- Dynamically populated with 3-row cards -->
+        </div>
+
+        <!-- Slider Footer: Progress Bar & Info -->
+        <div class="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-slate-400">
+          <span class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+            <i class="fa-solid fa-arrows-left-right text-brand-500 text-[11px]"></i>
+            <span id="sliderStatus">Slide with arrows, mouse drag, or trackpad swipe</span>
+          </span>
+
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <div class="flex-grow sm:w-48 h-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800 overflow-hidden">
+              <div id="sliderProgressBar" class="h-full bg-gradient-to-r from-brand-500 to-brand-600 rounded-full transition-all duration-200" style="width: 15%;"></div>
+            </div>
+            <span id="sliderPhotoCounter" class="text-slate-600 dark:text-slate-300 font-semibold whitespace-nowrap">21 Photos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mode 2: Expandable Grid (Hidden by default, toggled via mode switcher) -->
+      <div id="gridContainer" class="hidden">
+        <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Expand / Collapse Action Wrapper -->
+        <div id="expandBtnWrapper" class="mt-8 pt-4 border-t border-slate-200/60 dark:border-slate-800/80 text-center">
+          <button id="toggleExpandBtn" class="px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 transition-all duration-300 inline-flex items-center gap-2 group">
+            <span id="expandBtnText">Show All 21 Photographs (Expand)</span>
+            <i id="expandBtnIcon" class="fa-solid fa-chevron-down text-xs group-hover:translate-y-0.5 transition-transform"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content + Sidebar -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+      <div class="lg:col-span-8 space-y-10">
+
+        <!-- Program Overview & Methodology -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-sun text-brand-600 dark:text-brand-400 text-lg"></i>
+            Practical Training Methodology & Scope
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The <strong>Solar System Planning, Design, Installation and Operation</strong> training program at <strong>Daffodil International University (DIU)</strong> was structured to bridge theoretical electrical engineering concepts with industry-standard installation and diagnostic practices. Held across the <strong>Renewable Energy Lab</strong> and the active <strong>24 kWp Rooftop Solar Facility</strong> at Daffodil Smart City, the program offered direct physical access to working commercial-grade photovoltaic hardware, power electronics, and diagnostic instrumentation.
+          </p>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Throughout the 32 intensive training hours, participants transitioned systematically through the engineering lifecycle of solar PV projects: from astronomical sun-path calculations and shading analysis to DC string sizing, inverter topology selection, storage chemistry management, and statutory electrical safety compliance.
+          </p>
+          <div class="p-5 rounded-2xl bg-brand-500/[0.06] dark:bg-brand-950/40 backdrop-blur-md border border-brand-300/40 dark:border-brand-900/40 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed italic shadow-sm">
+            <span class="font-bold text-brand-700 dark:text-brand-400 font-display block mb-1.5 not-italic">Key Fieldwork Objective:</span>
+            "Mastering not just how to wire solar modules, but understanding how atmospheric variables, temperature coefficients, inverter clipping thresholds, and battery charge states dynamically interact under real-world Bangladesh meteorological conditions."
+          </div>
+        </section>
+
+        <!-- Technical Modules & Engineering Insights -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-microchip text-brand-600 dark:text-brand-400 text-lg"></i>
+            Technical Modules & Hands-On Engineering Insights
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The practical curriculum focused on five primary engineering domains:
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold text-sm">
+                <i class="fa-solid fa-compass-drafting"></i>
+                <span>Solar Geometry & Array Sizing</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Examined solar declination, zenith angles, and azimuth orientation using physical models and digital pyranometers. Determined optimal fixed-tilt angle (23°–24° South for Bangladesh) and calculated inter-row pitch to prevent self-shading during critical winter solstice hours.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold text-sm">
+                <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                <span>Inverter Topologies & MPPT</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Hands-on comparative study of on-grid string inverters (JFY, Growatt) versus multi-mode hybrid power units (NEXT). Explored Maximum Power Point Tracking (MPPT) algorithms, DC input voltage operating windows, and grid-synchronization protection criteria.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold text-sm">
+                <i class="fa-solid fa-car-battery"></i>
+                <span>Battery Storage & DC Distribution</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Configured tubular deep-cycle lead-acid battery banks (Hamko, Hyper Energy). Analyzed Depth of Discharge (DoD), C-rate impacts, cycle-life degradation, equalize charging voltages, and high-current busbar interconnect safety.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-sky-600 dark:text-sky-400 font-semibold text-sm">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>I-V Curve Diagnostics & Field Testing</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Operated professional portable I-V Curve Tracers on active rooftop strings, extracting real-time open-circuit voltage (Voc), short-circuit current (Isc), maximum power (Pmax), and fill factor (FF) to detect module degradation and series resistance anomalies.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Protection & Switchgear -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-shield-halved text-brand-600 dark:text-brand-400 text-lg"></i>
+            Electrical Protection Switchgear & Safety Standards
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            A key focus was standard-compliant electrical safety in distributed photovoltaic installations:
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-2.5 list-disc list-inside leading-relaxed bg-white/50 dark:bg-white/[0.03] p-5 rounded-2xl border border-slate-200/60 dark:border-white/10">
+            <li><strong>DC Disconnects & Array Combiners:</strong> Rotary load-break DC disconnect switches and high-voltage DC fuses rated for continuous solar string operation.</li>
+            <li><strong>Surge Protection Devices (SPDs):</strong> Class II DC and AC surge arresters safeguarding inverter power electronics against induced atmospheric lightning transients.</li>
+            <li><strong>Earthing & Equipotential Bonding:</strong> Frame-to-frame equipment grounding loops and dedicated earthing pits maintaining low earth-fault loop impedance.</li>
+            <li><strong>AC Sub-Distribution:</strong> Bi-directional tariff metering interfaces, residual current circuit breakers (RCCBs), and anti-islanding trip relays preventing back-feeding during utility outages.</li>
+          </ul>
+        </section>
+
+        <!-- Certification & Academic Literature -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-award text-brand-600 dark:text-brand-400 text-lg"></i>
+            Certification & Energy Policy Literature
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Upon successful completion of all laboratory experiments, field diagnostics, and design computations, <strong>Md. Ratul Hasan</strong> was awarded the official <strong>Certificate of Training</strong> (Credential ID: <code>RE26320</code>) by the <strong>Department of Electrical & Electronic Engineering (EEE), Daffodil International University</strong>.
+          </p>
+          <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/[0.08] flex items-start gap-3">
+            <div class="w-9 h-9 rounded-full bg-brand-500/10 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
+              <i class="fa-solid fa-book-bookmark"></i>
+            </div>
+            <div class="text-xs sm:text-sm leading-relaxed">
+              <span class="font-bold text-slate-900 dark:text-white block">Accompanying Energy Policy Publication</span>
+              Participants were presented with the seminal publication <em>"রাষ্ট্রীয় নীতি বনাম জনস্বার্থ — ক্যাব-এর জ্বালানি উপদেষ্টা অধ্যাপক এম শামসুল আলমের জ্বালানি ভাবনা"</em> (edited by Prof. M. M. Akash), broadening technical training into socio-economic energy transition policy and regulatory consumer rights.
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-6">
+
+        <!-- Quick Facts Card -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-200/60 dark:border-slate-800 pb-3 flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-brand-500"></i>
+            Quick Facts
+          </h3>
+          <div>
+            <div class="text-xs font-mono text-slate-400">PROGRAM</div>
+            <div class="text-sm font-semibold text-brand-600 dark:text-brand-400">Solar System Planning, Design, Installation & Operation</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">INSTITUTION</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Daffodil International University (DIU)</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">DEPARTMENT & VENUE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Dept. of EEE • Renewable Energy Lab & Rooftop Plant</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">LOCATION</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Daffodil Smart City, Birulia, Savar, Dhaka</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">DURATION</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">32 Hours (Intensive Practical)</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">DATE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">April 2026</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">FACILITY CAPACITY</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">24 kWp Multi-Topology Solar Installation</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">PARTICIPANT</div>
+            <div class="text-sm font-semibold text-brand-600 dark:text-brand-400">Md. Ratul Hasan</div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-slate-400">CREDENTIAL ID</div>
+            <div class="text-sm font-semibold font-mono text-slate-800 dark:text-slate-200">RE26320 (Certificate of Training)</div>
+          </div>
+        </div>
+
+        <!-- Curriculum Modules Card -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-200/60 dark:border-slate-800 pb-3 flex items-center gap-2">
+            <i class="fa-solid fa-list-check text-brand-500"></i>
+            Curriculum Modules
+          </h3>
+          <div class="space-y-3 text-xs">
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">MOD 01</span>
+              <span class="text-slate-600 dark:text-slate-300">Solar radiation physics, sun-path geometry, zenith angle & tilt calculations.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">MOD 02</span>
+              <span class="text-slate-600 dark:text-slate-300">Photovoltaic cell technologies, temperature coefficients & array sizing.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">MOD 03</span>
+              <span class="text-slate-600 dark:text-slate-300">Inverter topology, MPPT configuration & grid-synchronization protection.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">MOD 04</span>
+              <span class="text-slate-600 dark:text-slate-300">Tubular deep-cycle lead-acid battery banks, charge controller logic & safety.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">MOD 05</span>
+              <span class="text-slate-600 dark:text-slate-300">AC/DC distribution boards, SPDs, circuit breakers, grounding & cable routing.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="font-mono text-brand-600 dark:text-brand-400 font-bold shrink-0">MOD 06</span>
+              <span class="text-slate-600 dark:text-slate-300">Hands-on testing with I-V Curve Tracer, pyranometers & computer modeling.</span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200/70 dark:border-slate-800 space-y-2">
+            <a href="../index.html#training" class="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 transition flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-arrow-left text-xs"></i> Back to Fieldwork & Training
+            </a>
+            <a href="../index.html#projects" class="w-full py-2 px-4 rounded-xl text-center text-xs font-semibold text-brand-600 dark:text-brand-400 hover:bg-brand-50/50 dark:hover:bg-brand-950/40 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-diagram-project text-xs"></i> View Engineering Projects
+            </a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+  </main>
+
+  <!-- Fullscreen Modal / Lightbox for High-Res Inspection -->
+  <div id="imageLightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-300">
+    <button id="lightboxClose" aria-label="Close Lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition z-20">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Prev Button -->
+    <button id="lightboxPrev" aria-label="Previous Photo" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center text-base sm:text-lg transition z-20 backdrop-blur-md">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Next Button -->
+    <button id="lightboxNext" aria-label="Next Photo" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center text-base sm:text-lg transition z-20 backdrop-blur-md">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Image + Caption Container -->
+    <div class="max-w-5xl w-full flex flex-col items-center justify-center">
+      <div class="relative max-h-[72vh] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-slate-950">
+        <img id="lightboxImg" src="" alt="Photo inspection" class="max-w-full max-h-[72vh] object-contain">
+      </div>
+      <div class="mt-4 text-center max-w-3xl">
+        <div class="flex items-center justify-center gap-2 mb-1.5">
+          <span id="lightboxCounter" class="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">1 / 21</span>
+          <span id="lightboxCategory" class="text-xs font-mono text-slate-400">Category</span>
+        </div>
+        <h4 id="lightboxTitle" class="text-base sm:text-lg font-bold font-display text-white">Title</h4>
+        <p id="lightboxCaption" class="mt-1 text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500 backdrop-blur-md">
+    <p>© 2026 Md. Ratul Hasan • <a href="../index.html#training" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    themeToggleBtn.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    });
+
+    // 21 Solar Training Photographs Data
+    const tourPhotos = [
+      {
+            "id": "01",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-01.jpg",
+            "full": "../assets/images/training/diu-solar/photo-01.jpg",
+            "categoryKey": "cohort",
+            "category": "Delegation & Cohort",
+            "title": "Official Training Cohort on Rooftop Facility",
+            "caption": "Full delegation of engineering participants, student trainees, and faculty instructors assembled in front of the rooftop solar facility control building at Daffodil International University."
+      },
+      {
+            "id": "02",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-02.jpg",
+            "full": "../assets/images/training/diu-solar/photo-02.jpg",
+            "categoryKey": "cohort",
+            "category": "Classroom Seminar",
+            "title": "Solar PV System Design Theory Session",
+            "caption": "Trainees seated around the conference table reviewing curriculum handouts, load estimation methodologies, and technical reference standards during the classroom phase."
+      },
+      {
+            "id": "03",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-03.jpg",
+            "full": "../assets/images/training/diu-solar/photo-03.jpg",
+            "categoryKey": "rooftop",
+            "category": "Solar Geometry",
+            "title": "Solar Declination & Tilt Demonstration",
+            "caption": "Instructor utilizing a terrestrial globe beside an adjustable PV module to explain earth-sun geometry, solar zenith angle, latitude variance, and seasonal tilt optimization."
+      },
+      {
+            "id": "04",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-04.jpg",
+            "full": "../assets/images/training/diu-solar/photo-04.jpg",
+            "categoryKey": "rooftop",
+            "category": "Field Briefing",
+            "title": "Rooftop PV String Technical Walkthrough",
+            "caption": "Instructor conducting an outdoor technical briefing along the elevated solar photovoltaic string structure, with DIU Smart City campus buildings visible in the background."
+      },
+      {
+            "id": "05",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-05.jpg",
+            "full": "../assets/images/training/diu-solar/photo-05.jpg",
+            "categoryKey": "rooftop",
+            "category": "PV Module Anatomy",
+            "title": "Solar Module Architecture & Cell Interconnection",
+            "caption": "Examining crystalline silicon photovoltaic cell layout, busbar ribbon conductors, protective EVA lamination layers, and tempered front glass on an adjustable rooftop rack."
+      },
+      {
+            "id": "06",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-06.jpg",
+            "full": "../assets/images/training/diu-solar/photo-06.jpg",
+            "categoryKey": "rooftop",
+            "category": "Irradiance & Tilt",
+            "title": "Solar Irradiance Measurement & Tilt Adjustment",
+            "caption": "Trainer calibrating array tilt angle while utilizing a handheld digital solar irradiance sensor/pyranometer to record incident solar radiation levels in real time."
+      },
+      {
+            "id": "07",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-07.jpg",
+            "full": "../assets/images/training/diu-solar/photo-07.jpg",
+            "categoryKey": "rooftop",
+            "category": "DC Cabling & Wiring",
+            "title": "Under-Array DC String Cabling & MC4 Termination",
+            "caption": "Instructor demonstrating insulated DC cabling, weatherproof MC4 connector crimping, and safe cable management practices beneath the rooftop solar module racking."
+      },
+      {
+            "id": "08",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-08.jpg",
+            "full": "../assets/images/training/diu-solar/photo-08.jpg",
+            "categoryKey": "rooftop",
+            "category": "Array Inspection",
+            "title": "Rooftop PV String Survey & Module Logging",
+            "caption": "Trainee auditing module serial numbers, row spacing, inter-row shading distances, and frame grounding bonds across the extensive rooftop photovoltaic field."
+      },
+      {
+            "id": "09",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-09.jpg",
+            "full": "../assets/images/training/diu-solar/photo-09.jpg",
+            "categoryKey": "rooftop",
+            "category": "Facility Integration",
+            "title": "Auditing PV Arrays Alongside Rooftop HVAC Units",
+            "caption": "Auditing rooftop solar arrays alongside commercial Midea VRF outdoor HVAC equipment to assess rooftop spatial planning, thermal clearance, and service pathways."
+      },
+      {
+            "id": "10",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-10.jpg",
+            "full": "../assets/images/training/diu-solar/photo-10.jpg",
+            "categoryKey": "rooftop",
+            "category": "Array Inspection",
+            "title": "Environmental & Shading Conditions Assessment",
+            "caption": "Engineering trainee evaluating diffuse sunlight conditions, horizon clearance, and azimuth alignment on the upper deck of the university solar facility."
+      },
+      {
+            "id": "11",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-11.jpg",
+            "full": "../assets/images/training/diu-solar/photo-11.jpg",
+            "categoryKey": "inverters",
+            "category": "Inverter Architecture",
+            "title": "Hybrid Inverter Test Bench & DC Disconnects",
+            "caption": "Demonstration of a hybrid solar inverter test bench featuring DC electricity input disconnects, miniature circuit breakers, and wall-mounted 24 kWp system single-line schematics."
+      },
+      {
+            "id": "12",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-12.jpg",
+            "full": "../assets/images/training/diu-solar/photo-12.jpg",
+            "categoryKey": "inverters",
+            "category": "DC Distribution",
+            "title": "DC Distribution & Inverter Topology Briefing",
+            "caption": "Trainees observing circuit topology, tariff metering interfaces, AC/DC safety breakers, and solar simulator workbenches during the lab demonstration."
+      },
+      {
+            "id": "13",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-13.jpg",
+            "full": "../assets/images/training/diu-solar/photo-13.jpg",
+            "categoryKey": "inverters",
+            "category": "Commissioning",
+            "title": "Hybrid Inverter UI & Commissioning Controls",
+            "caption": "Trainer explaining digital LCD menu navigation, system parameter configuration, grid-tie synchronization thresholds, and error diagnostic codes on the hybrid inverter."
+      },
+      {
+            "id": "14",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-14.jpg",
+            "full": "../assets/images/training/diu-solar/photo-14.jpg",
+            "categoryKey": "inverters",
+            "category": "Inverter Wiring",
+            "title": "JFY Grid-Tied & NEXT Hybrid Inverter Terminals",
+            "caption": "Hands-on inspection of input terminal blocks on a JFY grid-connected inverter and NEXT hybrid power unit, demonstrating wiring gauges and grounding terminations."
+      },
+      {
+            "id": "15",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-15.jpg",
+            "full": "../assets/images/training/diu-solar/photo-15.jpg",
+            "categoryKey": "inverters",
+            "category": "Energy Storage",
+            "title": "Growatt Inverters, MPPT Units & Battery Storage Rack",
+            "caption": "Inspection of wall-mounted Growatt inverters, an MPPT solar charge controller panel, and heavy-duty tubular lead-acid deep-cycle battery banks connected via heavy busbars."
+      },
+      {
+            "id": "16",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-16.jpg",
+            "full": "../assets/images/training/diu-solar/photo-16.jpg",
+            "categoryKey": "inverters",
+            "category": "Protection Switchgear",
+            "title": "Distribution Boards, Breakers & Surge Protection",
+            "caption": "Probing AC and DC sub-distribution boards, miniature circuit breakers, and Type-2 Surge Protection Devices (SPDs) beside the active grid-connected inverter."
+      },
+      {
+            "id": "17",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-17.jpg",
+            "full": "../assets/images/training/diu-solar/photo-17.jpg",
+            "categoryKey": "diagnostics",
+            "category": "Diagnostic Testing",
+            "title": "I-V Curve Tracing & PV Module Diagnostics",
+            "caption": "Field operation of a professional portable I-V Curve Tracer, testing open-circuit voltage (Voc), short-circuit current (Isc), maximum power point (Pmax), and fill factor (FF)."
+      },
+      {
+            "id": "18",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-18.jpg",
+            "full": "../assets/images/training/diu-solar/photo-18.jpg",
+            "categoryKey": "diagnostics",
+            "category": "Lab Experimentation",
+            "title": "PV Cell Characterization Under Solar Simulators",
+            "caption": "Ratul Hasan and team conducting indoor solar cell characterization under calibrated blue solar simulator lamps using analog voltmeters, ammeters, and breadboard circuitry."
+      },
+      {
+            "id": "19",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-19.jpg",
+            "full": "../assets/images/training/diu-solar/photo-19.jpg",
+            "categoryKey": "diagnostics",
+            "category": "Data Modeling",
+            "title": "Experimental Parameter Modeling on Interactive Display",
+            "caption": "Trainees entering measured resistance (R), power (P), voltage (V), and current (I) metrics into an experimental spreadsheet model linked to a large-format interactive screen."
+      },
+      {
+            "id": "20",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-20.jpg",
+            "full": "../assets/images/training/diu-solar/photo-20.jpg",
+            "categoryKey": "diagnostics",
+            "category": "System Simulation",
+            "title": "Computer-Aided PV Simulation & Load Estimation",
+            "caption": "Ratul Hasan and lab partner verifying solar PV sizing formulas, solar fraction computations, and system single-line diagrams in the DIU Renewable Energy Lab."
+      },
+      {
+            "id": "21",
+            "thumb": "../assets/images/thumbnails/diu-solar/photo-21.jpg",
+            "full": "../assets/images/training/diu-solar/photo-21.jpg",
+            "categoryKey": "cohort",
+            "category": "Certification",
+            "title": "Certificate of Training & Energy Policy Literature",
+            "caption": "Official Certificate of Training awarded to Md. Ratul Hasan by the Department of EEE, Daffodil International University, presented alongside energy publication literature."
+      }
+];
+
+    // Gallery State & Mode Management
+    let currentFilter = 'all';
+    let currentViewMode = 'slider'; // 'slider' or 'grid'
+    let isGridExpanded = false;
+    let currentLightboxFilteredIndex = 0;
+    let filteredIndices = [];
+
+    const photoGallerySection = document.getElementById('photoGallerySection');
+    const sliderContainer = document.getElementById('sliderContainer');
+    const gridContainer = document.getElementById('gridContainer');
+    const sliderTrack = document.getElementById('sliderTrack');
+    const sliderPrevBtn = document.getElementById('sliderPrevBtn');
+    const sliderNextBtn = document.getElementById('sliderNextBtn');
+    const sliderProgressBar = document.getElementById('sliderProgressBar');
+    const sliderStatus = document.getElementById('sliderStatus');
+    const sliderPhotoCounter = document.getElementById('sliderPhotoCounter');
+    const modeSliderBtn = document.getElementById('modeSliderBtn');
+    const modeGridBtn = document.getElementById('modeGridBtn');
+    const galleryGrid = document.getElementById('galleryGrid');
+    const expandBtnWrapper = document.getElementById('expandBtnWrapper');
+    const toggleExpandBtn = document.getElementById('toggleExpandBtn');
+    const expandBtnText = document.getElementById('expandBtnText');
+    const expandBtnIcon = document.getElementById('expandBtnIcon');
+
+    const imageLightbox = document.getElementById('imageLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const lightboxCategory = document.getElementById('lightboxCategory');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+
+    function updateFilteredIndices() {
+      filteredIndices = [];
+      tourPhotos.forEach((photo, idx) => {
+        if (currentFilter === 'all' || photo.categoryKey === currentFilter) {
+          filteredIndices.push(idx);
+        }
+      });
+    }
+
+    function renderGallery() {
+      updateFilteredIndices();
+      if (currentViewMode === 'slider') {
+        renderSlider();
+      } else {
+        renderGrid();
+      }
+    }
+
+    // 1. Render 3-Row Slidable Showcase
+    function renderSlider() {
+      sliderTrack.innerHTML = '';
+      sliderPhotoCounter.textContent = `${filteredIndices.length} Photos`;
+
+      if (filteredIndices.length === 0) {
+        sliderTrack.className = "flex items-center justify-center py-16 text-center text-sm text-slate-400 w-full";
+        sliderTrack.innerHTML = '<div>No photographs found under this filter.</div>';
+        sliderProgressBar.style.width = '100%';
+        sliderPrevBtn.disabled = true;
+        sliderNextBtn.disabled = true;
+        return;
+      }
+
+      // Re-apply 3-row horizontal grid
+      sliderTrack.className = "grid grid-rows-3 grid-flow-col auto-cols-[280px] sm:auto-cols-[320px] md:auto-cols-[340px] gap-3 sm:gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 px-1 select-none";
+
+      filteredIndices.forEach((photoIdx, positionInFilter) => {
+        const photo = tourPhotos[photoIdx];
+        const card = document.createElement('div');
+        card.className = "snap-start group relative rounded-2xl overflow-hidden bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_4px_16px_rgb(0,0,0,0.03)] dark:shadow-[0_4px_16px_rgb(0,0,0,0.2)] hover:border-brand-500/50 hover:shadow-[0_8px_24px_0_rgba(234,88,12,0.14)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex flex-col justify-between h-[180px] sm:h-[190px]";
+        card.innerHTML = `
+          <div class="relative h-[110px] sm:h-[118px] w-full bg-slate-950 overflow-hidden shrink-0">
+            <img 
+              src="${photo.thumb}" 
+              alt="${photo.title}" 
+              loading="lazy" 
+              draggable="false"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+              <span class="text-[10px] font-mono text-white flex items-center gap-1.5 drop-shadow">
+                <i class="fa-solid fa-up-right-and-down-left-from-center text-[9px]"></i> View Full
+              </span>
+            </div>
+            <span class="absolute top-2 right-2 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-black/60 text-white backdrop-blur-md border border-white/10">
+              #${photo.id}
+            </span>
+          </div>
+          <div class="p-2.5 sm:p-3 flex flex-col justify-between flex-grow">
+            <div>
+              <span class="text-[9px] font-mono font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 block truncate">
+                ${photo.category}
+              </span>
+              <h4 class="font-display font-bold text-slate-900 dark:text-white text-xs truncate group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
+                ${photo.title}
+              </h4>
+            </div>
+            <p class="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5 leading-tight">
+              ${photo.caption}
+            </p>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          if (hasDragged) return;
+          openLightbox(positionInFilter);
+        });
+
+        sliderTrack.appendChild(card);
+      });
+
+      updateSliderProgress();
+    }
+
+    // Scroll Progress & Button states
+    function updateSliderProgress() {
+      const maxScroll = sliderTrack.scrollWidth - sliderTrack.clientWidth;
+      if (maxScroll <= 0) {
+        sliderProgressBar.style.width = '100%';
+        sliderPrevBtn.disabled = true;
+        sliderNextBtn.disabled = true;
+      } else {
+        const progress = (sliderTrack.scrollLeft / maxScroll) * 100;
+        sliderProgressBar.style.width = `${Math.min(100, Math.max(5, progress))}%`;
+        sliderPrevBtn.disabled = sliderTrack.scrollLeft <= 5;
+        sliderNextBtn.disabled = sliderTrack.scrollLeft >= maxScroll - 5;
+      }
+    }
+
+    sliderTrack.addEventListener('scroll', updateSliderProgress);
+
+    // Arrow Controls
+    sliderPrevBtn.addEventListener('click', () => {
+      const scrollAmount = sliderTrack.clientWidth * 0.8;
+      sliderTrack.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    sliderNextBtn.addEventListener('click', () => {
+      const scrollAmount = sliderTrack.clientWidth * 0.8;
+      sliderTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    // Mouse Drag to Scroll
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let hasDragged = false;
+
+    sliderTrack.addEventListener('mousedown', (e) => {
+      isDown = true;
+      hasDragged = false;
+      sliderTrack.classList.remove('scroll-smooth');
+      sliderTrack.classList.add('cursor-grabbing');
+      startX = e.pageX - sliderTrack.offsetLeft;
+      scrollLeft = sliderTrack.scrollLeft;
+    });
+
+    sliderTrack.addEventListener('mouseleave', () => {
+      isDown = false;
+      sliderTrack.classList.add('scroll-smooth');
+      sliderTrack.classList.remove('cursor-grabbing');
+    });
+
+    sliderTrack.addEventListener('mouseup', () => {
+      isDown = false;
+      sliderTrack.classList.add('scroll-smooth');
+      sliderTrack.classList.remove('cursor-grabbing');
+    });
+
+    sliderTrack.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - sliderTrack.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > 5) {
+        hasDragged = true;
+      }
+      sliderTrack.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch Swipe handling preserves default smooth scrolling
+    sliderTrack.addEventListener('touchstart', () => {
+      hasDragged = false;
+    }, { passive: true });
+    sliderTrack.addEventListener('touchmove', () => {
+      hasDragged = true;
+    }, { passive: true });
+
+    // 2. Render Curated Expandable Grid
+    function renderGrid() {
+      galleryGrid.innerHTML = '';
+
+      const photosToShow = isGridExpanded ? filteredIndices : filteredIndices.slice(0, 8);
+
+      photosToShow.forEach((photoIdx, positionInFilter) => {
+        const photo = tourPhotos[photoIdx];
+        const card = document.createElement('div');
+        card.className = "group relative rounded-2xl overflow-hidden bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_4px_16px_rgb(0,0,0,0.03)] dark:shadow-[0_4px_16px_rgb(0,0,0,0.2)] hover:border-brand-500/50 hover:shadow-[0_8px_24px_0_rgba(234,88,12,0.14)] hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="relative w-full aspect-[4/3] rounded-t-2xl overflow-hidden bg-slate-950 flex items-center justify-center">
+              <img 
+                src="${photo.thumb}" 
+                alt="${photo.title}" 
+                loading="lazy" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3 pointer-events-none">
+                <span class="text-[11px] text-white font-medium flex items-center gap-1.5">
+                  <i class="fa-solid fa-magnifying-glass-plus text-brand-400"></i> Click to Inspect
+                </span>
+              </div>
+              <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-slate-950/70 backdrop-blur-md text-white border border-white/20">
+                #${photo.id}
+              </span>
+            </div>
+            <div class="p-3 sm:p-4">
+              <span class="text-[10px] font-mono text-brand-600 dark:text-brand-400 font-bold uppercase tracking-wider block mb-1">
+                ${photo.category}
+              </span>
+              <h4 class="font-display font-bold text-slate-900 dark:text-white text-xs sm:text-sm line-clamp-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
+                ${photo.title}
+              </h4>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
+                ${photo.caption}
+              </p>
+            </div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          openLightbox(positionInFilter);
+        });
+
+        galleryGrid.appendChild(card);
+      });
+
+      // Expand / Collapse Button handling
+      if (filteredIndices.length <= 8) {
+        expandBtnWrapper.classList.add('hidden');
+      } else {
+        expandBtnWrapper.classList.remove('hidden');
+        if (isGridExpanded) {
+          expandBtnText.textContent = `Collapse to 8 Photographs`;
+          expandBtnIcon.className = "fa-solid fa-chevron-up text-xs group-hover:-translate-y-0.5 transition-transform";
+        } else {
+          expandBtnText.textContent = `Show All ${filteredIndices.length} Photographs (Expand)`;
+          expandBtnIcon.className = "fa-solid fa-chevron-down text-xs group-hover:translate-y-0.5 transition-transform";
+        }
+      }
+    }
+
+    // Expand / Collapse Action
+    toggleExpandBtn.addEventListener('click', () => {
+      isGridExpanded = !isGridExpanded;
+      renderGrid();
+      if (!isGridExpanded) {
+        photoGallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    // View Mode Toggle Listeners
+    modeSliderBtn.addEventListener('click', () => {
+      if (currentViewMode === 'slider') return;
+      currentViewMode = 'slider';
+      modeSliderBtn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition bg-brand-600 text-white shadow-sm";
+      modeGridBtn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400";
+      sliderContainer.classList.remove('hidden');
+      gridContainer.classList.add('hidden');
+      renderSlider();
+    });
+
+    modeGridBtn.addEventListener('click', () => {
+      if (currentViewMode === 'grid') return;
+      currentViewMode = 'grid';
+      modeGridBtn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition bg-brand-600 text-white shadow-sm";
+      modeSliderBtn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400";
+      gridContainer.classList.remove('hidden');
+      sliderContainer.classList.add('hidden');
+      renderGrid();
+    });
+
+    // Category Filter Buttons Listener
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-brand-600', 'text-white');
+          b.classList.add('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+        });
+        btn.classList.add('active', 'bg-brand-600', 'text-white');
+        btn.classList.remove('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+
+        currentFilter = btn.dataset.filter;
+        renderGallery();
+      });
+    });
+
+    // Lightbox Controls
+    function openLightbox(positionInFilter) {
+      currentLightboxFilteredIndex = positionInFilter;
+      showLightboxImage();
+      imageLightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      imageLightbox.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function showLightboxImage() {
+      const realIndex = filteredIndices[currentLightboxFilteredIndex];
+      const photo = tourPhotos[realIndex];
+
+      lightboxImg.src = photo.full;
+      lightboxImg.alt = photo.title;
+      lightboxTitle.textContent = photo.title;
+      lightboxCaption.textContent = photo.caption;
+      lightboxCategory.textContent = photo.category;
+      lightboxCounter.textContent = `${currentLightboxFilteredIndex + 1} / ${filteredIndices.length}`;
+    }
+
+    function nextPhoto() {
+      if (filteredIndices.length === 0) return;
+      currentLightboxFilteredIndex = (currentLightboxFilteredIndex + 1) % filteredIndices.length;
+      showLightboxImage();
+    }
+
+    function prevPhoto() {
+      if (filteredIndices.length === 0) return;
+      currentLightboxFilteredIndex = (currentLightboxFilteredIndex - 1 + filteredIndices.length) % filteredIndices.length;
+      showLightboxImage();
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxNext.addEventListener('click', nextPhoto);
+    lightboxPrev.addEventListener('click', prevPhoto);
+
+    imageLightbox.addEventListener('click', (e) => {
+      if (e.target === imageLightbox) {
+        closeLightbox();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!imageLightbox.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextPhoto();
+        if (e.key === 'ArrowLeft') prevPhoto();
+      }
+    });
+
+    // Initial Render
+    renderGallery();
+  </script>
+</body>
+</html>

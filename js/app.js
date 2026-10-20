@@ -203,24 +203,72 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Technical Training
   const trainingContainer = document.getElementById('training-courses');
   if (trainingContainer) {
-    trainingContainer.innerHTML = trainingCourses.map(course => `
-      <div class="p-6 sm:p-7 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-        <div>
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1 mb-2">
-            <div>
-              <h4 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">${course.title}</h4>
-              <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-0.5">${course.institution}</p>
-            </div>
-            <span class="text-xs font-mono text-slate-400 whitespace-nowrap self-start mt-1 sm:mt-0">${course.period}</span>
+    trainingContainer.innerHTML = trainingCourses.map(course => {
+      const mediaBlock = course.media ? `
+        <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-950 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
+          <img 
+            src="${course.media}" 
+            alt="${course.mediaAlt || course.title}" 
+            loading="lazy"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex items-end justify-between p-3 pointer-events-none">
+            ${course.photoCount ? `
+              <span class="text-[11px] font-mono font-semibold text-white flex items-center gap-1.5 drop-shadow">
+                <i class="fa-solid fa-camera-retro text-brand-400"></i> ${course.photoCount}
+              </span>
+            ` : '<span></span>'}
+            ${course.caseStudyUrl ? `
+              <span class="text-[10px] font-mono text-white/90 flex items-center gap-1 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
+                <span>View Practical Fieldwork</span> <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </span>
+            ` : ''}
           </div>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${course.description}</p>
         </div>
-        <div class="flex flex-wrap items-center gap-1.5 pt-3 border-t border-slate-200/60 dark:border-slate-800/80">
-          <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-brand-500/10 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-300/40 dark:border-brand-800/40 shadow-sm">${course.durationTag}</span>
-          ${course.tags.map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">${tag}</span>`).join('')}
+      ` : '';
+
+      const cursorClass = course.caseStudyUrl ? 'cursor-pointer group' : '';
+      const dataUrlAttr = course.caseStudyUrl ? `data-url="${course.caseStudyUrl}"` : '';
+
+      return `
+        <div ${dataUrlAttr} class="${cursorClass} p-6 sm:p-7 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            ${mediaBlock}
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1 mb-2">
+              <div>
+                <h4 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">${course.title}</h4>
+                <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-0.5">${course.institution}</p>
+              </div>
+              <span class="text-xs font-mono text-slate-400 whitespace-nowrap self-start mt-1 sm:mt-0">${course.period}</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${course.description}</p>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-200/60 dark:border-slate-800/80">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-brand-500/10 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-300/40 dark:border-brand-800/40 shadow-sm">${course.durationTag}</span>
+              ${course.tags.map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">${tag}</span>`).join('')}
+            </div>
+            ${course.caseStudyUrl ? `
+              <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1 text-xs transition">
+                Explore <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
+              </span>
+            ` : ''}
+          </div>
         </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
+
+    trainingContainer.querySelectorAll('[data-url]').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) {
+          if (e.metaKey || e.ctrlKey) {
+            window.open(card.dataset.url, '_blank');
+          } else {
+            window.location.href = card.dataset.url;
+          }
+        }
+      });
+    });
   }
 
   // Render Industrial Visits as Full-Fledged Cards
