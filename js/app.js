@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         : '';
 
       return `
-        <div class="award-card group p-6 rounded-2xl bg-white/30 dark:bg-slate-900/30 backdrop-blur-2xl border ${borderStyle} ring-1 ring-white/20 dark:ring-white/[0.05] shadow-[0_8px_32px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgb(0,0,0,0.35)] hover:bg-white/40 dark:hover:bg-slate-900/40 hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(234,88,12,0.12)] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${cursorClass}" ${dataUrlAttr}>
+        <div class="award-card group p-6 rounded-2xl bg-white/30 dark:bg-slate-900/30 backdrop-blur-2xl border ${borderStyle} ring-1 ring-white/20 dark:ring-white/[0.05] shadow-[0_8px_32px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgb(0,0,0,0.35)] hover:bg-white/40 dark:hover:bg-slate-900/40 hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(13,148,136,0.15)] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${cursorClass}" ${dataUrlAttr}>
           ${championDecoration}
           <div>
             ${mediaBlock}
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const expContainer = document.getElementById('experience-list');
   if (expContainer) {
     expContainer.innerHTML = experienceData.map(exp => `
-      <div class="p-6 sm:p-7 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 flex flex-col md:flex-row md:items-start justify-between gap-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/40 hover:-translate-y-0.5 transition-all duration-300">
+      <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/40 hover:-translate-y-0.5 transition-all duration-300">
         <div class="space-y-2.5 max-w-3xl">
           <div>
             <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">${exp.title}</h3>
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     auditContainer.dataset.url = auditData.caseStudyUrl;
 
     const mediaMarkup = auditData.media ? `
-      <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-200/60 dark:border-slate-800 shadow-sm shrink-0">
+      <div class="relative w-full aspect-[16/10] sm:aspect-video lg:aspect-auto lg:h-full min-h-[160px] rounded-xl overflow-hidden bg-slate-950 border border-slate-200/60 dark:border-slate-800 shadow-sm shrink-0">
         <img 
           src="${auditData.media}" 
           alt="${auditData.mediaAlt || auditData.title}" 
@@ -139,20 +139,20 @@ document.addEventListener('DOMContentLoaded', () => {
     ` : '';
 
     auditContainer.innerHTML = `
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-        <div class="lg:col-span-5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <div class="lg:col-span-4 flex">
           ${mediaMarkup}
         </div>
-        <div class="lg:col-span-7 flex flex-col justify-between">
+        <div class="lg:col-span-8 flex flex-col justify-between py-0.5">
           <div>
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
               <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 px-2.5 py-0.5 rounded border border-brand-300/40 dark:border-brand-800/40 shadow-sm">
                 ${auditData.badge}
               </span>
               <span class="text-xs font-mono text-brand-600 dark:text-brand-400 font-semibold">${auditData.period}</span>
             </div>
 
-            <h3 class="font-display font-bold text-slate-900 dark:text-white text-lg sm:text-xl mb-1.5 flex items-center gap-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
+            <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-1 flex items-center gap-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
               ${auditData.title}
               <i class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition text-brand-600 dark:text-brand-400"></i>
             </h3>
@@ -167,12 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
               <span>${auditData.location} • ${auditData.team}</span>
             </p>
 
-            <p class="text-[11px] font-mono text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-1.5">
+            <p class="text-[11px] font-mono text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1.5">
               <i class="fa-solid fa-chalkboard-user text-brand-500 text-[11px] shrink-0"></i>
               <span>${auditData.supervisor}</span>
             </p>
 
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${auditData.description}</p>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-3">${auditData.description}</p>
           </div>
 
           <div class="pt-3 border-t border-slate-200/60 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (trainingContainer) {
     trainingContainer.innerHTML = trainingCourses.map(course => {
       const mediaBlock = course.media ? `
-        <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-950 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
+        <div class="relative w-full h-36 sm:h-40 rounded-xl overflow-hidden mb-3.5 bg-slate-950 border border-slate-200/60 dark:border-white/10 flex items-center justify-center">
           <img 
             src="${course.media}" 
             alt="${course.mediaAlt || course.title}" 
@@ -214,29 +214,29 @@ document.addEventListener('DOMContentLoaded', () => {
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex items-end justify-between p-3 pointer-events-none">
             ${course.photoCount ? `
-              <span class="text-[11px] font-mono font-semibold text-white flex items-center gap-1.5 drop-shadow">
+              <span class="text-[10px] font-mono font-semibold text-white flex items-center gap-1.5 drop-shadow">
                 <i class="fa-solid fa-camera-retro text-brand-400"></i> ${course.photoCount}
               </span>
             ` : '<span></span>'}
             ${course.caseStudyUrl ? `
-              <span class="text-[10px] font-mono text-white/90 flex items-center gap-1 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
-                <span>View Practical Fieldwork</span> <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              <span class="text-[9px] font-mono text-white/90 flex items-center gap-1 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
+                <span>Fieldwork & Photos</span> <i class="fa-solid fa-arrow-right text-[8px]"></i>
               </span>
             ` : ''}
           </div>
         </div>
-      ` : '';
+      ` : getThemedHeaderMarkup(course, 'training');
 
       const cursorClass = course.caseStudyUrl ? 'cursor-pointer group' : '';
       const dataUrlAttr = course.caseStudyUrl ? `data-url="${course.caseStudyUrl}"` : '';
 
       return `
-        <div ${dataUrlAttr} class="${cursorClass} p-6 sm:p-7 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <div ${dataUrlAttr} class="${cursorClass} p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
           <div>
             ${mediaBlock}
             <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1 mb-2">
               <div>
-                <h4 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">${course.title}</h4>
+                <h4 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition leading-snug">${course.title}</h4>
                 <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-0.5">${course.institution}</p>
               </div>
               <span class="text-xs font-mono text-slate-400 whitespace-nowrap self-start mt-1 sm:mt-0">${course.period}</span>
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
               ${course.tags.map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">${tag}</span>`).join('')}
             </div>
             ${course.caseStudyUrl ? `
-              <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1 text-xs transition">
+              <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 text-xs transition whitespace-nowrap">
                 Explore <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
               </span>
             ` : ''}
@@ -271,19 +271,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Render Industrial Visits as Full-Fledged Cards
+  // Render Industrial Visits as Minimal, Sleek Cards
   const visitsContainer = document.getElementById('field-visits');
   if (visitsContainer) {
     visitsContainer.innerHTML = industrialVisits.map(visit => {
       const mediaBlock = visit.media
         ? `
-          <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
+          <div class="relative w-full h-36 sm:h-38 rounded-xl overflow-hidden mb-3.5 bg-slate-950 border border-slate-200/60 dark:border-white/10 flex items-center justify-center">
             <img 
               src="${visit.media}" 
               alt="${visit.mediaAlt || visit.name}" 
               loading="lazy"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex items-end justify-between p-2.5 pointer-events-none">
+              <span class="text-[10px] font-mono font-semibold text-white flex items-center gap-1.5 drop-shadow">
+                <i class="fa-solid fa-camera-retro text-brand-400"></i> 18 Photos
+              </span>
+              ${visit.caseStudyUrl ? `
+                <span class="text-[9px] font-mono text-white/90 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
+                  <span>Visit Study</span> <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                </span>
+              ` : ''}
+            </div>
           </div>
         `
         : getThemedHeaderMarkup(visit, 'visit');
@@ -292,50 +302,50 @@ document.addEventListener('DOMContentLoaded', () => {
         .map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">${tag}</span>`)
         .join('');
 
-      const cursorClass = visit.caseStudyUrl ? 'cursor-pointer' : '';
+      const cursorClass = visit.caseStudyUrl ? 'cursor-pointer group' : '';
       const dataUrlAttr = visit.caseStudyUrl ? `data-url="${visit.caseStudyUrl}"` : '';
 
       const titleMarkup = visit.caseStudyUrl
-        ? `<h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-1 flex items-center gap-2">
+        ? `<h3 class="font-display font-bold text-slate-900 dark:text-white text-base mb-1 flex items-center gap-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
              ${visit.name} <i class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition text-brand-600 dark:text-brand-400"></i>
            </h3>`
-        : `<h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-1">${visit.name}</h3>`;
+        : `<h3 class="font-display font-bold text-slate-900 dark:text-white text-base mb-1">${visit.name}</h3>`;
 
       const footerExtra = visit.caseStudyUrl
-        ? `<span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 text-xs transition">
-             Details <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
+        ? `<span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 text-xs transition shrink-0">
+             Photos & Study <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
            </span>`
         : '';
 
       return `
-        <div class="visit-card group p-6 sm:p-7 rounded-2xl bg-white/30 dark:bg-slate-900/30 backdrop-blur-2xl border border-white/40 dark:border-white/[0.08] ring-1 ring-white/20 dark:ring-white/[0.05] shadow-[0_8px_32px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgb(0,0,0,0.35)] hover:bg-white/40 dark:hover:bg-slate-900/40 hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(234,88,12,0.12)] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${cursorClass}" ${dataUrlAttr}>
+        <div class="visit-card ${cursorClass} p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" ${dataUrlAttr}>
           <div>
             ${mediaBlock}
-            <div class="flex items-center justify-between mb-2.5">
-              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 bg-brand-500/10 dark:bg-brand-950/60 px-2.5 py-0.5 rounded border border-brand-300/40 dark:border-brand-800/40 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 bg-brand-500/10 dark:bg-brand-950/60 px-2 py-0.5 rounded border border-brand-300/40 dark:border-brand-800/40 shadow-sm">
                 ${visit.badge || 'Field Study'}
               </span>
-              <span class="text-xs font-mono text-brand-600 dark:text-brand-400 font-semibold">${visit.period}</span>
+              <span class="text-xs font-mono text-slate-400">${visit.period}</span>
             </div>
 
             ${titleMarkup}
 
-            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-1.5">
+            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mb-2.5 flex items-center gap-1.5">
               <i class="fa-solid fa-location-dot text-brand-500 text-[11px] shrink-0"></i>
               <span>${visit.type}</span>
             </p>
 
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-3.5">
               ${visit.description}
             </p>
 
-            <div class="flex flex-wrap gap-1.5 mb-5">
+            <div class="flex flex-wrap gap-1.5 mb-4">
               ${tagPills}
             </div>
           </div>
 
-          <div class="pt-3 border-t border-slate-200/70 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-            <span class="text-[11px] font-mono flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+          <div class="pt-3 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-400 gap-2">
+            <span class="text-[11px] font-mono flex items-center gap-1.5 text-slate-500 dark:text-slate-400 truncate">
               <i class="fa-solid fa-users-gear text-brand-500/80 shrink-0"></i> ${visit.organizer}
             </span>
             ${footerExtra}

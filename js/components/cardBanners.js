@@ -6,7 +6,50 @@
  */
 
 export function getThemedHeaderMarkup(item, context = 'general') {
-  const id = item.id || (item.name ? item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') : '');
+  const id = item.id || (item.name ? item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') : '') || (item.title ? item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : '');
+
+  // 0. TICI - Industrial Technology & Instrumentation
+  if (id.includes('tici') || id.includes('industrial-technology')) {
+    return `
+      <div class="relative w-full h-36 sm:h-40 rounded-xl overflow-hidden mb-3.5 border border-slate-200/60 dark:border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950/70 flex flex-col items-center justify-center select-none group-hover:border-brand-500/50 transition-all duration-300 shadow-inner">
+        <!-- Ambient Glow -->
+        <div class="absolute -top-10 -right-10 w-36 h-36 bg-teal-500/20 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+        <!-- Automation Schematic SVG -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-25" viewBox="0 0 400 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid-tici" width="22" height="22" patternUnits="userSpaceOnUse">
+              <path d="M 22 0 L 0 0 0 22" fill="none" stroke="rgba(20, 184, 166, 0.3)" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid-tici)" />
+          <line x1="40" y1="80" x2="360" y2="80" stroke="rgba(20, 184, 166, 0.35)" stroke-width="1.5" stroke-dasharray="6 3"/>
+          <circle cx="120" cy="80" r="10" stroke="rgba(20, 184, 166, 0.5)" stroke-width="1.5"/>
+          <circle cx="280" cy="80" r="10" stroke="rgba(20, 184, 166, 0.5)" stroke-width="1.5"/>
+        </svg>
+
+        <!-- Technical Corner Annotations -->
+        <div class="absolute top-2.5 left-3 text-[9px] font-mono text-teal-400/80 tracking-wider flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+          <span>TICI // POLASH</span>
+        </div>
+        <div class="absolute top-2.5 right-3 text-[9px] font-mono text-teal-400/80 tracking-wider">
+          [ 56-HR INTENSIVE ]
+        </div>
+
+        <!-- Central Glyph & Telemetry Pill -->
+        <div class="relative z-10 flex flex-col items-center">
+          <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-400/30 text-teal-400 flex items-center justify-center text-lg shadow-[0_0_20px_rgba(20,184,166,0.25)] group-hover:scale-110 transition-transform duration-300">
+            <i class="fa-solid fa-industry"></i>
+          </div>
+          <span class="mt-2 text-[10px] font-mono tracking-wider uppercase font-semibold text-teal-200 px-2.5 py-0.5 rounded-full bg-teal-950/85 border border-teal-500/30 backdrop-blur-md shadow-sm">
+            PLC, DCS & Factory Automation
+          </span>
+        </div>
+      </div>
+    `;
+  }
 
   // 1. LIMITEYE - Computer Vision ALPR Pipeline
   if (id.includes('limiteye')) {
@@ -65,7 +108,7 @@ export function getThemedHeaderMarkup(item, context = 'general') {
   // 2. 132/33 KV GRID SUB-STATION - High-Voltage Transmission Architecture
   if (id.includes('132-33-kv') || id.includes('sub-station') || id.includes('substation')) {
     return `
-      <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 border border-slate-200/60 dark:border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/70 flex flex-col items-center justify-center select-none group-hover:border-amber-500/50 transition-all duration-300 shadow-inner">
+      <div class="relative w-full h-36 sm:h-40 rounded-xl overflow-hidden mb-3.5 border border-slate-200/60 dark:border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/70 flex flex-col items-center justify-center select-none group-hover:border-amber-500/50 transition-all duration-300 shadow-inner">
         <!-- Ambient Glow -->
         <div class="absolute -top-10 -left-10 w-36 h-36 bg-amber-500/20 rounded-full blur-2xl pointer-events-none"></div>
         <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-orange-500/15 rounded-full blur-2xl pointer-events-none"></div>
@@ -117,7 +160,7 @@ export function getThemedHeaderMarkup(item, context = 'general') {
   // 3. BHERAMARA 410MW POWER PLANT - Combined Cycle Gas & Steam Block
   if (id.includes('bheramara') || id.includes('410mw')) {
     return `
-      <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 border border-slate-200/60 dark:border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-orange-950/70 flex flex-col items-center justify-center select-none group-hover:border-orange-500/50 transition-all duration-300 shadow-inner">
+      <div class="relative w-full h-36 sm:h-40 rounded-xl overflow-hidden mb-3.5 border border-slate-200/60 dark:border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-orange-950/70 flex flex-col items-center justify-center select-none group-hover:border-orange-500/50 transition-all duration-300 shadow-inner">
         <!-- Ambient Glow -->
         <div class="absolute -top-10 -right-10 w-36 h-36 bg-orange-500/20 rounded-full blur-2xl pointer-events-none"></div>
         <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-500/15 rounded-full blur-2xl pointer-events-none"></div>
@@ -298,7 +341,7 @@ export function getThemedHeaderMarkup(item, context = 'general') {
 
   // Generic High-Tech Blueprint Fallback (Safe guard for any future entries)
   return `
-    <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 border border-slate-200/60 dark:border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950/70 flex flex-col items-center justify-center select-none group-hover:border-brand-500/50 transition-all duration-300 shadow-inner">
+    <div class="relative w-full h-36 sm:h-40 rounded-xl overflow-hidden mb-3.5 border border-slate-200/60 dark:border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950/70 flex flex-col items-center justify-center select-none group-hover:border-brand-500/50 transition-all duration-300 shadow-inner">
       <div class="absolute -top-10 -right-10 w-36 h-36 bg-brand-500/20 rounded-full blur-2xl pointer-events-none"></div>
       <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -309,7 +352,7 @@ export function getThemedHeaderMarkup(item, context = 'general') {
         <rect width="100%" height="100%" fill="url(#grid-default)" />
       </svg>
       <div class="relative z-10 flex flex-col items-center">
-        <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-400/30 text-brand-400 flex items-center justify-center text-xl shadow-[0_0_20px_rgba(234,88,12,0.25)] group-hover:scale-110 transition-transform duration-300">
+        <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-400/30 text-brand-400 flex items-center justify-center text-xl shadow-[0_0_20px_rgba(20,184,166,0.25)] group-hover:scale-110 transition-transform duration-300">
           <i class="${item.icon || 'fa-solid fa-microchip'}"></i>
         </div>
         <span class="mt-2.5 text-[10px] font-mono tracking-wider uppercase font-semibold text-brand-200 px-3 py-0.5 rounded-full bg-brand-950/80 border border-brand-500/30 backdrop-blur-md shadow-sm">
