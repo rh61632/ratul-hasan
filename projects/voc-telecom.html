@@ -609,196 +609,284 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- SECTION 5: MULTI-PARADIGM MODEL BENCHMARK MATRIX           -->
+    <!-- SECTION 5: EMPIRICAL MULTI-PARADIGM BENCHMARK SUITE         -->
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <section class="mb-16 space-y-8">
+    <section class="mb-16 space-y-10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Empirical Benchmark // 5-Fold Stratified Cross-Validation</span>
-          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Multi-Paradigm NLP Model Leaderboard</h2>
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Empirical Multi-Paradigm Benchmark Suite</h2>
         </div>
         <span class="text-xs font-mono text-slate-400">Evaluated on N=4,500 Ground Truth Corpus</span>
       </div>
 
-      <div class="rounded-2xl overflow-hidden bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left">
-            <thead>
-              <tr class="border-b border-slate-200/70 dark:border-slate-800 bg-slate-50/50 dark:bg-white/[0.02]">
-                <th class="px-5 py-4 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">Model Architecture</th>
-                <th class="px-5 py-4 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 text-center">Target Task</th>
-                <th class="px-5 py-4 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 text-center">CV Accuracy</th>
-                <th class="px-5 py-4 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 text-center">Macro F1</th>
-                <th class="px-5 py-4 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 text-center">Throughput</th>
-                <th class="px-5 py-4 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">Key Strengths &amp; Production Characteristics</th>
-              </tr>
-            </thead>
-            <tbody class="text-sm divide-y divide-slate-100/80 dark:divide-slate-800/60">
-              
-              <!-- 1. BUET BanglaBERT (Fine-Tuned) - Sentiment SOTA -->
-              <tr class="bg-emerald-500/[0.05] dark:bg-emerald-500/[0.09] hover:bg-emerald-500/[0.09] transition font-medium">
-                <td class="px-5 py-3.5 text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="text-base">🥇</span>
-                  <div>
-                    <span class="font-bold">BUET BanglaBERT (Fine-Tuned)</span>
-                    <span class="block text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Contextual Transformer • End-to-End</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs font-semibold text-emerald-700 dark:text-emerald-300">Sentiment Analysis</td>
-                <td class="px-5 py-3.5 text-center font-mono font-extrabold text-emerald-600 dark:text-emerald-400 text-base">91.60%</td>
-                <td class="px-5 py-3.5 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">0.8598</td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">GPU Batched</td>
-                <td class="px-5 py-3.5 text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
-                  🏆 Overall Sentiment SOTA: End-to-end transformer fine-tuning (+4.1% Acc, +9.1% F1 over Ensemble).
-                </td>
-              </tr>
+      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        Models were trained and evaluated on the curated multi-operator seed dataset (<span class="font-mono font-semibold">N = 4,500</span> across Grameenphone, Robi, and Banglalink, annotated via the Groq LLM API and validated against human benchmarks) using <strong>5-Fold Stratified Cross-Validation</strong>. To eliminate task ambiguity between 3-class sentiment polarity and 5-class departmental taxonomy, the benchmark results are presented in two dedicated leaderboards and publication-grade visualizations below:
+      </p>
 
-              <!-- 2. Hero Soft-Voting Ensemble - Category Champion -->
-              <tr class="bg-emerald-500/[0.04] dark:bg-emerald-500/[0.08] hover:bg-emerald-500/[0.08] transition font-medium">
-                <td class="px-5 py-3.5 text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="text-base">🥇</span>
-                  <div>
-                    <span class="font-bold">Hero Soft-Voting ML Ensemble</span>
-                    <span class="block text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Sub-Word Char N-Grams + Multi-ML</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs font-semibold text-emerald-700 dark:text-emerald-300">Operational Category</td>
-                <td class="px-5 py-3.5 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400 text-base">87.44%</td>
-                <td class="px-5 py-3.5 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">0.7845</td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">~18,200 rev/s</td>
-                <td class="px-5 py-3.5 text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
-                  🏷️ Category Champion: Sub-word character n-grams excel on Romanized Banglish (<em>"mb"</em>, <em>"kete niyeche"</em>, <em>"otp"</em>).
-                </td>
-              </tr>
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- SUBSECTION 5A: SENTIMENT ANALYSIS (3-CLASS POLARITY)        -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <div class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-heart-pulse text-brand-500"></i> A. Sentiment Analysis Model Leaderboard (3-Class Polarity)
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">Evaluated on 3-class sentiment polarity: Positive, Neutral, and Negative</p>
+          </div>
+          <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-brand-50 dark:bg-brand-950/50 text-brand-700 dark:text-brand-300 border border-brand-300/40 font-bold self-start sm:self-auto">Figure 2.1 • Sentiment Polarity</span>
+        </div>
 
-              <!-- 3. Hero Soft-Voting Ensemble - Sentiment -->
-              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
-                <td class="px-5 py-3.5 text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="text-base">🥈</span>
-                  <div>
-                    <span class="font-bold">Hero Soft-Voting ML Ensemble</span>
-                    <span class="block text-[11px] font-mono text-slate-500">LR + Calibrated LinearSVC + ComplementNB</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs">Sentiment Analysis</td>
-                <td class="px-5 py-3.5 text-center font-mono font-bold text-slate-800 dark:text-slate-200">87.47%</td>
-                <td class="px-5 py-3.5 text-center font-mono font-semibold text-slate-800 dark:text-slate-200">0.7684</td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">~17,500 rev/s</td>
-                <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
-                  High-throughput CPU production engine with calibrated multi-class probability outputs.
-                </td>
-              </tr>
+        <!-- Sentiment Benchmark Plot Card -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-3">
+          <div class="rounded-xl overflow-hidden bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5">
+            <img 
+              src="../assets/images/projects/voc/sentiment_model_benchmark_bars.png" 
+              alt="Sentiment Analysis Model Benchmark across Architectures (3-Class Polarity)" 
+              loading="lazy"
+              class="w-full h-auto object-contain hover:scale-[1.005] transition-transform duration-300"
+            />
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-justify">
+            <strong class="font-semibold text-slate-700 dark:text-slate-300">Sentiment Comparison:</strong> SOTA end-to-end 12-layer <strong class="text-emerald-600 dark:text-emerald-400">BUET BanglaBERT</strong> achieves 91.60% CV Accuracy and 0.8598 Macro-F1, outperforming the high-throughput production <strong class="text-slate-800 dark:text-slate-200">Hero Soft-Voting ML Ensemble</strong> (87.47% Acc, ~17,500 rev/s) by +4.13% in accuracy and +9.14% in Macro-F1. Dense 384-dim embeddings (<strong class="text-slate-800 dark:text-slate-200">Multilingual MiniLM</strong>) achieve 82.33% through cross-lingual transfer, while the recurrent <strong class="text-slate-800 dark:text-slate-200">Hybrid BiLSTM + Bahdanau Attention</strong> reaches 81.50%.
+          </p>
+        </div>
 
-              <!-- 4. BUET BanglaBERT - Category -->
-              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
-                <td class="px-5 py-3.5 text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="text-base">🥈</span>
-                  <div>
-                    <span class="font-bold">BUET BanglaBERT (Fine-Tuned)</span>
-                    <span class="block text-[11px] font-mono text-slate-500">Contextual Transformer Representations</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs">Operational Category</td>
-                <td class="px-5 py-3.5 text-center font-mono font-bold text-slate-800 dark:text-slate-200">85.27%</td>
-                <td class="px-5 py-3.5 text-center font-mono font-semibold text-slate-800 dark:text-slate-200">0.7624</td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">GPU Batched</td>
-                <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
-                  Massive leap from 74.88% frozen baseline (+10.4% Acc) through contextual fine-tuning.
-                </td>
-              </tr>
+        <!-- Sentiment Leaderboard Table -->
+        <div class="rounded-2xl overflow-hidden bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="border-b border-slate-200/70 dark:border-slate-800 bg-slate-50/50 dark:bg-white/[0.02]">
+                  <th class="px-5 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">Rank &amp; Model Architecture</th>
+                  <th class="px-5 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 text-center">CV Accuracy</th>
+                  <th class="px-5 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 text-center">Macro F1</th>
+                  <th class="px-5 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 text-center">Inference Throughput</th>
+                  <th class="px-5 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">Key Strengths &amp; Production Characteristics</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm divide-y divide-slate-100/80 dark:divide-slate-800/60">
+                <!-- 1. BUET BanglaBERT -->
+                <tr class="bg-emerald-500/[0.05] dark:bg-emerald-500/[0.09] hover:bg-emerald-500/[0.09] transition font-medium">
+                  <td class="px-5 py-3.5 text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="text-base">🥇</span>
+                    <div>
+                      <span class="font-bold">BUET BanglaBERT (Fine-Tuned)</span>
+                      <span class="block text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Contextual Transformer • End-to-End</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3.5 text-center font-mono font-extrabold text-emerald-600 dark:text-emerald-400 text-base">91.60%</td>
+                  <td class="px-5 py-3.5 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">0.8598</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">GPU Batched</td>
+                  <td class="px-5 py-3.5 text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
+                    🏆 Overall Sentiment SOTA: End-to-end 12-layer transformer fine-tuning (+4.1% Acc, +9.1% F1 over Ensemble).
+                  </td>
+                </tr>
 
-              <!-- 5. Multilingual MiniLM Head - Sentiment -->
-              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
-                <td class="px-5 py-3.5 text-slate-800 dark:text-slate-200">
-                  <span class="font-semibold">Multilingual MiniLM Head</span>
-                  <span class="block text-[11px] font-mono text-slate-400">384-Dim Dense Embeddings</span>
-                </td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs">Sentiment Analysis</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">82.33%</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">0.7475</td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">~2,100 rev/s</td>
-                <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
-                  Cross-lingual semantic transfer across English and Romanized Banglish phrases.
-                </td>
-              </tr>
+                <!-- 2. Hero Soft-Voting Ensemble -->
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3.5 text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="text-base">🥈</span>
+                    <div>
+                      <span class="font-bold">Hero Soft-Voting ML Ensemble</span>
+                      <span class="block text-[11px] font-mono text-slate-500">LR + Calibrated LinearSVC + ComplementNB</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3.5 text-center font-mono font-bold text-slate-800 dark:text-slate-200 text-base">87.47%</td>
+                  <td class="px-5 py-3.5 text-center font-mono font-semibold text-slate-800 dark:text-slate-200">0.7684</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-xs font-bold text-brand-600 dark:text-brand-400">~17,500 rev/s</td>
+                  <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
+                    Production Hero Engine: High-throughput CPU classifier with calibrated multi-class probability outputs.
+                  </td>
+                </tr>
 
-              <!-- 6. Multilingual MiniLM Head - Category -->
-              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
-                <td class="px-5 py-3.5 text-slate-800 dark:text-slate-200">
-                  <span class="font-semibold">Multilingual MiniLM Head</span>
-                  <span class="block text-[11px] font-mono text-slate-400">Dense Sentence Semantic Representations</span>
-                </td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs">Operational Category</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">81.15%</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">0.7247</td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">~2,100 rev/s</td>
-                <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
-                  Sentence-level embedding geometry applied to 5-class departmental routing.
-                </td>
-              </tr>
+                <!-- 3. Multilingual MiniLM Head -->
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3.5 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                    <span class="text-base">🥉</span>
+                    <div>
+                      <span class="font-semibold">Multilingual MiniLM Head</span>
+                      <span class="block text-[11px] font-mono text-slate-400">384-Dim Dense Embeddings</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">82.33%</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">0.7475</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">~2,100 rev/s</td>
+                  <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
+                    Cross-lingual semantic transfer across English and Romanized Banglish phrases.
+                  </td>
+                </tr>
 
-              <!-- 7. Hybrid BiLSTM + Attention - Sentiment -->
-              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
-                <td class="px-5 py-3.5 text-slate-800 dark:text-slate-200">
-                  <span class="font-semibold">Hybrid BiLSTM + Attention (GPU)</span>
-                  <span class="block text-[11px] font-mono text-slate-400">Bahdanau Attention &amp; Recurrent PyTorch</span>
-                </td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs">Sentiment Analysis</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">81.50%</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">0.7180</td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">Fast GPU Batched</td>
-                <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
-                  Attention isolates salient complaint tokens; sequential recurrent token context.
-                </td>
-              </tr>
+                <!-- 4. Hybrid BiLSTM + Attention -->
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3.5 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                    <span class="font-mono text-xs text-slate-400 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">4</span>
+                    <div>
+                      <span class="font-semibold">Hybrid BiLSTM + Attention (GPU)</span>
+                      <span class="block text-[11px] font-mono text-slate-400">Bahdanau Attention &amp; Recurrent PyTorch</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">81.50%</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">0.7180</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">Fast GPU Batched</td>
+                  <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
+                    Sequential token context + Bahdanau attention over emotional cues.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-              <!-- 8. Hybrid BiLSTM + Attention - Category -->
-              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
-                <td class="px-5 py-3.5 text-slate-800 dark:text-slate-200">
-                  <span class="font-semibold">Hybrid BiLSTM + Attention (GPU)</span>
-                  <span class="block text-[11px] font-mono text-slate-400">Inverse Frequency Class Weighting</span>
-                </td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs">Operational Category</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">80.84%</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">0.7106</td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">Fast GPU Batched</td>
-                <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
-                  Sequential token context with inverse-frequency class weighting to penalize majority drift.
-                </td>
-              </tr>
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- SUBSECTION 5B: OPERATIONAL CATEGORY (5-CLASS TAXONOMY)      -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <div class="space-y-4 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-folder-tree text-brand-500"></i> B. Operational Category Model Leaderboard (5-Class Taxonomy)
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">Evaluated on 5 operational complaint domains: Offers, Login, Network, Billing, and Appreciation</p>
+          </div>
+          <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-brand-50 dark:bg-brand-950/50 text-brand-700 dark:text-brand-300 border border-brand-300/40 font-bold self-start sm:self-auto">Figure 2.2 • Category Routing</span>
+        </div>
 
-              <!-- 9. BUET BanglaBERT (Frozen Head) -->
-              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition opacity-75">
-                <td class="px-5 py-3.5 text-slate-800 dark:text-slate-200">
-                  <span class="font-semibold">BUET BanglaBERT (Frozen Head)</span>
-                  <span class="block text-[11px] font-mono text-slate-400">Baseline Feature Extractor</span>
-                </td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs">Operational Category</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">74.88%</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">0.6253</td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">GPU Required</td>
-                <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
-                  Baseline frozen feature extractor without end-to-end gradient updates.
-                </td>
-              </tr>
+        <!-- Category Benchmark Plot Card -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-3">
+          <div class="rounded-xl overflow-hidden bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5">
+            <img 
+              src="../assets/images/projects/voc/category_model_benchmark_bars.png" 
+              alt="Operational Category Model Benchmark across Architectures (5-Class Taxonomy)" 
+              loading="lazy"
+              class="w-full h-auto object-contain hover:scale-[1.005] transition-transform duration-300"
+            />
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-justify">
+            <strong class="font-semibold text-slate-700 dark:text-slate-300">Category Comparison:</strong> The <strong class="text-emerald-600 dark:text-emerald-400">Hero Soft-Voting ML Ensemble</strong> takes 1st place with 87.44% CV Accuracy and 0.7845 Macro-F1 at ~18,200 rev/s throughput, outperforming fine-tuned <strong class="text-slate-800 dark:text-slate-200">BUET BanglaBERT</strong> (85.27% Acc, 0.7624 F1) because sub-word character n-grams excel on code-switched Romanized Banglish tokens (<em>"mb"</em>, <em>"kete niyeche"</em>, <em>"otp"</em>). The fine-tuned transformer makes a massive leap from the frozen baseline (74.88%, +10.39% Acc), while the naive statistical floor rests at 60.68%.
+          </p>
+        </div>
 
-              <!-- 10. Statistical Floor (Dummy) -->
-              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition opacity-60">
-                <td class="px-5 py-3.5 text-slate-700 dark:text-slate-300">
-                  <span class="font-semibold">Statistical Floor (Dummy)</span>
-                  <span class="block text-[11px] font-mono text-slate-400">Majority Class Baseline</span>
-                </td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs">Operational Category</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-600 dark:text-slate-400">60.68%</td>
-                <td class="px-5 py-3.5 text-center font-mono text-slate-600 dark:text-slate-400">0.1511</td>
-                <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">Instant</td>
-                <td class="px-5 py-3.5 text-xs text-slate-500 dark:text-slate-400">
-                  Naive majority-class guess without language understanding.
-                </td>
-              </tr>
+        <!-- Category Leaderboard Table -->
+        <div class="rounded-2xl overflow-hidden bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="border-b border-slate-200/70 dark:border-slate-800 bg-slate-50/50 dark:bg-white/[0.02]">
+                  <th class="px-5 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">Rank &amp; Model Architecture</th>
+                  <th class="px-5 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 text-center">CV Accuracy</th>
+                  <th class="px-5 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 text-center">Macro F1</th>
+                  <th class="px-5 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 text-center">Inference Throughput</th>
+                  <th class="px-5 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">Key Strengths &amp; Production Characteristics</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm divide-y divide-slate-100/80 dark:divide-slate-800/60">
+                <!-- 1. Hero Ensemble (Category Champion) -->
+                <tr class="bg-emerald-500/[0.04] dark:bg-emerald-500/[0.08] hover:bg-emerald-500/[0.08] transition font-medium">
+                  <td class="px-5 py-3.5 text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="text-base">🥇</span>
+                    <div>
+                      <span class="font-bold">Hero Soft-Voting ML Ensemble</span>
+                      <span class="block text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Sub-Word Char N-Grams + Multi-ML</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3.5 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400 text-base">87.44%</td>
+                  <td class="px-5 py-3.5 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">0.7845</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">~18,200 rev/s</td>
+                  <td class="px-5 py-3.5 text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
+                    🏷️ Category Champion: Sub-word character n-grams excel on Romanized Banglish (<em>"mb"</em>, <em>"kete niyeche"</em>, <em>"otp"</em>).
+                  </td>
+                </tr>
 
-            </tbody>
-          </table>
+                <!-- 2. BUET BanglaBERT (Fine-Tuned) -->
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3.5 text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="text-base">🥈</span>
+                    <div>
+                      <span class="font-bold">BUET BanglaBERT (Fine-Tuned)</span>
+                      <span class="block text-[11px] font-mono text-slate-500">Contextual Transformer Representations</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3.5 text-center font-mono font-bold text-slate-800 dark:text-slate-200">85.27%</td>
+                  <td class="px-5 py-3.5 text-center font-mono font-semibold text-slate-800 dark:text-slate-200">0.7624</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">GPU Batched</td>
+                  <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
+                    Contextual transformer representations; massive leap from 74.88% frozen baseline (+10.4% Acc).
+                  </td>
+                </tr>
+
+                <!-- 3. Multilingual MiniLM Head -->
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3.5 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                    <span class="text-base">🥉</span>
+                    <div>
+                      <span class="font-semibold">Multilingual MiniLM Head</span>
+                      <span class="block text-[11px] font-mono text-slate-400">Dense Sentence Semantic Representations</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">81.15%</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">0.7247</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">~2,100 rev/s</td>
+                  <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
+                    Multilingual sentence semantic representations with regularized head.
+                  </td>
+                </tr>
+
+                <!-- 4. Hybrid BiLSTM + Attention -->
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3.5 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                    <span class="font-mono text-xs text-slate-400 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">4</span>
+                    <div>
+                      <span class="font-semibold">Hybrid BiLSTM + Attention (GPU)</span>
+                      <span class="block text-[11px] font-mono text-slate-400">Inverse Frequency Class Weighting</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">80.84%</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">0.7106</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">Fast GPU Batched</td>
+                  <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
+                    Sequential token context + inverse frequency class weighting.
+                  </td>
+                </tr>
+
+                <!-- 5. BUET BanglaBERT (Frozen Head) -->
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition opacity-75">
+                  <td class="px-5 py-3.5 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                    <span class="font-mono text-xs text-slate-400 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">5</span>
+                    <div>
+                      <span class="font-semibold">BUET BanglaBERT (Frozen Head)</span>
+                      <span class="block text-[11px] font-mono text-slate-400">Baseline Feature Extractor</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">74.88%</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-700 dark:text-slate-300">0.6253</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">GPU Required</td>
+                  <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
+                    Baseline frozen feature extractor without end-to-end gradient updates.
+                  </td>
+                </tr>
+
+                <!-- 6. Statistical Floor (Dummy) -->
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition opacity-60">
+                  <td class="px-5 py-3.5 text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                    <span class="font-mono text-xs text-slate-400 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">6</span>
+                    <div>
+                      <span class="font-semibold">Statistical Floor (Dummy)</span>
+                      <span class="block text-[11px] font-mono text-slate-400">Majority Class Baseline</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-600 dark:text-slate-400">60.68%</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-slate-600 dark:text-slate-400">0.1511</td>
+                  <td class="px-5 py-3.5 text-center font-mono text-xs text-slate-600 dark:text-slate-300">Instant</td>
+                  <td class="px-5 py-3.5 text-xs text-slate-500 dark:text-slate-400">
+                    Naive majority-class guess without language understanding.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
