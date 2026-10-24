@@ -890,53 +890,159 @@
         </div>
       </div>
 
-      <!-- Human Ground-Truth Reliability & Cohen's Kappa Card -->
-      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-200/70 dark:border-slate-800">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-400/30 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg">
-              <i class="fa-solid fa-handshake-simple"></i>
-            </div>
-            <div>
-              <h3 class="font-display font-bold text-base text-slate-900 dark:text-white">Human Ground-Truth Reliability &amp; Inter-Annotator Agreement (Cohen's Kappa)</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">Independent Multi-Reviewer Blind Study across Stratified Multi-Operator Cohort</p>
-            </div>
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- SUBSECTION 5C: HUMAN GROUND-TRUTH VALIDATION & AGREEMENT    -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <div class="space-y-6 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-handshake-simple text-brand-500"></i> C. Human Ground-Truth Validation &amp; Model Agreement (Zero-Leakage Study)
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">Two-step validation framework: Human-to-Human consensus &amp; Model-to-Human agreement</p>
           </div>
-          <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 border border-purple-300/40 font-bold self-start sm:self-auto">Zero-Leakage Blind Protocol</span>
+          <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 border border-purple-300/40 font-bold self-start sm:self-auto">Zero-Leakage Protocol</span>
         </div>
 
-        <div class="overflow-x-auto">
-          <table class="w-full text-left">
-            <thead>
-              <tr class="border-b border-slate-200/70 dark:border-slate-800 bg-slate-50/50 dark:bg-white/[0.02] text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
-                <th class="px-5 py-3">Evaluation Dimension</th>
-                <th class="px-5 py-3 text-center">Evaluated Cohort</th>
-                <th class="px-5 py-3 text-center text-emerald-600 dark:text-emerald-400">Raw Agreement</th>
-                <th class="px-5 py-3 text-center text-purple-600 dark:text-purple-400">Cohen's Kappa (&kappa;)</th>
-                <th class="px-5 py-3">Standard Statistical Interpretation</th>
-              </tr>
-            </thead>
-            <tbody class="text-sm divide-y divide-slate-100/80 dark:divide-slate-800/60">
-              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
-                <td class="px-5 py-3.5 font-semibold text-slate-900 dark:text-white">Sentiment Analysis (3-Class)</td>
-                <td class="px-5 py-3.5 text-center font-mono">200 Reviews</td>
-                <td class="px-5 py-3.5 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">91.00%</td>
-                <td class="px-5 py-3.5 text-center font-mono font-bold text-purple-600 dark:text-purple-400">&kappa; = 0.5762</td>
-                <td class="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-300">
-                  <strong>Moderate Agreement:</strong> High raw consistency with marginal boundary variance on mild positive vs. neutral affirmations.
-                </td>
-              </tr>
-              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
-                <td class="px-5 py-3.5 font-semibold text-slate-900 dark:text-white">Operational Category (5-Class)</td>
-                <td class="px-5 py-3.5 text-center font-mono">196 Reviews</td>
-                <td class="px-5 py-3.5 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">95.41%</td>
-                <td class="px-5 py-3.5 text-center font-mono font-extrabold text-purple-600 dark:text-purple-400 text-base">&kappa; = 0.7694</td>
-                <td class="px-5 py-3.5 text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
-                  🏆 <strong>Substantial Agreement:</strong> Exceptional inter-rater reliability across complex functional complaint domains.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+          To rigorously validate whether automated machine learning classifications genuinely reflect human cognitive perception (and eliminate self-reinforcing training feedback loops), a two-step validation framework was conducted under strict zero-leakage conditions (training seed reviews excluded, star ratings stripped, and model predictions hidden):
+        </p>
+
+        <!-- 1. Inter-Annotator Reliability (Human vs Human Consensus) -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/70 dark:border-slate-800">
+            <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-md bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 font-mono text-xs flex items-center justify-center font-bold">1</span>
+              Inter-Annotator Reliability (Human vs. Human Consensus)
+            </h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">N = 200 Pairs</span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            Before measuring model accuracy, we established the validity and consistency of our operational taxonomy and sentiment boundaries across an overlapping stratified cohort evaluated by two independent human reviewers:
+          </p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="border-b border-slate-200/70 dark:border-slate-800 bg-slate-50/50 dark:bg-white/[0.02] text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+                  <th class="px-5 py-3">Evaluation Dimension</th>
+                  <th class="px-5 py-3 text-center">Evaluated Cohort</th>
+                  <th class="px-5 py-3 text-center text-emerald-600 dark:text-emerald-400">Raw Human Agreement</th>
+                  <th class="px-5 py-3 text-center text-purple-600 dark:text-purple-400">Cohen's Kappa (&kappa;)</th>
+                  <th class="px-5 py-3">Standard Statistical Interpretation</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm divide-y divide-slate-100/80 dark:divide-slate-800/60">
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3 font-semibold text-slate-900 dark:text-white">Sentiment Analysis (3-Class)</td>
+                  <td class="px-5 py-3 text-center font-mono">200 Reviews</td>
+                  <td class="px-5 py-3 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">91.00%</td>
+                  <td class="px-5 py-3 text-center font-mono font-bold text-purple-600 dark:text-purple-400">&kappa; = 0.5762</td>
+                  <td class="px-5 py-3 text-xs text-slate-600 dark:text-slate-300">
+                    <strong>Moderate Agreement:</strong> High raw consistency with marginal boundary variance on mild positive vs. neutral affirmations.
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3 font-semibold text-slate-900 dark:text-white">Operational Category (5-Class)</td>
+                  <td class="px-5 py-3 text-center font-mono">196 Reviews</td>
+                  <td class="px-5 py-3 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">95.41%</td>
+                  <td class="px-5 py-3 text-center font-mono font-extrabold text-purple-600 dark:text-purple-400">&kappa; = 0.7694</td>
+                  <td class="px-5 py-3 text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
+                    🏆 <strong>Substantial Agreement:</strong> Exceptional inter-rater reliability across complex functional complaint domains.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 2. Trained Model Performance on Blind Human Ground Truth (Model vs. Human Agreement) -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/70 dark:border-slate-800">
+            <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-md bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 font-mono text-xs flex items-center justify-center font-bold">2</span>
+              Trained Model Performance on Blind Human Ground Truth (Model vs. Human Agreement)
+            </h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">N = 300 Primary / Dual Consensus</span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            The trained classifiers were then benchmarked directly against the blind human ground-truth cohort (<span class="font-mono">N = 300</span> primary human reviews; <span class="font-mono">N = 182</span> sentiment / <span class="font-mono">N = 187</span> category dual-human consensus reviews):
+          </p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="border-b border-slate-200/70 dark:border-slate-800 bg-slate-50/50 dark:bg-white/[0.02] text-xs font-mono font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+                  <th class="px-5 py-3">Model Architecture</th>
+                  <th class="px-5 py-3 text-center">Evaluated Task</th>
+                  <th class="px-5 py-3 text-center text-emerald-600 dark:text-emerald-400">Human Raw Agreement (N=300)</th>
+                  <th class="px-5 py-3 text-center text-brand-600 dark:text-brand-400">Consensus Agreement (Dual Agreed)</th>
+                  <th class="px-5 py-3 text-center text-purple-600 dark:text-purple-400">Cohen's Kappa (&kappa;)</th>
+                  <th class="px-5 py-3">Production Status</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm divide-y divide-slate-100/80 dark:divide-slate-800/60">
+                <tr class="bg-emerald-500/[0.04] dark:bg-emerald-500/[0.08] hover:bg-emerald-500/[0.08] transition font-medium">
+                  <td class="px-5 py-3 font-semibold text-slate-900 dark:text-white">Hero Soft-Voting ML Ensemble</td>
+                  <td class="px-5 py-3 text-center font-mono text-xs">Operational Category (5-Class)</td>
+                  <td class="px-5 py-3 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">91.33%</td>
+                  <td class="px-5 py-3 text-center font-mono font-extrabold text-emerald-600 dark:text-emerald-400 text-base">94.12%</td>
+                  <td class="px-5 py-3 text-center font-mono font-bold text-purple-600 dark:text-purple-400">&kappa; = 0.5046</td>
+                  <td class="px-5 py-3 text-xs text-emerald-700 dark:text-emerald-300 font-semibold">🏆 Production Category Hero</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3 font-medium text-slate-800 dark:text-slate-200">Challenger LinearSVC</td>
+                  <td class="px-5 py-3 text-center font-mono text-xs">Operational Category (5-Class)</td>
+                  <td class="px-5 py-3 text-center font-mono font-semibold">91.00%</td>
+                  <td class="px-5 py-3 text-center font-mono font-bold text-slate-800 dark:text-slate-200">93.58%</td>
+                  <td class="px-5 py-3 text-center font-mono text-slate-600 dark:text-slate-400">&kappa; = 0.4679</td>
+                  <td class="px-5 py-3 text-xs text-slate-500 dark:text-slate-400">High Linear Baseline</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3 font-medium text-slate-800 dark:text-slate-200">Primary Logistic Regression</td>
+                  <td class="px-5 py-3 text-center font-mono text-xs">Operational Category (5-Class)</td>
+                  <td class="px-5 py-3 text-center font-mono">89.33%</td>
+                  <td class="px-5 py-3 text-center font-mono font-semibold">91.98%</td>
+                  <td class="px-5 py-3 text-center font-mono text-slate-600 dark:text-slate-400">&kappa; = 0.4385</td>
+                  <td class="px-5 py-3 text-xs text-slate-500 dark:text-slate-400">Balanced Regularized Baseline</td>
+                </tr>
+                <tr class="bg-emerald-500/[0.04] dark:bg-emerald-500/[0.08] hover:bg-emerald-500/[0.08] transition font-medium">
+                  <td class="px-5 py-3 font-semibold text-slate-900 dark:text-white">Hero Soft-Voting ML Ensemble</td>
+                  <td class="px-5 py-3 text-center font-mono text-xs">Sentiment Analysis (3-Class)</td>
+                  <td class="px-5 py-3 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">83.67%</td>
+                  <td class="px-5 py-3 text-center font-mono font-extrabold text-emerald-600 dark:text-emerald-400 text-base">87.91%</td>
+                  <td class="px-5 py-3 text-center font-mono font-bold text-purple-600 dark:text-purple-400">&kappa; = 0.4670</td>
+                  <td class="px-5 py-3 text-xs text-emerald-700 dark:text-emerald-300 font-semibold">🏆 Production Sentiment Hero</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3 font-medium text-slate-800 dark:text-slate-200">Challenger LinearSVC</td>
+                  <td class="px-5 py-3 text-center font-mono text-xs">Sentiment Analysis (3-Class)</td>
+                  <td class="px-5 py-3 text-center font-mono font-bold text-slate-800 dark:text-slate-200">89.00%</td>
+                  <td class="px-5 py-3 text-center font-mono font-extrabold text-slate-900 dark:text-white">92.31%</td>
+                  <td class="px-5 py-3 text-center font-mono font-bold text-purple-600 dark:text-purple-400">&kappa; = 0.5366</td>
+                  <td class="px-5 py-3 text-xs text-slate-500 dark:text-slate-400">Strong Linear Generalization</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition">
+                  <td class="px-5 py-3 font-medium text-slate-800 dark:text-slate-200">Primary Logistic Regression</td>
+                  <td class="px-5 py-3 text-center font-mono text-xs">Sentiment Analysis (3-Class)</td>
+                  <td class="px-5 py-3 text-center font-mono">82.67%</td>
+                  <td class="px-5 py-3 text-center font-mono font-semibold">86.81%</td>
+                  <td class="px-5 py-3 text-center font-mono text-slate-600 dark:text-slate-400">&kappa; = 0.4624</td>
+                  <td class="px-5 py-3 text-xs text-slate-500 dark:text-slate-400">High Neutral Class Recall</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition opacity-75">
+                  <td class="px-5 py-3 font-mono text-xs text-slate-600 dark:text-slate-400">Naive Star-Rating Baseline</td>
+                  <td class="px-5 py-3 text-center font-mono text-xs">Sentiment Analysis (3-Class)</td>
+                  <td class="px-5 py-3 text-center font-mono text-slate-500">80.17%</td>
+                  <td class="px-5 py-3 text-center font-mono text-slate-500">84.62%</td>
+                  <td class="px-5 py-3 text-center font-mono text-slate-500">&kappa; = 0.4102</td>
+                  <td class="px-5 py-3 text-xs text-slate-400">Heuristic (Fails on Sarcasm/Typos)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-3 p-4 rounded-xl bg-purple-500/[0.04] dark:bg-purple-500/[0.08] border border-purple-300/30 dark:border-purple-800/30 text-xs text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
+            <strong class="font-semibold text-purple-700 dark:text-purple-300"><i class="fa-solid fa-lightbulb mr-1"></i> Key Takeaway:</strong> On clear human consensus reviews (where both independent human annotators agreed 100%), the Production Hero Ensemble reaches <strong class="text-emerald-600 dark:text-emerald-400 font-bold">94.12% agreement</strong> on Operational Categories and <strong class="text-emerald-600 dark:text-emerald-400 font-bold">87.91% agreement</strong> on Sentiment Polarity. Across the complete blind human benchmark (<span class="font-mono">N = 300</span>, loaded with sarcastic Bengali expressions, informal Banglish slang, and rating-text misclicks), the Ensemble maintains <strong class="text-slate-900 dark:text-white font-bold">91.33% agreement</strong> on Operational Categories and <strong class="text-slate-900 dark:text-white font-bold">83.67% agreement</strong> on Sentiment Polarity (with Challenger LinearSVC achieving <strong class="text-slate-900 dark:text-white font-bold">89.00%</strong>), confirming robust generalization to real-world customer feedback.
+          </div>
         </div>
       </div>
     </section>
