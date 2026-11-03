@@ -4,8 +4,10 @@ export const experienceData = [
     organization: "Shaheed Mashiur Rahman Hall Dining, JUST • Jashore, Bangladesh",
     period: "Sep 2025 – Mar 2026",
     highlights: [
-      "Spearheaded the digital transformation of a hand-written meal counting system, building an automated Google Sheets tracking system to optimize financial and inventory calculations.",
-      "Streamlined administrative channels and procurement logistics to ensure seamless daily operations in a fast-paced environment serving 200–400 meals daily."
+      "Spearheaded the complete digital transformation of Shaheed Mashiur Rahman Hall dining operations, replacing a bulky paper register across 210 four-student rooms with an automated Google Sheets ERP tracking ~9,000 monthly meals.",
+      "Streamlined evening next-day token pre-booking by switching from tedious manual room/name skimming to instant Student ID lookups and dropdown meal selection, eliminating counter queue bottlenecks.",
+      "Engineered personal credit/deposit balance accounts (Column EB) supporting documented negative balances (allowing cash-short students to eat and pay later) and advance deposits, eliminating student dining churn.",
+      "Automated next-day kitchen procurement with formula-based protein forecasting (Chicken, Fish, Egg) to eliminate perishables spoilage, and established real-time operational transparency for the Hall Provost Body."
     ]
   },
   {
