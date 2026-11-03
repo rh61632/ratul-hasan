@@ -12,7 +12,7 @@ export function renderProjects(projects, targetElementId) {
     // 16:9 full aspect ratio cover image that is always properly proportioned
     const mediaBlock = project.media
       ? `
-        <div class="relative w-full aspect-video max-h-[175px] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800/80 border border-slate-200/70 dark:border-white/10 shadow-sm mb-2 shrink-0">
+        <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800/80 border border-slate-200/70 dark:border-white/10 shadow-sm mb-2 shrink-0">
           <img 
             src="${project.media}" 
             alt="${project.mediaAlt || project.title}" 

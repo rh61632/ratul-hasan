@@ -57,9 +57,9 @@ body {
   .projects-expand-container {
     flex-direction: row;
     align-items: stretch;
-    height: 520px;
-    min-height: 520px;
-    max-height: 520px;
+    height: 580px;
+    min-height: 580px;
+    max-height: 580px;
   }
 
   /* Default (unhovered): all 4 cards are equal in size with consistent height */
@@ -93,7 +93,7 @@ body {
   /* Summary toggle: collapsed view shows punchy summary with operators, expanded view shows full technical architecture */
   .project-expand-card .project-summary-collapsed {
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -108,7 +108,7 @@ body {
   .projects-expand-container .project-expand-card:hover .project-summary-expanded,
   .projects-expand-container .project-expand-card.is-active .project-summary-expanded {
     display: -webkit-box !important;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -128,6 +128,14 @@ body {
   .project-expand-card:hover .card-expanded-footer,
   .project-expand-card.is-active .card-expanded-footer {
     display: flex !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .projects-expand-container {
+    height: 600px;
+    min-height: 600px;
+    max-height: 600px;
   }
 }
 
