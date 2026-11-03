@@ -26,6 +26,58 @@ export const postersData = [
     caseStudyUrl: null
   },
   {
+    id: "wheelchair-regen",
+    title: "Smart Electric Wheelchair with Regenerative Braking and Energy Optimization",
+    shortTitle: "Smart Electric Wheelchair with Regenerative Braking",
+    category: "Assistive Robotics & Power Electronics",
+    year: "2024 – 2025",
+    authors: "Syed Shakib Shahriar Islam, Md. Ratul Hasan, Shuvo Ronjon Das",
+    affiliation: "Dept. of Electrical and Electronic Engineering, JUST",
+    badgeText: "Assistive Robotics & Energy Recovery",
+    orientation: "portrait",
+    isWinner: false,
+    awardWon: null,
+    awardUrl: null,
+    summary: "Designed an assistive smart electric wheelchair integrating kinetic regenerative braking to recharge the 24V battery during deceleration and downhill descent (5–10% energy recovery). Features ultrasonic collision avoidance and an MPU6050 6-axis IMU slope sensor for downhill runaway speed regulation.",
+    tags: ["Regenerative Braking", "Electric Wheelchair", "Arduino/ESP32", "MPU6050 IMU", "Micro-Energy Recovery", "Assistive Tech", "Proteus/MATLAB"],
+    highlights: [
+      "Drive-to-brake mode power routing circuit recovering kinetic energy into battery / capacitor bank during deceleration.",
+      "Closed-loop ultrasonic distance sensors and 6-axis IMU slope angle detection preventing forward collision and downhill runaway.",
+      "Economic payback analysis: ৳2,500–3,500 upgrade cost yielding annual electricity cost savings of ৳400–1,500.",
+      "Proteus and MATLAB dynamic simulation validating stable motor torque transition and battery protection under load."
+    ],
+    thumbUrl: "assets/images/posters/wheelchair-thumb.jpg",
+    fullImageUrl: "assets/images/posters/wheelchair-regen-poster.png",
+    pdfUrl: "assets/docs/posters/wheelchair-regen-braking.pdf",
+    caseStudyUrl: null
+  },
+  {
+    id: "pv-net-metering",
+    title: "ML-Driven Localized Control System for Simplified Net Metering and Voltage Regulation in Urban PV-Integrated Distribution Networks in Bangladesh",
+    shortTitle: "ML-Driven Localized Net Metering & Voltage Regulation",
+    category: "Smart Grid & Renewable Energy ML",
+    year: "2025",
+    authors: "Md. Sayed Parvej, Md. Ratul Hasan",
+    affiliation: "Dept. of Electrical and Electronic Engineering, JUST",
+    badgeText: "Smart Grid ML & Solar PV",
+    orientation: "portrait",
+    isWinner: false,
+    awardWon: null,
+    awardUrl: null,
+    summary: "Engineered a localized machine learning control hub utilizing Reinforcement Learning with LSTM forecasting support to regulate distribution feeder voltage, mitigate PV intermittency, and automate bidirectional net-metering settlement for urban rooftop solar in Bangladesh.",
+    tags: ["Reinforcement Learning", "LSTM Forecasting", "Solar Rooftop PV", "Net Metering", "Voltage Regulation", "Raspberry Pi 4", "Modbus RS485"],
+    highlights: [
+      "Autonomous smart inverter and battery storage coordination eliminating local overvoltage violations (ANSI C84.1 compliance).",
+      "Minimizes On-Load Tap Changer (OLTC) mechanical wear and feeder distribution losses during rapid solar cloud-transients.",
+      "Localized IoT edge architecture with Raspberry Pi 4, 4G LTE gateway, and Modbus RS485 energy meters.",
+      "Low-cost localized deployment costing ~৳17,250 designed for commercial and residential distribution feeders in Bangladesh."
+    ],
+    thumbUrl: "assets/images/posters/pv-net-metering-thumb.jpg",
+    fullImageUrl: "assets/images/posters/pv-net-metering-poster.png",
+    pdfUrl: "assets/docs/posters/pv-net-metering-ml.pdf",
+    caseStudyUrl: null
+  },
+  {
     id: "ev-charging-opf",
     title: "A Multi-Objective Optimal Power Flow (OPF) Algorithm for Electric Vehicle Charging to Ensure National Grid Stability in Bangladesh",
     shortTitle: "Multi-Objective OPF for EV Charging & National Grid Stability",
