@@ -30,7 +30,7 @@ export const projectsData = [
     title: "Hall Dining Operations & Inventory Management System",
     category: "Operations Analytics",
     year: "2025 – 2026",
-    description: "Spearheaded the complete digital transformation of university hall dining operations, replacing manual paper registers with an automated ERP spreadsheet system. Handled 1,100+ residents, tracked ~9,000 monthly meals across dual-slot menus, and engineered automated token audits with bKash cash reconciliation.",
+    description: "Spearheaded the complete digital transformation of Shaheed Mashiur Rahman Hall dining operations, replacing manual paper registers with an automated ERP spreadsheet system. Handled 1,100+ residents, tracked ~9,000 monthly meals across dual-slot menus, and engineered automated token audits with bKash cash reconciliation.",
     tags: ["Google Sheets ERP", "71,600+ Formulas", "XLOOKUP & SUMIF", "Token Audit", "bKash Balancing"],
     media: "assets/images/thumbnails/dining-erp.png",
     mediaAlt: "Hall dining operations ERP preview",
