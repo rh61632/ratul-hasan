@@ -4,12 +4,18 @@ export const projectsData = [
     title: "Telecom Voice-of-Customer (VoC) Intelligence Engine",
     category: "NLP & Production Intelligence",
     year: "2026",
-    description: "Enterprise NLP & Business Intelligence architecture analyzing 655,670 standardized customer reviews across Grameenphone Ltd., Robi Axiata Limited, and Banglalink Digital Communications Limited over a continuous 3,716-day common horizon (2016–2026) within a 661.2k master corpus. Features fine-tuned SOTA BUET BanglaBERT (91.6% CV Acc), a low-latency Soft-Voting Ensemble (87.4% Category Acc), longitudinal NSS stability modeling (RMSSD/SSI), CLT normality floor (N ≥ 30), and additive shock attribution.",
-    tags: ["Python 3.10", "BUET BanglaBERT (91.6%)", "Hero Ensemble (87.4%)", "655.7k Benchmark (10-Yr)", "Master Corpus: 661.2k", "Attribution Engine", "300 DPI Visuals"],
+    shortSummary: "Enterprise NLP analyzing 655,670 customer reviews across <span class=\"text-[#0090ff] dark:text-[#38bdf8] font-semibold\">Grameenphone</span>, <span class=\"text-[#e60000] dark:text-[#ff4d4d] font-semibold\">Robi</span>, and <span class=\"text-[#ff7a00] dark:text-[#ff922b] font-semibold\">Banglalink</span> over a continuous 10-year common horizon. Features fine-tuned SOTA BUET BanglaBERT and a low-latency Soft-Voting ensemble.",
+    description: "Enterprise NLP & Business Intelligence architecture analyzing 655,670 standardized customer reviews across <span class=\"text-[#0090ff] dark:text-[#38bdf8] font-semibold\">Grameenphone Ltd.</span>, <span class=\"text-[#e60000] dark:text-[#ff4d4d] font-semibold\">Robi Axiata Limited</span>, and <span class=\"text-[#ff7a00] dark:text-[#ff922b] font-semibold\">Banglalink Digital Communications Limited</span> over a continuous 3,716-day common horizon (2016–2026) within a 661.2k master corpus. Features fine-tuned SOTA BUET BanglaBERT (91.6% CV Acc), low-latency Soft-Voting Ensemble (87.4% Category Acc), longitudinal NSS stability modeling, and additive shock attribution.",
+    highlights: [
+      "BUET BanglaBERT SOTA: 91.60% CV Acc (0.8598 F1)",
+      "Hero Soft-Voting: Sub-ms CPU inference (87.4%)",
+      "NSS Stability: RMSSD & SSI tracking across 81 mos"
+    ],
+    tags: ["Python 3.10", "BUET BanglaBERT", "Hero Ensemble", "655.7k Benchmark"],
     media: "assets/images/thumbnails/voc-dashboard.png",
     mediaAlt: "Power BI VoC intelligence preview",
     githubUrl: "https://github.com/rh61632/telecom-Voice-of-Customer_intelligence",
-    caseStudyUrl: "projects/voc-telecom.html", // Dedicated static page
+    caseStudyUrl: "projects/voc-telecom.html",
     badgeText: "Enterprise NLP"
   },
   {
@@ -17,12 +23,18 @@ export const projectsData = [
     title: "Resource-Efficient sEMG-Driven Prosthetic Arm",
     category: "Undergraduate Thesis & Bionic Mechatronics",
     year: "2025 – 2026",
-    description: "End-to-end engineering of an accessible transradial prosthetic arm executing deep learning intent classification directly on a commodity ESP32-S3 microcontroller. Features sparse 3-channel anatomical sensing, analog front-end conditioning, unquantized Float32 1D-CNN inference via TFLM, star-ground power isolation, and a tendon-driven 3D-printed anthropomorphic hand.",
-    tags: ["ESP32-S3 (Xtensa LX7)", "TinyML / TFLM", "1D-CNN + GAP", "sEMG Signal Processing", "Tendon Kinematics", "Star Grounding", "Bare-Metal C++", "Sub-$150 BOM"],
+    shortSummary: "Accessible transradial bionic arm executing deep learning intent classification directly on an ESP32-S3 microcontroller. Features sparse 3-channel anatomical sensing, analog front-end conditioning, unquantized Float32 1D-CNN inference via TFLM, and a 3D-printed anthropomorphic hand.",
+    description: "End-to-end engineering of an accessible transradial prosthetic arm executing deep learning intent classification directly on a commodity ESP32-S3 microcontroller. Features sparse 3-channel anatomical sensing, analog front-end conditioning, unquantized Float32 1D-CNN inference via TFLM, star-ground power isolation, and a tendon-driven 3D-printed anthropomorphic hand under $150 total hardware cost.",
+    highlights: [
+      "Edge Microcontroller: ESP32-S3 @ 240 MHz Float32",
+      "Deep Learning Intent: 1D-CNN + GAP on TFLM",
+      "Analog Front-End: 3-channel sEMG sensing"
+    ],
+    tags: ["ESP32-S3", "TinyML / TFLM", "1D-CNN + GAP", "Sub-$150 Hardware Cost"],
     media: "assets/images/thumbnails/prosthetic.jpg",
     mediaAlt: "Resource-Efficient sEMG-Driven Prosthetic Hand Prototype",
     githubUrl: null,
-    caseStudyUrl: "projects/prosthetic-arm.html", // Links to dedicated thesis case study
+    caseStudyUrl: "projects/prosthetic-arm.html",
     badgeText: "B.Sc. Capstone Thesis"
   },
   {
@@ -30,8 +42,14 @@ export const projectsData = [
     title: "Hall Dining Operations & Inventory Management System",
     category: "Operations Analytics",
     year: "2025 – 2026",
+    shortSummary: "Automated dining operations and inventory system for 1,102 residents across 210 rooms. Replaced paper registers with real-time Student ID meal booking, ledger-backed accounts, 71,600+ formulas, and next-day kitchen protein forecasting with Provost oversight.",
     description: "Spearheaded the complete digital transformation of Shaheed Mashiur Rahman Hall dining, replacing bulky paper registers with an automated spreadsheet system. Mapped 1,102 residents across 210 four-student rooms, introduced direct Student ID meal booking, personal credit/deposit balance accounts to eliminate student churn, next-day kitchen protein forecasting, and real-time oversight for the Provost Body.",
-    tags: ["Google Sheets ERP", "71,600+ Formulas", "XLOOKUP & SUMIF", "Token Audit", "bKash Balancing"],
+    highlights: [
+      "Operations Scale: 1,102 active residents in 210 rooms",
+      "Formula Matrix: 71,600+ multi-criteria formulas",
+      "Provost Oversight: Real-time meal headcounts & audit"
+    ],
+    tags: ["Google Sheets ERP", "71,600+ Formulas", "Token Audit", "bKash Balancing"],
     media: "assets/images/thumbnails/dining-erp.png",
     mediaAlt: "Hall dining operations ERP preview",
     githubUrl: "https://docs.google.com/spreadsheets/d/1YMRC2m48c165kfrgP7JzAwUkWMylTQVxI6k5dHKIv54/edit?usp=sharing",
@@ -43,8 +61,14 @@ export const projectsData = [
     title: "LimitEye: Speed & License Plate Recognition",
     category: "Computer Vision & Edge ML",
     year: "2024 – 2025",
+    shortSummary: "Modular edge computer vision pipeline integrating custom YOLOv8 detection (91.0% accuracy), SORT Kalman-filter tracking, optical pixel-to-metric velocity calibration (~34.9ms latency), and automated violation invoicing dispatched via SMTP with Bengali plate extraction.",
     description: "Engineered an end-to-end intelligent traffic monitoring and automated penalty pipeline. Integrates custom YOLOv8 detection (91.0% accuracy), SORT Kalman-filter multi-object tracking, optical pixel-to-metric velocity calibration (~34.9ms inference latency), and automated violation invoicing dispatched via SMTP with Bengali license plate character extraction.",
-    tags: ["Python 3.12", "Ultralytics YOLOv8", "SORT Tracking", "OpenCV", "Bengali ALPR", "Coordinate Calibration", "SMTP Protocol", "Sub-35ms Inference"],
+    highlights: [
+      "Object Detection: Custom YOLOv8 reaching 91% Acc",
+      "Kinematic Tracking: SORT Kalman filter + Hungarian",
+      "Speed Calibration: Homography (<35ms latency)"
+    ],
+    tags: ["Python 3.12", "Ultralytics YOLOv8", "SORT Tracking", "OpenCV"],
     media: "assets/images/thumbnails/limiteye.png",
     mediaAlt: "LimitEye Computer Vision Detection & Automated Penalty Dashboard",
     githubUrl: null,

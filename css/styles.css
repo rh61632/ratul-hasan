@@ -41,3 +41,135 @@ body {
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+/* ==========================================================================
+   Horizontal Expanding Projects Accordion
+   ========================================================================== */
+
+.projects-expand-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .projects-expand-container {
+    flex-direction: row;
+    align-items: stretch;
+    height: 520px;
+    min-height: 520px;
+    max-height: 520px;
+  }
+
+  /* Default (unhovered): all 4 cards are equal in size with consistent height */
+  .projects-expand-container .project-expand-card {
+    flex: 1 1 0%;
+    min-width: 0;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    transition: flex 0.5s cubic-bezier(0.25, 1, 0.35, 1),
+                background-color 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease,
+                opacity 0.35s ease;
+  }
+
+  /* When the container is hovered, non-hovered sibling cards shrink horizontally only */
+  .projects-expand-container:hover .project-expand-card {
+    flex: 0.75 1 0%;
+    opacity: 0.88;
+  }
+
+  /* The hovered card expands ONLY horizontally on the side */
+  .projects-expand-container .project-expand-card:hover,
+  .projects-expand-container .project-expand-card.is-active {
+    flex: 2.75 1 0%;
+    opacity: 1;
+    z-index: 10;
+  }
+
+  /* Summary toggle: collapsed view shows punchy summary with operators, expanded view shows full technical architecture */
+  .project-expand-card .project-summary-collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .project-expand-card .project-summary-expanded {
+    display: none;
+  }
+
+  .projects-expand-container .project-expand-card:hover .project-summary-collapsed,
+  .projects-expand-container .project-expand-card.is-active .project-summary-collapsed {
+    display: none !important;
+  }
+  .projects-expand-container .project-expand-card:hover .project-summary-expanded,
+  .projects-expand-container .project-expand-card.is-active .project-summary-expanded {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Footer swap on desktop hover */
+  .project-expand-card .card-collapsed-footer {
+    display: flex;
+  }
+  .project-expand-card .card-expanded-footer {
+    display: none;
+  }
+
+  .project-expand-card:hover .card-collapsed-footer,
+  .project-expand-card.is-active .card-collapsed-footer {
+    display: none !important;
+  }
+  .project-expand-card:hover .card-expanded-footer,
+  .project-expand-card.is-active .card-expanded-footer {
+    display: flex !important;
+  }
+}
+
+/* Mobile & Tablet Styles (< 1024px) */
+@media (max-width: 1023px) {
+  .projects-expand-container .project-expand-card {
+    width: 100%;
+  }
+
+  .project-expand-card .project-summary-collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .project-expand-card .project-summary-expanded {
+    display: none;
+  }
+
+  /* When tapped or active on mobile */
+  .project-expand-card.is-active .project-summary-collapsed,
+  .project-expand-card:hover .project-summary-collapsed {
+    display: none !important;
+  }
+  .project-expand-card.is-active .project-summary-expanded,
+  .project-expand-card:hover .project-summary-expanded {
+    display: block !important;
+  }
+
+  .project-expand-card .card-collapsed-footer {
+    display: flex;
+  }
+  .project-expand-card .card-expanded-footer {
+    display: none;
+  }
+
+  .project-expand-card.is-active .card-collapsed-footer,
+  .project-expand-card:hover .card-collapsed-footer {
+    display: none !important;
+  }
+  .project-expand-card.is-active .card-expanded-footer,
+  .project-expand-card:hover .card-expanded-footer {
+    display: flex !important;
+  }
+}

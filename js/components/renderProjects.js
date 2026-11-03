@@ -4,104 +4,148 @@ export function renderProjects(projects, targetElementId) {
   const container = document.getElementById(targetElementId);
   if (!container) return;
 
-  container.innerHTML = projects.map(project => {
-    // 16:9 dedicated cover image or bespoke themed engineering graphic header
+  container.className = "projects-expand-container";
+
+  container.innerHTML = projects.map((project, idx) => {
+    const numIndex = String(idx + 1).padStart(2, '0');
+
+    // 16:9 full aspect ratio cover image that is always properly proportioned
     const mediaBlock = project.media
       ? `
-        <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
+        <div class="relative w-full aspect-video max-h-[175px] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800/80 border border-slate-200/70 dark:border-white/10 shadow-sm mb-2 shrink-0">
           <img 
             src="${project.media}" 
             alt="${project.mediaAlt || project.title}" 
             loading="lazy"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent opacity-40"></div>
         </div>
       `
       : getThemedHeaderMarkup(project, 'project');
 
-    // Title links to dedicated case study if available
-    const titleHeader = project.caseStudyUrl
-      ? `<a href="${project.caseStudyUrl}" class="group-hover:text-brand-600 transition inline-block">
-           <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 font-display flex items-center gap-2">
-             ${project.title} <i class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition"></i>
-           </h3>
-         </a>`
-      : `<h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 font-display">${project.title}</h3>`;
-
-    // Action button links: View Repo + Case Study
+    // Action buttons for expanded view
     const primaryLink = project.caseStudyUrl
-      ? `<span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 transition">
-           Case Study <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
-         </span>`
-      : `<span class="font-semibold text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
+      ? `<a href="${project.caseStudyUrl}" class="project-action-link inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-sm transition">
+           <span>Case Study</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+         </a>`
+      : `<span class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 dark:text-brand-400">
            <i class="fa-solid fa-circle-check"></i> Complete
          </span>`;
 
     const repoLink = project.githubUrl
-      ? `<a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="relative z-20 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition" title="GitHub Repository">
-           <i class="fa-brands fa-github text-base"></i>
+      ? `<a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-action-link p-1.5 rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-white bg-white/40 dark:bg-slate-800/60 border border-slate-200/70 dark:border-white/10 transition" title="GitHub Repository">
+           <i class="fa-brands fa-github text-sm"></i>
          </a>`
       : "";
 
-    const tagPills = project.tags
-      .map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">${tag}</span>`)
+    // Tech tags
+    const tagPills = (project.tags || [])
+      .slice(0, 4)
+      .map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300 whitespace-nowrap">${tag}</span>`)
       .join("");
 
-    const cursorClass = project.caseStudyUrl ? "cursor-pointer" : "cursor-default";
-    const dataUrlAttr = project.caseStudyUrl ? `data-url="${project.caseStudyUrl}"` : "";
-
-    // Entire card lifts up smoothly on hover and indicates clickability
     return `
-      <div class="project-card group bg-white/30 dark:bg-slate-900/30 backdrop-blur-2xl rounded-2xl border border-white/40 dark:border-white/[0.08] ring-1 ring-white/20 dark:ring-white/[0.05] p-6 sm:p-7 flex flex-col justify-between shadow-[0_8px_32px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgb(0,0,0,0.35)] hover:bg-white/40 dark:hover:bg-slate-900/40 hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(13,148,136,0.15)] hover:-translate-y-1.5 transition-all duration-300 ${cursorClass}" ${dataUrlAttr}>
-        <div>
-          ${mediaBlock}
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 bg-brand-500/10 dark:bg-brand-950/60 px-2.5 py-0.5 rounded border border-brand-300/40 dark:border-brand-800/40 shadow-sm">
-              ${project.category}
+      <div class="project-expand-card group relative rounded-3xl p-5 flex flex-col justify-between overflow-hidden cursor-pointer
+                  bg-white/50 dark:bg-[#151824]/60 backdrop-blur-2xl
+                  border border-slate-200/80 dark:border-white/[0.08]
+                  hover:border-brand-500/50 dark:hover:border-brand-500/50
+                  hover:bg-white/95 dark:hover:bg-[#181c2c]
+                  shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)]
+                  hover:shadow-[0_20px_50px_rgba(13,148,136,0.18)] dark:hover:shadow-[0_20px_50px_rgba(13,148,136,0.22)]
+                  transition-all duration-500"
+           data-url="${project.caseStudyUrl || ''}"
+           data-index="${idx}">
+
+        <!-- Subtle Ambient Glow -->
+        <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-500/10 dark:bg-brand-500/15 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+        <!-- Upper Content Body: flex-1 flex flex-col justify-between min-h-0 overflow-hidden (Strictly quarantined from footer) -->
+        <div class="relative z-10 flex flex-col flex-1 min-h-0 justify-between overflow-hidden">
+          
+          <!-- Top Area: Image, Badges, Title -->
+          <div class="shrink-0">
+            ${mediaBlock}
+
+            <div class="flex items-center justify-between gap-2 mt-1 mb-1">
+              <div class="flex items-center gap-1.5 min-w-0">
+                <span class="text-xs font-mono font-bold text-brand-600 dark:text-brand-400 shrink-0">${numIndex}</span>
+                <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 border border-brand-500/20 font-semibold truncate">
+                  ${project.category}
+                </span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400 shrink-0">${project.year}</span>
+            </div>
+
+            <h3 class="text-base font-bold font-display text-slate-900 dark:text-white leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2 mb-1.5">
+              ${project.title}
+            </h3>
+          </div>
+
+          <!-- Middle Area: Main Project Summary & Tags -->
+          <div class="flex flex-col justify-start flex-1 min-h-0 overflow-hidden my-0.5">
+            <!-- Collapsed summary: displays in default small card, operator names visible & colored -->
+            <p class="project-summary-collapsed text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-2">
+              ${project.shortSummary}
+            </p>
+
+            <!-- Expanded summary: displays on hover/expansion with full technical architecture -->
+            <p class="project-summary-expanded text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-2">
+              ${project.description}
+            </p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1.5 shrink-0 mt-auto">
+              ${tagPills}
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Fixed Footer: Anchored with border-t, shrink-0, NEVER overlaps -->
+        <div class="relative z-10 pt-3 border-t border-slate-200/70 dark:border-white/[0.08] shrink-0 mt-2">
+          <!-- Collapsed Minimal Footer -->
+          <div class="card-collapsed-footer flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">${project.badgeText}</span>
+            <span class="flex items-center gap-1 text-brand-600 dark:text-brand-400 font-semibold text-[11px] group-hover:translate-x-1 transition-transform">
+              <span>Explore</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </span>
-            <span class="text-xs font-mono text-slate-400">${project.year}</span>
           </div>
 
-          ${titleHeader}
-
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-            ${project.description}
-          </p>
-
-          <div class="flex flex-wrap gap-1.5 mb-6">
-            ${tagPills}
+          <!-- Expanded Rich Footer with Buttons -->
+          <div class="card-expanded-footer flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              ${primaryLink}
+              ${repoLink}
+            </div>
+            <span class="text-[11px] font-mono text-slate-400 hidden sm:inline">${project.badgeText}</span>
           </div>
         </div>
 
-        <div class="pt-4 border-t border-slate-200/70 dark:border-slate-800/80 flex items-center justify-between text-xs">
-          <div class="flex items-center gap-3">
-            ${primaryLink}
-            ${repoLink}
-          </div>
-          <span class="text-slate-400 font-mono text-[11px]">${project.badgeText}</span>
-        </div>
       </div>
     `;
   }).join("");
 
-  // Attach card-level click handler so clicking anywhere on the card navigates to the detailed page
-  container.querySelectorAll(".project-card").forEach(card => {
+  // Attach card-level click and touch handlers
+  const cards = container.querySelectorAll(".project-expand-card");
+  cards.forEach(card => {
     const url = card.dataset.url;
-    if (url) {
-      card.addEventListener("click", (e) => {
-        // If clicking secondary interactive elements like GitHub repository link, allow it without navigating card
-        const clickedAnchor = e.target.closest("a");
-        if (clickedAnchor && clickedAnchor.getAttribute("href") !== url) {
-          return;
-        }
-
-        // Support opening in new tab via Cmd/Ctrl + Click
-        if (e.metaKey || e.ctrlKey) {
-          window.open(url, "_blank");
-        } else {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("a") || e.target.closest(".project-action-link")) {
+        return;
+      }
+      if (window.innerWidth >= 1024) {
+        if (url) {
           window.location.href = url;
         }
-      });
-    }
+      } else {
+        const wasActive = card.classList.contains("is-active");
+        cards.forEach(c => c.classList.remove("is-active"));
+        if (!wasActive) {
+          card.classList.add("is-active");
+        } else if (url) {
+          window.location.href = url;
+        }
+      }
+    });
   });
 }

@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (expContainer) {
     expContainer.innerHTML = experienceData.map(exp => `
       <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/40 hover:-translate-y-0.5 transition-all duration-300">
-        <div class="space-y-2.5 max-w-3xl">
+        <div class="space-y-2.5 flex-1 max-w-4xl lg:max-w-5xl">
           <div>
             <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">${exp.title}</h3>
             <p class="text-xs sm:text-sm font-semibold text-brand-600 dark:text-brand-400">${exp.organization}</p>
