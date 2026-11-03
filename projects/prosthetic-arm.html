@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resource-Efficient sEMG-Driven Prosthetic Arm | Undergraduate Thesis</title>
+  <title>Resource-Efficient sEMG-Driven Prosthetic Arm | Undergraduate Thesis Case Study</title>
 
   <!-- OpenGraph Metadata -->
-  <meta property="og:title" content="Resource-Efficient sEMG-Driven Prosthetic Arm">
-  <meta property="og:description" content="End-to-end design of an accessible, intelligent transradial prosthetic arm executing deep learning intent classification on a commodity ESP32-S3 microcontroller.">
+  <meta property="og:title" content="Resource-Efficient sEMG-Driven Prosthetic Arm | B.Sc. Thesis">
+  <meta property="og:description" content="End-to-end design, development, and validation of an accessible, intelligent transradial prosthetic arm executing deep learning intent classification directly on a commodity ESP32-S3 microcontroller.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://rh61632.github.io/projects/prosthetic-arm.html">
   <meta property="og:image" content="https://rh61632.github.io/assets/images/thumbnails/prosthetic.jpg">
@@ -40,15 +40,23 @@
     }
   </script>
   <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .diagram-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .diagram-card:hover {
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
 
   <!-- Ambient Glassmorphism Glow Background -->
   <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-    <div class="absolute -top-32 -left-32 w-[520px] h-[520px] bg-brand-500/15 dark:bg-brand-500/10 rounded-full blur-[110px]"></div>
-    <div class="absolute top-1/3 -right-32 w-[480px] h-[480px] bg-purple-500/15 dark:bg-purple-500/10 rounded-full blur-[110px]"></div>
-    <div class="absolute bottom-1/4 -left-32 w-[520px] h-[520px] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-[110px]"></div>
-    <div class="absolute bottom-10 right-1/4 w-[420px] h-[420px] bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-[100px]"></div>
+    <div class="absolute -top-32 -left-32 w-[540px] h-[540px] bg-brand-500/15 dark:bg-brand-500/10 rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-purple-500/15 dark:bg-purple-500/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-1/4 -left-32 w-[520px] h-[520px] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-10 right-1/4 w-[460px] h-[460px] bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-[110px]"></div>
   </div>
 
   <!-- Fixed Top Header -->
@@ -66,38 +74,92 @@
           <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
         </button>
         <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 backdrop-blur-md border border-brand-300/40 dark:border-brand-800/40 flex items-center gap-1.5 shadow-sm">
-          <i class="fa-solid fa-graduation-cap text-xs"></i> B.Sc. Capstone
+          <i class="fa-solid fa-graduation-cap text-xs"></i> B.Sc. Capstone Thesis
         </span>
       </div>
     </nav>
   </header>
 
-  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-24 w-full max-w-screen-2xl mx-auto space-y-12">
 
     <!-- Hero Header -->
-    <div class="mb-10 max-w-4xl space-y-4">
+    <div class="max-w-5xl space-y-4">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
-        Undergraduate Thesis • Biomedical Engineering & Embedded ML
+        <i class="fa-solid fa-microchip"></i>
+        B.Sc. Thesis • Biomedical Engineering &amp; Embedded TinyML
       </div>
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
         Resource-Efficient sEMG-Driven Prosthetic Arm
       </h1>
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
-        End-to-end design, development, and validation of an accessible, intelligent transradial prosthetic arm that executes deep learning intent classification directly on a commodity edge microcontroller. By shifting complex inference from power-hungry single-board computers to bare-metal hardware, the project demonstrates that high-dexterity myoelectric control can be achieved using a minimal sensor footprint and low-cost embedded electronics.
+      <p class="text-lg sm:text-xl font-medium text-slate-700 dark:text-slate-200 leading-snug">
+        Development of a Low-Cost Intelligent Transradial Prototype Using Sparse Surface EMG and Edge-Deployed Deep Learning
       </p>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        End-to-end design, development, and mechatronic validation of an accessible, intelligent transradial prosthetic arm that executes deep learning intent classification directly on a commodity bare-metal microcontroller (ESP32-S3). By transitioning inference from power-intensive single-board computers (Raspberry Pi, Jetson Nano) to bare-metal hardware and pairing an anatomically justified three-channel sensor array with analog signal conditioning, this project delivers responsive, multi-articulating bionic control within a strict, affordable fabrication budget.
+      </p>
+
+      <!-- Technical Chips -->
       <div class="flex flex-wrap gap-2 pt-2">
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">sEMG Signal Processing</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">TinyML / TensorFlow Lite</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">ESP32-S3</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">1D-CNN</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">3D-Printed Kinematics</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Tendon-Driven Actuation</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Edge Deployment</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm"><i class="fa-solid fa-microchip text-brand-500 mr-1.5"></i>ESP32-S3 (Xtensa LX7 @ 240MHz)</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm"><i class="fa-solid fa-brain text-purple-500 mr-1.5"></i>TinyML / TFLM (Float32 Unquantized)</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm"><i class="fa-solid fa-wave-square text-sky-500 mr-1.5"></i>3-Channel Sparse sEMG</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm"><i class="fa-solid fa-layer-group text-emerald-500 mr-1.5"></i>1D-CNN + Global Average Pooling</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm"><i class="fa-solid fa-shield-halved text-amber-500 mr-1.5"></i>Star-Grounding Isolation</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm"><i class="fa-solid fa-hand text-pink-500 mr-1.5"></i>Tendon-Driven 3D Kinematics</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm"><i class="fa-solid fa-filter text-indigo-500 mr-1.5"></i>Rolling Majority-Vote Filter</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm"><i class="fa-solid fa-dollar-sign text-teal-500 mr-1.5"></i>Sub-$150 Fabrication Cost</span>
       </div>
     </div>
 
-    <!-- Video Showcase Section -->
-    <section class="mb-14 bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300">
+    <!-- Academic Metadata & Journal Non-Disclosure Notice -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Authors & Institutional Card -->
+      <div class="lg:col-span-7 p-6 sm:p-7 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-4">
+        <div class="flex items-center gap-2.5 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <i class="fa-solid fa-university text-sm"></i>
+          <span>Academic Affiliation &amp; Research Team</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="space-y-1 p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06]">
+            <span class="text-[11px] font-mono text-slate-400 block uppercase">Student Investigators</span>
+            <div class="font-bold text-slate-900 dark:text-white text-sm">Md. Ratul Hasan <span class="font-normal text-slate-400 font-mono">(201107)</span></div>
+            <div class="font-bold text-slate-900 dark:text-white text-sm">Syed Shakib Shahriar Islam <span class="font-normal text-slate-400 font-mono">(201102)</span></div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 pt-1">B.Sc. in Electrical and Electronic Engineering</p>
+          </div>
+          <div class="space-y-1 p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06]">
+            <span class="text-[11px] font-mono text-slate-400 block uppercase">Supervision &amp; Laboratory</span>
+            <div class="font-bold text-slate-900 dark:text-white text-sm">Dr. Md. Moznuzzaman</div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">Associate Professor, Dept. of EEE</p>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400"><strong>Myo-Neuro Intelligence Laboratory (MNIL)</strong></p>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">Jashore University of Science and Technology (JUST)</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-200/60 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          <span><i class="fa-solid fa-award text-brand-500 mr-1.5"></i>Funded by JUSTRC Grant: <strong>24-FoET-09</strong></span>
+          <span><i class="fa-regular fa-calendar text-slate-400 mr-1.5"></i>Completed: March 2026</span>
+        </div>
+      </div>
+
+      <!-- Journal Non-Disclosure / Research Integrity Card -->
+      <div class="lg:col-span-5 p-6 sm:p-7 rounded-3xl bg-amber-500/10 dark:bg-amber-950/30 backdrop-blur-2xl border border-amber-300/60 dark:border-amber-600/30 shadow-[0_8px_32px_0_rgba(245,158,11,0.08)] space-y-3">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">
+          <i class="fa-solid fa-file-shield text-sm"></i>
+          <span>Journal Submission &amp; Non-Disclosure Notice</span>
+        </div>
+        <h4 class="text-sm font-bold font-display text-slate-900 dark:text-white">
+          Scientific Integrity &amp; Methodological Scope
+        </h4>
+        <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
+          This research manuscript has been finalized and submitted to a peer-reviewed biomedical journal for formal peer review. In strict compliance with standard prior-publication policies and blind review requirements, <strong>all experimental outcome metrics, exact benchmark accuracy comparison tables, per-subject test scores, and detailed confusion matrices are intentionally withheld</strong>.
+        </p>
+        <div class="p-3 rounded-xl bg-white/70 dark:bg-slate-900/60 border border-amber-200/80 dark:border-amber-500/20 text-[11px] text-slate-600 dark:text-slate-300 leading-normal">
+          <i class="fa-solid fa-check text-emerald-500 mr-1"></i> This case study presents the complete engineering methodology: anatomical sensor mapping, analog hardware conditioning, automated quality screening, deep neural network design, bare-metal TinyML deployment, power isolation, and physical mechatronics.
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Showcase & Key Engineering Specifications -->
+    <section class="bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         <!-- Video Container -->
         <div class="md:col-span-5 flex justify-center">
@@ -108,7 +170,7 @@
                 <span class="w-2 h-2 rounded-full bg-amber-400/80"></span>
                 <span class="w-2 h-2 rounded-full bg-emerald-400/80"></span>
               </div>
-              <span class="text-[10px] font-mono text-slate-300">Hardware Actuation</span>
+              <span class="text-[10px] font-mono text-slate-300">Live Hardware Actuation</span>
               <div class="w-6"></div>
             </div>
             <video autoplay loop muted playsinline controls class="w-full h-full object-cover block">
@@ -118,40 +180,68 @@
           </div>
         </div>
 
-        <!-- Minimal Description -->
-        <div class="md:col-span-7 space-y-4">
-          <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 block">
-            Physical Prototype Demonstration
-          </span>
-          <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
-            Real-Time Gesture Mimicry
-          </h2>
+        <!-- Description & KPI Metrics -->
+        <div class="md:col-span-7 space-y-5">
+          <div>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 block mb-1">
+              Physical Prototype Validation
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
+              Continuous Real-Time Gesture Mimicry
+            </h2>
+          </div>
           <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
-            Demonstration of continuous physical gesture replication. The participant performs natural muscle contractions, which are captured, conditioned at the analog front-end, and classified in real time by the on-device model to actuate the corresponding mechanical fingers and hold grasping states.
+            Demonstration of live, continuous physiological gesture replication. As the participant voluntary activates forearm muscles, surface action potentials are captured, differentially conditioned at the analog front-end, digitized at a deterministic 1000 Hz, and classified in real time by the on-device 1D-CNN. The predicted discrete state is filtered through a temporal majority-vote queue to actuate corresponding tendon-driven mechanical digits.
           </p>
-          <div class="pt-3 border-t border-slate-200/60 dark:border-slate-800 space-y-3">
-            <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">Core System Pipeline</h3>
+
+          <!-- 4 Core Engineering KPI Cards -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm text-center">
+              <div class="text-xs font-mono text-slate-400 uppercase">Channels</div>
+              <div class="text-xl sm:text-2xl font-bold font-display text-brand-600 dark:text-brand-400 mt-0.5">3 Ch</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Sparse Volar/Dorsal</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm text-center">
+              <div class="text-xs font-mono text-slate-400 uppercase">Inference</div>
+              <div class="text-xl sm:text-2xl font-bold font-display text-purple-600 dark:text-purple-400 mt-0.5">18.5 ms</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Float32 Forward Pass</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm text-center">
+              <div class="text-xs font-mono text-slate-400 uppercase">Total Latency</div>
+              <div class="text-xl sm:text-2xl font-bold font-display text-sky-600 dark:text-sky-400 mt-0.5">165.7 ms</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">&lt; 200ms Biomechanical</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm text-center">
+              <div class="text-xs font-mono text-slate-400 uppercase">Total BOM</div>
+              <div class="text-xl sm:text-2xl font-bold font-display text-emerald-600 dark:text-emerald-400 mt-0.5">~$115</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Sub-$150 Target</div>
+            </div>
+          </div>
+
+          <!-- 3-Stage Pipeline Summary -->
+          <div class="pt-2 border-t border-slate-200/60 dark:border-slate-800 space-y-2.5">
+            <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">End-to-End Operational Pipeline</h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              <div class="p-3.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm">
+              <div class="p-3 rounded-xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08]">
                 <div class="font-bold text-slate-900 dark:text-white font-display mb-1 flex items-center gap-1.5">
-                  <i class="fa-solid fa-wave-square text-brand-500 text-xs"></i>
-                  <span>1. Sensing</span>
+                  <i class="fa-solid fa-wave-square text-brand-500"></i>
+                  <span>1. Sensing &amp; AFE</span>
                 </div>
-                <p class="text-[11px] text-slate-500 dark:text-slate-400">3-channel sparse array targeting FCR, BR & ED forearm compartments.</p>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">3-channel sparse array (FCR, BR, ED) with hardware differential gain, rectification, and analog envelope smoothing.</p>
               </div>
-              <div class="p-3.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm">
+              <div class="p-3 rounded-xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08]">
                 <div class="font-bold text-slate-900 dark:text-white font-display mb-1 flex items-center gap-1.5">
-                  <i class="fa-solid fa-brain text-purple-500 text-xs"></i>
-                  <span>2. Inference</span>
+                  <i class="fa-solid fa-brain text-purple-500"></i>
+                  <span>2. Bare-Metal TinyML</span>
                 </div>
-                <p class="text-[11px] text-slate-500 dark:text-slate-400">1D-CNN with GAP running via TFLM on ESP32-S3 bare-metal.</p>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">Deterministic 1000Hz ADC polling, global z-score scaling, and unquantized 1D-CNN execution via TFLM in 128kB static SRAM.</p>
               </div>
-              <div class="p-3.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm">
+              <div class="p-3 rounded-xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08]">
                 <div class="font-bold text-slate-900 dark:text-white font-display mb-1 flex items-center gap-1.5">
-                  <i class="fa-solid fa-hand text-emerald-500 text-xs"></i>
-                  <span>3. Actuation</span>
+                  <i class="fa-solid fa-hand text-emerald-500"></i>
+                  <span>3. Mechatronic Control</span>
                 </div>
-                <p class="text-[11px] text-slate-500 dark:text-slate-400">Tendon-driven 3D-printed hand with majority-vote motion smoothing.</p>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">20-sample majority-vote filter driving 5 servos via PCA9685 I2C for jitter-free tendon-actuated finger postures.</p>
               </div>
             </div>
           </div>
@@ -159,231 +249,1352 @@
       </div>
     </section>
 
-    <!-- Section 1: Problem Statement -->
-    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-5 transition-all duration-300">
-      <div class="flex items-center gap-3 mb-1">
+    <!-- Section 1: Problem Statement & Research Methodology -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
         <div class="w-8 h-8 rounded-lg bg-brand-500/10 dark:bg-brand-950/60 border border-brand-300/40 dark:border-brand-800/40 backdrop-blur-md flex items-center justify-center text-brand-600 dark:text-brand-400 text-sm shrink-0 shadow-sm">
-          <i class="fa-solid fa-circle-exclamation"></i>
+          <i class="fa-solid fa-scale-unbalanced"></i>
         </div>
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">§ 01</span>
-        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Problem Statement & Motivation</h2>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Problem Statement &amp; Research Methodology</h2>
       </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        Upper-limb loss represents an escalating global health challenge, with the worldwide prevalence of physical impairments expanding by 49.2% between 1990 and 2019. In developing nations, traumatic transradial amputations occur frequently from industrial machinery and vehicular accidents, yet accessible prosthetic rehabilitation remains out of reach due to a profound technological divide.
+      </p>
+
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm hover:border-brand-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-          <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">
-            <i class="fa-solid fa-scale-unbalanced text-sm"></i>
-            <span>The Polarization</span>
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-red-600 dark:text-red-400 uppercase">
+            <i class="fa-solid fa-dollar-sign text-sm"></i>
+            <span>Commercial Polarization</span>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Commercial multi-articulating bionic hands offer high functional dexterity but cost tens of thousands of dollars, whereas low-cost alternatives are predominantly passive or body-powered hooks with limited active control.</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Commercial multi-articulating bionic hands offer advanced dexterity but cost $20,000 to $80,000+, demanding proprietary servicing. Conversely, affordable options are limited to body-powered hooks or cosmetic passive hands, resulting in user abandonment rates exceeding 30%.
+          </p>
         </div>
-        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
             <i class="fa-solid fa-server text-sm"></i>
-            <span>The Bottleneck</span>
+            <span>Computing Bottleneck</span>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Modern research systems typically depend on high-density electrode arrays and desktop GPUs or single-board computers (Raspberry Pi, Jetson Nano), introducing boot times, high power draw, and bulky form factors that hinder real-world wearable adoption.</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Research literature has demonstrated high pattern recognition accuracy, but models overwhelmingly depend on high-density sEMG arrays (16–64 channels) and power-hungry desktop GPUs or Linux SBCs (Raspberry Pi, Jetson Nano) that consume multi-watt continuous power and introduce boot latency.
+          </p>
         </div>
-        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
             <i class="fa-solid fa-bullseye text-sm"></i>
-            <span>The Objective</span>
+            <span>The Edge AI Objective</span>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Bridge this divide by engineering a fully standalone, low-cost prosthetic system using a sparse three-channel sensor array, analog signal conditioning, and edge-deployed deep learning — no external compute required.</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Bridge this divide by creating a completely untethered, standalone prosthetic prototype costing under $150 that executes modern deep learning on a bare-metal microcontroller (ESP32-S3) using a minimal 3-channel sparse sensor footprint with analog signal conditioning.
+          </p>
+        </div>
+      </div>
+
+      <!-- Research Methodology Flow Diagram Card -->
+      <div class="diagram-card p-4 sm:p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase flex items-center gap-2">
+            <i class="fa-solid fa-arrows-split-up-and-left text-brand-500"></i>
+            <span>Four-Phase Engineering Research Methodology</span>
+          </div>
+          <button onclick="openLightbox('assets/images/projects/prosthetic/methodology.png', 'Detailed Research Methodology Flowchart', 'Sequential four-phase engineering framework: Parameter Optimization, Physical Data Acquisition, Deep Learning Model Design, and Bare-Metal Embedded Deployment.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
+            <i class="fa-solid fa-expand text-[10px]"></i> Inspect Full-Res
+          </button>
+        </div>
+        <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 border border-slate-800 flex justify-center p-2" onclick="openLightbox('assets/images/projects/prosthetic/methodology.png', 'Detailed Research Methodology Flowchart', 'Sequential four-phase engineering framework: Parameter Optimization, Physical Data Acquisition, Deep Learning Model Design, and Bare-Metal Embedded Deployment.')">
+          <img src="../assets/images/projects/prosthetic/methodology.png" alt="Methodology Flowchart" class="w-full max-h-[380px] object-contain hover:scale-[1.01] transition-transform duration-300">
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          Fig 1.1: Complete methodological workflow detailing the progression from parameter selection and participant data acquisition to offline model optimization and live embedded deployment.
+        </p>
+      </div>
+
+      <!-- Comparative Literature Synthesis Table -->
+      <div class="space-y-3 pt-2">
+        <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Benchmarking Against Literature Architecture Approaches</div>
+        <div class="overflow-x-auto rounded-2xl border border-slate-200/70 dark:border-white/[0.08]">
+          <table class="w-full text-left text-xs font-sans">
+            <thead class="bg-slate-100/75 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 font-mono uppercase text-[11px] border-b border-slate-200/70 dark:border-white/[0.08]">
+              <tr>
+                <th class="py-3 px-4">Study</th>
+                <th class="py-3 px-3">Channels</th>
+                <th class="py-3 px-3">Model</th>
+                <th class="py-3 px-4">Platform &amp; Latency</th>
+                <th class="py-3 px-3 text-center">Physical Actuation</th>
+                <th class="py-3 px-4">Cohort Validation</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200/60 dark:divide-white/[0.05] text-slate-600 dark:text-slate-300">
+              <tr>
+                <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">Atzori et al. (2016)</td>
+                <td class="py-2.5 px-3">10 &amp; 12</td>
+                <td class="py-2.5 px-3 font-mono">2D-CNN</td>
+                <td class="py-2.5 px-4">Desktop GPU (&lt;1 ms forward pass)</td>
+                <td class="py-2.5 px-3 text-center"><i class="fa-solid fa-xmark text-red-500"></i></td>
+                <td class="py-2.5 px-4">Offline Ninapro (67 AB / 11 AP)</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">Tavakoli et al. (2017)</td>
+                <td class="py-2.5 px-3">1</td>
+                <td class="py-2.5 px-3 font-mono">SVM</td>
+                <td class="py-2.5 px-4">Custom MCU (~10 ms inference)</td>
+                <td class="py-2.5 px-3 text-center"><i class="fa-solid fa-check text-emerald-500"></i></td>
+                <td class="py-2.5 px-4">3 Able-Bodied</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">Tam et al. (2020)</td>
+                <td class="py-2.5 px-3">32 (HD-sEMG)</td>
+                <td class="py-2.5 px-3 font-mono">CNN</td>
+                <td class="py-2.5 px-4">Jetson Nano (0.88 ms inf; 100-200 ms total)</td>
+                <td class="py-2.5 px-3 text-center"><i class="fa-solid fa-xmark text-red-500"></i></td>
+                <td class="py-2.5 px-4">Able-Bodied Offline</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">Triwiyanto et al. (2022)</td>
+                <td class="py-2.5 px-3">2</td>
+                <td class="py-2.5 px-3 font-mono">Decision Tree</td>
+                <td class="py-2.5 px-4">Raspberry Pi 3B+ (~1 ms inf; 100 ms total)</td>
+                <td class="py-2.5 px-3 text-center"><i class="fa-solid fa-check text-emerald-500"></i></td>
+                <td class="py-2.5 px-4">10 Able-Bodied</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">Kim et al. (2023)</td>
+                <td class="py-2.5 px-3">8</td>
+                <td class="py-2.5 px-3 font-mono">CRNN</td>
+                <td class="py-2.5 px-4">Jetson Nano / ROS (1s window @ 50Hz)</td>
+                <td class="py-2.5 px-3 text-center"><i class="fa-solid fa-check text-emerald-500"></i></td>
+                <td class="py-2.5 px-4">11 Able-Bodied</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">Rafiq et al. (2024)</td>
+                <td class="py-2.5 px-3">5–7</td>
+                <td class="py-2.5 px-3 font-mono">DNN (INT8)</td>
+                <td class="py-2.5 px-4">Arduino Nano 33 BLE (~1 ms inf; 100 ms total)</td>
+                <td class="py-2.5 px-3 text-center"><i class="fa-solid fa-check text-emerald-500"></i></td>
+                <td class="py-2.5 px-4">1 Able-Bodied</td>
+              </tr>
+              <tr class="bg-brand-500/10 dark:bg-brand-950/40 font-medium">
+                <td class="py-3 px-4 font-bold text-brand-700 dark:text-brand-300">This Thesis Prototype</td>
+                <td class="py-3 px-3 font-bold text-brand-700 dark:text-brand-300">3 (Sparse)</td>
+                <td class="py-3 px-3 font-mono font-bold text-brand-700 dark:text-brand-300">1D-CNN + GAP</td>
+                <td class="py-3 px-4 font-bold text-brand-700 dark:text-brand-300">ESP32-S3 (18.5 ms inf; 165.7 ms pipeline)</td>
+                <td class="py-3 px-3 text-center"><i class="fa-solid fa-check text-brand-600 dark:text-brand-400 font-bold"></i></td>
+                <td class="py-3 px-4 font-bold text-brand-700 dark:text-brand-300">20 Able-Bodied Cohort</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
-    <!-- Section 2: Sensing & Hardware -->
-    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-5 transition-all duration-300">
-      <div class="flex items-center gap-3 mb-1">
+    <!-- Section 2: System Architecture & Schematics -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
         <div class="w-8 h-8 rounded-lg bg-sky-500/10 dark:bg-sky-950/60 border border-sky-300/40 dark:border-sky-800/40 backdrop-blur-md flex items-center justify-center text-sky-600 dark:text-sky-400 text-sm shrink-0 shadow-sm">
-          <i class="fa-solid fa-microchip"></i>
+          <i class="fa-solid fa-sitemap"></i>
         </div>
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">§ 02</span>
-        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Sensing & Hardware Architecture</h2>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">End-to-End System Hardware Architecture</h2>
       </div>
-      <div class="space-y-4">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-            <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
-              <i class="fa-solid fa-wave-square text-sm"></i>
-              <span>Sparse Anatomical Array</span>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Three distinct functional forearm compartments — <strong>Flexor Carpi Radialis (FCR)</strong>, <strong>Brachioradialis (BR)</strong>, and <strong>Extensor Digitorum (ED)</strong> — capture maximum biomechanical variance across gross grasping and finger extension postures.</p>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        The prototype is structured into three physically and galvanically distinct operational domains to resolve the critical engineering challenge of executing sensitive microvolt biological sensing in close proximity to high-current motor actuators.
+      </p>
+
+      <!-- System Architecture Diagram Card -->
+      <div class="diagram-card p-4 sm:p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase flex items-center gap-2">
+            <i class="fa-solid fa-diagram-project text-sky-500"></i>
+            <span>System Hardware Architecture Block Diagram</span>
           </div>
-          <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-            <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
-              <i class="fa-solid fa-sliders text-sm"></i>
-              <span>Analog Front-End</span>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">sEMG modules perform differential amplification, full-wave rectification, and envelope smoothing at the hardware level. Hardware-level analog conditioning eliminated secondary digital filtering — freeing processor cycles and removing filter phase delays.</p>
+          <button onclick="openLightbox('assets/images/projects/prosthetic/system_overview.png', 'System Hardware Architecture Block Diagram', 'Tri-domain hardware architecture detailing the isolated analog front-end, bare-metal single-core polling loop on the ESP32-S3, and mechatronic actuation loop.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
+            <i class="fa-solid fa-expand text-[10px]"></i> Inspect Full-Res
+          </button>
+        </div>
+        <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 border border-slate-800 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/system_overview.png', 'System Hardware Architecture Block Diagram', 'Tri-domain hardware architecture detailing the isolated analog front-end, bare-metal single-core polling loop on the ESP32-S3, and mechatronic actuation loop.')">
+          <img src="../assets/images/projects/prosthetic/system_overview.png" alt="System Hardware Architecture Block Diagram" class="w-full max-h-[440px] object-contain hover:scale-[1.01] transition-transform duration-300">
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          Fig 2.1: Tri-domain physical mapping illustrating the bipolar battery supply, analog conditioning, ESP32-S3 polling loop, and PCA9685 servo actuation bus.
+        </p>
+      </div>
+
+      <!-- Tri-Domain Breakdown Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
+            <i class="fa-solid fa-wave-square text-sm"></i>
+            <span>1. Sensing Front-End</span>
           </div>
-          <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-            <div class="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
-              <i class="fa-solid fa-shield-halved text-sm"></i>
-              <span>Electrical Isolation</span>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Three Advancer Technologies EMG Sensor V3 modules powered by a dedicated &plusmn;9V dual-rail battery supply. Modules perform differential instrumentation amplification, full-wave rectification, and analog low-pass filtering. Outputs pass through passive voltage-divider networks to safely scale the signal below 3.3V for the ESP32-S3 ADC.
+          </p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-purple-600 dark:text-purple-400 uppercase">
+            <i class="fa-solid fa-microchip text-sm"></i>
+            <span>2. Edge Processing Core</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            ESP32-S3 N16R8 development board (Xtensa 32-bit LX7 dual-core @ 240MHz). Executes a single-core polling loop utilizing hardware microsecond timers for jitter-free 1000Hz sampling. Hosts a 128kB static SRAM tensor arena running unquantized Float32 inference via TensorFlow Lite for Microcontrollers (TFLM).
+          </p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
+            <i class="fa-solid fa-hand text-sm"></i>
+            <span>3. Actuation Subsystem</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Dedicated 11.1V 3S LiPo battery stepped down to 5V via a high-current XL4016 buck converter (8A continuous rating). A PCA9685 16-channel 12-bit PWM driver communicates over I2C, offloading hardware pulse generation and driving 4x MG996R metal-gear servos and 1x SG90 micro servo.
+          </p>
+        </div>
+      </div>
+
+      <!-- Electrical Isolation & Star-Grounding Subsection -->
+      <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-4">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 uppercase">
+          <i class="fa-solid fa-shield-halved text-brand-500 text-sm"></i>
+          <span>Electrical Isolation &amp; Star-Grounding Topology</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+          Simultaneous actuation of multiple high-torque servos draws surge currents exceeding 5A during dynamic grip transitions. In unisolated circuits, high transient return currents flowing through shared ground paths cause severe ground bounce, introducing voltage fluctuations that overwhelm microvolt-level biopotentials and trigger brownout resets on the microcontroller.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+          <!-- Star Ground Diagram Card -->
+          <div class="diagram-card p-4 rounded-xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-slate-300">Star-Grounding Block Topology</span>
+              <button onclick="openLightbox('assets/images/projects/prosthetic/star_ground.png', 'Star Grounding Topology', 'Isolation of the high-current motor power loop from the low-current analog logic loop via a single-point convergence ground.')" class="text-xs font-mono text-brand-400 hover:underline">
+                <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+              </button>
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Sensitive microvolt biopotentials are protected from motor switching noise and transient voltage drops via strict isolation of the analog sensing supply from the high-current servo bus using a <strong>star-grounding topology</strong>.</p>
+            <div class="cursor-pointer rounded-lg overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/star_ground.png', 'Star Grounding Topology', 'Isolation of the high-current motor power loop from the low-current analog logic loop via a single-point convergence ground.')">
+              <img src="../assets/images/projects/prosthetic/star_ground.png" alt="Star Grounding Topology" class="w-full max-h-[220px] object-contain hover:scale-[1.02] transition">
+            </div>
+            <p class="text-[11px] text-slate-400">Strict separation of high-current motor ground return from analog biopotential ground, converging at a single physical node.</p>
+          </div>
+
+          <!-- Schematics Grid (Sensor, V3 Internal, Servo) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="diagram-card p-3 rounded-xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-1.5">
+              <div class="flex items-center justify-between text-[11px] font-mono font-bold text-slate-300">
+                <span>AFE Schematic</span>
+                <button onclick="openLightbox('assets/images/projects/prosthetic/sensor_subsystem.png', 'Analog Front-End Circuit Schematic', 'Schematic diagram of the 3-channel sEMG acquisition front-end with bipolar supply and voltage dividers.')" class="text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
+              </div>
+              <div class="cursor-pointer rounded overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/sensor_subsystem.png', 'Analog Front-End Circuit Schematic', 'Schematic diagram of the 3-channel sEMG acquisition front-end with bipolar supply and voltage dividers.')">
+                <img src="../assets/images/projects/prosthetic/sensor_subsystem.png" alt="Sensor Subsystem Schematic" class="w-full h-28 object-contain hover:scale-[1.02] transition">
+              </div>
+              <p class="text-[10px] text-slate-400">&plusmn;9V supply &amp; ADC scaling dividers.</p>
+            </div>
+
+            <div class="diagram-card p-3 rounded-xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-1.5">
+              <div class="flex items-center justify-between text-[11px] font-mono font-bold text-slate-300">
+                <span>V3 Sensor Circuit</span>
+                <button onclick="openLightbox('assets/images/projects/prosthetic/v3_schematic.png', 'EMG Sensor V3 Internal Schematic', 'Internal op-amp differential gain, full-wave rectifier, and low-pass envelope filter schematic of the EMG Sensor V3 module.')" class="text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
+              </div>
+              <div class="cursor-pointer rounded overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/v3_schematic.png', 'EMG Sensor V3 Internal Schematic', 'Internal op-amp differential gain, full-wave rectifier, and low-pass envelope filter schematic of the EMG Sensor V3 module.')">
+                <img src="../assets/images/projects/prosthetic/v3_schematic.png" alt="V3 Sensor Schematic" class="w-full h-28 object-contain hover:scale-[1.02] transition">
+              </div>
+              <p class="text-[10px] text-slate-400">Differential gain &amp; analog envelope.</p>
+            </div>
+
+            <div class="diagram-card p-3 rounded-xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-1.5">
+              <div class="flex items-center justify-between text-[11px] font-mono font-bold text-slate-300">
+                <span>Actuation Bus</span>
+                <button onclick="openLightbox('assets/images/projects/prosthetic/servo_subsystem.png', 'Servo Actuation Subsystem Schematic', 'Circuit schematic of the servo actuation subsystem showing PCA9685 I2C interface and isolated 5V XL4016 rail.')" class="text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
+              </div>
+              <div class="cursor-pointer rounded overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/servo_subsystem.png', 'Servo Actuation Subsystem Schematic', 'Circuit schematic of the servo actuation subsystem showing PCA9685 I2C interface and isolated 5V XL4016 rail.')">
+                <img src="../assets/images/projects/prosthetic/servo_subsystem.png" alt="Servo Subsystem Schematic" class="w-full h-28 object-contain hover:scale-[1.02] transition">
+              </div>
+              <p class="text-[10px] text-slate-400">PCA9685 PWM &amp; XL4016 buck rail.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 3: Machine Learning & Edge Deployment -->
-    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-5 transition-all duration-300">
-      <div class="flex items-center gap-3 mb-1">
-        <div class="w-8 h-8 rounded-lg bg-purple-500/10 dark:bg-purple-950/60 border border-purple-300/40 dark:border-purple-800/40 backdrop-blur-md flex items-center justify-center text-purple-600 dark:text-purple-400 text-sm shrink-0 shadow-sm">
-          <i class="fa-solid fa-brain"></i>
-        </div>
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">§ 03</span>
-        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Machine Learning & Edge Deployment</h2>
-      </div>
-
-      <!-- Gesture Classes -->
-      <div>
-        <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-3">Functional Gesture Vocabulary (ADL-Aligned)</div>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-minus"></i> Rest</span>
-          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-hand text-sm"></i> Hand Open</span>
-          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-fist-raised text-sm"></i> Hand Close</span>
-          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-hand-point-up text-sm"></i> Index Finger Extension</span>
-          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-thumbs-up text-sm"></i> Thumb Extension</span>
-          <span class="px-3.5 py-1.5 rounded-lg bg-purple-500/10 dark:bg-purple-400/10 backdrop-blur-md border border-purple-300/50 dark:border-purple-500/30 text-xs font-mono font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-hand-peace text-sm"></i> Little Finger Extension</span>
-        </div>
-      </div>
-
-      <!-- Architecture Comparison -->
-      <div>
-        <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-3">Architecture Benchmarking</div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          <div class="p-4 rounded-xl border-2 border-brand-500/60 dark:border-brand-500/80 bg-brand-500/10 dark:bg-brand-950/40 backdrop-blur-md shadow-lg shadow-brand-500/10 space-y-1.5 relative">
-            <div class="absolute -top-2.5 left-3 px-2 py-0.5 rounded-full bg-brand-500 text-white text-[10px] font-bold font-mono shadow-sm">SELECTED</div>
-            <div class="flex items-center gap-2 mb-1">
-              <i class="fa-solid fa-table-cells text-brand-500 text-base"></i>
-              <div class="text-sm font-bold text-slate-900 dark:text-white font-display">1D-CNN + GAP</div>
-            </div>
-            <p class="text-xs text-slate-600 dark:text-slate-300">Best generalization. Convolutional kernels capture spatial co-activation across channels with minimal parameter footprint.</p>
-          </div>
-          <div class="p-4 rounded-xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-1.5">
-            <div class="flex items-center gap-2 mb-1">
-              <i class="fa-solid fa-circle-nodes text-sky-500 text-base"></i>
-              <div class="text-sm font-bold text-slate-900 dark:text-white font-display">1D-ResNet</div>
-            </div>
-            <p class="text-xs text-slate-600 dark:text-slate-300">Residual architecture evaluated across multi-posture and multi-session trials.</p>
-          </div>
-          <div class="p-4 rounded-xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-purple-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-1.5">
-            <div class="flex items-center gap-2 mb-1">
-              <i class="fa-solid fa-rotate text-purple-500 text-base"></i>
-              <div class="text-sm font-bold text-slate-900 dark:text-white font-display">LSTM</div>
-            </div>
-            <p class="text-xs text-slate-600 dark:text-slate-300">Recurrent model suffered from temporal overfitting on short isometric contractions.</p>
-          </div>
-          <div class="p-4 rounded-xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-1.5">
-            <div class="flex items-center gap-2 mb-1">
-              <i class="fa-solid fa-code-merge text-emerald-500 text-base"></i>
-              <div class="text-sm font-bold text-slate-900 dark:text-white font-display">Hybrid CNN-LSTM</div>
-            </div>
-            <p class="text-xs text-slate-600 dark:text-slate-300">Combined spatial-temporal model evaluated but outweighed by added complexity.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Edge Deployment -->
-      <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
-        <div class="flex items-center gap-2 text-xs font-mono font-bold text-purple-600 dark:text-purple-400 uppercase">
-          <i class="fa-solid fa-microchip text-sm"></i>
-          <span>Bare-Metal TinyML Execution</span>
-        </div>
-        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">The trained model was converted via <strong>TensorFlow Lite for Microcontrollers (TFLM)</strong> and serialized into static memory on an <strong>ESP32-S3</strong> microcontroller. Executing natively in unquantized 32-bit floating-point precision within a single-core polling loop preserves offline decision boundaries while completely avoiding heap memory fragmentation and OS scheduling jitter.</p>
-      </div>
-    </section>
-
-    <!-- Section 4: Mechatronics -->
-    <section class="mb-10 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-5 transition-all duration-300">
-      <div class="flex items-center gap-3 mb-1">
+    <!-- Section 3: Biomechanical Foundation & Sparse Sensor Mapping -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
         <div class="w-8 h-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-950/60 border border-emerald-300/40 dark:border-emerald-800/40 backdrop-blur-md flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-sm shrink-0 shadow-sm">
-          <i class="fa-solid fa-hand"></i>
+          <i class="fa-solid fa-person-walking"></i>
         </div>
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">§ 04</span>
-        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Mechatronic Integration & Physical Control</h2>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">§ 03</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Biomechanical Foundation &amp; Sensor Placement</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-          <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
-            <i class="fa-solid fa-hand-sparkles text-sm"></i>
-            <span>Under-Actuated Hand</span>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        Surface Electromyography (sEMG) captures the non-stationary bioelectrical summation of Motor Unit Action Potentials (MUAPs) generated during voluntary muscle activation. To avoid the computational bandwidth and component expense of high-density arrays, an anatomically targeted sparse 3-channel electrode triad was engineered to target three distinct functional compartments of the proximal forearm.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <!-- Anatomical Diagram Card -->
+        <div class="lg:col-span-5 diagram-card p-4 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase">Forearm Anatomical Placement</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/electrode_placement.png', 'Forearm Anatomical Electrode Placement', 'Configuration of sEMG electrode placement on the forearm targeting the Flexor Carpi Radialis (FCR), Brachioradialis (BR), and Extensor Digitorum (ED) muscles with ulnar styloid ground.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </button>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">3D-printed anthropomorphic hand using a <strong>tendon-driven mechanism</strong>. High-torque metal-gear servos drive load-bearing digits; a dedicated micro servo handles independent thumb opposition.</p>
+          <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/electrode_placement.png', 'Forearm Anatomical Electrode Placement', 'Configuration of sEMG electrode placement on the forearm targeting the Flexor Carpi Radialis (FCR), Brachioradialis (BR), and Extensor Digitorum (ED) muscles with ulnar styloid ground.')">
+            <img src="../assets/images/projects/prosthetic/electrode_placement.png" alt="Electrode Placement" class="w-full max-h-[380px] object-contain hover:scale-[1.01] transition">
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+            Fig 3.1: Targeted electrode locations following SENIAM guidelines with 20mm inter-electrode distance.
+          </p>
         </div>
-        <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-          <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
-            <i class="fa-solid fa-filter text-sm"></i>
-            <span>Majority-Vote Smoothing</span>
+
+        <!-- Muscle Target Descriptions Table -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="overflow-x-auto rounded-2xl border border-slate-200/70 dark:border-white/[0.08]">
+            <table class="w-full text-left text-xs font-sans">
+              <thead class="bg-slate-100/75 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 font-mono uppercase text-[11px] border-b border-slate-200/70 dark:border-white/[0.08]">
+                <tr>
+                  <th class="py-3 px-3.5">Sensor</th>
+                  <th class="py-3 px-3.5">Target Muscle</th>
+                  <th class="py-3 px-3.5">Anatomical Compartment</th>
+                  <th class="py-3 px-3.5">Functional Role &amp; Target Kinematics</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200/60 dark:divide-white/[0.05] text-slate-600 dark:text-slate-300">
+                <tr>
+                  <td class="py-3 px-3.5 font-bold font-mono text-brand-600 dark:text-brand-400">Sensor 1</td>
+                  <td class="py-3 px-3.5 font-bold text-slate-900 dark:text-white">Flexor Carpi Radialis (FCR)</td>
+                  <td class="py-3 px-3.5">Volar (palmar) aspect</td>
+                  <td class="py-3 px-3.5 text-justify">Strongly co-activated during wrist flexion and cylindrical power grasping (Hand Close).</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3.5 font-bold font-mono text-brand-600 dark:text-brand-400">Sensor 2</td>
+                  <td class="py-3 px-3.5 font-bold text-slate-900 dark:text-white">Brachioradialis (BR)</td>
+                  <td class="py-3 px-3.5">Lateral aspect (mobile wad)</td>
+                  <td class="py-3 px-3.5 text-justify">Forearm stabilizer providing essential contextual bioelectrical data during distal hand movement.</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3.5 font-bold font-mono text-brand-600 dark:text-brand-400">Sensor 3</td>
+                  <td class="py-3 px-3.5 font-bold text-slate-900 dark:text-white">Extensor Digitorum (ED)</td>
+                  <td class="py-3 px-3.5">Dorsal mid-forearm</td>
+                  <td class="py-3 px-3.5 text-justify">Principal extensor of the digits; drives Hand Open and individual finger extension gestures.</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3.5 font-bold font-mono text-slate-400">Reference</td>
+                  <td class="py-3 px-3.5 font-bold text-slate-900 dark:text-white">Styloid Process of Ulna</td>
+                  <td class="py-3 px-3.5">Distal bony prominence</td>
+                  <td class="py-3 px-3.5 text-justify">Electrically neutral reference point establishing a clean common-mode differential voltage baseline.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">A temporal <strong>majority-vote filter</strong> prevents mechanical flutter from transient misclassifications. Sustained classification consensus across a rolling decision horizon is required before dispatching kinematic commands — ensuring smooth, reliable grasps.</p>
+
+          <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            <strong>SENIAM &amp; CEDE Adhesion Standard:</strong> Bipolar Ag/AgCl disposable hydrogel electrodes (10mm diameter) were placed along the longitudinal fiber axis with a 20mm inter-electrode distance. Prior to adhesion, the skin was abraded and cleansed with 70% isopropyl alcohol to minimize epidermal impedance below 10 k&Omega; and eliminate motion artifacts.
+          </div>
         </div>
-        <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-          <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
-            <i class="fa-solid fa-stopwatch text-sm"></i>
-            <span>Deterministic Latency</span>
+      </div>
+
+      <!-- Additional Kinematic & Signal Variability Diagrams -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+        <!-- Hand Kinematics Articulations Card -->
+        <div class="diagram-card p-4 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase">Hand Skeletal Articulations &amp; Kinematics</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/hand_kinematics.png', 'Skeletal Kinematics of the Hand and Digits', 'Anatomical mapping of the 27 bones, metacarpophalangeal joints, interphalangeal hinge joints, and carpometacarpal saddle joint enabling thumb opposition.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </button>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">The entire pipeline — ADC acquisition, dynamic normalization, forward-pass inference, and servo PWM dispatch — runs well within the strict biomechanical delay threshold required for responsive, natural control.</p>
+          <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/hand_kinematics.png', 'Skeletal Kinematics of the Hand and Digits', 'Anatomical mapping of the 27 bones, metacarpophalangeal joints, interphalangeal hinge joints, and carpometacarpal saddle joint enabling thumb opposition.')">
+            <img src="../assets/images/projects/prosthetic/hand_kinematics.png" alt="Hand Articulations" class="w-full max-h-[240px] object-contain hover:scale-[1.01] transition">
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+            Fig 3.2: Anatomical DoFs: thumb carpometacarpal saddle opposition and phalangeal flexion axes replicated by the under-actuated bionic hand.
+          </p>
+        </div>
+
+        <!-- Signal Variability & Domain Shift Axes Card -->
+        <div class="diagram-card p-4 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase">sEMG Signal Variability &amp; Domain Shift</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/emg_variability.png', 'Domain Shift Manifestation in sEMG', 'Three axes of signal variation: Intra-session force fluctuations, Inter-session electrode repositioning shifts, and Inter-subject anatomical impedance divergence.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </button>
+          </div>
+          <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/emg_variability.png', 'Domain Shift Manifestation in sEMG', 'Three axes of signal variation: Intra-session force fluctuations, Inter-session electrode repositioning shifts, and Inter-subject anatomical impedance divergence.')">
+            <img src="../assets/images/projects/prosthetic/emg_variability.png" alt="EMG Variability" class="w-full max-h-[240px] object-contain hover:scale-[1.01] transition">
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+            Fig 3.3: Theoretical manifestation of domain shift across intra-session, inter-session, and inter-subject testing regimes.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Section 5: Findings & Roadmap -->
-    <section class="mb-14 p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-5 transition-all duration-300">
-      <div class="flex items-center gap-3 mb-1">
-        <div class="w-8 h-8 rounded-lg bg-amber-500/10 dark:bg-amber-950/60 border border-amber-300/40 dark:border-amber-800/40 backdrop-blur-md flex items-center justify-center text-amber-600 dark:text-amber-400 text-sm shrink-0 shadow-sm">
-          <i class="fa-solid fa-chart-line"></i>
+    <!-- Section 4: Functional Gesture Vocabulary Aligned with ADL -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-purple-500/10 dark:bg-purple-950/60 border border-purple-300/40 dark:border-purple-800/40 backdrop-blur-md flex items-center justify-center text-purple-600 dark:text-purple-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-hands-asl-interpreting"></i>
         </div>
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">§ 05</span>
-        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Key Findings & Future Directions</h2>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">§ 04</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Functional Gesture Vocabulary (ADL-Aligned)</h2>
       </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        The system targets a six-class kinematic vocabulary formulated to span the foundational grasping postures cataloged in standard Activities of Daily Living (ADL) taxonomies. Confining the vocabulary to six discrete states ensures viable real-world utility while respecting the information entropy bounds of a 3-channel sparse array.
+      </p>
+
+      <!-- Gesture Vocabulary Collage Card -->
+      <div class="diagram-card p-4 sm:p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase">Six-Class Functional Gesture Set</span>
+          <button onclick="openLightbox('assets/images/projects/prosthetic/gesture_set.png', 'Functional Gesture Vocabulary', 'The defined six-class gesture vocabulary targeting Activities of Daily Living (ADL): Rest (R), Hand Open (HO), Hand Close (HC), Index Finger Extension (IFE), Thumb Extension (TE), and Little Finger Extension (LFE).')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+            <i class="fa-solid fa-expand text-[10px]"></i> Zoom Full-Res
+          </button>
+        </div>
+        <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/gesture_set.png', 'Functional Gesture Vocabulary', 'The defined six-class gesture vocabulary targeting Activities of Daily Living (ADL): Rest (R), Hand Open (HO), Hand Close (HC), Index Finger Extension (IFE), Thumb Extension (TE), and Little Finger Extension (LFE).')">
+          <img src="../assets/images/projects/prosthetic/gesture_set.png" alt="Gesture Vocabulary" class="w-full max-h-[320px] object-contain hover:scale-[1.01] transition">
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          Fig 4.1: Six target kinematic postures executed during data acquisition and replicated physically by the bionic hand.
+        </p>
+      </div>
+
+      <!-- Six Gestures Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div class="p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] text-center space-y-1">
+          <div class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/[0.06] mx-auto flex items-center justify-center text-slate-600 dark:text-slate-300">
+            <i class="fa-solid fa-minus"></i>
+          </div>
+          <div class="font-bold text-xs text-slate-900 dark:text-white font-display">Rest (R)</div>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">Neutral baseline; prevents inadvertent robotic actuation.</p>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] text-center space-y-1">
+          <div class="w-8 h-8 rounded-lg bg-brand-500/10 dark:bg-brand-950/60 mx-auto flex items-center justify-center text-brand-600 dark:text-brand-400">
+            <i class="fa-solid fa-hand"></i>
+          </div>
+          <div class="font-bold text-xs text-slate-900 dark:text-white font-display">Hand Open (HO)</div>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">Pre-grasp approach &amp; object release posture.</p>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] text-center space-y-1">
+          <div class="w-8 h-8 rounded-lg bg-purple-500/10 dark:bg-purple-950/60 mx-auto flex items-center justify-center text-purple-600 dark:text-purple-400">
+            <i class="fa-solid fa-fist-raised"></i>
+          </div>
+          <div class="font-bold text-xs text-slate-900 dark:text-white font-display">Hand Close (HC)</div>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">Cylindrical power grip for load manipulation.</p>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] text-center space-y-1">
+          <div class="w-8 h-8 rounded-lg bg-sky-500/10 dark:bg-sky-950/60 mx-auto flex items-center justify-center text-sky-600 dark:text-sky-400">
+            <i class="fa-solid fa-hand-point-up"></i>
+          </div>
+          <div class="font-bold text-xs text-slate-900 dark:text-white font-display">Index Extension</div>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">Directional pointing, typing, and button pressing.</p>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] text-center space-y-1">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/10 dark:bg-amber-950/60 mx-auto flex items-center justify-center text-amber-600 dark:text-amber-400">
+            <i class="fa-solid fa-thumbs-up"></i>
+          </div>
+          <div class="font-bold text-xs text-slate-900 dark:text-white font-display">Thumb Extension</div>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">Thumb opposition &amp; precision pinch grips.</p>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] text-center space-y-1">
+          <div class="w-8 h-8 rounded-lg bg-pink-500/10 dark:bg-pink-950/60 mx-auto flex items-center justify-center text-pink-600 dark:text-pink-400">
+            <i class="fa-solid fa-hand-peace"></i>
+          </div>
+          <div class="font-bold text-xs text-slate-900 dark:text-white font-display">Little Extension</div>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">Fine motor discrimination &amp; grasp balance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Human-Subject Data Acquisition Protocol -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-teal-500/10 dark:bg-teal-950/60 border border-teal-300/40 dark:border-teal-800/40 backdrop-blur-md flex items-center justify-center text-teal-600 dark:text-teal-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">§ 05</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Human-Subject Data Acquisition Protocol</h2>
+      </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        A structured, reproducible physiological protocol was executed to ensure the deep learning models learn genuine neuromuscular motor commands rather than overfitting to single-session impedance conditions. Experimental procedures received institutional ethical approval from the Ethical Review Committee of the Faculty of Biological Science and Technology at JUST, adhering to the Declaration of Helsinki.
+      </p>
+
+      <!-- Protocol Hierarchy Diagram Card -->
+      <div class="diagram-card p-4 sm:p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase">Hierarchical Acquisition Protocol Architecture</span>
+          <button onclick="openLightbox('assets/images/projects/prosthetic/protocol_hierarchy.png', 'Hierarchical Data Acquisition Protocol', 'Chronological mapping from Session to Cycle to Gesture to Trial. Each 5s trial features Preparation (1s), Ramp Up (1s), Isometric Hold (2s), and Ramp Down (1s). Only the steady-state Hold phase was extracted for model training.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+            <i class="fa-solid fa-expand text-[10px]"></i> Zoom Full-Res
+          </button>
+        </div>
+        <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/protocol_hierarchy.png', 'Hierarchical Data Acquisition Protocol', 'Chronological mapping from Session to Cycle to Gesture to Trial. Each 5s trial features Preparation (1s), Ramp Up (1s), Isometric Hold (2s), and Ramp Down (1s). Only the steady-state Hold phase was extracted for model training.')">
+          <img src="../assets/images/projects/prosthetic/protocol_hierarchy.png" alt="Protocol Hierarchy" class="w-full max-h-[340px] object-contain hover:scale-[1.01] transition">
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          Fig 5.1: 4-phase trial sequence detailing the 1.0s cue preparation, 1.0s kinetic ramp, 2.0s sustained isometric hold, and 1.0s muscle relaxation.
+        </p>
+      </div>
+
+      <!-- Cohort & Multi-Session Methodology Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-teal-600 dark:text-teal-400 uppercase">
+            <i class="fa-solid fa-user-check text-sm"></i>
+            <span>Participant Cohort</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            20 healthy, right-hand-dominant male volunteers (aged 20–28 years). Strict exclusion criteria eliminated individuals with neuromuscular disorders, skin lesions, or electronic implants. Participants were anonymized as P01 through P20.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-teal-600 dark:text-teal-400 uppercase">
+            <i class="fa-solid fa-repeat text-sm"></i>
+            <span>Multi-Session Invariance</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Data collection spanned 7 weeks. Each participant completed 2 independent sessions separated by a mandatory rest interval (&ge; 12 hours; empirical median 87.5 hours) with complete electrode re-donning to naturally induce electrode shift.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-teal-600 dark:text-teal-400 uppercase">
+            <i class="fa-solid fa-bed text-sm"></i>
+            <span>Postural Variability</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Postural variance was introduced between sessions: Session 1 was captured in a <strong>supine</strong> (lying) orientation, and Session 2 in an upright <strong>seated</strong> posture, forcing the networks to learn orientation-invariant muscle activations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Postural Setup Photos Card -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-amber-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-          <div class="flex items-center gap-2 text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">
-            <i class="fa-solid fa-arrows-split-up-and-left text-sm"></i>
-            <span>Generalization vs. Calibration</span>
+        <div class="diagram-card p-3 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+          <div class="flex items-center justify-between text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
+            <span>Session 1: Supine Acquisition Setup</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/session_supine.jpeg', 'Session 1: Supine Data Acquisition', 'Human participant executing sEMG data acquisition protocol in the supine (lying down) posture.')" class="text-brand-500 hover:underline"><i class="fa-solid fa-expand"></i></button>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Leave-One-Subject-Out (LOSO) cross-validation showed that while convolutional networks learn shared kinematic representations across users, individual anatomical variations (muscle geometry, tissue impedance) create performance shifts on unseen subjects — underscoring that user-specific calibration is essential for clinical deployment.</p>
+          <div class="cursor-pointer rounded-xl overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/session_supine.jpeg', 'Session 1: Supine Data Acquisition', 'Human participant executing sEMG data acquisition protocol in the supine (lying down) posture.')">
+            <img src="../assets/images/projects/prosthetic/session_supine.jpeg" alt="Session Supine" class="w-full h-44 object-cover hover:scale-[1.02] transition">
+          </div>
+          <p class="text-[11px] text-slate-400">Captured in supine orientation to simulate relaxed resting positions.</p>
         </div>
-        <div class="p-5 rounded-2xl border border-slate-200/70 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.04] backdrop-blur-md shadow-sm hover:border-amber-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-          <div class="flex items-center gap-2 text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">
-            <i class="fa-solid fa-arrows-to-circle text-sm"></i>
-            <span>Crosstalk Dynamics</span>
+
+        <div class="diagram-card p-3 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+          <div class="flex items-center justify-between text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
+            <span>Session 2: Seated Acquisition Setup</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/session_seated.jpeg', 'Session 2: Seated Data Acquisition', 'Human participant executing sEMG data acquisition protocol in the upright seated posture.')" class="text-brand-500 hover:underline"><i class="fa-solid fa-expand"></i></button>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Synergistic grasps (Hand Open, Hand Close, Rest) demonstrated high stability. Fine single-finger movements encountered natural muscular crosstalk due to shared dorsal muscle bellies — a fundamental physiological constraint at sparse channel counts.</p>
+          <div class="cursor-pointer rounded-xl overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/session_seated.jpeg', 'Session 2: Seated Data Acquisition', 'Human participant executing sEMG data acquisition protocol in the upright seated posture.')">
+            <img src="../assets/images/projects/prosthetic/session_seated.jpeg" alt="Session Seated" class="w-full h-44 object-cover hover:scale-[1.02] transition">
+          </div>
+          <p class="text-[11px] text-slate-400">Captured in upright seated posture to introduce natural gravity-assisted muscle loading.</p>
         </div>
       </div>
-      <div class="p-5 rounded-2xl border border-brand-400/40 dark:border-brand-500/30 bg-brand-500/[0.07] dark:bg-brand-950/30 backdrop-blur-md shadow-sm space-y-3">
-        <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">
-          <i class="fa-solid fa-compass text-sm"></i>
-          <span>Roadmap</span>
+
+      <!-- Real-Time Waveform Validation, Calibration & Fatigue Management Gallery -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
+        <!-- Live Waveform Validation Card -->
+        <div class="diagram-card p-4 rounded-xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-300">Practice Validation Plot</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/waveform_validation.png', 'Practice Validation Waveforms', 'Real-time multi-channel waveform telemetry visualizer utilized during practice trials to verify electrode adhesion and sensor burst integrity.')" class="text-xs font-mono text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
+          </div>
+          <div class="cursor-pointer rounded-lg overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/waveform_validation.png', 'Practice Validation Waveforms', 'Real-time multi-channel waveform telemetry visualizer utilized during practice trials to verify electrode adhesion and sensor burst integrity.')">
+            <img src="../assets/images/projects/prosthetic/waveform_validation.png" alt="Validation Waveforms" class="w-full h-32 object-contain hover:scale-[1.02] transition">
+          </div>
+          <p class="text-[10px] text-slate-400">Visual check of multi-channel burst profiles before trial recording.</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div class="flex items-start gap-2">
-            <i class="fa-solid fa-circle-arrow-right text-brand-500 mt-0.5 text-xs shrink-0"></i>
-            <p class="text-xs text-slate-600 dark:text-slate-300">Lightweight <strong>on-device transfer learning</strong> for rapid per-user calibration</p>
+
+        <!-- Calibration Phase (Noise & MVC) Card -->
+        <div class="diagram-card p-4 rounded-xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-300">Calibration Baseline (MVC)</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/calibration.png', 'Calibration: Baseline Noise Floor & MVC', 'Calibration telemetry capturing the resting baseline noise floor (5s) followed by Maximum Voluntary Contraction (MVC) peak dynamic limits (4s).')" class="text-xs font-mono text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
           </div>
-          <div class="flex items-start gap-2">
-            <i class="fa-solid fa-circle-arrow-right text-brand-500 mt-0.5 text-xs shrink-0"></i>
-            <p class="text-xs text-slate-600 dark:text-slate-300"><strong>Closed-loop tactile feedback</strong> via fingertip force sensors</p>
+          <div class="cursor-pointer rounded-lg overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/calibration.png', 'Calibration: Baseline Noise Floor & MVC', 'Calibration telemetry capturing the resting baseline noise floor (5s) followed by Maximum Voluntary Contraction (MVC) peak dynamic limits (4s).')">
+            <img src="../assets/images/projects/prosthetic/calibration.png" alt="Calibration Data" class="w-full h-32 object-contain hover:scale-[1.02] transition">
           </div>
-          <div class="flex items-start gap-2">
-            <i class="fa-solid fa-circle-arrow-right text-brand-500 mt-0.5 text-xs shrink-0"></i>
-            <p class="text-xs text-slate-600 dark:text-slate-300">Consolidating discrete modules into a <strong>unified custom PCB</strong></p>
+          <p class="text-[10px] text-slate-400">Noise floor recording &amp; Maximum Voluntary Contraction bounds.</p>
+        </div>
+
+        <!-- Muscle Fatigue Shift Card -->
+        <div class="diagram-card p-4 rounded-xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-300">Fatigue Spectral Shift</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/fresh_vs_fatigue.png', 'Muscle Fatigue Spectral Profile', 'Physiological demonstration of sEMG signal alteration under sustained muscular fatigue, illustrating downward frequency compression that justifies anti-fatigue pauses.')" class="text-xs font-mono text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
           </div>
+          <div class="cursor-pointer rounded-lg overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/fresh_vs_fatigue.png', 'Muscle Fatigue Spectral Profile', 'Physiological demonstration of sEMG signal alteration under sustained muscular fatigue, illustrating downward frequency compression that justifies anti-fatigue pauses.')">
+            <img src="../assets/images/projects/prosthetic/fresh_vs_fatigue.png" alt="Fatigue Profile" class="w-full h-32 object-contain hover:scale-[1.02] transition">
+          </div>
+          <p class="text-[10px] text-slate-400">Spectral compression profile justifying 120s anti-fatigue pauses.</p>
+        </div>
+      </div>
+
+      <!-- Standardized Dataset Hierarchy Card -->
+      <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <h4 class="text-xs font-mono font-bold text-slate-800 dark:text-slate-200 uppercase flex items-center gap-2">
+            <i class="fa-solid fa-folder-tree text-teal-500"></i>
+            <span>Standardized Hierarchical Dataset Architecture</span>
+          </h4>
+          <button onclick="openLightbox('assets/images/projects/prosthetic/dataset_hierarchy.png', 'Dataset Directory Hierarchy', 'Standardized hierarchical dataset organization: partitioning by participant (P01-P20), session orientation (S01 supine vs S02 seated), isolating calibration noise/MVC from active gesture cycles.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+            <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+          </button>
+        </div>
+        <div class="cursor-pointer rounded-xl overflow-hidden bg-slate-950 flex justify-center p-2" onclick="openLightbox('assets/images/projects/prosthetic/dataset_hierarchy.png', 'Dataset Directory Hierarchy', 'Standardized hierarchical dataset organization: partitioning by participant (P01-P20), session orientation (S01 supine vs S02 seated), isolating calibration noise/MVC from active gesture cycles.')">
+          <img src="../assets/images/projects/prosthetic/dataset_hierarchy.png" alt="Dataset Directory Hierarchy" class="w-full max-h-[160px] object-contain hover:scale-[1.01] transition">
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          Strict separation of participant partitions (P01–P20), session folders (S01 supine, S02 seated), baseline files (<code class="text-[10px]">noise.csv</code>, <code class="text-[10px]">mvc.csv</code>), and active cycles (<code class="text-[10px]">cycle_1.csv</code>) guarantees offline reproducibility.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 6: Automated Signal Quality Assessment (SQA) -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-red-500/10 dark:bg-red-950/60 border border-red-300/40 dark:border-red-800/40 backdrop-blur-md flex items-center justify-center text-red-600 dark:text-red-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-600 dark:text-red-400">§ 06</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Automated Signal Quality Assessment (SQA)</h2>
+      </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        Continuous sEMG recordings in unconstrained physical protocols are vulnerable to transient hardware artifacts (electrode peeling, lead wire tugs, rail clipping). Training deep neural networks on corrupted data forces filters to memorize hardware faults rather than voluntary motor intent. An automated Python-based Signal Quality Assessment (SQA) pipeline was implemented to screen every recorded trial prior to dataset compilation.
+      </p>
+
+      <!-- SQA Waveform Comparison Card -->
+      <div class="diagram-card p-4 sm:p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase">Signal Integrity: Healthy vs. Corrupted Waveforms</span>
+          <button onclick="openLightbox('assets/images/projects/prosthetic/corrupted_signal.png', 'Signal Quality Assessment Screening', 'Comparison of healthy sEMG burst recordings exhibiting distinct voluntary contractions (top) versus a corrupted signal dominated by severe electrical clipping and detachment flatline (bottom).')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+            <i class="fa-solid fa-expand text-[10px]"></i> Zoom Full-Res
+          </button>
+        </div>
+        <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/corrupted_signal.png', 'Signal Quality Assessment Screening', 'Comparison of healthy sEMG burst recordings exhibiting distinct voluntary contractions (top) versus a corrupted signal dominated by severe electrical clipping and detachment flatline (bottom).')">
+          <img src="../assets/images/projects/prosthetic/corrupted_signal.png" alt="Signal Corruption" class="w-full max-h-[300px] object-contain hover:scale-[1.01] transition">
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          Fig 6.1: Healthy voluntary muscle contraction burst profile (top) contrasted against hardware recording failure exhibiting severe electrical saturation and clipping (bottom).
+        </p>
+      </div>
+
+      <!-- 4 Quantitative SQA Screening Rules -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-4 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-1.5">
+          <div class="text-xs font-mono font-bold text-red-500 uppercase flex items-center gap-1.5">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>1. ADC Rail Saturation</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Flagged and discarded if &gt; 2% of continuous samples hit the upper (4095) or lower (0) rail bounds of the 12-bit ADC, signifying severe voltage clipping.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-1.5">
+          <div class="text-xs font-mono font-bold text-amber-500 uppercase flex items-center gap-1.5">
+            <i class="fa-solid fa-grip-lines"></i>
+            <span>2. Near-Zero Flatline</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Trials with per-channel variance &lt; 1 &times; 10<sup>-6</sup> were discarded, strictly indicating an uncoupled or severed electrode lead.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-1.5">
+          <div class="text-xs font-mono font-bold text-purple-500 uppercase flex items-center gap-1.5">
+            <i class="fa-solid fa-volume-xmark"></i>
+            <span>3. Insufficient SNR</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Trials where the ratio of active-contraction RMS to resting-baseline RMS fell below 1.0 were rejected as imperceptible contraction efforts.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-1.5">
+          <div class="text-xs font-mono font-bold text-sky-500 uppercase flex items-center gap-1.5">
+            <i class="fa-solid fa-ruler-horizontal"></i>
+            <span>4. Window Continuity</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Parsed trials containing fewer than 1500 unbroken samples were flagged to guarantee that a full 2.0-second isometric hold phase could be extracted without padding.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Back Navigation -->
-    <div class="flex justify-center pt-4">
+    <!-- Section 7: Signal Preprocessing & Minimal-Filtering Architecture -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-brand-500/10 dark:bg-brand-950/60 border border-brand-300/40 dark:border-brand-800/40 backdrop-blur-md flex items-center justify-center text-brand-600 dark:text-brand-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-sliders"></i>
+        </div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">§ 07</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Signal Preprocessing &amp; Minimal Filtering</h2>
+      </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        Conventional myoelectric systems impose heavy digital signal processing (high-order Butterworth bandpass and notch filters) in software. However, running continuous digital IIR/FIR filter cascades on bare-metal microcontrollers consumes critical arithmetic clock cycles and introduces frequency-dependent group delays. This project implemented a deliberate minimal-filtering strategy.
+      </p>
+
+      <!-- Raw vs Normalized Diagram Card -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-7 diagram-card p-4 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase">DC Offset Correction &amp; Z-Score Scaling</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/raw_vs_normalized.png', 'Raw vs Normalized Signals', 'Multi-channel continuous sEMG profiles showing (a) raw ADC counts with baseline drifts across S1-S3, and (b) corresponding temporal traces following dynamic DC correction and global z-score normalization.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </button>
+          </div>
+          <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/raw_vs_normalized.png', 'Raw vs Normalized Signals', 'Multi-channel continuous sEMG profiles showing (a) raw ADC counts with baseline drifts across S1-S3, and (b) corresponding temporal traces following dynamic DC correction and global z-score normalization.')">
+            <img src="../assets/images/projects/prosthetic/raw_vs_normalized.png" alt="Raw vs Normalized" class="w-full max-h-[300px] object-contain hover:scale-[1.01] transition">
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+            Fig 7.1: Transformation of raw ADC telemetry into zero-mean, unit-variance standardized tensors ready for convolutional inference.
+          </p>
+        </div>
+
+        <!-- Sliding Window Card -->
+        <div class="lg:col-span-5 diagram-card p-4 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase">Sliding-Window Segmentation</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/sliding_window.png', 'Sliding Window Segmentation', 'Dense sliding-window segmentation strategy showing a 300ms window with 50ms stride (83.33% overlap) generating fixed 300x3 input tensors every 50ms.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </button>
+          </div>
+          <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/sliding_window.png', 'Sliding Window Segmentation', 'Dense sliding-window segmentation strategy showing a 300ms window with 50ms stride (83.33% overlap) generating fixed 300x3 input tensors every 50ms.')">
+            <img src="../assets/images/projects/prosthetic/sliding_window.png" alt="Sliding Window" class="w-full max-h-[300px] object-contain hover:scale-[1.01] transition">
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+            Fig 7.2: 300ms window with 50ms stride yields continuous updates at 20Hz.
+          </p>
+        </div>
+      </div>
+
+      <!-- Preprocessing Mathematical Methodology -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">
+            <i class="fa-solid fa-microchip text-sm"></i>
+            <span>Hardware Analog Filtering</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The Advancer Technologies V3 modules inherently execute differential amplification, full-wave rectification, and low-pass smoothing in analog silicon. Secondary digital filters were completely bypassed, freeing the CPU from arithmetic filter loops.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">
+            <i class="fa-solid fa-calculator text-sm"></i>
+            <span>Global Z-Score Scaling</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            A dynamic DC resting offset is subtracted, followed by global standardization: <code class="text-[11px] font-mono text-brand-600 dark:text-brand-400">z = (x - &mu;_global) / &sigma;_global</code>. Global corpus parameters are compiled directly as immutable constants into the microcontroller firmware.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">
+            <i class="fa-solid fa-layer-group text-sm"></i>
+            <span>300 &times; 3 Input Tensors</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            A sliding window of 300ms (300 samples @ 1000Hz) with 50ms stride (83.33% overlap) is mapped into a circular buffer. This feeds a fixed <code class="text-[11px] font-mono text-brand-600 dark:text-brand-400">300 &times; 3</code> tensor into the neural network every 50ms.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Deep Learning Architectures & Design Rationale -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-indigo-500/10 dark:bg-indigo-950/60 border border-indigo-300/40 dark:border-indigo-800/40 backdrop-blur-md flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-network-wired"></i>
+        </div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">§ 08</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Deep Learning Architectural Exploration</h2>
+      </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        Four neural network architectures of increasing structural complexity were implemented and benchmarked under identical multi-session data partitions to assess the inductive bias of different deep learning paradigms when operating on sparse sEMG temporal streams.
+      </p>
+
+      <!-- 1D-CNN Architecture Diagram Card -->
+      <div class="diagram-card p-4 sm:p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase">Selected 1D-CNN Architecture with Global Average Pooling</span>
+          <button onclick="openLightbox('assets/images/projects/prosthetic/cnn_architecture.png', '1D-CNN Architecture Diagram', 'Architecture diagram of the selected 1D-CNN illustrating 3x Conv1D layers (64, 128, 256 filters), MaxPooling1D, Global Average Pooling (GAP), Dropout (0.5), and 6-class Softmax classification head totaling 144,070 parameters.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+            <i class="fa-solid fa-expand text-[10px]"></i> Zoom Full-Res
+          </button>
+        </div>
+        <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/cnn_architecture.png', '1D-CNN Architecture Diagram', 'Architecture diagram of the selected 1D-CNN illustrating 3x Conv1D layers (64, 128, 256 filters), MaxPooling1D, Global Average Pooling (GAP), Dropout (0.5), and 6-class Softmax classification head totaling 144,070 parameters.')">
+          <img src="../assets/images/projects/prosthetic/cnn_architecture.png" alt="1D-CNN Architecture" class="w-full max-h-[300px] object-contain hover:scale-[1.01] transition">
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          Fig 8.1: 1D-CNN feature extraction pipeline. Replacing conventional dense flattening with Global Average Pooling (GAP) reduced classification head parameters by ~97%.
+        </p>
+      </div>
+
+      <!-- Evaluated Architectures Diagrams Gallery: ResNet, LSTM, Hybrid -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- 1D-ResNet Diagram -->
+        <div class="diagram-card p-3 rounded-2xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+          <div class="flex items-center justify-between text-xs font-mono font-bold text-slate-300">
+            <span>1D-ResNet Architecture</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/resnet_architecture.png', '1D-ResNet Deep Architecture', '1D-ResNet architecture diagram featuring 5 residual blocks with identity shortcut connections (y = F(x) + x) and Global Average Pooling totaling 565,126 parameters.')" class="text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
+          </div>
+          <div class="cursor-pointer rounded-xl overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/resnet_architecture.png', '1D-ResNet Deep Architecture', '1D-ResNet architecture diagram featuring 5 residual blocks with identity shortcut connections (y = F(x) + x) and Global Average Pooling totaling 565,126 parameters.')">
+            <img src="../assets/images/projects/prosthetic/resnet_architecture.png" alt="1D-ResNet Architecture" class="w-full h-36 object-contain hover:scale-[1.02] transition">
+          </div>
+          <p class="text-[10px] text-slate-400 font-mono">5 residual skip blocks (565k params).</p>
+        </div>
+
+        <!-- Standalone LSTM Diagram -->
+        <div class="diagram-card p-3 rounded-2xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+          <div class="flex items-center justify-between text-xs font-mono font-bold text-slate-300">
+            <span>Standalone LSTM Architecture</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/lstm_architecture.png', 'LSTM Recurrent Architecture', 'Stacked recurrent Long Short-Term Memory network architecture (117,382 parameters) tracking sequence trajectories across 300 timesteps.')" class="text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
+          </div>
+          <div class="cursor-pointer rounded-xl overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/lstm_architecture.png', 'LSTM Recurrent Architecture', 'Stacked recurrent Long Short-Term Memory network architecture (117,382 parameters) tracking sequence trajectories across 300 timesteps.')">
+            <img src="../assets/images/projects/prosthetic/lstm_architecture.png" alt="LSTM Architecture" class="w-full h-36 object-contain hover:scale-[1.02] transition">
+          </div>
+          <p class="text-[10px] text-slate-400 font-mono">Stacked recurrent layers (117k params).</p>
+        </div>
+
+        <!-- Hybrid CNN-LSTM Diagram -->
+        <div class="diagram-card p-3 rounded-2xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+          <div class="flex items-center justify-between text-xs font-mono font-bold text-slate-300">
+            <span>Hybrid CNN-LSTM</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/hybrid_architecture.png', 'Hybrid CNN-LSTM Architecture', 'Two-stage Hybrid CNN-LSTM architecture combining 2x Conv1D feature extractors with a 64-unit bidirectional LSTM layer totaling 101,958 parameters.')" class="text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
+          </div>
+          <div class="cursor-pointer rounded-xl overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/hybrid_architecture.png', 'Hybrid CNN-LSTM Architecture', 'Two-stage Hybrid CNN-LSTM architecture combining 2x Conv1D feature extractors with a 64-unit bidirectional LSTM layer totaling 101,958 parameters.')">
+            <img src="../assets/images/projects/prosthetic/hybrid_architecture.png" alt="Hybrid CNN-LSTM Architecture" class="w-full h-36 object-contain hover:scale-[1.02] transition">
+          </div>
+          <p class="text-[10px] text-slate-400 font-mono">Conv1D + Bi-LSTM (102k params).</p>
+        </div>
+      </div>
+
+      <!-- Additional Mathematical Explanations (1D vs 2D & LSTM Cell Structure) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+        <!-- 1D vs 2D Conv Diagram -->
+        <div class="diagram-card p-4 rounded-xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-300">1D vs 2D Convolution Kernels</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/cnn_1d_vs_2d.png', '1D-CNN vs 2D-CNN Structural Comparison', 'Structural comparison showing kernel sliding: 1D-CNN kernel translates strictly along the temporal sequence axis, while 2D-CNN translates across spatial image planes.')" class="text-xs font-mono text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
+          </div>
+          <div class="cursor-pointer rounded-lg overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/cnn_1d_vs_2d.png', '1D-CNN vs 2D-CNN Structural Comparison', 'Structural comparison showing kernel sliding: 1D-CNN kernel translates strictly along the temporal sequence axis, while 2D-CNN translates across spatial image planes.')">
+            <img src="../assets/images/projects/prosthetic/cnn_1d_vs_2d.png" alt="1D vs 2D Conv" class="w-full h-36 object-contain hover:scale-[1.02] transition">
+          </div>
+          <p class="text-[10px] text-slate-400">1D kernels slide exclusively across the 300-sample time series to extract temporal burst patterns.</p>
+        </div>
+
+        <!-- LSTM Internal Cell Structure -->
+        <div class="diagram-card p-4 rounded-xl bg-slate-900/40 dark:bg-slate-950/60 border border-slate-200/60 dark:border-white/[0.06] space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-300">LSTM Memory Cell Architecture</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/lstm_cell_structure.png', 'Internal LSTM Memory Cell Structure', 'Internal structure of a vanilla LSTM cell showing horizontal cell state C regulated by pointwise operations of Forget (f), Input (i), and Output (o) gates.')" class="text-xs font-mono text-brand-400 hover:underline"><i class="fa-solid fa-expand"></i></button>
+          </div>
+          <div class="cursor-pointer rounded-lg overflow-hidden bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/lstm_cell_structure.png', 'Internal LSTM Memory Cell Structure', 'Internal structure of a vanilla LSTM cell showing horizontal cell state C regulated by pointwise operations of Forget (f), Input (i), and Output (o) gates.')">
+            <img src="../assets/images/projects/prosthetic/lstm_cell_structure.png" alt="LSTM Cell Structure" class="w-full h-36 object-contain hover:scale-[1.02] transition">
+          </div>
+          <p class="text-[10px] text-slate-400">Gating mathematics: forget, input, and output gates regulating cell state updates.</p>
+        </div>
+      </div>
+
+      <!-- Training Setup & Parameter Paradox Note -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+        <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed text-justify">
+          <strong class="text-slate-900 dark:text-white block font-mono text-[11px] uppercase"><i class="fa-solid fa-gears text-brand-500 mr-1.5"></i>Training Hyperparameters</strong>
+          All architectures were trained using Python and TensorFlow 2.21.0 on an NVIDIA RTX 4070 Super GPU. Optimized via Adam (<code class="text-[11px] font-mono">&eta; = 10^-3</code>, &beta;1=0.9, &beta;2=0.999), sparse categorical cross-entropy, batch size 256, dropout rate 0.5, and early stopping with patience of 10 epochs. Random seed 42 enforced across all splits.
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed text-justify">
+          <strong class="text-slate-900 dark:text-white block font-mono text-[11px] uppercase"><i class="fa-solid fa-bolt text-amber-500 mr-1.5"></i>The Edge "Parameter Count Paradox"</strong>
+          Although the Hybrid CNN-LSTM possesses fewer parameters (101,958) than the 1D-CNN (144,070), the 1D-CNN executes significantly faster on bare metal (18.5ms). Convolutional kernels leverage SIMD vector hardware acceleration on the ESP32-S3 Xtensa LX7 core, while recurrent models are bound by sequential unrolling that cannot be parallelized.
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Bare-Metal TinyML Embedded Deployment -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-pink-500/10 dark:bg-pink-950/60 border border-pink-300/40 dark:border-pink-800/40 backdrop-blur-md flex items-center justify-center text-pink-600 dark:text-pink-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">§ 09</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Bare-Metal TinyML Firmware &amp; Execution</h2>
+      </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        Deploying deep learning on wearable prosthetics requires absolute determinism. Standard single-board computers (Raspberry Pi, Jetson) running Linux introduce background kernel scheduling jitter, memory management faults, and continuous multi-watt battery drain. The 1D-CNN was compiled directly into native bare-metal C++ firmware for the ESP32-S3 microcontroller using TensorFlow Lite for Microcontrollers (TFLM).
+      </p>
+
+      <!-- Embedded Timing Breakdown Table -->
+      <div class="overflow-x-auto rounded-2xl border border-slate-200/70 dark:border-white/[0.08]">
+        <table class="w-full text-left text-xs font-sans">
+          <thead class="bg-slate-100/75 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 font-mono uppercase text-[11px] border-b border-slate-200/70 dark:border-white/[0.08]">
+            <tr>
+              <th class="py-3 px-4">Hardware Parameter / Stage</th>
+              <th class="py-3 px-4 text-center">Measured Value</th>
+              <th class="py-3 px-4">Operational Architecture &amp; Firmware Context</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200/60 dark:divide-white/[0.05] text-slate-600 dark:text-slate-300">
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Serialized Float32 Model Size</td>
+              <td class="py-3 px-4 text-center font-mono font-bold text-brand-600 dark:text-brand-400">189 kB</td>
+              <td class="py-3 px-4">Compiled as static C++ byte array in program flash; unquantized 32-bit floating-point preserves exact training decision boundaries.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Static Tensor Arena Allocation</td>
+              <td class="py-3 px-4 text-center font-mono font-bold text-purple-600 dark:text-purple-400">128 kB</td>
+              <td class="py-3 px-4">Pre-allocated static SRAM array for TFLM intermediate tensors; strictly zero dynamic heap (<code class="text-[10px]">malloc</code>) calls prevents runtime memory fragmentation.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Forward-Pass Inference Latency</td>
+              <td class="py-3 px-4 text-center font-mono font-bold text-sky-600 dark:text-sky-400">18.5 ms</td>
+              <td class="py-3 px-4">Single forward pass on ESP32-S3 hardware FPU; comfortably completes inside the 50ms sliding stride window.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Total Pipeline Latency</td>
+              <td class="py-3 px-4 text-center font-mono font-bold text-emerald-600 dark:text-emerald-400">165.7 ms</td>
+              <td class="py-3 px-4">End-to-end duration encompassing 3-ch ADC acquisition, baseline subtraction, Z-score scaling, TFLM forward pass, and I2C PWM timer dispatch (&lt; 200ms biomechanical threshold).</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Sampling Determinism</td>
+              <td class="py-3 px-4 text-center font-mono font-bold text-amber-600 dark:text-amber-400">&plusmn;2 &mu;s Jitter</td>
+              <td class="py-3 px-4">Deterministic single-core polling loop utilizing hardware <code class="text-[10px]">micros()</code> timer; zero missed sampling deadlines recorded across continuous runtime.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Single Core Polling Loop Architecture Details -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-pink-600 dark:text-pink-400 uppercase">
+            <i class="fa-solid fa-stopwatch text-sm"></i>
+            <span>Deterministic Polling Loop</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Rather than relying on FreeRTOS tasks which induce task-switching jitter and mutex contention, the firmware operates in a tight polling loop. The internal hardware timer is polled continuously; when elapsed time reaches 1000 &mu;s, the 3 ADC channels are sampled (requiring ~60 &mu;s) and inserted into a rolling circular buffer.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-pink-600 dark:text-pink-400 uppercase">
+            <i class="fa-solid fa-memory text-sm"></i>
+            <span>Unquantized Float32 Execution</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Standard TinyML pipelines apply post-training INT8 quantization to satisfy micro-RAM budgets, introducing quantization noise. Because the GAP layer reduced parameters to 144k, the entire Float32 model fit easily within the 128kB SRAM arena, allowing native hardware floating-point acceleration without precision loss.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Mechatronic Kinematics & 3D Fabrication -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-amber-500/10 dark:bg-amber-950/60 border border-amber-300/40 dark:border-amber-800/40 backdrop-blur-md flex items-center justify-center text-amber-600 dark:text-amber-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-hand-fist"></i>
+        </div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">§ 10</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Mechatronic Kinematics &amp; 3D Fabrication</h2>
+      </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        The physical terminal device is an anthropomorphic, under-actuated 3D-printed hand. The skeletal CAD geometry was adapted in SolidWorks to integrate internal servo mounting chassis, wire routing channels, and wrist coupling. Additive manufacturing was performed in Polylactic Acid Plus (PLA+) on a Bambu Lab A1 3D printer.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <!-- Assembled Hand Photo Card -->
+        <div class="lg:col-span-5 diagram-card p-4 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase">3D-Printed Tendon Hand Mechanism</span>
+            <button onclick="openLightbox('assets/images/projects/prosthetic/3d_printed_hand.png', '3D-Printed Anthropomorphic Hand Mechanism', 'Fully assembled 3D-printed anthropomorphic hand mechanism featuring tendon routing, MG996R metal-gear servos, and micro servo thumb opposition.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </button>
+          </div>
+          <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/3d_printed_hand.png', '3D-Printed Anthropomorphic Hand Mechanism', 'Fully assembled 3D-printed anthropomorphic hand mechanism featuring tendon routing, MG996R metal-gear servos, and micro servo thumb opposition.')">
+            <img src="../assets/images/projects/prosthetic/3d_printed_hand.png" alt="3D Printed Hand" class="w-full max-h-[380px] object-contain hover:scale-[1.01] transition">
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+            Fig 10.1: Assembled PLA+ chassis with internal servo horns, non-elastic nylon synthetic tendons, and thumb opposition linkage.
+          </p>
+        </div>
+
+        <!-- Mechanical & Kinematics Description -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="overflow-x-auto rounded-2xl border border-slate-200/70 dark:border-white/[0.08]">
+            <table class="w-full text-left text-xs font-sans">
+              <thead class="bg-slate-100/75 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 font-mono uppercase text-[11px] border-b border-slate-200/70 dark:border-white/[0.08]">
+                <tr>
+                  <th class="py-3 px-3.5">Digit / Joint</th>
+                  <th class="py-3 px-3.5">Servo Type &amp; Stall Torque</th>
+                  <th class="py-3 px-3 text-center">PCA9685 Ch</th>
+                  <th class="py-3 px-3.5 text-center">Angular Calibration</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200/60 dark:divide-white/[0.05] text-slate-600 dark:text-slate-300">
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-slate-900 dark:text-white">Index Finger</td>
+                  <td class="py-2.5 px-3.5">MG996R Metal Gear (11 kg&middot;cm)</td>
+                  <td class="py-2.5 px-3 text-center font-mono">Ch 3</td>
+                  <td class="py-2.5 px-3.5 text-center font-mono">0&deg; (Ext) &rarr; 115&deg; (Flex)</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-slate-900 dark:text-white">Little Finger</td>
+                  <td class="py-2.5 px-3.5">MG996R Metal Gear (11 kg&middot;cm)</td>
+                  <td class="py-2.5 px-3 text-center font-mono">Ch 8</td>
+                  <td class="py-2.5 px-3.5 text-center font-mono">180&deg; (Ext) &rarr; 70&deg; (Flex)</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-slate-900 dark:text-white">Thumb Flexion</td>
+                  <td class="py-2.5 px-3.5">MG996R Metal Gear (11 kg&middot;cm)</td>
+                  <td class="py-2.5 px-3 text-center font-mono">Ch 10</td>
+                  <td class="py-2.5 px-3.5 text-center font-mono">180&deg; (Ext) &rarr; 75&deg; (Flex)</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-slate-900 dark:text-white">Thumb Opposition</td>
+                  <td class="py-2.5 px-3.5">SG90 Micro Servo (1.8 kg&middot;cm)</td>
+                  <td class="py-2.5 px-3 text-center font-mono">Ch 12</td>
+                  <td class="py-2.5 px-3.5 text-center font-mono">180&deg; (Ext) &rarr; 50&deg; (Opp)</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3.5 font-bold text-slate-900 dark:text-white">Middle &amp; Ring (Coupled)</td>
+                  <td class="py-2.5 px-3.5">MG996R Metal Gear (11 kg&middot;cm)</td>
+                  <td class="py-2.5 px-3 text-center font-mono">Ch 15</td>
+                  <td class="py-2.5 px-3.5 text-center font-mono">0&deg; (Ext) &rarr; 120&deg; (Flex)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.06] text-xs text-slate-600 dark:text-slate-300 space-y-2 leading-relaxed text-justify">
+            <p><strong>Tendon Actuation Mechanics:</strong> High-tensile non-elastic braided nylon fishing line acts as synthetic tendons routed through internal phalangeal pulleys. Unidirectional tension drives flexion, while relaxation of cable tension reverts digits to extension without complex return springs.</p>
+            <p><strong>Additive Manufacturing Specs:</strong> Fabricated at 0.2mm layer height with 40% gyroid infill for structural load-bearing components (palm frame, servo brackets) and 20% infill for distal phalanges to minimize rotational inertia.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servo Trajectory Timing Card -->
+      <div class="diagram-card p-4 sm:p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase flex items-center gap-2">
+            <i class="fa-solid fa-chart-line text-amber-500"></i>
+            <span>Servo Trajectory &amp; PWM Actuation Timing</span>
+          </div>
+          <button onclick="openLightbox('assets/images/projects/prosthetic/servo_trajectory.png', 'Servo Actuation Trajectory Profile', 'Angular trajectory plot detailing the smooth mechanical transition of servos across calibrated angular limits without pulse chatter.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+            <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+          </button>
+        </div>
+        <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center p-2" onclick="openLightbox('assets/images/projects/prosthetic/servo_trajectory.png', 'Servo Actuation Trajectory Profile', 'Angular trajectory plot detailing the smooth mechanical transition of servos across calibrated angular limits without pulse chatter.')">
+          <img src="../assets/images/projects/prosthetic/servo_trajectory.png" alt="Servo Trajectory" class="w-full max-h-[260px] object-contain hover:scale-[1.01] transition">
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          Fig 10.2: Calibrated mechanical transition profile illustrating kinematic settling time and overshoot prevention.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 11: Real-Time Electromechanical Stability & Physical Actuation Mimicry -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-indigo-500/10 dark:bg-indigo-950/60 border border-indigo-300/40 dark:border-indigo-800/40 backdrop-blur-md flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-filter"></i>
+        </div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">§ 11</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Electromechanical Stability &amp; Physical Mimicry</h2>
+      </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        While the on-device 1D-CNN generates a new classification prediction every 50ms, mapping frame-by-frame outputs directly to motor positions is mechanically disastrous in physical prosthetics. Transient sEMG noise spikes or borderline probability fluctuations cause high-frequency actuator jitter, rapid servo hunting, and dropped objects.
+      </p>
+
+      <!-- Side-by-Side Physical Actuation Mimicry Card -->
+      <div class="diagram-card p-4 sm:p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 uppercase flex items-center gap-2">
+            <i class="fa-solid fa-hand-holding-hand text-indigo-500"></i>
+            <span>Side-by-Side Photographic Validation of Gesture Replication</span>
+          </div>
+          <button onclick="openLightbox('assets/images/projects/prosthetic/matching_gestures.png', 'Physical Gesture Replication (Side-by-Side Validation)', 'Side-by-side photographic comparison demonstrating the wearer\'s biological hand (left) and the 3D-printed bionic prosthetic arm (right) replicating matching target postures: Rest, Hand Close, Hand Open, Thumb Extension, Index Extension, and Little Finger Extension.')" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline">
+            <i class="fa-solid fa-expand text-[10px]"></i> Zoom Full-Res
+          </button>
+        </div>
+        <div class="cursor-pointer overflow-hidden rounded-xl bg-slate-950 flex justify-center" onclick="openLightbox('assets/images/projects/prosthetic/matching_gestures.png', 'Physical Gesture Replication (Side-by-Side Validation)', 'Side-by-side photographic comparison demonstrating the wearer\'s biological hand (left) and the 3D-printed bionic prosthetic arm (right) replicating matching target postures: Rest, Hand Close, Hand Open, Thumb Extension, Index Extension, and Little Finger Extension.')">
+          <img src="../assets/images/projects/prosthetic/matching_gestures.png" alt="Physical Gesture Mimicry" class="w-full max-h-[460px] object-contain hover:scale-[1.01] transition">
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          Fig 11.1: Live physical actuation trial. The wearer performs voluntary biological contractions (left), driving synchronous real-time tendon actuation on the 3D-printed prosthetic arm (right).
+        </p>
+      </div>
+
+      <!-- Majority-Vote Filter 3 Mechanism Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 uppercase">
+            <i class="fa-solid fa-clock text-sm"></i>
+            <span>1-Second Consensus Horizon</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            A rolling temporal queue buffers the 20 most recent consecutive inference outputs. At a 50ms stride, this 20-sample window corresponds to a continuous 1.0-second rolling consensus horizon that filters out transient classifier flickers.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 uppercase">
+            <i class="fa-solid fa-check-double text-sm"></i>
+            <span>Absolute Majority Consensus</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            A kinematic state transition command is dispatched to the PCA9685 driver only if the candidate gesture commands the absolute mathematical majority of the 20-sample queue, guaranteeing that momentary bioelectrical disturbances cannot initiate movement.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 uppercase">
+            <i class="fa-solid fa-shield-virus text-sm"></i>
+            <span>Stability vs. Responsiveness</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            While majority voting introduces a short intentional buffering delay during deliberate gesture transitions, it eliminates mechanical servo chatter and ensures the rock-solid positional stability essential for holding heavy or fragile everyday objects.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 12: Generalization Methodology & Anatomical Crosstalk Dynamics -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-teal-500/10 dark:bg-teal-950/60 border border-teal-300/40 dark:border-teal-800/40 backdrop-blur-md flex items-center justify-center text-teal-600 dark:text-teal-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-dna"></i>
+        </div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">§ 12</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Generalization Methodology &amp; Crosstalk Dynamics</h2>
+      </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        Evaluating prosthetic machine learning algorithms purely on standard within-subject training-test partitions gives an artificially optimistic view of performance. To rigorously characterize how models behave when transferred to completely novel users, this research implemented two complementary cross-validation strategies.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-teal-600 dark:text-teal-400 uppercase">
+            <i class="fa-solid fa-chart-pie text-sm"></i>
+            <span>Stratified 5-Fold Protocol</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Data pooled and partitioned across 5 folds stratified by gesture class. Data from all 20 participants appears in both training and test sets. This establishes the theoretical upper bound of the architecture when prior calibration knowledge of the wearer's neuromuscular profile is available.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-teal-600 dark:text-teal-400 uppercase">
+            <i class="fa-solid fa-user-slash text-sm"></i>
+            <span>Leave-One-Subject-Out (LOSO) 20-Fold Protocol</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The model is trained on 19 participants and evaluated exclusively on the unseen 20th participant across 20 distinct iterations. This protocol rigorously simulates zero-shot clinical deployment onto an uncalibrated user, exposing the impact of inter-subject domain shift.
+          </p>
+        </div>
+      </div>
+
+      <!-- Crosstalk Dynamics Box -->
+      <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+        <h4 class="text-xs font-mono font-bold text-slate-800 dark:text-slate-200 uppercase flex items-center gap-2">
+          <i class="fa-solid fa-triangle-exclamation text-amber-500"></i>
+          <span>The Physiological Basis of Muscle Crosstalk</span>
+        </h4>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+          A fundamental scientific finding from the cross-validation analysis is that gross synergistic grasps (Rest, Hand Close, Hand Open) consistently demonstrate high stability because they recruit large, antagonistic muscle groups across opposite sides of the forearm. In contrast, individual digit extensions (Index, Thumb, Little) originate from closely packed or shared muscle bellies (such as the Extensor Digitorum Communis on the dorsal side). In a sparse 3-channel configuration, bioelectrical crosstalk between neighboring tendon slips is a physical constraint of human anatomy. This dictates that accessible prosthetics should prioritize robust functional grasps over single-digit isolation, and reinforces the clinical necessity of user-specific calibration before deployment.
+        </p>
+        <p class="text-[11px] font-mono text-slate-500 dark:text-slate-400 italic">
+          *Note: In accordance with journal embargo guidelines, granular numerical benchmark tables and per-subject accuracy distributions are withheld from this public case study.*
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 13: Hardware Bill of Materials (BOM) & Economic Accessibility -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-950/60 border border-emerald-300/40 dark:border-emerald-800/40 backdrop-blur-md flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-receipt"></i>
+        </div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">§ 13</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Bill of Materials (BOM) &amp; Economic Feasibility</h2>
+      </div>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        A core objective of this research is democratizing intelligent bionic prosthetics for amputees in low- and middle-income countries. To validate that the complete physical prototype can be fabricated for under $150 USD, the itemized Bill of Materials reflects retail purchase costs during prototype assembly.
+      </p>
+
+      <div class="overflow-x-auto rounded-2xl border border-slate-200/70 dark:border-white/[0.08]">
+        <table class="w-full text-left text-xs font-sans">
+          <thead class="bg-slate-100/75 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 font-mono uppercase text-[11px] border-b border-slate-200/70 dark:border-white/[0.08]">
+            <tr>
+              <th class="py-3 px-3.5 text-center">#</th>
+              <th class="py-3 px-4">Component &amp; Technical Rating</th>
+              <th class="py-3 px-3 text-center">Qty</th>
+              <th class="py-3 px-4 text-right">Unit Cost (BDT)</th>
+              <th class="py-3 px-4 text-right">Total Cost (BDT)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200/60 dark:divide-white/[0.05] text-slate-600 dark:text-slate-300">
+            <tr>
+              <td class="py-2.5 px-3.5 text-center font-mono text-slate-400">1</td>
+              <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">ESP32-S3 N16R8 Development Board (Dual-Core 240MHz, 16MB Flash, 8MB PSRAM)</td>
+              <td class="py-2.5 px-3 text-center font-mono">1</td>
+              <td class="py-2.5 px-4 text-right font-mono">1,350</td>
+              <td class="py-2.5 px-4 text-right font-mono">1,350</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3.5 text-center font-mono text-slate-400">2</td>
+              <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">Advancer Technologies EMG Sensor Module V3 (Analog Front-End)</td>
+              <td class="py-2.5 px-3 text-center font-mono">3</td>
+              <td class="py-2.5 px-4 text-right font-mono">2,550</td>
+              <td class="py-2.5 px-4 text-right font-mono">7,650</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3.5 text-center font-mono text-slate-400">3</td>
+              <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">Hycellent YB 101 Ag/AgCl Disposable Hydrogel Surface Electrodes</td>
+              <td class="py-2.5 px-3 text-center font-mono">9</td>
+              <td class="py-2.5 px-4 text-right font-mono">10</td>
+              <td class="py-2.5 px-4 text-right font-mono">90</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3.5 text-center font-mono text-slate-400">4</td>
+              <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">MG996R Metal Gear High-Torque Servo Motor (11 kg&middot;cm stall torque)</td>
+              <td class="py-2.5 px-3 text-center font-mono">4</td>
+              <td class="py-2.5 px-4 text-right font-mono">395</td>
+              <td class="py-2.5 px-4 text-right font-mono">1,580</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3.5 text-center font-mono text-slate-400">5</td>
+              <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">SG90 Micro Servo Motor for Thumb Opposition (1.8 kg&middot;cm)</td>
+              <td class="py-2.5 px-3 text-center font-mono">1</td>
+              <td class="py-2.5 px-4 text-right font-mono">135</td>
+              <td class="py-2.5 px-4 text-right font-mono">135</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3.5 text-center font-mono text-slate-400">6</td>
+              <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">PCA9685 16-Channel 12-Bit PWM Driver (I2C Interface)</td>
+              <td class="py-2.5 px-3 text-center font-mono">1</td>
+              <td class="py-2.5 px-4 text-right font-mono">450</td>
+              <td class="py-2.5 px-4 text-right font-mono">450</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3.5 text-center font-mono text-slate-400">7</td>
+              <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">XL4016 High-Power DC-DC Buck Converter (8A continuous, 200W)</td>
+              <td class="py-2.5 px-3 text-center font-mono">1</td>
+              <td class="py-2.5 px-4 text-right font-mono">190</td>
+              <td class="py-2.5 px-4 text-right font-mono">190</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3.5 text-center font-mono text-slate-400">8</td>
+              <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">11.1V 3S LiPo Battery (1200 mAh, High-Discharge Motor Rail)</td>
+              <td class="py-2.5 px-3 text-center font-mono">1</td>
+              <td class="py-2.5 px-4 text-right font-mono">1,750</td>
+              <td class="py-2.5 px-4 text-right font-mono">1,750</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3.5 text-center font-mono text-slate-400">9</td>
+              <td class="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">9V Alkaline Batteries (6F22, Dual Bipolar Sensor Supply)</td>
+              <td class="py-2.5 px-3 text-center font-mono">2</td>
+              <td class="py-2.5 px-4 text-right font-mono">48</td>
+              <td class="py-2.5 px-4 text-right font-mono">96</td>
+            </tr>
+            <tr class="bg-slate-100/75 dark:bg-white/[0.04] font-bold">
+              <td colspan="4" class="py-3 px-4 text-right font-mono uppercase text-slate-900 dark:text-white">Total Hardware Fabrication Cost (BDT):</td>
+              <td class="py-3 px-4 text-right font-mono text-brand-600 dark:text-brand-400 text-sm">13,291 BDT</td>
+            </tr>
+            <tr class="bg-brand-500/10 dark:bg-brand-950/40 font-bold">
+              <td colspan="4" class="py-3 px-4 text-right font-mono uppercase text-brand-700 dark:text-brand-300">Approximate Equivalent in USD ($):</td>
+              <td class="py-3 px-4 text-right font-mono text-brand-700 dark:text-brand-300 text-sm">~$115.00 USD</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-xs text-slate-500 dark:text-slate-400 font-mono italic">
+        *Conversion rate: 1 USD &approx; 115.5 BDT at time of procurement. Excludes PLA+ filament material cost (~$8 USD for chassis). Proves that intelligent, high-dexterity bionic arms can be engineered well below the $150 USD target threshold.*
+      </p>
+    </section>
+
+    <!-- Section 14: Limitations & Future Research Roadmap -->
+    <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.06)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-sky-500/10 dark:bg-sky-950/60 border border-sky-300/40 dark:border-sky-800/40 backdrop-blur-md flex items-center justify-center text-sky-600 dark:text-sky-400 text-sm shrink-0 shadow-sm">
+          <i class="fa-solid fa-compass"></i>
+        </div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">§ 14</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">Limitations &amp; Future Research Roadmap</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Limitations -->
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">
+            <i class="fa-solid fa-circle-exclamation text-sm"></i>
+            <span>Current Scope &amp; Limitations</span>
+          </div>
+          <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-angle-right text-amber-500 mt-0.5 text-xs shrink-0"></i>
+              <span><strong>Able-Bodied Cohort:</strong> Evaluated exclusively on able-bodied participants; transradial residual limbs with muscle atrophy, skin scars, and relocated bellies require clinical validation.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-angle-right text-amber-500 mt-0.5 text-xs shrink-0"></i>
+              <span><strong>Binary Open-Loop Control:</strong> Gestures execute discrete binary kinematic transitions without proportional grip force modulation based on contraction amplitude.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-angle-right text-amber-500 mt-0.5 text-xs shrink-0"></i>
+              <span><strong>Sensory Feedback Absence:</strong> Operates without tactile haptic feedback (fingertip pressure sensors), requiring wearers to rely entirely on visual confirmation.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm space-y-3">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-600 dark:text-brand-400 uppercase">
+            <i class="fa-solid fa-road text-sm"></i>
+            <span>Future Research Horizons</span>
+          </div>
+          <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-brand-500 mt-0.5 text-xs shrink-0"></i>
+              <span><strong>On-Device Transfer Learning:</strong> Execute rapid 2-minute user calibration by computing localized gradient updates exclusively on the dense classification layer via ESP32-S3 SRAM.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-brand-500 mt-0.5 text-xs shrink-0"></i>
+              <span><strong>Closed-Loop Haptic Feedback:</strong> Embed Force-Sensitive Resistors (FSRs) in 3D fingertips coupled with residual limb vibrotactile actuators to convey grip pressure.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-brand-500 mt-0.5 text-xs shrink-0"></i>
+              <span><strong>Monolithic PCB Integration:</strong> Consolidate the ESP32-S3, differential instrumentation amplifiers, and power regulator into a single custom PCB to fit within a prosthetic socket.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-brand-500 mt-0.5 text-xs shrink-0"></i>
+              <span><strong>Clinical Amputee Trials:</strong> Transitioning prototype from laboratory testing to clinical trials with transradial amputees to assess daily wearability and socket mechanics.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Return to Portfolio Navigation -->
+    <div class="flex justify-center pt-6">
       <a href="../index.html#projects"
          onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }"
-         class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white/70 dark:bg-surface-card/70 backdrop-blur-xl border border-white/80 dark:border-white/10 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 shadow-md transition-all">
+         class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white/70 dark:bg-surface-card/70 backdrop-blur-xl border border-white/80 dark:border-white/10 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 shadow-md transition-all">
         <i class="fa-solid fa-arrow-left text-xs"></i>
         <span>Return to Portfolio</span>
       </a>
@@ -391,11 +1602,44 @@
 
   </main>
 
+  <!-- Fullscreen Modal / Lightbox for High-Res Inspection -->
+  <div id="imageLightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-300">
+    <button id="lightboxClose" aria-label="Close Lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition z-20">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Prev Button -->
+    <button id="lightboxPrev" aria-label="Previous Diagram" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center text-base sm:text-lg transition z-20 backdrop-blur-md">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Next Button -->
+    <button id="lightboxNext" aria-label="Next Diagram" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center text-base sm:text-lg transition z-20 backdrop-blur-md">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Image + Caption Container -->
+    <div class="max-w-5xl w-full flex flex-col items-center justify-center">
+      <div class="relative max-h-[72vh] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-slate-950">
+        <img id="lightboxImg" src="" alt="Diagram inspection" class="max-w-full max-h-[72vh] object-contain">
+      </div>
+      <div class="mt-4 text-center max-w-3xl">
+        <div class="flex items-center justify-center gap-2 mb-1.5">
+          <span id="lightboxCounter" class="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">1 / 23</span>
+          <span id="lightboxCategory" class="text-xs font-mono text-slate-400">Technical Diagram</span>
+        </div>
+        <h4 id="lightboxTitle" class="text-base sm:text-lg font-bold font-display text-white">Title</h4>
+        <p id="lightboxCaption" class="mt-1 text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
   <footer class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500 backdrop-blur-md">
-    <p>© 2026 Md. Ratul Hasan • <a href="../index.html#projects" onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
+    <p>&copy; 2026 Md. Ratul Hasan &bull; <a href="../index.html#projects" onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
   </footer>
 
   <script>
+    // Theme Toggle
     const themeToggleBtn = document.getElementById("themeToggleBtn");
     if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
       document.documentElement.classList.add("dark");
@@ -410,6 +1654,215 @@
       } else {
         document.documentElement.classList.add("dark");
         localStorage.theme = "dark";
+      }
+    });
+
+    // Lightbox Data & Controls
+    const diagramsList = [
+      {
+        src: "assets/images/projects/prosthetic/system_overview.png",
+        title: "System Hardware Architecture Block Diagram",
+        caption: "Tri-domain hardware architecture detailing the isolated analog front-end, bare-metal single-core polling loop on the ESP32-S3, and mechatronic actuation loop."
+      },
+      {
+        src: "assets/images/projects/prosthetic/methodology.png",
+        title: "Detailed Research Methodology Flowchart",
+        caption: "Four-phase engineering research methodology: Parameter Optimization, Physical Data Acquisition, Deep Learning Model Design, and Bare-Metal Embedded Deployment."
+      },
+      {
+        src: "assets/images/projects/prosthetic/star_ground.png",
+        title: "Star Grounding Topology",
+        caption: "Strict isolation of the high-current motor power loop from the low-current analog logic loop via a single-point convergence star ground to prevent motor-induced MCU resets."
+      },
+      {
+        src: "assets/images/projects/prosthetic/sensor_subsystem.png",
+        title: "Analog Front-End Circuit Schematic",
+        caption: "Schematic diagram of the 3-channel sEMG acquisition front-end with bipolar battery supply, EMG Sensor V3 modules, and resistive voltage dividers scaling signals for the ESP32-S3 ADC."
+      },
+      {
+        src: "assets/images/projects/prosthetic/v3_schematic.png",
+        title: "EMG Sensor V3 Internal Circuit Schematic",
+        caption: "Internal op-amp differential gain, full-wave rectifier, and low-pass envelope filter schematic of the Advancer Technologies EMG Sensor V3 module."
+      },
+      {
+        src: "assets/images/projects/prosthetic/servo_subsystem.png",
+        title: "Servo Actuation Subsystem Schematic",
+        caption: "Circuit schematic showing the I2C interface between the ESP32-S3 and PCA9685 driver, powered by the isolated 5V XL4016 buck converter rail."
+      },
+      {
+        src: "assets/images/projects/prosthetic/electrode_placement.png",
+        title: "Forearm Anatomical Electrode Placement",
+        caption: "Configuration of sEMG electrode placement on the forearm targeting the Flexor Carpi Radialis (FCR), Brachioradialis (BR), and Extensor Digitorum (ED) muscles with ulnar styloid ground."
+      },
+      {
+        src: "assets/images/projects/prosthetic/hand_kinematics.png",
+        title: "Skeletal Kinematics & Degrees of Freedom of the Hand",
+        caption: "Anatomical mapping of the 27 bones, metacarpophalangeal joints, interphalangeal hinge joints, and carpometacarpal saddle joint enabling thumb opposition."
+      },
+      {
+        src: "assets/images/projects/prosthetic/emg_variability.png",
+        title: "sEMG Signal Variability & Domain Shift",
+        caption: "Three axes of signal variation: Intra-session force fluctuations, Inter-session electrode repositioning shifts, and Inter-subject anatomical impedance divergence."
+      },
+      {
+        src: "assets/images/projects/prosthetic/gesture_set.png",
+        title: "Functional Gesture Vocabulary (ADL)",
+        caption: "Defined six-class gesture vocabulary targeting Activities of Daily Living: Rest (R), Hand Open (HO), Hand Close (HC), Index Finger Extension (IFE), Thumb Extension (TE), and Little Finger Extension (LFE)."
+      },
+      {
+        src: "assets/images/projects/prosthetic/protocol_hierarchy.png",
+        title: "Hierarchical Data Acquisition Protocol",
+        caption: "Mapping from Session to Cycle to Gesture to Trial. Each 5s trial features Preparation (1s), Ramp Up (1s), Isometric Hold (2s), and Ramp Down (1s). Only steady-state Hold data was extracted for training."
+      },
+      {
+        src: "assets/images/projects/prosthetic/session_supine.jpeg",
+        title: "Session 1: Supine Acquisition Setup",
+        caption: "Participant data acquisition setup in the supine (lying) orientation to ensure orientation-invariant feature learning."
+      },
+      {
+        src: "assets/images/projects/prosthetic/session_seated.jpeg",
+        title: "Session 2: Seated Acquisition Setup",
+        caption: "Participant data acquisition setup in the upright seated posture to simulate realistic everyday limb dynamics."
+      },
+      {
+        src: "assets/images/projects/prosthetic/waveform_validation.png",
+        title: "Practice Validation Waveforms",
+        caption: "Real-time multi-channel waveform telemetry visualizer utilized during practice trials to verify electrode adhesion and sensor burst integrity."
+      },
+      {
+        src: "assets/images/projects/prosthetic/calibration.png",
+        title: "Calibration: Baseline Noise Floor & MVC",
+        caption: "Calibration telemetry capturing the resting baseline noise floor (5s) followed by Maximum Voluntary Contraction (MVC) peak dynamic limits (4s)."
+      },
+      {
+        src: "assets/images/projects/prosthetic/fresh_vs_fatigue.png",
+        title: "Muscle Fatigue Spectral Profile",
+        caption: "Physiological demonstration of sEMG signal alteration under sustained muscular fatigue, illustrating downward frequency compression that justifies anti-fatigue pauses."
+      },
+      {
+        src: "assets/images/projects/prosthetic/dataset_hierarchy.png",
+        title: "Dataset Directory Hierarchy",
+        caption: "Standardized hierarchical dataset organization: partitioning by participant (P01-P20), session orientation (S01 supine vs S02 seated), isolating calibration noise/MVC from active gesture cycles."
+      },
+      {
+        src: "assets/images/projects/prosthetic/corrupted_signal.png",
+        title: "Signal Quality Assessment (SQA) Screening",
+        caption: "Comparison of healthy sEMG burst recordings exhibiting distinct voluntary contractions (top) versus a corrupted signal dominated by severe electrical clipping and detachment flatline (bottom)."
+      },
+      {
+        src: "assets/images/projects/prosthetic/raw_vs_normalized.png",
+        title: "Raw vs. Normalized sEMG Profiles",
+        caption: "Continuous sEMG recordings showing raw sensor amplitude in ADC counts across S1-S3 with baseline offsets (top), and corresponding temporal profiles after DC offset removal and global Z-score normalization (bottom)."
+      },
+      {
+        src: "assets/images/projects/prosthetic/sliding_window.png",
+        title: "Sliding-Window Segmentation Strategy",
+        caption: "300ms window with 50ms stride (83.33% overlap) generating fixed 300x3 input tensors feeding inference at 20Hz."
+      },
+      {
+        src: "assets/images/projects/prosthetic/cnn_architecture.png",
+        title: "1D-CNN Architecture with Global Average Pooling",
+        caption: "Model topology featuring 3 Conv1D layers (64, 128, 256 filters), MaxPooling1D, Global Average Pooling (GAP), Dropout (0.5), and 6-class Softmax classification head totaling 144,070 parameters."
+      },
+      {
+        src: "assets/images/projects/prosthetic/resnet_architecture.png",
+        title: "1D-ResNet Deep Architecture",
+        caption: "1D-ResNet architecture diagram featuring 5 residual blocks with identity shortcut connections (y = F(x) + x) and Global Average Pooling totaling 565,126 parameters."
+      },
+      {
+        src: "assets/images/projects/prosthetic/lstm_architecture.png",
+        title: "LSTM Recurrent Architecture",
+        caption: "Stacked recurrent Long Short-Term Memory network architecture (117,382 parameters) tracking sequence trajectories across 300 timesteps."
+      },
+      {
+        src: "assets/images/projects/prosthetic/hybrid_architecture.png",
+        title: "Hybrid CNN-LSTM Architecture",
+        caption: "Two-stage Hybrid CNN-LSTM architecture combining 2x Conv1D feature extractors with a 64-unit bidirectional LSTM layer totaling 101,958 parameters."
+      },
+      {
+        src: "assets/images/projects/prosthetic/cnn_1d_vs_2d.png",
+        title: "1D-CNN vs 2D-CNN Structural Comparison",
+        caption: "Structural comparison showing kernel sliding: 1D-CNN kernel translates strictly along the temporal sequence axis, while 2D-CNN translates across spatial image planes."
+      },
+      {
+        src: "assets/images/projects/prosthetic/lstm_cell_structure.png",
+        title: "Internal LSTM Memory Cell Structure",
+        caption: "Internal structure of a vanilla LSTM cell showing horizontal cell state C regulated by pointwise operations of Forget (f), Input (i), and Output (o) gates."
+      },
+      {
+        src: "assets/images/projects/prosthetic/3d_printed_hand.png",
+        title: "3D-Printed Anthropomorphic Hand Mechanism",
+        caption: "Fully assembled 3D-printed anthropomorphic hand mechanism featuring tendon routing, MG996R metal-gear servos, and micro servo thumb opposition."
+      },
+      {
+        src: "assets/images/projects/prosthetic/servo_trajectory.png",
+        title: "Servo Actuation Trajectory Profile",
+        caption: "Angular trajectory plot detailing the smooth mechanical transition of servos across calibrated angular limits without pulse chatter."
+      },
+      {
+        src: "assets/images/projects/prosthetic/matching_gestures.png",
+        title: "Physical Gesture Replication (Side-by-Side Validation)",
+        caption: "Side-by-side photographic comparison demonstrating the wearer\'s biological hand (left) and the 3D-printed bionic prosthetic arm (right) replicating matching target postures in real time."
+      }
+    ];
+
+    let currentDiagramIndex = 0;
+    const lightbox = document.getElementById("imageLightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxTitle = document.getElementById("lightboxTitle");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxCounter = document.getElementById("lightboxCounter");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+
+    function openLightbox(src, title, caption) {
+      const cleanSrc = src.replace("../", "");
+      const foundIdx = diagramsList.findIndex(d => d.src.includes(cleanSrc) || cleanSrc.includes(d.src));
+      currentDiagramIndex = foundIdx >= 0 ? foundIdx : 0;
+      updateLightboxDisplay();
+      lightbox.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function updateLightboxDisplay() {
+      const item = diagramsList[currentDiagramIndex];
+      lightboxImg.src = "../" + item.src.replace("../", "");
+      lightboxTitle.textContent = item.title;
+      lightboxCaption.textContent = item.caption;
+      lightboxCounter.textContent = `${currentDiagramIndex + 1} / ${diagramsList.length}`;
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    function showPrevDiagram() {
+      currentDiagramIndex = (currentDiagramIndex - 1 + diagramsList.length) % diagramsList.length;
+      updateLightboxDisplay();
+    }
+
+    function showNextDiagram() {
+      currentDiagramIndex = (currentDiagramIndex + 1) % diagramsList.length;
+      updateLightboxDisplay();
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxPrev.addEventListener("click", showPrevDiagram);
+    lightboxNext.addEventListener("click", showNextDiagram);
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("hidden")) {
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") showPrevDiagram();
+        if (e.key === "ArrowRight") showNextDiagram();
       }
     });
   </script>

@@ -14,16 +14,16 @@ export const projectsData = [
   },
   {
     id: "prosthetic-thesis",
-    title: "Machine Learning Prosthetic Device Integration",
-    category: "Undergraduate Thesis",
+    title: "Resource-Efficient sEMG-Driven Prosthetic Arm",
+    category: "Undergraduate Thesis & Bionic Mechatronics",
     year: "2025 – 2026",
-    description: "Assembled physical multi-articulated prosthetic hand hardware and integrated deep learning models to process biological surface electromyography (sEMG) signals. Enabled an ESP32 microcontroller setup to decode user intent and mimic human gestures in real time.",
-    tags: ["ESP32", "C++", "Python", "TensorFlow", "sEMG Sensors"],
+    description: "End-to-end engineering of an accessible transradial prosthetic arm executing deep learning intent classification directly on a commodity ESP32-S3 microcontroller. Features sparse 3-channel anatomical sensing, analog front-end conditioning, unquantized Float32 1D-CNN inference via TFLM, star-ground power isolation, and a tendon-driven 3D-printed anthropomorphic hand.",
+    tags: ["ESP32-S3 (Xtensa LX7)", "TinyML / TFLM", "1D-CNN + GAP", "sEMG Signal Processing", "Tendon Kinematics", "Star Grounding", "Bare-Metal C++", "Sub-$150 BOM"],
     media: "assets/images/thumbnails/prosthetic.jpg",
-    mediaAlt: "Prosthetic hand prototype",
+    mediaAlt: "Resource-Efficient sEMG-Driven Prosthetic Hand Prototype",
     githubUrl: null,
-    caseStudyUrl: "projects/prosthetic-arm.html", // Links to your new thesis page
-    badgeText: "B.Sc. Capstone"
+    caseStudyUrl: "projects/prosthetic-arm.html", // Links to dedicated thesis case study
+    badgeText: "B.Sc. Capstone Thesis"
   },
   {
     id: "hall-dining-erp",
