@@ -54,11 +54,26 @@ def main():
         for fname in os.listdir(s_dir):
             if fname.startswith("."):
                 continue
-            ext = os.path.splitext(fname)[1].lower()
-            if ext in [".jpg", ".jpeg", ".png", ".webp"]:
-                src = os.path.join(s_dir, fname)
-                dst = os.path.join(THUMB_DIR, fname)
-                process_image(src, dst)
+            src = os.path.join(s_dir, fname)
+            if os.path.isfile(src):
+                ext = os.path.splitext(fname)[1].lower()
+                if ext in [".jpg", ".jpeg", ".png", ".webp"]:
+                    dst = os.path.join(THUMB_DIR, fname)
+                    process_image(src, dst)
+
+    # Also generate thumbnails for Khulna 330MW gallery
+    khulna_src = "assets/images/visits/khulna-330"
+    khulna_dst = "assets/images/thumbnails/khulna-330"
+    if os.path.exists(khulna_src):
+        os.makedirs(khulna_dst, exist_ok=True)
+        for fname in os.listdir(khulna_src):
+            src = os.path.join(khulna_src, fname)
+            if os.path.isfile(src):
+                ext = os.path.splitext(fname)[1].lower()
+                if ext in [".jpg", ".jpeg", ".png", ".webp"]:
+                    dst = os.path.join(khulna_dst, fname)
+                    process_image(src, dst)
+
     print("Thumbnail generation complete!")
 
 if __name__ == "__main__":

@@ -91,6 +91,176 @@
       </div>
     </div>
 
+    <!-- Interactive Visual Showcase & Ceremony Gallery (Top Feature) -->
+    <section class="mb-14 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <i class="fa-solid fa-camera-retro"></i>
+          <span>Official Summit Photographic Record</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+          <button type="button" class="view-bubble active px-3 py-1 rounded-full text-xs font-medium bg-brand-600 text-white shadow-sm transition" data-view="view-champion">
+            Champion Stage
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-pitch">
+            Live Pitch
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-team">
+            Team Dynamite
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-quiz">
+            Quiz Podium
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-delegation">
+            Summit Group
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Display Stage -->
+      <div class="relative w-full rounded-2xl overflow-hidden border border-white/80 dark:border-white/10 bg-slate-950 shadow-2xl flex items-center justify-center min-h-[360px] sm:min-h-[520px] max-h-[700px] group cursor-pointer" id="galleryStage">
+        
+        <!-- View 1: Champion Stage Ceremony (Default) -->
+        <div id="view-champion" class="gallery-view w-full h-full flex flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/ieee-syw-2025.jpg" 
+            alt="Team Dynamite receiving Champion Certificate at IEEE Vitality Enhancement Summit 2025" 
+            class="w-full h-full max-h-[640px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-yellow-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-trophy"></i>
+              <span>National Champions • Grand Stage Award Ceremony</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              Team Dynamite receiving the Champion Certificate on stage before Chief Guest <strong>Prof. Saifur Rahman</strong> (2023 IEEE Global President & CEO), IEEE BDS Chair <strong>Prof. M. Imamul Hassan Bhuiyan</strong>, and executive dignitaries at Asia Hotel & Resorts, Dhaka.
+            </p>
+          </div>
+        </div>
+
+        <!-- View 2: Live Pitch Presentation -->
+        <div id="view-pitch" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/syw-2025/ratul-pitch.jpg" 
+            alt="Md. Ratul Hasan pitching on the mic during the Idea Pitching Competition" 
+            class="w-full h-full max-h-[640px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-brand-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-microphone-lines"></i>
+              <span>Live Pitch & Panel Defense</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              Md. Ratul Hasan addressing the distinguished judging panel on stage, pitching an accessible jewelry-integrated maternal and fetal health screening system.
+            </p>
+          </div>
+        </div>
+
+        <!-- View 3: Team Dynamite -->
+        <div id="view-team" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/syw-2025/team-dynamite.jpg" 
+            alt="Team Dynamite cross-university members together" 
+            class="w-full h-full max-h-[640px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-sky-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-users"></i>
+              <span>Team Dynamite • Cross-University Champions</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              5 students representing 5 different Bangladeshi institutions: Md. Ratul Hasan (JUST), Azmi Al Fatehin (Prime Univ), Aditi Sarker (DU), Kakuli A. Rob Raisha (SEU), and Mohammed Mohiuddin (Premier Univ).
+            </p>
+          </div>
+        </div>
+
+        <!-- View 4: Quiz Award Ceremony -->
+        <div id="view-quiz" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/syw-2025/quiz-award-presentation.jpg" 
+            alt="Md. Ratul Hasan receiving 2nd place Quiz Certificate from Prof. Saifur Rahman" 
+            class="w-full h-full max-h-[640px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-emerald-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-medal"></i>
+              <span>National Summit Quiz • 2nd Place Honor</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              Md. Ratul Hasan receiving the Certificate of Achievement directly from Chief Guest <strong>Prof. Saifur Rahman</strong> (2023 IEEE Global President & CEO) after securing a top podium finish in the summit-wide Kahoot quiz.
+            </p>
+          </div>
+        </div>
+
+        <!-- View 5: Summit Group Delegation -->
+        <div id="view-delegation" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/syw-2025/summit-delegation.jpg" 
+            alt="IEEE Bangladesh Section Vitality Enhancement Summit 2025 Grand Group Photo" 
+            class="w-full h-full max-h-[640px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-purple-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-network-wired"></i>
+              <span>Vitality Enhancement Summit 2025 • Section Delegation</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              Official community group photo featuring delegates, student leaders, young professionals, and executive leadership of IEEE Bangladesh Section.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tap to Zoom Hint -->
+        <div class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-slate-900/70 border border-white/20 backdrop-blur-md text-[11px] font-mono text-slate-200 flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition pointer-events-none">
+          <i class="fa-solid fa-magnifying-glass-plus text-xs"></i>
+          <span>Click to Inspect High-Res</span>
+        </div>
+      </div>
+
+      <!-- Thumbnail Strip Navigation -->
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+        <button type="button" class="thumb-btn active p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left" data-view="view-champion">
+          <img src="../assets/images/thumbnails/ieee-syw-2025.jpg" alt="Champion thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Champion Stage</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Grand Ceremony</span>
+          </div>
+        </button>
+
+        <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left opacity-70 hover:opacity-100" data-view="view-pitch">
+          <img src="../assets/images/thumbnails/syw-2025/ratul-pitch.jpg" alt="Pitch thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Live Pitch</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Panel Defense</span>
+          </div>
+        </button>
+
+        <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left opacity-70 hover:opacity-100" data-view="view-team">
+          <img src="../assets/images/thumbnails/syw-2025/team-dynamite.jpg" alt="Team thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Team Dynamite</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">5 Universities</span>
+          </div>
+        </button>
+
+        <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left opacity-70 hover:opacity-100" data-view="view-quiz">
+          <img src="../assets/images/thumbnails/syw-2025/quiz-award-presentation.jpg" alt="Quiz thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Quiz Award</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Prof. Saifur Rahman</span>
+          </div>
+        </button>
+
+        <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left opacity-70 hover:opacity-100" data-view="view-delegation">
+          <img src="../assets/images/thumbnails/syw-2025/summit-delegation.jpg" alt="Delegation thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Summit Photo</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Section Community</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
     <!-- Highlights Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
       <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-brand-300/80 dark:border-brand-800/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] relative overflow-hidden">
@@ -177,15 +347,34 @@
           </div>
         </section>
 
+        <!-- The Winning Proposal -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">The Winning Pitch: Wearable Maternal Care Screening</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Team Dynamite's championship pitch centered on an innovative healthcare solution: <em>"Quick health risk detection during pregnancy using kit built in jewelry"</em>. The concept addressed critical barriers to maternal prenatal care in developing regions—where clinic visits are infrequent and early symptoms of preeclampsia, gestational diabetes, and vital instability often go undetected.
+          </p>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            By embedding low-power biosensing elements and micro-optical diagnostics discreetly into everyday wearable jewelry, the device enables continuous, stigma-free screening with direct telemetry alerts. The proposal withstood intensive cross-examination by the IEEE evaluator panel regarding sensor feasibility, calibration, power budget, and user ergonomics.
+          </p>
+        </section>
+
+        <!-- National Summit Quiz Finish -->
+        <section class="space-y-3">
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Summit Honor: 2nd Place in National Quiz</h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            In addition to the team's Champion trophy in the idea pitching segment, Md. Ratul Hasan also secured a podium finish in the summit's high-stakes <strong>National Summit Quiz</strong> (conducted on Kahoot among participants from across all represented university student branches). Scoring <strong>9,091 points</strong> to take 2nd place nationwide, Ratul was called to the stage to receive a personalized Certificate of Achievement presented directly by <strong>Prof. Saifur Rahman</strong> (2023 IEEE Global President & CEO).
+          </p>
+        </section>
+
         <!-- Recognition -->
         <section class="space-y-3">
-          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Recognition</h2>
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Recognition & Award Handover</h2>
           <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
-            The team was awarded a <strong>Certificate of Achievement</strong> by <strong>Prof. M. Imamul Hassan Bhuiyan</strong>, Chair of the IEEE Bangladesh Section, acknowledging the Champion position in the SYW Idea Pitching Competition 2025.
+            The team was formally awarded the <strong>Certificate of Achievement</strong>, handed over in person on the grand stage by Chief Guest <strong>Prof. Saifur Rahman</strong> (2023 IEEE Global President & CEO) alongside <strong>Prof. M. Imamul Hassan Bhuiyan</strong> (Chair, IEEE Bangladesh Section), honoring Team Dynamite as Champions of the SYW Idea Pitching Competition 2025.
           </p>
           <div class="p-4 rounded-2xl bg-brand-500/[0.08] dark:bg-brand-950/30 backdrop-blur-md border border-brand-300/40 dark:border-brand-800/40 text-xs text-slate-600 dark:text-slate-300 leading-relaxed shadow-sm">
             <span class="font-bold text-brand-700 dark:text-brand-400 font-display block mb-0.5">Certificate of Achievement</span>
-            Issued by Prof. M. Imamul Hassan Bhuiyan, Chair, IEEE Bangladesh Section — for achieving the Champion position in the IEEE Bangladesh Section SYW Idea Pitching Competition 2025 at the Vitality Enhancement Summit 2025.
+            Handed over directly on stage by 2023 IEEE Global President &amp; CEO Prof. Saifur Rahman and issued under IEEE Bangladesh Section Chair Prof. M. Imamul Hassan Bhuiyan — honoring the Champion position in the IEEE Bangladesh Section SYW Idea Pitching Competition 2025.
           </div>
         </section>
 
@@ -210,6 +399,13 @@
             <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Vitality Enhancement Summit 2025</div>
           </div>
           <div>
+            <div class="text-xs font-mono text-slate-400">CHIEF GUEST</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">
+              Prof. Saifur Rahman<br>
+              <span class="font-normal text-slate-500 dark:text-slate-400">2023 IEEE Global President & CEO</span>
+            </div>
+          </div>
+          <div>
             <div class="text-xs font-mono text-slate-400">ORGANIZER</div>
             <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">IEEE Bangladesh Section</div>
           </div>
@@ -226,8 +422,12 @@
             <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Team Dynamite (5 members, 5 universities)</div>
           </div>
           <div>
-            <div class="text-xs font-mono text-slate-400">CERTIFICATE BY</div>
-            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Prof. M. Imamul Hassan Bhuiyan<br><span class="font-normal text-slate-500 dark:text-slate-400">Chair, IEEE Bangladesh Section</span></div>
+            <div class="text-xs font-mono text-slate-400">CERTIFICATE HANDED OVER BY</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">
+              Prof. Saifur Rahman<br>
+              <span class="font-normal text-slate-500 dark:text-slate-400">2023 IEEE Global President & CEO</span><br>
+              <span class="text-xs font-normal text-slate-500 dark:text-slate-400">Alongside Prof. M. Imamul Hassan Bhuiyan (Chair, IEEE BDS)</span>
+            </div>
           </div>
           <div class="pt-3 border-t border-slate-200/70 dark:border-slate-800 space-y-2">
             <a href="../assets/docs/ieee-syw-2025-certificate.pdf" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 transition flex items-center justify-center gap-2 shadow-sm">
@@ -242,6 +442,21 @@
     </div>
 
   </main>
+
+  
+  <!-- Fullscreen Modal / Lightbox for High-Res Inspection -->
+  <div id="imageLightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-300">
+    <button id="lightboxClose" aria-label="Close Lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition z-20">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="max-w-5xl w-full flex flex-col items-center justify-center">
+      <div class="relative max-h-[75vh] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-slate-950">
+        <img id="lightboxImg" src="" alt="High-Res Inspection" class="max-w-full max-h-[75vh] object-contain">
+      </div>
+      <p id="lightboxCaption" class="mt-4 text-center text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl"></p>
+    </div>
+  </div>
 
   <footer class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500 backdrop-blur-md">
     <p>© 2026 Md. Ratul Hasan • <a href="../index.html" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
@@ -263,6 +478,80 @@
         localStorage.theme = 'dark';
       }
     });
+
+    // Interactive Gallery Switcher
+    const bubbles = document.querySelectorAll('.view-bubble');
+    const thumbBtns = document.querySelectorAll('.thumb-btn');
+    const views = document.querySelectorAll('.gallery-view');
+
+    function switchView(targetViewId) {
+      bubbles.forEach(b => {
+        if (b.dataset.view === targetViewId) {
+          b.classList.remove('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+          b.classList.add('bg-brand-600', 'text-white', 'active');
+        } else {
+          b.classList.remove('bg-brand-600', 'text-white', 'active');
+          b.classList.add('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+        }
+      });
+
+      thumbBtns.forEach(t => {
+        if (t.dataset.view === targetViewId) {
+          t.classList.add('active', 'border-brand-500/80');
+          t.classList.remove('opacity-70');
+        } else {
+          t.classList.remove('active', 'border-brand-500/80');
+          t.classList.add('opacity-70');
+        }
+      });
+
+      views.forEach(v => {
+        if (v.id === targetViewId) {
+          v.classList.remove('hidden');
+          v.classList.add('flex');
+        } else {
+          v.classList.add('hidden');
+          v.classList.remove('flex');
+        }
+      });
+    }
+
+    bubbles.forEach(b => b.addEventListener('click', () => switchView(b.dataset.view)));
+    thumbBtns.forEach(t => t.addEventListener('click', () => switchView(t.dataset.view)));
+
+    // Fullscreen Lightbox
+    const galleryStage = document.getElementById('galleryStage');
+    const imageLightbox = document.getElementById('imageLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    if (galleryStage && imageLightbox) {
+      galleryStage.addEventListener('click', () => {
+        const activeView = document.querySelector('.gallery-view:not(.hidden)');
+        if (activeView) {
+          const img = activeView.querySelector('img');
+          const cap = activeView.querySelector('p');
+          if (img) {
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = cap ? cap.textContent.trim() : img.alt;
+            imageLightbox.classList.remove('hidden');
+          }
+        }
+      });
+
+      lightboxClose.addEventListener('click', () => imageLightbox.classList.add('hidden'));
+      imageLightbox.addEventListener('click', (e) => {
+        if (e.target === imageLightbox) imageLightbox.classList.add('hidden');
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !imageLightbox.classList.contains('hidden')) {
+          imageLightbox.classList.add('hidden');
+        }
+      });
+    }
+
   </script>
+
 </body>
 </html>

@@ -90,6 +90,89 @@
       </div>
     </div>
 
+    <!-- Interactive Visual Showcase & Ceremony Gallery (Top Feature) -->
+    <section class="mb-14 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <i class="fa-solid fa-camera-retro"></i>
+          <span>Official Recognition & Celebration Gallery</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" class="view-bubble active px-3 py-1 rounded-full text-xs font-medium bg-brand-600 text-white shadow-sm transition" data-view="view-ceremony">
+            Award Night Ceremony
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-poster">
+            Branch Celebration Post
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Display Stage -->
+      <div class="relative w-full rounded-2xl overflow-hidden border border-white/80 dark:border-white/10 bg-slate-950 shadow-2xl flex items-center justify-center min-h-[360px] sm:min-h-[520px] max-h-[700px] group cursor-pointer" id="galleryStage">
+        
+        <!-- View 1: Award Ceremony on Stage (Default) -->
+        <div id="view-ceremony" class="gallery-view w-full h-full flex flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/indcon-2025.jpg" 
+            alt="IEEE Bangladesh Section Appreciation and Award Night 2025" 
+            class="w-full h-full max-h-[640px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-brand-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-trophy"></i>
+              <span>IEEE Bangladesh Section • Appreciation and Award Night 2025</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              Md. Ratul Hasan and teammate receiving the 2nd Runner-Up honor and certificate on stage before section leadership and IEEE dignitaries.
+            </p>
+          </div>
+        </div>
+
+        <!-- View 2: Official Branch Poster -->
+        <div id="view-poster" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/indcon-celebration.png" 
+            alt="IEEE JUST SB Official Announcement Post - INDCon 2025 2nd Runner Up" 
+            class="w-full h-full max-h-[640px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-sky-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-bullhorn"></i>
+              <span>Official Result Bulletin • IEEE JUST Student Branch</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              Official announcement banner published by IEEE JUST Student Branch celebrating Md. Ratul Hasan, Rahannuma Orchy, and Masaba Rahman Suchi for securing 2nd Runner-Up.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tap to Zoom Hint -->
+        <div class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-slate-900/70 border border-white/20 backdrop-blur-md text-[11px] font-mono text-slate-200 flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition pointer-events-none">
+          <i class="fa-solid fa-magnifying-glass-plus text-xs"></i>
+          <span>Click to Inspect High-Res</span>
+        </div>
+      </div>
+
+      <!-- Thumbnail Strip Navigation -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <button type="button" class="thumb-btn active p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left" data-view="view-ceremony">
+          <img src="../assets/images/thumbnails/indcon-2025.jpg" alt="Stage ceremony thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Section Award Night</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Stage Recognition & Dignitaries</span>
+          </div>
+        </button>
+
+        <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left opacity-70 hover:opacity-100" data-view="view-poster">
+          <img src="../assets/images/thumbnails/indcon-celebration.png" alt="Branch announcement thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Celebration Banner</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">IEEE JUST SB Result Bulletin</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
     <!-- Highlights -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-14">
       <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
@@ -234,6 +317,21 @@
 
   </main>
 
+  
+  <!-- Fullscreen Modal / Lightbox for High-Res Inspection -->
+  <div id="imageLightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-300">
+    <button id="lightboxClose" aria-label="Close Lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition z-20">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="max-w-5xl w-full flex flex-col items-center justify-center">
+      <div class="relative max-h-[75vh] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-slate-950">
+        <img id="lightboxImg" src="" alt="High-Res Inspection" class="max-w-full max-h-[75vh] object-contain">
+      </div>
+      <p id="lightboxCaption" class="mt-4 text-center text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl"></p>
+    </div>
+  </div>
+
   <footer class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500 backdrop-blur-md">
     <p>© 2026 Md. Ratul Hasan • <a href="../index.html" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
   </footer>
@@ -254,6 +352,80 @@
         localStorage.theme = 'dark';
       }
     });
+
+    // Interactive Gallery Switcher
+    const bubbles = document.querySelectorAll('.view-bubble');
+    const thumbBtns = document.querySelectorAll('.thumb-btn');
+    const views = document.querySelectorAll('.gallery-view');
+
+    function switchView(targetViewId) {
+      bubbles.forEach(b => {
+        if (b.dataset.view === targetViewId) {
+          b.classList.remove('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+          b.classList.add('bg-brand-600', 'text-white', 'active');
+        } else {
+          b.classList.remove('bg-brand-600', 'text-white', 'active');
+          b.classList.add('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+        }
+      });
+
+      thumbBtns.forEach(t => {
+        if (t.dataset.view === targetViewId) {
+          t.classList.add('active', 'border-brand-500/80');
+          t.classList.remove('opacity-70');
+        } else {
+          t.classList.remove('active', 'border-brand-500/80');
+          t.classList.add('opacity-70');
+        }
+      });
+
+      views.forEach(v => {
+        if (v.id === targetViewId) {
+          v.classList.remove('hidden');
+          v.classList.add('flex');
+        } else {
+          v.classList.add('hidden');
+          v.classList.remove('flex');
+        }
+      });
+    }
+
+    bubbles.forEach(b => b.addEventListener('click', () => switchView(b.dataset.view)));
+    thumbBtns.forEach(t => t.addEventListener('click', () => switchView(t.dataset.view)));
+
+    // Fullscreen Lightbox
+    const galleryStage = document.getElementById('galleryStage');
+    const imageLightbox = document.getElementById('imageLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    if (galleryStage && imageLightbox) {
+      galleryStage.addEventListener('click', () => {
+        const activeView = document.querySelector('.gallery-view:not(.hidden)');
+        if (activeView) {
+          const img = activeView.querySelector('img');
+          const cap = activeView.querySelector('p');
+          if (img) {
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = cap ? cap.textContent.trim() : img.alt;
+            imageLightbox.classList.remove('hidden');
+          }
+        }
+      });
+
+      lightboxClose.addEventListener('click', () => imageLightbox.classList.add('hidden'));
+      imageLightbox.addEventListener('click', (e) => {
+        if (e.target === imageLightbox) imageLightbox.classList.add('hidden');
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !imageLightbox.classList.contains('hidden')) {
+          imageLightbox.classList.add('hidden');
+        }
+      });
+    }
+
   </script>
+
 </body>
 </html>

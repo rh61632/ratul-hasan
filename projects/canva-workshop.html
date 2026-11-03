@@ -10,7 +10,7 @@
   <meta property="og:description" content="Inaugural masterclass for IEEE JUST Student Branch's Skill Development Expedition 1.0, delivered in-person at FET Gallery.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://rh61632.github.io/projects/canva-workshop.html">
-  <meta property="og:image" content="https://rh61632.github.io/assets/images/profile.jpg">
+  <meta property="og:image" content="https://rh61632.github.io/assets/images/awards/canva-workshop.jpg">
 
   <!-- Inter & Plus Jakarta Sans Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,6 +105,147 @@
         <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Public Speaking</span>
       </div>
     </div>
+
+    <!-- Interactive Visual Showcase & Masterclass Gallery (Top Feature) -->
+    <section class="mb-14 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <i class="fa-solid fa-camera-retro"></i>
+          <span>Visual Record & Masterclass Chronicle</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" class="view-bubble active px-3 py-1 rounded-full text-xs font-medium bg-brand-600 text-white shadow-sm transition" data-view="view-stage">
+            Masterclass Hall
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-speaker">
+            Live Presentation
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-banner">
+            Event Poster
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-logo">
+            Expedition Logo
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Display Stage -->
+      <div class="relative w-full rounded-2xl overflow-hidden border border-white/80 dark:border-white/10 bg-slate-950 shadow-2xl flex items-center justify-center min-h-[360px] sm:min-h-[520px] max-h-[700px] group cursor-pointer" id="galleryStage">
+        
+        <!-- View 1: Masterclass Hall & Audience (Default) -->
+        <div id="view-stage" class="gallery-view w-full h-full flex flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/canva-workshop.jpg" 
+            alt="Md. Ratul Hasan conducting Canva Masterclass in FET Gallery" 
+            class="w-full h-full max-h-[640px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-brand-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-chalkboard-user"></i>
+              <span>Session #01 • FET Gallery • In-Person Masterclass</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              Md. Ratul Hasan conducting the inaugural session of Skill Development Expedition 1.0 before IEEE members, demonstrating digital visual communication and Canva design workflows.
+            </p>
+          </div>
+        </div>
+
+        <!-- View 2: Live Slide Presentation -->
+        <div id="view-speaker" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/canva-workshop/speaker-presentation.jpg" 
+            alt="Why Canva presentation slide on stage" 
+            class="w-full h-full max-h-[640px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-sky-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-microphone-lines"></i>
+              <span>Live Demonstration & Curriculum Defense</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              Deconstructing software accessibility, design templates, and typographic principles live on the auditorium projection screen.
+            </p>
+          </div>
+        </div>
+
+        <!-- View 3: Official Event Poster -->
+        <div id="view-banner" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/canva-workshop/event-banner.png" 
+            alt="Official IEEE JUST SB Event Poster - Basics of Creative Graphic Design on Canva" 
+            class="w-full h-full max-h-[640px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-emerald-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-bullhorn"></i>
+              <span>Official Event Circular • IEEE JUST Student Branch</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              Official circular announcing session conductors Abdullah Shadek Fahim (Branch Chair) and Md. Ratul Hasan (Graphic Designer).
+            </p>
+          </div>
+        </div>
+
+        <!-- View 4: Expedition Logo -->
+        <div id="view-logo" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500 bg-white dark:bg-slate-900">
+          <img 
+            src="../assets/images/awards/canva-workshop/expedition-logo.png" 
+            alt="Skill Development Expedition 1.0 Brand Logo" 
+            class="w-full h-full max-h-[500px] object-contain p-8"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-purple-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-palette"></i>
+              <span>Brand Identity & Graphic Emblem</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              Official branding and typographic logo created for the Skill Development Expedition series by the IEEE JUST SB design team.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tap to Zoom Hint -->
+        <div class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-slate-900/70 border border-white/20 backdrop-blur-md text-[11px] font-mono text-slate-200 flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition pointer-events-none">
+          <i class="fa-solid fa-magnifying-glass-plus text-xs"></i>
+          <span>Click to Inspect High-Res</span>
+        </div>
+      </div>
+
+      <!-- Thumbnail Strip Navigation -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <button type="button" class="thumb-btn active p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left" data-view="view-stage">
+          <img src="../assets/images/thumbnails/canva-workshop.jpg" alt="Hall thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Masterclass Hall</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Live Conductor</span>
+          </div>
+        </button>
+
+        <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left opacity-70 hover:opacity-100" data-view="view-speaker">
+          <img src="../assets/images/thumbnails/canva-workshop/speaker-presentation.jpg" alt="Presentation thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Slide Defense</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Screen & Stage</span>
+          </div>
+        </button>
+
+        <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left opacity-70 hover:opacity-100" data-view="view-banner">
+          <img src="../assets/images/thumbnails/canva-workshop/event-banner.png" alt="Poster thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Event Poster</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Official Circular</span>
+          </div>
+        </button>
+
+        <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-3 transition text-left opacity-70 hover:opacity-100" data-view="view-logo">
+          <img src="../assets/images/thumbnails/canva-workshop/expedition-logo.png" alt="Logo thumbnail" class="w-12 h-12 rounded-lg object-contain bg-white dark:bg-slate-800 shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Expedition Brand</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Series Logo</span>
+          </div>
+        </button>
+      </div>
+    </section>
 
     <!-- Highlights Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
@@ -264,6 +405,21 @@
   </main>
 
   <!-- Footer Navigation -->
+  
+  <!-- Fullscreen Modal / Lightbox for High-Res Inspection -->
+  <div id="imageLightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-300">
+    <button id="lightboxClose" aria-label="Close Lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition z-20">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="max-w-5xl w-full flex flex-col items-center justify-center">
+      <div class="relative max-h-[75vh] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-slate-950">
+        <img id="lightboxImg" src="" alt="High-Res Inspection" class="max-w-full max-h-[75vh] object-contain">
+      </div>
+      <p id="lightboxCaption" class="mt-4 text-center text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl"></p>
+    </div>
+  </div>
+
   <footer class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500 backdrop-blur-md">
     <p>© 2026 Md. Ratul Hasan • <a href="../index.html" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
   </footer>
@@ -286,6 +442,80 @@
         localStorage.theme = 'dark';
       }
     });
+
+    // Interactive Gallery Switcher
+    const bubbles = document.querySelectorAll('.view-bubble');
+    const thumbBtns = document.querySelectorAll('.thumb-btn');
+    const views = document.querySelectorAll('.gallery-view');
+
+    function switchView(targetViewId) {
+      bubbles.forEach(b => {
+        if (b.dataset.view === targetViewId) {
+          b.classList.remove('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+          b.classList.add('bg-brand-600', 'text-white', 'active');
+        } else {
+          b.classList.remove('bg-brand-600', 'text-white', 'active');
+          b.classList.add('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+        }
+      });
+
+      thumbBtns.forEach(t => {
+        if (t.dataset.view === targetViewId) {
+          t.classList.add('active', 'border-brand-500/80');
+          t.classList.remove('opacity-70');
+        } else {
+          t.classList.remove('active', 'border-brand-500/80');
+          t.classList.add('opacity-70');
+        }
+      });
+
+      views.forEach(v => {
+        if (v.id === targetViewId) {
+          v.classList.remove('hidden');
+          v.classList.add('flex');
+        } else {
+          v.classList.add('hidden');
+          v.classList.remove('flex');
+        }
+      });
+    }
+
+    bubbles.forEach(b => b.addEventListener('click', () => switchView(b.dataset.view)));
+    thumbBtns.forEach(t => t.addEventListener('click', () => switchView(t.dataset.view)));
+
+    // Fullscreen Lightbox
+    const galleryStage = document.getElementById('galleryStage');
+    const imageLightbox = document.getElementById('imageLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    if (galleryStage && imageLightbox) {
+      galleryStage.addEventListener('click', () => {
+        const activeView = document.querySelector('.gallery-view:not(.hidden)');
+        if (activeView) {
+          const img = activeView.querySelector('img');
+          const cap = activeView.querySelector('p');
+          if (img) {
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = cap ? cap.textContent.trim() : img.alt;
+            imageLightbox.classList.remove('hidden');
+          }
+        }
+      });
+
+      lightboxClose.addEventListener('click', () => imageLightbox.classList.add('hidden'));
+      imageLightbox.addEventListener('click', (e) => {
+        if (e.target === imageLightbox) imageLightbox.classList.add('hidden');
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !imageLightbox.classList.contains('hidden')) {
+          imageLightbox.classList.add('hidden');
+        }
+      });
+    }
+
   </script>
+
 </body>
 </html>

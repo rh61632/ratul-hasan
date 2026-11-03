@@ -8,8 +8,8 @@ export const awardsData = [
     description: "Collaborated in \"Team Dynamite\"—a cross-functional group of 5 students from 5 universities—evaluating concepts, co-pitching the finalized solution under tight time constraints, and defending the proposal during the rigorous panel Q&A.",
     date: "Aug 2025",
     isChampion: true,
-    media: null, // e.g. "assets/images/awards/ieee-syw.jpg"
-    mediaAlt: "IEEE BD Section SYW Idea Pitching Championship",
+    media: "assets/images/thumbnails/ieee-syw-2025.jpg",
+    mediaAlt: "IEEE BD Section SYW 2025 Idea Pitching Champions Team Dynamite",
     caseStudyUrl: "projects/ieee-syw-2025.html"
   },
   {
@@ -34,8 +34,8 @@ export const awardsData = [
     description: "Represented a 3-member university team to deliver the technical presentation, recognized for structured slide organization and clear communication.",
     date: "Dec 2025",
     isChampion: false,
-    media: null, // e.g. "assets/images/awards/indcon-2025.jpg"
-    mediaAlt: "INDCon 2025 Presentation Contest Award",
+    media: "assets/images/thumbnails/indcon-2025.jpg",
+    mediaAlt: "INDCon 2025 Presentation Contest Recognition at IEEE Bangladesh Section Award Night",
     caseStudyUrl: "projects/indcon-2025.html"
   },
   {
@@ -47,8 +47,8 @@ export const awardsData = [
     description: "Co-launched the branch's flagship Skill Development Expedition initiative and conducted the inaugural offline masterclass at FET Gallery. Delivered hands-on live Canva design demonstrations and visual principles, recognized with an official crest of honor.",
     date: "Sep 2025",
     isChampion: false,
-    media: null,
-    mediaAlt: "IEEE JUST SB Skill Development Expedition 1.0 Speaker Crest",
+    media: "assets/images/thumbnails/canva-workshop.jpg",
+    mediaAlt: "Basics of Creative Graphic Design on Canva Masterclass Session Conductor",
     caseStudyUrl: "projects/canva-workshop.html"
   }
 ];
