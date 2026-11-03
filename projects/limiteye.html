@@ -4,14 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LimitEye: Speed & License Plate Recognition | Ratul Hasan</title>
-  <meta property="og:title" content="LimitEye: Speed & License Plate Recognition">
-  <meta property="og:description" content="A computer vision system to monitor vehicular speed and perform automated license plate recognition from video streams.">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="LimitEye: Speed & License Plate Recognition | Machine Learning ITS">
+  <meta property="og:description" content="An end-to-end computer vision and automated penalty pipeline engineered to detect vehicular overspeeding and dispatch violation invoices using custom YOLOv8, SORT tracking, coordinate geometry, and SMTP.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://rh61632.github.io/projects/limiteye.html">
+  <meta property="og:image" content="https://rh61632.github.io/assets/images/thumbnails/limiteye.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- KaTeX for Publication-Grade LaTeX Formulas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -36,15 +44,21 @@
     }
   </script>
   <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .slide-thumb.active {
+      border-color: #14b8a6;
+      box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.4);
+    }
+  </style>
 </head>
 <body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
 
   <!-- Ambient Glassmorphism Glow Background -->
   <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-    <div class="absolute -top-32 -left-32 w-[520px] h-[520px] bg-brand-500/15 dark:bg-brand-500/10 rounded-full blur-[110px]"></div>
-    <div class="absolute top-1/3 -right-32 w-[480px] h-[480px] bg-purple-500/15 dark:bg-purple-500/10 rounded-full blur-[110px]"></div>
-    <div class="absolute bottom-1/4 -left-32 w-[520px] h-[520px] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-[110px]"></div>
-    <div class="absolute bottom-10 right-1/4 w-[420px] h-[420px] bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-[100px]"></div>
+    <div class="absolute -top-32 -left-32 w-[540px] h-[540px] bg-brand-500/15 dark:bg-brand-500/10 rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-1/4 -left-32 w-[520px] h-[520px] bg-indigo-500/15 dark:bg-indigo-500/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-10 right-1/4 w-[460px] h-[460px] bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-[110px]"></div>
   </div>
 
   <!-- Fixed Top Header -->
@@ -61,128 +75,1175 @@
           <i class="fa-regular fa-sun text-sm dark:hidden"></i>
           <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
         </button>
-        <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 backdrop-blur-md border border-brand-300/40 dark:border-brand-800/40 flex items-center gap-1.5 shadow-sm">
-          <i class="fa-solid fa-eye text-xs"></i> Archived Prototype
-        </span>
+        <a href="#presentation-viewer" class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 backdrop-blur-md border border-brand-300/40 dark:border-brand-800/40 flex items-center gap-1.5 shadow-sm hover:bg-brand-500/20 transition">
+          <i class="fa-solid fa-file-powerpoint text-xs text-brand-500"></i> View Slide Deck
+        </a>
       </div>
     </nav>
   </header>
 
-  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto space-y-12">
 
-    <!-- Hero Header -->
-    <div class="mb-10 max-w-4xl space-y-4">
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- HERO HEADER                                                 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="max-w-5xl space-y-4">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
-        Archived Prototype • Computer Vision
+        <i class="fa-solid fa-video text-brand-500"></i> Course EEE 3200 • Computer Vision &amp; Intelligent Transportation Systems
       </div>
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
-        LimitEye: Speed & License Plate Recognition
+        LimitEye: Speed &amp; License Plate Recognition
       </h1>
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
-        A computer vision pipeline engineered to monitor vehicular movement from video streams — calculating transit speed across calibrated reference coordinates and extracting license plate characters via automated recognition (ALPR).
+      <p class="text-lg sm:text-xl font-medium text-slate-700 dark:text-slate-200 leading-snug">
+        Overspeeding Detection and Automated Penalty System Using Machine Learning
       </p>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        An end-to-end edge computer vision and automated law-enforcement pipeline engineered to mitigate road casualties on Bangladeshi highways. Built on custom-trained <strong>Ultralytics YOLOv8</strong>, the <strong>SORT multi-object tracking</strong> algorithm, and optical pixel-to-metric velocity calibration, LimitEye continuously measures vehicular speed from video streams, extracts localized Bengali license plate characters, detects speed violations against dynamic thresholds, and automatically issues formal violation penalty invoices directly to the vehicle owner via SMTP.
+      </p>
+
+      <!-- Academic Metadata Banner -->
+      <div class="p-4 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 shadow-sm text-xs sm:text-sm text-slate-600 dark:text-slate-300 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <span class="block text-[10px] font-mono text-slate-400 uppercase tracking-wider">PROJECT AUTHORS</span>
+          <span class="font-semibold text-slate-800 dark:text-slate-200">Syed Shakib Shahriar Islam <span class="font-mono text-slate-400">(201102)</span></span><br>
+          <span class="font-semibold text-slate-800 dark:text-slate-200">Md. Ratul Hasan <span class="font-mono text-slate-400">(201107)</span></span>
+        </div>
+        <div>
+          <span class="block text-[10px] font-mono text-slate-400 uppercase tracking-wider">FACULTY SUPERVISOR</span>
+          <span class="font-semibold text-brand-700 dark:text-brand-300">Dr. Engr. Imran Khan</span>
+        </div>
+        <div>
+          <span class="block text-[10px] font-mono text-slate-400 uppercase tracking-wider">ACADEMIC DEPARTMENT</span>
+          <span class="font-semibold text-slate-800 dark:text-slate-200">Dept. of Electrical and Electronic Engineering (EEE)</span>
+          <span class="block text-slate-400 text-xs">Jashore University of Science and Technology</span>
+        </div>
+        <div>
+          <span class="block text-[10px] font-mono text-slate-400 uppercase tracking-wider">COURSE &amp; SEMINAR</span>
+          <span class="font-semibold text-slate-800 dark:text-slate-200">Course Code: 3200</span>
+          <span class="block text-slate-400 text-xs">Project Design and Seminar</span>
+        </div>
+      </div>
+
+      <!-- Tech Stack Badges -->
       <div class="flex flex-wrap gap-2 pt-2">
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Python</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Python 3.12</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Ultralytics YOLOv8</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">SORT (Kalman Filter + Hungarian)</span>
         <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">OpenCV</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">ALPR</span>
-        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Object Tracking</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Bengali ALPR</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Coordinate Geometry</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">SMTP Invoicing</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Sub-35ms Latency</span>
       </div>
     </div>
 
-    <!-- Highlights Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-14">
-      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
-        <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">Speed</div>
-        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Detection</div>
-        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Calculates vehicle velocity from calibrated reference points within video frames.</p>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- KEY PERFORMANCE HIGHLIGHTS GRID (HERO STATS)               -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-2xl sm:text-3xl font-extrabold text-cyan-600 dark:text-cyan-400 font-display">34.9 ms</div>
+        <div class="text-[11px] font-mono text-slate-400 uppercase mt-1">Inference Latency</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Real-time ~27 FPS execution on commodity CPU/GPU.</p>
       </div>
-      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
-        <div class="text-3xl font-extrabold text-sky-600 dark:text-sky-400 font-display">ALPR</div>
-        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Plate Recognition</div>
-        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Automated license plate detection and character extraction from live or recorded streams.</p>
+      <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">91.0%</div>
+        <div class="text-[11px] font-mono text-slate-400 uppercase mt-1">Vehicle Detect Acc.</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Custom YOLOv8 bounding box &amp; class confidence.</p>
       </div>
-      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
-        <div class="text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-display">CV</div>
-        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Pipeline</div>
-        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Built on OpenCV with object tracking and real-time frame analysis.</p>
+      <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-600 dark:text-indigo-400 font-display">87.0%</div>
+        <div class="text-[11px] font-mono text-slate-400 uppercase mt-1">Bengali ALPR Conf.</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Accurate Bengali script license plate identification.</p>
+      </div>
+      <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-display">100%</div>
+        <div class="text-[11px] font-mono text-slate-400 uppercase mt-1">Automated Dispatch</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Zero-human intervention SMTP penalty notification.</p>
+      </div>
+      <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] col-span-2 sm:col-span-1">
+        <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">৳200</div>
+        <div class="text-[11px] font-mono text-slate-400 uppercase mt-1">Hardware BOM</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Sub-$2 prototype testbed demonstrating accessible R&amp;D.</p>
       </div>
     </div>
 
-    <!-- Content -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
-      <div class="lg:col-span-8 space-y-10">
-
-        <section class="space-y-3">
-          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Overview</h2>
-          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
-            LimitEye was developed as an early exploration into applied computer vision for traffic monitoring. The system is capable of ingesting video streams and performing two simultaneous tasks: estimating vehicle speed using frame-to-frame object displacement against calibrated coordinate references, and extracting license plate text through an automated recognition pipeline.
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- INTERACTIVE PRESENTATION SLIDE DECK VIEWER                  -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="presentation-viewer" class="p-6 sm:p-8 rounded-3xl bg-white/75 dark:bg-surface-card/75 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_8px_32px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgb(0,0,0,0.35)] space-y-6 scroll-mt-24">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/70 dark:border-slate-800 pb-4">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+            <i class="fa-solid fa-desktop"></i> Interactive Presentation Slide Deck
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white mt-1">
+            LimitEye Project Design &amp; Seminar Presentation
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+            Official slide deck presented for Course EEE 3200 under the supervision of Dr. Engr. Imran Khan (JUST).
           </p>
-          <div class="p-4 rounded-2xl bg-amber-500/[0.08] dark:bg-amber-950/30 backdrop-blur-md border border-amber-300/40 dark:border-amber-800/40 text-xs text-slate-600 dark:text-slate-300 shadow-sm">
-            <span class="font-bold text-amber-700 dark:text-amber-400 font-display block mb-0.5">Archived Prototype</span>
-            This project is archived. More details will be added here soon.
+        </div>
+        <div class="flex items-center gap-2 self-start sm:self-auto">
+          <button id="prevSlideBtn" aria-label="Previous Slide" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 transition flex items-center justify-center text-slate-700 dark:text-slate-200 shadow-sm">
+            <i class="fa-solid fa-chevron-left text-sm"></i>
+          </button>
+          <span id="slideCounterBadge" class="px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">
+            Slide 1 / 22
+          </span>
+          <button id="nextSlideBtn" aria-label="Next Slide" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 transition flex items-center justify-center text-slate-700 dark:text-slate-200 shadow-sm">
+            <i class="fa-solid fa-chevron-right text-sm"></i>
+          </button>
+          <button id="fullscreenSlideBtn" aria-label="Toggle Fullscreen" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center justify-center text-slate-700 dark:text-slate-200 shadow-sm ml-2" title="View Fullscreen">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Active Slide Display -->
+      <div id="slideDisplayContainer" class="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl flex items-center justify-center group">
+        <img id="activeSlideImg" 
+             src="../assets/images/projects/limiteye/slides/slide-1.png" 
+             alt="LimitEye Presentation Slide 1" 
+             class="w-full h-full object-contain select-none transition-opacity duration-200">
+        
+        <!-- On-Hover Floating Controls -->
+        <button id="overlayPrevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-brand-600 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center shadow-lg">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button id="overlayNextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-brand-600 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center shadow-lg">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <!-- Slide Title Caption Overlay -->
+        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 sm:p-6 text-white flex items-center justify-between pointer-events-none">
+          <div>
+            <div id="activeSlideTitle" class="text-sm sm:text-base font-bold font-display tracking-wide">
+              Slide 1: Title &amp; Authors (LimitEye Seminar Presentation)
+            </div>
+            <div id="activeSlideDescription" class="text-xs text-slate-300 font-mono hidden sm:block">
+              Course EEE 3200 • Jashore University of Science and Technology
+            </div>
+          </div>
+          <span class="text-xs font-mono text-slate-400">Use &larr; &rarr; keys to flip</span>
+        </div>
+      </div>
+
+      <!-- Slide Thumbnails Strip -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between text-xs font-mono text-slate-400 px-1">
+          <span>ALL SLIDES (CLICK TO JUMP)</span>
+          <span>22 TOTAL SLIDES</span>
+        </div>
+        <div id="slideThumbnailStrip" class="flex gap-2.5 overflow-x-auto pb-3 pt-1 scrollbar-thin">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- MAIN CONTENT & SIDEBAR GRID                                 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+      <!-- Left Column: Case Study Narrative (8 Cols) -->
+      <div class="lg:col-span-8 space-y-12">
+
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 1: PROBLEM CONTEXT & HIGHWAY SAFETY CRISIS        -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="problem-context" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 01 Context &amp; Motivation
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            The Highway Safety Crisis in Bangladesh
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Road traffic accidents represent one of the most critical public health and economic crises in Bangladesh. Over a 5.5-year observation period documented in national press reports, more than <strong>35,000 lives</strong> were lost and an estimated <strong>Tk 880 billion</strong> in economic productivity was drained due to preventable highway collisions. Despite legislative penalties, road fatalities consistently eclipsed other health hazards due to chronic vehicular overspeeding and unregulated transit on regional highways.
+          </p>
+
+          <!-- 2024 Accident Trend Chart Showcase -->
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                <i class="fa-solid fa-chart-line text-brand-500 mr-1.5"></i> Figure 1: Accidents, Deaths &amp; Injuries over 2024
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">DATA SOURCE: ROAD SAFETY REPORT [1]</span>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-white">
+              <img src="../assets/images/projects/limiteye/accidents_chart.png" 
+                   alt="Accident trends over 2024 in Bangladesh" 
+                   class="w-full h-auto block hover:scale-[1.01] transition duration-300">
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Empirical monthly casualty logs over 2024 indicating peak accident spikes during festive transit periods (approaching 800+ monthly injuries and 650+ fatalities), underscoring an acute deficit in automated speed enforcement.
+            </p>
+          </div>
+
+          <!-- Bottlenecks of Conventional Speed Guns -->
+          <div class="space-y-3 pt-2">
+            <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white">
+              Fundamental Bottlenecks of Conventional Radar Guns
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              The conventional methodology utilized by law enforcement across Bangladesh relies heavily on traffic officers operating handheld Doppler radar guns beside high-speed lanes. This manual paradigm incurs severe, inherent limitations:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="p-4 rounded-xl bg-rose-500/[0.05] border border-rose-500/20 space-y-1">
+                <span class="text-xs font-bold text-rose-600 dark:text-rose-400 font-display flex items-center gap-1.5">
+                  <i class="fa-solid fa-person-falling-burst"></i> Officer Safety Hazard
+                </span>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Officers must stand exposed on narrow highway shoulders, risking fatal collisions from reckless drivers.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-amber-500/[0.05] border border-amber-500/20 space-y-1">
+                <span class="text-xs font-bold text-amber-600 dark:text-amber-400 font-display flex items-center gap-1.5">
+                  <i class="fa-solid fa-hand-holding-dollar"></i> Discretion &amp; Bribery
+                </span>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Manual ticketing lacks an immutable digital audit log, leaving room for spot negotiations and selective stops.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-sky-500/[0.05] border border-sky-500/20 space-y-1">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 font-display flex items-center gap-1.5">
+                  <i class="fa-solid fa-network-wired"></i> Zero Scalability
+                </span>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  A patrol unit can monitor at most one vehicle at a time, completely overwhelmed by multi-lane highway congestion.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section class="space-y-4">
-          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Technical Approach</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm hover:border-brand-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-              <span class="text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase block">// Speed Estimation</span>
-              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Coordinate Calibration</h3>
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 2: END-TO-END SYSTEM ARCHITECTURE (6-STAGE)       -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="system-architecture" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 02 System Architecture
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            The 6-Stage End-to-End Pipeline
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            LimitEye was engineered as a modular, asynchronous computer vision and enforcement pipeline. By synthesizing video ingestion, deep neural object detection, Kalman-filter state estimation, pixel-to-real-world kinematic conversion, and transactional email dispatch, the system achieves fully autonomous roadside compliance.
+          </p>
+
+          <!-- 6-Stage Methodology Flowchart -->
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                <i class="fa-solid fa-diagram-project text-brand-500 mr-1.5"></i> LimitEye Modular Processing Pipeline
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">SEMINAR SLIDE 6</span>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-white">
+              <img src="../assets/images/projects/limiteye/methodology_pipeline.png" 
+                   alt="LimitEye 6-Stage Methodology Pipeline" 
+                   class="w-full h-auto block hover:scale-[1.01] transition duration-300">
+            </div>
+
+            <!-- Detailed Grid Breakdown of Stages -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
+              <div class="p-4 rounded-xl bg-white/50 dark:bg-white/[0.02] border border-slate-200/70 dark:border-white/10 space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 font-mono text-xs font-bold flex items-center justify-center">01</span>
+                  <span class="text-xs font-bold text-slate-900 dark:text-white font-display">Video Feed</span>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Continuous frames ingested via low-latency RTSP camera streams (DroidCam mobile integration or fixed CCTV gantries).
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-white/50 dark:bg-white/[0.02] border border-slate-200/70 dark:border-white/10 space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 font-mono text-xs font-bold flex items-center justify-center">02</span>
+                  <span class="text-xs font-bold text-slate-900 dark:text-white font-display">Object Detection</span>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Ultralytics YOLOv8 extracts vehicle spatial bounding boxes alongside localized Bengali license plate boundaries.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-white/50 dark:bg-white/[0.02] border border-slate-200/70 dark:border-white/10 space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 font-mono text-xs font-bold flex items-center justify-center">03</span>
+                  <span class="text-xs font-bold text-slate-900 dark:text-white font-display">Object Tracking</span>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  SORT algorithm employs Kalman Filters and Hungarian matching to assign persistent unique IDs across consecutive frames.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-white/50 dark:bg-white/[0.02] border border-slate-200/70 dark:border-white/10 space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 font-mono text-xs font-bold flex items-center justify-center">04</span>
+                  <span class="text-xs font-bold text-slate-900 dark:text-white font-display">Speed Measurement</span>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Computes centroid displacement $\Delta p$ against calibrated metric scaling factor $K$ and video frame timestamps.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-white/50 dark:bg-white/[0.02] border border-slate-200/70 dark:border-white/10 space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 font-mono text-xs font-bold flex items-center justify-center">05</span>
+                  <span class="text-xs font-bold text-slate-900 dark:text-white font-display">Overspeed Detection</span>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Evaluates calculated instantaneous velocity against dynamic zone speed limits; flags violations with cryptographic timestamps.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-white/50 dark:bg-white/[0.02] border border-slate-200/70 dark:border-white/10 space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 font-mono text-xs font-bold flex items-center justify-center">06</span>
+                  <span class="text-xs font-bold text-slate-900 dark:text-white font-display">Penalty Invoicing</span>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Automatically synthesizes BRTA-compliant violation notices and dispatches official fine invoices via SMTP to vehicle owners.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 3: DATASET ANNOTATION & YOLOv8 TRAINING           -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="computer-vision-yolo" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 03 Model Engineering &amp; Training
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            Custom YOLOv8 Training &amp; Bengali ALPR
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Standard pre-trained vision models (e.g., COCO) classify generic cars but fail to isolate specialized localized vehicle bodies or read non-Latin license plates. To achieve high precision, an authentic scaled experimental testbed was fabricated utilizing 1:24 die-cast vehicles outfitted with genuine Bangladeshi registration plates (e.g., <em>Chatta Metro La-11-1025</em> and <em>Dhaka Metro-Ga 15-0568</em>).
+          </p>
+
+          <!-- Physical Prototype Scaled Vehicle Showcase -->
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                <i class="fa-solid fa-car-side text-brand-500 mr-1.5"></i> Scaled Prototype Model Car Testbed
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">SEMINAR SLIDE 5 (FIGURE 3)</span>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-white flex justify-center p-2">
+              <img src="../assets/images/projects/limiteye/prototype_car.png" 
+                   alt="Used Prototype Model Car for LimitEye" 
+                   class="max-w-md w-full h-auto block rounded-lg hover:scale-[1.01] transition duration-300">
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Precision 1:24 physical test vehicle with authentic Bangladeshi registration numbering (Chatta Metro La-11-1025) undergoing bounding box verification.
+            </p>
+          </div>
+
+          <!-- LabelImg Annotation Multi-angle Grid -->
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                <i class="fa-solid fa-tags text-brand-500 mr-1.5"></i> Multi-View Annotation with LabelImg
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">YOLO PASCAL-VOC FORMAT</span>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-white">
+              <img src="../assets/images/projects/limiteye/labelimg_annotations.png" 
+                   alt="LabelImg annotation across 6 perspective angles" 
+                   class="w-full h-auto block hover:scale-[1.01] transition duration-300">
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Bounding box annotations generated across orthogonal, oblique, and steep camera angles under varying ambient illuminations to guarantee robust detector generalization.
+            </p>
+          </div>
+
+          <!-- Colab Training Terminal Showcase -->
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                <i class="fa-solid fa-cloud-arrow-up text-brand-500 mr-1.5"></i> Google Colab GPU Model Training Execution
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">NVIDIA T4 TENSOR CORE ACCELERATION</span>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-slate-950 p-2">
+              <img src="../assets/images/projects/limiteye/colab_training.png" 
+                   alt="Google Colab YOLOv8 training execution logs" 
+                   class="w-full h-auto block rounded-lg">
+            </div>
+            
+            <!-- Training Architecture Specs Table -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs font-mono">
+              <div class="p-3 rounded-lg bg-white/40 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/10">
+                <span class="text-[10px] text-slate-400 block">LAYERS</span>
+                <span class="font-bold text-slate-900 dark:text-white text-sm">225 Layers</span>
+              </div>
+              <div class="p-3 rounded-lg bg-white/40 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/10">
+                <span class="text-[10px] text-slate-400 block">TOTAL PARAMETERS</span>
+                <span class="font-bold text-slate-900 dark:text-white text-sm">3,011,417</span>
+              </div>
+              <div class="p-3 rounded-lg bg-white/40 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/10">
+                <span class="text-[10px] text-slate-400 block">COMPUTATION</span>
+                <span class="font-bold text-slate-900 dark:text-white text-sm">8.2 GFLOPs</span>
+              </div>
+              <div class="p-3 rounded-lg bg-white/40 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/10">
+                <span class="text-[10px] text-slate-400 block">BATCH / RESOLUTION</span>
+                <span class="font-bold text-slate-900 dark:text-white text-sm">16 @ 640&times;640</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 4: MULTI-OBJECT TRACKING VIA SORT                 -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="sort-tracking" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 04 Temporal Trajectory Association
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            Multi-Object Tracking via SORT Algorithm
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Calculating vehicular velocity is fundamentally impossible with single-frame isolated object detection; the system must maintain continuous temporal continuity for each vehicle as it transits across calibrated coordinates. To achieve this in real time on edge hardware without prohibitive computational latency, LimitEye deploys <strong>SORT (Simple Online and Realtime Tracking)</strong> by Alex Bewley.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Kalman Filter Card -->
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-2">
+              <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-mono text-xs font-bold uppercase">
+                <i class="fa-solid fa-wave-square"></i> Kalman Filter State Estimation
+              </div>
+              <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm">
+                Bounding Box Kinematic Propagation
+              </h3>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                Vehicles tracked across calibrated reference points in the frame to calculate transit velocity.
+                The state of each tracked vehicle target is modeled as a 7-dimensional vector:
+              </p>
+              <div class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-900/80 font-mono text-[11px] text-slate-800 dark:text-brand-300 text-center border border-slate-200 dark:border-slate-800">
+                $\mathbf{x} = [u, v, s, r, \dot{u}, \dot{v}, \dot{s}]^T$
+              </div>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                where $(u, v)$ denotes target center coordinates, $s$ is scale (bounding box area), $r$ is aspect ratio, and dotted variables represent velocity derivatives, predicting future spatial positions even during momentary detector drops.
               </p>
             </div>
-            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] shadow-sm hover:border-sky-500/40 hover:-translate-y-0.5 transition-all duration-300 space-y-2">
-              <span class="text-xs font-mono text-sky-600 dark:text-sky-400 font-bold uppercase block">// Plate Recognition</span>
-              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">ALPR Pipeline</h3>
+
+            <!-- Hungarian Matching Card -->
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-2">
+              <div class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-mono text-xs font-bold uppercase">
+                <i class="fa-solid fa-network-wired"></i> Hungarian Association
+              </div>
+              <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm">
+                Optimal Bipartite IoU Assignment
+              </h3>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                Automated license plate detection and character segmentation using OpenCV-based processing.
+                Between subsequent frames, newly predicted bounding boxes from the Kalman state are associated with incoming YOLO detections via the Hungarian (Munkres) algorithm.
               </p>
+              <div class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-900/80 font-mono text-[11px] text-slate-800 dark:text-indigo-300 text-center border border-slate-200 dark:border-slate-800">
+                $\text{Cost Matrix } C_{i, j} = 1 - \text{IoU}(\text{Box}_i, \text{Detection}_j)$
+              </div>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                Tracks with $\text{IoU} < \text{IoU}_{\min}$ threshold are cleanly terminated, preventing ID switches and phantom targets across lane boundaries.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tracking Algorithms Comparison Table -->
+          <div class="overflow-x-auto rounded-xl border border-slate-200/70 dark:border-white/10">
+            <table class="w-full text-left text-xs font-mono">
+              <thead class="bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 border-b border-slate-200 dark:border-slate-700">
+                <tr>
+                  <th class="p-3 font-semibold">Algorithm</th>
+                  <th class="p-3 font-semibold">Complexity</th>
+                  <th class="p-3 font-semibold">Throughput (FPS)</th>
+                  <th class="p-3 font-semibold">Edge Viability</th>
+                  <th class="p-3 font-semibold">LimitEye Selection Reason</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200/70 dark:divide-white/10 bg-white/40 dark:bg-white/[0.01]">
+                <tr class="bg-brand-500/[0.04]">
+                  <td class="p-3 font-bold text-brand-600 dark:text-brand-400">SORT (Bewley et al.)</td>
+                  <td class="p-3 text-slate-600 dark:text-slate-300">Ultra-Light</td>
+                  <td class="p-3 text-emerald-600 dark:text-emerald-400 font-bold">&gt;60 FPS</td>
+                  <td class="p-3 text-emerald-600 dark:text-emerald-400">Outstanding</td>
+                  <td class="p-3 text-slate-700 dark:text-slate-300">Chosen: Zero GPU overhead, deterministic Kalman tracking</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-slate-700 dark:text-slate-300">Deep SORT</td>
+                  <td class="p-3 text-slate-600 dark:text-slate-300">Moderate</td>
+                  <td class="p-3 text-slate-600 dark:text-slate-300">~20-30 FPS</td>
+                  <td class="p-3 text-amber-500">Moderate</td>
+                  <td class="p-3 text-slate-500">Requires separate CNN re-ID model; exceeds lightweight BOM</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-slate-700 dark:text-slate-300">ByteTrack</td>
+                  <td class="p-3 text-slate-600 dark:text-slate-300">Light-Moderate</td>
+                  <td class="p-3 text-slate-600 dark:text-slate-300">~35-45 FPS</td>
+                  <td class="p-3 text-emerald-600 dark:text-emerald-400">High</td>
+                  <td class="p-3 text-slate-500">Candidate for v2.0 roadmap expansion on heavy occlusion</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- SORT Algorithm Architecture Showcase -->
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                <i class="fa-solid fa-code-fork text-brand-500 mr-1.5"></i> Alex Bewley's SORT (Simple Online and Realtime Tracking)
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">SEMINAR SLIDE 11</span>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-white">
+              <img src="../assets/images/projects/limiteye/sort_tracking.png" 
+                   alt="SORT multi-object tracking algorithm card" 
+                   class="w-full h-auto block hover:scale-[1.01] transition duration-300">
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Standardized SORT tracker architecture assigning persistent IDs to candidate bounding boxes across video streams in real time.
+            </p>
+          </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 5: MATHEMATICAL VELOCITY CALIBRATION              -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="speed-measurement" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 05 Kinematic Formulation &amp; Optics
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            Speed Estimation &amp; Coordinate Geometry
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Optical velocity estimation converts two-dimensional camera pixel displacement into physically calibrated real-world transit velocity. In LimitEye, reference calibration markers are established across the field-of-view, determining a physical distance scaling coefficient $K$ (meters per pixel).
+          </p>
+
+          <!-- Mathematical Formulation Callout -->
+          <div class="p-6 rounded-2xl bg-gradient-to-br from-brand-950/40 via-slate-900/40 to-slate-900/60 border border-brand-500/20 backdrop-blur-xl space-y-4">
+            <h3 class="font-display font-bold text-white text-base flex items-center gap-2">
+              <i class="fa-solid fa-calculator text-brand-400"></i> Mathematical Formulation of Transit Velocity
+            </h3>
+            <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 text-center font-mono text-sm sm:text-base text-brand-300 overflow-x-auto">
+              $$v = \frac{\Delta d}{\Delta t} = \frac{\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \cdot K}{\Delta f \cdot \left(\frac{1}{\text{FPS}}\right)} \times 3.6 \quad [\text{km/h}]$$
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-300 pt-1">
+              <div>
+                <strong class="text-white font-mono block">Centroid Displacement:</strong>
+                $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$ measures pixel transit distance across bounding box centroids.
+              </div>
+              <div>
+                <strong class="text-white font-mono block">Metric Calibration ($K$):</strong>
+                Ratio of physical distance (meters) to frame pixels established during roadside calibration.
+              </div>
+              <div>
+                <strong class="text-white font-mono block">Temporal Delta ($\Delta t$):</strong>
+                $\Delta f \times (1/\text{FPS})$ utilizes hardware video frame stamps for sub-millisecond precision.
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Speed Calculator Tool -->
+          <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200/60 dark:border-slate-800 pb-3">
+              <div>
+                <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+                  <i class="fa-solid fa-sliders text-brand-500"></i> Interactive Optical Speed &amp; Violation Simulator
+                </h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                  Simulate pixel movement across calibrated video frames to calculate live velocity and penalty status.
+                </p>
+              </div>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-500/10 text-brand-600 dark:text-brand-400 font-semibold">LIVE MATH ENGINE</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+              <div class="space-y-1.5">
+                <label class="block font-mono text-slate-500 dark:text-slate-400">Pixel Displacement ($\Delta p$)</label>
+                <div class="flex items-center gap-2">
+                  <input id="calcPixelInput" type="range" min="20" max="400" value="180" class="w-full accent-brand-500">
+                  <span id="calcPixelVal" class="font-mono font-bold text-slate-800 dark:text-slate-200 min-w-[50px] text-right">180 px</span>
+                </div>
+              </div>
+              <div class="space-y-1.5">
+                <label class="block font-mono text-slate-500 dark:text-slate-400">Metric Calibration ($K$ m/px)</label>
+                <div class="flex items-center gap-2">
+                  <input id="calcScaleInput" type="range" min="0.05" max="0.5" step="0.01" value="0.12" class="w-full accent-brand-500">
+                  <span id="calcScaleVal" class="font-mono font-bold text-slate-800 dark:text-slate-200 min-w-[50px] text-right">0.12 m/px</span>
+                </div>
+              </div>
+              <div class="space-y-1.5">
+                <label class="block font-mono text-slate-500 dark:text-slate-400">Speed Limit Threshold</label>
+                <div class="flex items-center gap-2">
+                  <input id="calcLimitInput" type="range" min="30" max="100" step="5" value="60" class="w-full accent-brand-500">
+                  <span id="calcLimitVal" class="font-mono font-bold text-slate-800 dark:text-slate-200 min-w-[50px] text-right">60 km/h</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Calculated Output Card -->
+            <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">CALCULATED INSTANTANEOUS VELOCITY</span>
+                <div class="flex items-baseline gap-2 mt-0.5">
+                  <span id="calcSpeedResult" class="text-3xl font-extrabold font-display text-slate-900 dark:text-white">64.8 km/h</span>
+                  <span class="text-xs font-mono text-slate-500">(@ 30 FPS, 30 frames)</span>
+                </div>
+              </div>
+              <div id="calcStatusBadge" class="px-4 py-2 rounded-xl text-xs font-bold font-mono uppercase tracking-wider flex items-center gap-2 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
+                <i class="fa-solid fa-triangle-exclamation"></i> OVERSPEED VIOLATION DETECTED
+              </div>
+            </div>
+          </div>
+
+          <!-- Speed Measurement Schematic Showcase -->
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                <i class="fa-solid fa-ruler-horizontal text-brand-500 mr-1.5"></i> Pixel-to-Real-World Distance Calibration
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">SEMINAR SLIDE 12 (FIGURE 9)</span>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-white flex justify-center p-2">
+              <img src="../assets/images/projects/limiteye/speed_measurement.png" 
+                   alt="Speed Measurement Geometric Scaling Schematic" 
+                   class="max-w-lg w-full h-auto block rounded-lg hover:scale-[1.01] transition duration-300">
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Centroid pixel displacement conversion schematic: mapping camera frame progression against calibrated real-world meters.
+            </p>
+          </div>
+
+          <!-- Comparative Sensing Modalities (Radar vs LiDAR vs Vision) -->
+          <div class="space-y-3 pt-2">
+            <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white">
+              Sensing Modality Trade-Off Analysis
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              In evaluating alternative physical sensor modalities (Slide 13), monocular optical computer vision was chosen for its optimal balance of cost-efficiency, software reconfigurability, and rich contextual validation:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 rounded-xl bg-white/50 dark:bg-white/[0.02] border border-slate-200/70 dark:border-white/10 space-y-2">
+                <div class="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800">
+                  <img src="../assets/images/projects/limiteye/radar_tech.png" alt="Doppler Radar Technology" class="w-full h-auto block">
+                </div>
+                <div class="text-xs font-bold text-slate-900 dark:text-white font-display">Doppler Radar Overhead Units</div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  High velocity accuracy, but lacks photographic visual context for license plate attribution and incurs prohibitive capital expenditure per lane.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-white/50 dark:bg-white/[0.02] border border-slate-200/70 dark:border-white/10 space-y-2">
+                <div class="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800">
+                  <img src="../assets/images/projects/limiteye/lidar_fusion.png" alt="LiDAR 3D Fusion" class="w-full h-auto block">
+                </div>
+                <div class="text-xs font-bold text-slate-900 dark:text-white font-display">3D LiDAR + Camera Sensor Fusion</div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Superior 3D spatial depth point-cloud tracking, but demands expensive high-power laser transceiver arrays and heavy edge compute.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 6: AUTOMATED SMTP PENALTY DISPATCH                -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="automated-penalty" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 06 Automated Enforcement Protocol
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            Automated Penalty Invoicing via SMTP
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The defining innovation of LimitEye is its closed-loop enforcement automation. While conventional traffic systems merely display alerts on local monitors, LimitEye bridges the detection engine directly to the telecommunications communication layer using the <strong>Simple Mail Transfer Protocol (SMTP)</strong>.
+          </p>
+
+          <!-- SMTP Invoicing Flowchart -->
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                <i class="fa-solid fa-envelope-circle-check text-brand-500 mr-1.5"></i> End-to-End Invoice Dispatch Architecture
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">SEMINAR SLIDE 15</span>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-white">
+              <img src="../assets/images/projects/limiteye/smtp_workflow.png" 
+                   alt="LimitEye Automated Penalty Invoice via SMTP" 
+                   class="w-full h-auto block hover:scale-[1.01] transition duration-300">
+            </div>
+          </div>
+
+          <!-- Email Citation Wireframe Preview -->
+          <div class="p-6 rounded-2xl bg-white/70 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200/70 dark:border-slate-800 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/60 dark:border-slate-800 pb-2.5">
+              <div class="flex items-center gap-2 text-xs font-mono text-slate-500">
+                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                <span>DISPATCHED OFFICIAL PENALTY INVOICE (GMAIL PREVIEW)</span>
+              </div>
+              <span class="text-xs font-mono text-brand-600 dark:text-brand-400">DELIVERED IN 1.2 SEC</span>
+            </div>
+            
+            <div class="p-5 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm font-sans space-y-3 text-slate-700 dark:text-slate-200">
+              <div class="flex items-center justify-between text-xs font-mono text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-2">
+                <span>From: <strong>projectik2025@gmail.com</strong> (LimitEye Automated Dispatch)</span>
+                <span>9:38 AM (1/29/2025)</span>
+              </div>
+              <p>Dear Registered Owner,</p>
+              <p>
+                Your vehicle <strong class="text-brand-600 dark:text-brand-400 font-mono">ঢাকা মেট্রো-গ ১৫-০৫৬৮</strong> was detected overspeeding at <strong class="text-rose-600 dark:text-rose-400 font-mono text-base">68.31 km/h</strong> within a calibrated speed enforcement perimeter.
+              </p>
+              <div class="grid grid-cols-2 gap-2 p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800 text-xs font-mono">
+                <div>Violation Type: <strong>Overspeeding</strong></div>
+                <div>Detected Speed: <strong>68.31 km/h</strong></div>
+                <div>Date &amp; Time: <strong>2025-01-29 09:38:09</strong></div>
+                <div>Payment Window: <strong>7 Working Days</strong></div>
+              </div>
+              <p class="text-xs text-slate-500">
+                Please make payment within 7 working days to Agrani Bank (A/C: 123-456-7890-123) to avoid prosecution. For inquiries, contact <a href="mailto:feedback@brta.gov.bd" class="text-brand-600 dark:text-brand-400 underline">feedback@brta.gov.bd</a>.<br>
+                <strong>Best regards, BRTA Automated Enforcement System</strong>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 7: EMPIRICAL RESULTS & LIVE VALIDATION            -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="empirical-results" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 07 Live Validation &amp; Metrics
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            Empirical Results &amp; Real-Time Performance
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The end-to-end LimitEye pipeline was rigorously validated under live execution conditions. As illustrated in the dual empirical results capture below, the custom YOLOv8 model successfully identified both vehicle class (<code>model_car 0.91</code>) and localized the Bengali license plate (<code>nplate 0.87</code>), while dynamically calculating vehicle transit speed and instantly transmitting the fine notification into the vehicle owner’s inbox.
+          </p>
+
+          <!-- Dual Result Showcase (Figure 12 & 13) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Left: Figure 12 Detection Output -->
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                  <i class="fa-solid fa-crosshairs text-brand-500 mr-1.5"></i> Figure 12: Object Detected Successfully
+                </span>
+                <span class="text-[10px] font-mono text-emerald-500 font-bold">~34.9ms LATENCY</span>
+              </div>
+              <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-slate-950">
+                <img src="../assets/images/projects/limiteye/detection_crop.png" 
+                     alt="Real-time webcam detection window with Bengali license plate overlay" 
+                     class="w-full h-auto block hover:scale-[1.01] transition duration-300">
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                PyCharm development feed showing <code>model_car</code> (0.91) and Bengali number plate bounding boxes, accompanied by terminal logs confirming 34.9ms &ndash; 43.5ms inference.
+              </p>
+            </div>
+
+            <!-- Right: Figure 13 Email Result -->
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                  <i class="fa-solid fa-inbox text-brand-500 mr-1.5"></i> Figure 13: E-mail Sent Successfully
+                </span>
+                <span class="text-[10px] font-mono text-brand-500 font-bold">VERIFIED INBOX</span>
+              </div>
+              <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-white">
+                <img src="../assets/images/projects/limiteye/email_crop.png" 
+                     alt="Delivered violation fine email in Gmail" 
+                     class="w-full h-auto block hover:scale-[1.01] transition duration-300">
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                Live Gmail inbox capture displaying automated penalty citation for speed violation (68.31 km/h) generated and dispatched within 1.2 seconds of detection.
+              </p>
+            </div>
+          </div>
+
+          <!-- Benchmark Breakdown Table -->
+          <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+            <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">
+              End-to-End Latency Profile Breakdown
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
+              <div class="p-3 rounded-xl bg-white/40 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/10">
+                <span class="text-[10px] text-slate-400 block">PRE-PROCESSING</span>
+                <span class="font-bold text-slate-800 dark:text-slate-200 text-sm">1.0 ms</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">Frame resizing &amp; normalization</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/40 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/10">
+                <span class="text-[10px] text-slate-400 block">YOLOv8 INFERENCE</span>
+                <span class="font-bold text-brand-600 dark:text-brand-400 text-sm">34.9 – 43.5 ms</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">Dual-class forward pass</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/40 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/10">
+                <span class="text-[10px] text-slate-400 block">POST-PROCESSING</span>
+                <span class="font-bold text-slate-800 dark:text-slate-200 text-sm">1.0 ms</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">NMS &amp; Kalman tracking</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/40 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/10">
+                <span class="text-[10px] text-slate-400 block">EFFECTIVE FRAME RATE</span>
+                <span class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">~25 – 28 FPS</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">Sufficient for 120km/h highway</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 8: BILL OF MATERIALS & ECONOMIC FEASIBILITY       -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="bom-economics" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 08 Frugal Engineering Economics
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            Bill of Materials (BOM) &amp; Cost Efficiency
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            A hallmark of the LimitEye project is its extreme cost efficiency. Rather than demanding specialized multimillion-taka industrial radar gantries, the research prototype was validated entirely using repurposed consumer hardware, free open-source machine learning frameworks, and physical scale models.
+          </p>
+
+          <!-- Table 1 from Seminar Presentation -->
+          <div class="overflow-x-auto rounded-2xl border border-slate-200/70 dark:border-white/10 shadow-sm">
+            <table class="w-full text-left text-xs sm:text-sm font-sans">
+              <thead class="bg-brand-500/10 dark:bg-brand-950/40 text-brand-800 dark:text-brand-300 font-mono text-xs border-b border-brand-200 dark:border-brand-900">
+                <tr>
+                  <th class="p-3.5">Equipment / Component</th>
+                  <th class="p-3.5">Description &amp; Implementation Role</th>
+                  <th class="p-3.5 text-right font-mono">Cost (BDT)</th>
+                  <th class="p-3.5 text-right font-mono">Cost (USD)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200/70 dark:divide-white/10 bg-white/40 dark:bg-white/[0.01]">
+                <tr>
+                  <td class="p-3.5 font-semibold text-slate-900 dark:text-white">Model Cars (2 units)</td>
+                  <td class="p-3.5 text-slate-600 dark:text-slate-300 text-xs">Physical scale models with custom Bengali plates</td>
+                  <td class="p-3.5 text-right font-mono font-semibold">200 ৳</td>
+                  <td class="p-3.5 text-right font-mono text-slate-500">~$1.70</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 font-semibold text-slate-900 dark:text-white">Optical Camera Sensor</td>
+                  <td class="p-3.5 text-slate-600 dark:text-slate-300 text-xs">Repurposed smartphone camera via DroidCam RTSP</td>
+                  <td class="p-3.5 text-right font-mono text-slate-500">(Personal)</td>
+                  <td class="p-3.5 text-right font-mono text-slate-500">$0.00</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 font-semibold text-slate-900 dark:text-white">Processing Unit</td>
+                  <td class="p-3.5 text-slate-600 dark:text-slate-300 text-xs">Commodity laptop / personal workstation</td>
+                  <td class="p-3.5 text-right font-mono text-slate-500">(Personal)</td>
+                  <td class="p-3.5 text-right font-mono text-slate-500">$0.00</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 font-semibold text-slate-900 dark:text-white">Software &amp; Deep Learning Stack</td>
+                  <td class="p-3.5 text-slate-600 dark:text-slate-300 text-xs">Python 3.12, Ultralytics YOLOv8, SORT, OpenCV</td>
+                  <td class="p-3.5 text-right font-mono text-emerald-600 dark:text-emerald-400 font-bold">Free (FOSS)</td>
+                  <td class="p-3.5 text-right font-mono text-emerald-600 dark:text-emerald-400 font-bold">$0.00</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 font-semibold text-slate-900 dark:text-white">Bengali Typography Font</td>
+                  <td class="p-3.5 text-slate-600 dark:text-slate-300 text-xs">Open-source Unicode Bangla rendering font</td>
+                  <td class="p-3.5 text-right font-mono text-emerald-600 dark:text-emerald-400 font-bold">Free</td>
+                  <td class="p-3.5 text-right font-mono text-emerald-600 dark:text-emerald-400 font-bold">$0.00</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 font-semibold text-slate-900 dark:text-white">Mounting &amp; Calibration Hardware</td>
+                  <td class="p-3.5 text-slate-600 dark:text-slate-300 text-xs">Camera stand, positioning markers, adhesive tapes</td>
+                  <td class="p-3.5 text-right font-mono text-slate-500">(Personal)</td>
+                  <td class="p-3.5 text-right font-mono text-slate-500">$0.00</td>
+                </tr>
+                <tr class="bg-brand-500/10 dark:bg-brand-950/60 font-bold text-slate-900 dark:text-white">
+                  <td class="p-3.5" colspan="2">TOTAL PROTOTYPE VALIDATION EXPENDITURE</td>
+                  <td class="p-3.5 text-right font-mono text-brand-600 dark:text-brand-400 text-base">200 ৳</td>
+                  <td class="p-3.5 text-right font-mono text-brand-600 dark:text-brand-400 text-base">~$1.70 USD</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Slide 20 Cost Table Graphic Showcase -->
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                <i class="fa-solid fa-receipt text-brand-500 mr-1.5"></i> Table 1: Required Equipment &amp; Costs (Seminar Slide 20)
+              </span>
+              <span class="text-[10px] font-mono text-emerald-500 font-bold">200 BDT TOTAL BOM</span>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-white">
+              <img src="../assets/images/projects/limiteye/cost_table.png" 
+                   alt="Table 1 Required Equipment and Costs from Presentation Slide 20" 
+                   class="w-full h-auto block hover:scale-[1.01] transition duration-300">
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Empirical accounting from the seminar deck verifying that the entire physical proof-of-concept validation was executed for 200 BDT.
+            </p>
+          </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 9: ENGINEERING LIMITATIONS & EDGE BOUNDARIES      -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="limitations" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 09 Technical Analysis
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            Engineering Limitations &amp; Boundary Conditions
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            A rigorous engineering assessment requires acknowledging edge failure modes. As documented in Slide 17 of the seminar, monocular optical velocity estimation encounters real-world boundary conditions that warrant specific mitigation:
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-2">
+              <span class="text-xs font-mono text-amber-600 dark:text-amber-400 font-bold uppercase block">// Perspective Distortion</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Fixed Camera Placement</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Single-camera monocular geometry assumes planar transit; vehicles changing lanes or curving introduce optical perspective parallax unless compensated by homographic matrix rectification.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-2">
+              <span class="text-xs font-mono text-rose-600 dark:text-rose-400 font-bold uppercase block">// Environmental Occlusion</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Adverse Weather &amp; Glare</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Torrential monsoon downpours, nighttime vehicle headlight bloom, and mud-splattered plates challenge both bounding box regression and Bengali optical character recognition.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-2">
+              <span class="text-xs font-mono text-indigo-600 dark:text-indigo-400 font-bold uppercase block">// Bengali ALPR Specifics</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Bengali Typography Nuance</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Bangladeshi license plates use complex conjunct consonants (যুক্তবর্ণ) and variable regional district prefixes (e.g. ঢাকা মেট্রো, চট্ট মেট্রো) requiring specialized high-resolution OCR kernels.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-2">
+              <span class="text-xs font-mono text-cyan-600 dark:text-cyan-400 font-bold uppercase block">// Edge Compute Constraints</span>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Multi-Lane 4K Scaling</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Monitoring 4+ highway lanes concurrently at 60 FPS requires dedicated edge tensor accelerators (e.g. NVIDIA Jetson Orin Nano) to maintain sub-40ms latency across dense traffic.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 10: FUTURE ROADMAP & BRTA INTEGRATION             -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="future-work" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 10 Future Roadmap
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            Future Work &amp; National ITS Integration
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The successful prototype validation establishes a clear engineering trajectory for scaling LimitEye into an enterprise-grade national traffic compliance platform. Key milestones highlighted in Slide 18 of the seminar include:
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-2">
+              <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-mono text-xs font-bold uppercase">
+                <i class="fa-solid fa-database"></i> BRTA National Database Integration
+              </div>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Live Vehicle Ownership Query API</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Direct integration with Bangladesh Road Transport Authority (BRTA) registration servers for instant retrieval of owner contact information, chassis numbers, and tax token status.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-2">
+              <div class="flex items-center gap-2 text-sky-600 dark:text-sky-400 font-mono text-xs font-bold uppercase">
+                <i class="fa-solid fa-mobile-screen"></i> Citizen Portal &amp; MFS Payment
+              </div>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Web &amp; Mobile Fine Management</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Development of a secure web/mobile dashboard allowing drivers to review high-resolution photographic violation evidence, file online disputes, and pay fines via bKash, Nagad, and cards.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-2">
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-bold uppercase">
+                <i class="fa-solid fa-comment-sms"></i> Real-Time SMS Gateway
+              </div>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Instant Cellular Push Notices</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Cellular push notifications delivered via national telecom SMS gateways within 3 seconds of violation, providing drivers immediate behavioral feedback on active highways.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-2">
+              <div class="flex items-center gap-2 text-purple-600 dark:text-purple-400 font-mono text-xs font-bold uppercase">
+                <i class="fa-solid fa-traffic-light"></i> Multi-Violation Expansion
+              </div>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Holistic Traffic Law Enforcement</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Extending the deep learning pipeline to detect wrong-way driving, red-light jumping, illegal shoulder overtaking, and helmetless motorcycle transit on expressways.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────── -->
+        <!-- SECTION 11: REFERENCES & ACADEMIC CREDITS                 -->
+        <!-- ───────────────────────────────────────────────────────── -->
+        <section id="academic-references" class="space-y-4 scroll-mt-24">
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-600 dark:text-brand-400 font-bold uppercase">
+            // 11 Formal Citations &amp; Credits
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">
+            Academic References &amp; Acknowledgments
+          </h2>
+          
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-4">
+            <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white">
+              Primary Formal References
+            </h3>
+            <ol class="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-mono">
+              <li>
+                <strong class="text-slate-800 dark:text-slate-100">বাংলাদেশ সড়ক পরিবহন কর্তৃপক্ষ (BRTA)</strong> &mdash; গণপ্রজাতন্ত্রী বাংলাদেশ সরকার, <em>"সড়ক দুর্ঘটনা ও গতিসীমা পর্যবেক্ষণ নির্দেশিকা"</em>, 2024.
+              </li>
+              <li>
+                <strong class="text-slate-800 dark:text-slate-100">Alex Bewley, Zongyuan Ge, Lionel Ott, Fabio Ramos, Ben Upcroft</strong> &mdash; <em>"Simple Online and Realtime Tracking" (SORT)</em>, IEEE International Conference on Image Processing (ICIP), 2016. <a href="https://github.com/abewley/sort" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 underline ml-1">GitHub: abewley/sort</a>.
+              </li>
+              <li>
+                <strong class="text-slate-800 dark:text-slate-100">Ultralytics LLC</strong> &mdash; <em>"Ultralytics YOLOv8: Real-Time Object Detection and Segmentation"</em>, 2023.
+              </li>
+            </ol>
+
+            <div class="pt-4 border-t border-slate-200/70 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              <strong>Supervision &amp; Institutional Acknowledgment:</strong> Conducted for <strong>Course EEE 3200 (Project Design and Seminar)</strong> under the supervision of <strong>Dr. Engr. Imran Khan</strong>, Department of Electrical and Electronic Engineering, Jashore University of Science and Technology (JUST), Bangladesh.
+            </div>
+          </div>
+
+          <!-- Seminar Academic Poster Showcase -->
+          <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.03] backdrop-blur-md border border-slate-200/70 dark:border-white/10 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200/60 dark:border-slate-800 pb-3">
+              <div>
+                <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+                  <i class="fa-solid fa-image text-brand-500 mr-1.5"></i> LimitEye Official Academic Seminar Poster
+                </span>
+                <span class="block text-[11px] font-mono text-slate-400 mt-0.5">Presented at Dept. of EEE, JUST (Course EEE 3200)</span>
+              </div>
+              <a href="../assets/docs/posters/limiteye-traffic-poster.pdf" target="_blank" rel="noopener noreferrer" download class="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-white bg-brand-600 hover:bg-brand-500 transition flex items-center gap-1.5 shadow-sm self-start sm:self-auto">
+                <i class="fa-solid fa-download"></i> Download Poster PDF
+              </a>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200/70 dark:border-slate-800 bg-slate-900 flex justify-center p-3">
+              <img src="../assets/images/posters/limiteye-thumb.jpg" 
+                   alt="LimitEye Academic Seminar Poster Preview" 
+                   class="max-w-md w-full h-auto block rounded-lg shadow-xl hover:scale-[1.01] transition duration-300">
             </div>
           </div>
         </section>
 
       </div>
 
-      <!-- Sidebar -->
+      <!-- Right Column: Quick Facts & Sidebar Navigation (4 Cols) -->
       <aside class="lg:col-span-4 space-y-6">
+        
+        <!-- Project Quick Facts Card -->
         <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-5">
-          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-200/60 dark:border-slate-800 pb-3">
-            Project Quick Facts
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-200/60 dark:border-slate-800 pb-3 flex items-center justify-between">
+            <span>Project Quick Facts</span>
+            <i class="fa-solid fa-circle-info text-brand-500"></i>
           </h3>
+
           <div>
-            <div class="text-xs font-mono text-slate-400">CATEGORY</div>
-            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Archived Prototype</div>
+            <div class="text-[10px] font-mono text-slate-400 uppercase">CATEGORY &amp; DOMAIN</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Computer Vision &amp; Intelligent Transportation</div>
           </div>
+
           <div>
-            <div class="text-xs font-mono text-slate-400">DOMAIN</div>
-            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Computer Vision</div>
+            <div class="text-[10px] font-mono text-slate-400 uppercase">ACADEMIC COURSE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">EEE 3200 (Project Design &amp; Seminar)</div>
           </div>
+
           <div>
-            <div class="text-xs font-mono text-slate-400">STACK</div>
-            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Python, OpenCV, ALPR</div>
+            <div class="text-[10px] font-mono text-slate-400 uppercase">FACULTY SUPERVISOR</div>
+            <div class="text-sm font-semibold text-brand-700 dark:text-brand-300">Dr. Engr. Imran Khan</div>
           </div>
+
           <div>
-            <div class="text-xs font-mono text-slate-400">STATUS</div>
-            <div class="text-sm font-semibold text-amber-600 dark:text-amber-400">Archived</div>
+            <div class="text-[10px] font-mono text-slate-400 uppercase">PROJECT AUTHORS</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Syed Shakib Shahriar Islam <span class="font-mono text-xs text-slate-400">(201102)</span></div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Md. Ratul Hasan <span class="font-mono text-xs text-slate-400">(201107)</span></div>
           </div>
-          <div class="pt-3 border-t border-slate-200/70 dark:border-slate-800">
-            <a href="../index.html#projects" class="w-full py-2 px-4 rounded-xl text-center text-xs font-semibold text-brand-600 dark:text-brand-400 hover:bg-brand-50/50 dark:hover:bg-brand-950/40 transition flex items-center justify-center gap-2">
-              <i class="fa-solid fa-arrow-left text-xs"></i> Back to Projects
+
+          <div>
+            <div class="text-[10px] font-mono text-slate-400 uppercase">CORE STACK</div>
+            <div class="text-xs font-mono text-slate-700 dark:text-slate-300 leading-relaxed mt-0.5">
+              Python 3.12 • YOLOv8 • SORT (Kalman) • OpenCV • SMTP Protocol • DroidCam RTSP
+            </div>
+          </div>
+
+          <div>
+            <div class="text-[10px] font-mono text-slate-400 uppercase">HARDWARE BOM COST</div>
+            <div class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 font-mono">200 BDT (~$1.70 USD)</div>
+          </div>
+
+          <div>
+            <div class="text-[10px] font-mono text-slate-400 uppercase">VALIDATION STATUS</div>
+            <div class="text-sm font-semibold text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check text-xs"></i> Empirically Validated Prototype
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-200/70 dark:border-slate-800 space-y-2">
+            <a href="#presentation-viewer" class="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold text-white bg-brand-600 hover:bg-brand-500 transition flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-file-powerpoint text-xs"></i> Browse Slide Deck (22 Slides)
+            </a>
+            <a href="../assets/docs/posters/limiteye-traffic-poster.pdf" target="_blank" rel="noopener noreferrer" download class="w-full py-2 px-4 rounded-xl text-center text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-file-pdf text-rose-500"></i> Download Academic Poster
+            </a>
+            <a href="../index.html#posters" class="w-full py-2 px-4 rounded-xl text-center text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-arrow-left text-xs"></i> View All Research Posters
             </a>
           </div>
         </div>
+
+        <!-- Sticky Table of Contents -->
+        <div class="sticky top-24 p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-3">
+          <h3 class="font-display font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white border-b border-slate-200/60 dark:border-slate-800 pb-2.5">
+            Contents Navigation
+          </h3>
+          <nav class="space-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
+            <a href="#presentation-viewer" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">00. Slide Deck Viewer</a>
+            <a href="#problem-context" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">01. Highway Safety Crisis</a>
+            <a href="#system-architecture" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">02. 6-Stage Pipeline</a>
+            <a href="#computer-vision-yolo" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">03. Custom YOLOv8 &amp; ALPR</a>
+            <a href="#sort-tracking" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">04. SORT Kalman Tracking</a>
+            <a href="#speed-measurement" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">05. Kinematic Geometry</a>
+            <a href="#automated-penalty" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">06. SMTP Invoicing</a>
+            <a href="#empirical-results" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">07. Empirical Results</a>
+            <a href="#bom-economics" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">08. Frugal BOM Cost</a>
+            <a href="#limitations" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">09. Boundary Conditions</a>
+            <a href="#future-work" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">10. Future Roadmap</a>
+            <a href="#academic-references" class="block hover:text-brand-600 dark:hover:text-brand-400 transition py-0.5">11. Citations &amp; Credits</a>
+          </nav>
+        </div>
+
       </aside>
+
     </div>
 
   </main>
 
   <footer class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500 backdrop-blur-md">
-    <p>© 2026 Md. Ratul Hasan • <a href="../index.html" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
+    <p>&copy; 2026 Md. Ratul Hasan &bull; <a href="../index.html" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
   </footer>
 
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- JAVASCRIPT: SLIDE VIEWER, SIMULATOR, THEME TOGGLE           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
   <script>
+    // Theme Toggle Initialization
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
@@ -198,6 +1259,177 @@
         localStorage.theme = 'dark';
       }
     });
+
+    // ─────────────────────────────────────────────────────────────
+    // Presentation Slide Deck Viewer Logic
+    // ─────────────────────────────────────────────────────────────
+    const TOTAL_SLIDES = 22;
+    let currentSlide = 1;
+
+    const slideTitles = [
+      "Slide 1: Title & Authors (LimitEye Seminar Presentation)",
+      "Slide 2: Background (Highway Accident Epidemic in Bangladesh)",
+      "Slide 3: Background Statistics (2024 Accident, Death & Injury Trends)",
+      "Slide 4: Conventional Speed Control (Handheld Radar Gun Bottlenecks)",
+      "Slide 5: Introduction to LimitEye (Physical Prototype Scaled Vehicle)",
+      "Slide 6: System Methodology (6-Stage Modular Processing Pipeline)",
+      "Slide 7: Video Feed Ingestion (DroidCam Mobile Integration & CCTV)",
+      "Slide 8: Object Detection (Ultralytics YOLOv8 Architecture)",
+      "Slide 9: Custom Dataset Annotation (LabelImg Multi-Angle Boxes)",
+      "Slide 10: Model Training Execution (Google Colab T4 Cloud GPU)",
+      "Slide 11: Multi-Object Tracking (SORT Kalman Filter & Hungarian IoU)",
+      "Slide 12: Speed Measurement (Pixel-to-Real-World Distance Formulation)",
+      "Slide 13: Comparative Sensing Alternatives (Radar vs. LiDAR 3D Fusion)",
+      "Slide 14: Dynamic Overspeed Detection (Configurable Zone Thresholds)",
+      "Slide 15: Penalty Invoice Generation & SMTP Dispatch Protocol",
+      "Slide 16: Empirical Results (PyCharm Real-Time Stream & Gmail Invoice)",
+      "Slide 17: Engineering Limitations (Perspective, Weather & Hardware)",
+      "Slide 18: Future Work & Architectural Roadmap (BRTA Database & Portal)",
+      "Slide 19: Technology Stack & Component Credits",
+      "Slide 20: Bill of Materials & Costs (200 BDT Low-Cost Prototype)",
+      "Slide 21: Formal Citations & References (BRTA & Alex Bewley SORT)",
+      "Slide 22: Conclusion & Seminar Q&A"
+    ];
+
+    const slideDescriptions = [
+      "Course EEE 3200 • Supervised by Dr. Engr. Imran Khan (JUST)",
+      "National media reports: 35,000 lives lost, Tk 880bn cost in 5.5 years",
+      "Monthly accident trends from Jan 2024 to Dec 2024",
+      "Manual policing hazards, selective enforcement, and lack of scalability",
+      "1:24 scaled prototype vehicle with authentic Bengali number plates",
+      "From optical video feed to automated SMTP violation penalty dispatch",
+      "Sub-millisecond IP RTSP video ingestion for edge processing",
+      "Convolutional bounding box prediction for vehicles and license plates",
+      "PASCAL VOC / YOLO annotation formats across 6 orthogonal angles",
+      "225 layers, 3.01M parameters, 8.2 GFLOPs trained over 100 epochs",
+      "Deterministic 7-dimensional state vector propagation at >60 FPS",
+      "Kinematic formulation: v = (delta_p * K) / (delta_f * (1/FPS)) * 3.6",
+      "Detailed trade-off analysis of Monocular vs. LiDAR vs. Doppler Radar",
+      "Dynamic threshold evaluation based on highway vs. urban zoning",
+      "Automated PDF/HTML document synthesis and instant SMTP delivery",
+      "Inference verified at 34.9ms per frame with verified Gmail receipt",
+      "Boundary condition analysis of single-camera optical systems",
+      "Integration with BRTA registry, citizen mobile app, and SMS gateway",
+      "Python 3.12, YOLOv8, SORT, OpenCV, Google Colab, DroidCam, SMTP",
+      "Total hardware prototype cost: 200 BDT (~$1.70 USD)",
+      "BRTA regulatory guidelines and IEEE ICIP SORT publication",
+      "Electrical and Electronic Engineering, JUST"
+    ];
+
+    const activeSlideImg = document.getElementById('activeSlideImg');
+    const slideCounterBadge = document.getElementById('slideCounterBadge');
+    const activeSlideTitle = document.getElementById('activeSlideTitle');
+    const activeSlideDescription = document.getElementById('activeSlideDescription');
+    const thumbnailStrip = document.getElementById('slideThumbnailStrip');
+
+    function updateSlide(slideNum) {
+      if (slideNum < 1) slideNum = TOTAL_SLIDES;
+      if (slideNum > TOTAL_SLIDES) slideNum = 1;
+      currentSlide = slideNum;
+
+      activeSlideImg.style.opacity = '0.4';
+      setTimeout(() => {
+        activeSlideImg.src = `../assets/images/projects/limiteye/slides/slide-${currentSlide}.png`;
+        activeSlideImg.alt = `LimitEye Presentation Slide ${currentSlide}`;
+        activeSlideImg.style.opacity = '1';
+      }, 100);
+
+      slideCounterBadge.textContent = `Slide ${currentSlide} / ${TOTAL_SLIDES}`;
+      activeSlideTitle.textContent = slideTitles[currentSlide - 1];
+      activeSlideDescription.textContent = slideDescriptions[currentSlide - 1];
+
+      // Update thumbnail active ring
+      document.querySelectorAll('.slide-thumb').forEach((thumb, idx) => {
+        if (idx + 1 === currentSlide) {
+          thumb.classList.add('active', 'ring-2', 'ring-brand-500');
+          thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          thumb.classList.remove('active', 'ring-2', 'ring-brand-500');
+        }
+      });
+    }
+
+    // Populate Thumbnail Strip
+    for (let i = 1; i <= TOTAL_SLIDES; i++) {
+      const btn = document.createElement('button');
+      btn.className = `slide-thumb flex-shrink-0 w-24 sm:w-28 aspect-video rounded-lg overflow-hidden border border-slate-300 dark:border-slate-800 bg-slate-900 transition hover:opacity-100 ${i === 1 ? 'active ring-2 ring-brand-500' : 'opacity-70'}`;
+      btn.setAttribute('aria-label', `Jump to Slide ${i}`);
+      btn.innerHTML = `
+        <img src="../assets/images/projects/limiteye/slides/slide-${i}.png" 
+             alt="Thumb ${i}" 
+             loading="lazy" 
+             class="w-full h-full object-cover pointer-events-none">
+      `;
+      btn.addEventListener('click', () => updateSlide(i));
+      thumbnailStrip.appendChild(btn);
+    }
+
+    document.getElementById('prevSlideBtn').addEventListener('click', () => updateSlide(currentSlide - 1));
+    document.getElementById('nextSlideBtn').addEventListener('click', () => updateSlide(currentSlide + 1));
+    document.getElementById('overlayPrevBtn').addEventListener('click', () => updateSlide(currentSlide - 1));
+    document.getElementById('overlayNextBtn').addEventListener('click', () => updateSlide(currentSlide + 1));
+
+    // Keyboard Arrow Keys Navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowLeft') {
+        updateSlide(currentSlide - 1);
+      } else if (e.key === 'ArrowRight') {
+        updateSlide(currentSlide + 1);
+      }
+    });
+
+    // Fullscreen Toggle
+    const fullscreenSlideBtn = document.getElementById('fullscreenSlideBtn');
+    const slideDisplayContainer = document.getElementById('slideDisplayContainer');
+    fullscreenSlideBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        slideDisplayContainer.requestFullscreen().catch(err => console.log(err));
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    // ─────────────────────────────────────────────────────────────
+    // Interactive Speed Simulator Logic
+    // ─────────────────────────────────────────────────────────────
+    const calcPixelInput = document.getElementById('calcPixelInput');
+    const calcScaleInput = document.getElementById('calcScaleInput');
+    const calcLimitInput = document.getElementById('calcLimitInput');
+    const calcPixelVal = document.getElementById('calcPixelVal');
+    const calcScaleVal = document.getElementById('calcScaleVal');
+    const calcLimitVal = document.getElementById('calcLimitVal');
+    const calcSpeedResult = document.getElementById('calcSpeedResult');
+    const calcStatusBadge = document.getElementById('calcStatusBadge');
+
+    function calculateLiveSpeed() {
+      const pixels = parseFloat(calcPixelInput.value);
+      const scale = parseFloat(calcScaleInput.value);
+      const limit = parseFloat(calcLimitInput.value);
+
+      calcPixelVal.textContent = `${pixels} px`;
+      calcScaleVal.textContent = `${scale.toFixed(2)} m/px`;
+      calcLimitVal.textContent = `${limit} km/h`;
+
+      // Assuming standard 30 FPS over 30 elapsed frames (i.e. exactly 1.0 second transit)
+      const distanceMeters = pixels * scale;
+      const speedKmh = (distanceMeters / 1.0) * 3.6;
+
+      calcSpeedResult.textContent = `${speedKmh.toFixed(1)} km/h`;
+
+      if (speedKmh > limit) {
+        calcStatusBadge.className = 'px-4 py-2 rounded-xl text-xs font-bold font-mono uppercase tracking-wider flex items-center gap-2 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20';
+        calcStatusBadge.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> OVERSPEED VIOLATION (+${(speedKmh - limit).toFixed(1)} km/h)`;
+      } else {
+        calcStatusBadge.className = 'px-4 py-2 rounded-xl text-xs font-bold font-mono uppercase tracking-wider flex items-center gap-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20';
+        calcStatusBadge.innerHTML = `<i class="fa-solid fa-circle-check"></i> SPEED COMPLIANT (WITHIN LIMIT)`;
+      }
+    }
+
+    calcPixelInput.addEventListener('input', calculateLiveSpeed);
+    calcScaleInput.addEventListener('input', calculateLiveSpeed);
+    calcLimitInput.addEventListener('input', calculateLiveSpeed);
+    calculateLiveSpeed();
   </script>
 </body>
 </html>

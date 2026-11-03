@@ -1,6 +1,8 @@
 import { initThemeToggle } from './theme.js';
 import { projectsData } from './data/projects.js';
 import { renderProjects } from './components/renderProjects.js';
+import { postersData } from './data/posters.js';
+import { renderPosters } from './components/renderPosters.js';
 import { awardsData } from './data/awards.js';
 import { experienceData } from './data/experience.js';
 import { auditData, trainingCourses, industrialVisits } from './data/training.js';
@@ -12,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Projects (Cards with Image/GIF Support or Themed Tech Headers)
   renderProjects(projectsData, 'projects-grid');
+
+  // Render Research & Engineering Posters
+  renderPosters(postersData, 'posters-grid');
 
   // Render Awards & Competitions (Cards with Picture/Media Support or Themed Tech Headers)
   const awardsContainer = document.getElementById('awards-grid');

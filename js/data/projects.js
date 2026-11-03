@@ -41,12 +41,12 @@ export const projectsData = [
   {
     id: "limiteye",
     title: "LimitEye: Speed & License Plate Recognition",
-    category: "Archived Prototype",
-    year: "Computer Vision",
-    description: "Engineered a computer vision system designed to monitor vehicular movement, calculate transit velocity across calibrated reference coordinates from video streams, and extract plate characters via automated license plate recognition (ALPR).",
-    tags: ["Python", "OpenCV", "ALPR", "Object Tracking"],
-    media: null,
-    mediaAlt: "LimitEye pipeline",
+    category: "Computer Vision & Edge ML",
+    year: "2024 – 2025",
+    description: "Engineered an end-to-end intelligent traffic monitoring and automated penalty pipeline. Integrates custom YOLOv8 detection (91.0% accuracy), SORT Kalman-filter multi-object tracking, optical pixel-to-metric velocity calibration (~34.9ms inference latency), and automated violation invoicing dispatched via SMTP with Bengali license plate character extraction.",
+    tags: ["Python 3.12", "Ultralytics YOLOv8", "SORT Tracking", "OpenCV", "Bengali ALPR", "Coordinate Calibration", "SMTP Protocol", "Sub-35ms Inference"],
+    media: "assets/images/thumbnails/limiteye.png",
+    mediaAlt: "LimitEye Computer Vision Detection & Automated Penalty Dashboard",
     githubUrl: null,
     caseStudyUrl: "projects/limiteye.html",
     badgeText: "Vision Pipeline"

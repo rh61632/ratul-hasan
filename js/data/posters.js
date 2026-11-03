@@ -1,0 +1,81 @@
+export const postersData = [
+  {
+    id: "truepulse",
+    title: "Piercing the Invisible Shield: Dynamic Morphological Correction of Fetal ECG using Generative AI",
+    shortTitle: "TruePulse: Biophysical Fetal ECG Correction via Generative AI",
+    category: "Biomedical Signal Processing & Generative AI",
+    year: "2025 – 2026",
+    authors: "Md. Ratul Hasan, Masaba Rahman Suchi",
+    affiliation: "Dept. of Electrical and Electronic Engineering, JUST",
+    badgeText: "Biomedical AI & Generative Models",
+    orientation: "landscape",
+    isWinner: true,
+    awardWon: "2nd Runner-Up (3rd Place Nationwide) • REACT 2026",
+    awardUrl: "projects/react-2026.html",
+    summary: "Engineered a biophysically-constrained 1D-CycleGAN domain translation pipeline to invert the 15,000× resistive dielectric shielding of vernix caseosa (σ ≈ 10⁻⁴ S/m) during gestational weeks 28–32. Recovers diagnostic P-QRS-T fetal morphology from non-invasive maternal abdominal mixtures without requiring invasive fetal scalp electrodes.",
+    tags: ["1D-CycleGAN", "3D FEM Biophysical Twin", "Lead-Field Matrix", "Vernix Shielding", "Morphological Gradient Loss", "PhysioNet CinC 2013", "Edge-AI 8-bit ResNet"],
+    highlights: [
+      "3D Finite Element Method (FEM) model with >1.2M tetrahedral elements solving ∇·(σ∇Φ) = 0 across segmented anatomical boundaries.",
+      "16-Channel Abdominal Lead-Field Projection Grid mapping dynamic 3D cardiac dipole vectors to maternal skin coordinates.",
+      "Morphological gradient penalty enforcing ||∇_t G(x) - ∇_t y||_1 to lock true QRS slope steepness and prevent phantom hallucination.",
+      "Aims to reduce the 60% false-positive emergency C-section rate caused by Doppler cardiotocography (CTG) sensor blindspots."
+    ],
+    thumbUrl: "assets/images/posters/truepulse-thumb.jpg",
+    fullImageUrl: "assets/images/posters/truepulse-poster.png",
+    pdfUrl: "assets/docs/posters/truepulse-fetal-ecg.pdf",
+    caseStudyUrl: null
+  },
+  {
+    id: "ev-charging-opf",
+    title: "A Multi-Objective Optimal Power Flow (OPF) Algorithm for Electric Vehicle Charging to Ensure National Grid Stability in Bangladesh",
+    shortTitle: "Multi-Objective OPF for EV Charging & National Grid Stability",
+    category: "Smart Grid & Energy Systems Optimization",
+    year: "2025",
+    authors: "Md. Ratul Hasan, Md. Sayed Parvej",
+    affiliation: "Dept. of Electrical and Electronic Engineering, JUST",
+    badgeText: "Smart Grid Optimization",
+    orientation: "portrait",
+    isWinner: false,
+    awardWon: null,
+    awardUrl: null,
+    summary: "Formulated a multi-objective Optimal Power Flow (OPF) algorithmic framework designed to mitigate severe distribution transformer overheating and feeder blackouts caused by unregulated EV charging during Bangladesh's evening peak demand window (18:00–21:00).",
+    tags: ["Multi-Objective OPF", "Smart Grid", "EV Charging", "Dynamic ToU Pricing", "Peak Shaving", "Transformer Thermal Limits", "Solar Integration"],
+    highlights: [
+      "Mathematical formulation minimizing multi-term cost: min J = ω₁(Cost) + ω₂(GridStress) - ω₃(GreenEnergy).",
+      "Rigid constraints enforcing voltage stability (V_min ≤ V_i ≤ V_max), line thermal capacity (S_flow ≤ S_max), and driver departure SoC targets.",
+      "Integrates Dynamic Time-of-Use (ToU) price incentives and optimizes charging synchrony with daytime solar photovoltaic generation.",
+      "Provides a scalable software control architecture to sustainably integrate the Bangladesh Government's 30% national EV target by 2030."
+    ],
+    thumbUrl: "assets/images/posters/ev-charging-thumb.jpg",
+    fullImageUrl: "assets/images/posters/ev-charging-opf-poster.png",
+    pdfUrl: "assets/docs/posters/ev-charging-opf-grid.pdf",
+    caseStudyUrl: null
+  },
+  {
+    id: "limiteye-poster",
+    title: "LimitEye: Overspeeding Detection and Automated Penalty System Using Machine Learning",
+    shortTitle: "LimitEye: Speed & License Plate Recognition Seminar Poster",
+    category: "Edge Computer Vision & Intelligent Transportation",
+    year: "2024 – 2025",
+    authors: "Syed Shakib Shahriar Islam, Md. Ratul Hasan",
+    supervisor: "Dr. Imran Khan, Associate Professor, EEE, JUST",
+    affiliation: "Dept. of Electrical and Electronic Engineering, JUST",
+    badgeText: "Computer Vision & ITS",
+    orientation: "portrait",
+    isWinner: false,
+    awardWon: null,
+    awardUrl: null,
+    summary: "Engineered an end-to-end intelligent speed monitoring and automated violation ticketing system. Synthesizes custom Ultralytics YOLOv8 detection, SORT Kalman-filter multi-object tracking, and optical pixel-to-metric velocity calibration with transactional SMTP email fine delivery.",
+    tags: ["Ultralytics YOLOv8", "SORT Multi-Tracking", "Bengali ALPR", "Coordinate Geometry", "SMTP Email Invoicing", "Sub-35ms Inference", "৳200 Hardware BOM"],
+    highlights: [
+      "Custom YOLOv8 detector trained on cloud GPU for dual extraction of vehicular bounding boxes and localized Bengali number plates.",
+      "SORT algorithm with Kalman-filter state estimation and Hungarian bipartite matching sustaining >60 FPS tracking throughput.",
+      "Closed-loop automated penalty invoice engine delivering formal BRTA citations to registered vehicle owners via SMTP in 1.2 seconds.",
+      "Low-barrier experimental validation: tested on 1:24 physical die-cast testbed with ৳200 (~$1.70 USD) total hardware expenditure."
+    ],
+    thumbUrl: "assets/images/posters/limiteye-thumb.jpg",
+    fullImageUrl: "assets/images/posters/limiteye-poster.png",
+    pdfUrl: "assets/docs/posters/limiteye-traffic-poster.pdf",
+    caseStudyUrl: "projects/limiteye.html"
+  }
+];
