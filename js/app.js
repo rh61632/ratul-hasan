@@ -4,6 +4,7 @@ import { renderProjects } from './components/renderProjects.js';
 import { postersData } from './data/posters.js';
 import { renderPosters } from './components/renderPosters.js';
 import { awardsData } from './data/awards.js';
+import { renderAwards } from './components/renderAwards.js';
 import { experienceData } from './data/experience.js';
 import { auditData, trainingCourses, industrialVisits } from './data/training.js';
 import { getThemedHeaderMarkup } from './components/cardBanners.js';
@@ -18,87 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Research & Engineering Posters
   renderPosters(postersData, 'posters-grid');
 
-  // Render Awards & Competitions (Cards with Picture/Media Support or Themed Tech Headers)
-  const awardsContainer = document.getElementById('awards-grid');
-  if (awardsContainer) {
-    awardsContainer.innerHTML = awardsData.map(award => {
-      const mediaBlock = award.media
-        ? `
-          <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center">
-            <img 
-              src="${award.media}" 
-              alt="${award.mediaAlt || award.title}" 
-              loading="lazy"
-              class="w-full h-full object-cover"
-            />
-          </div>
-        `
-        : getThemedHeaderMarkup(award, 'award');
-
-      const championDecoration = award.isChampion
-        ? `<div class="absolute top-0 right-0 w-20 h-20 bg-brand-500/10 rounded-bl-full pointer-events-none"></div>`
-        : '';
-
-      const borderStyle = award.isChampion
-        ? 'border-brand-200/50 dark:border-brand-900/40'
-        : 'border-white/40 dark:border-white/[0.08]';
-
-      const cursorClass = award.caseStudyUrl ? 'cursor-pointer' : '';
-      const dataUrlAttr = award.caseStudyUrl ? `data-url="${award.caseStudyUrl}"` : '';
-
-      const titleMarkup = award.caseStudyUrl
-        ? `<h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
-             ${award.title} <i class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition"></i>
-           </h3>`
-        : `<h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">${award.title}</h3>`;
-
-      const footerExtra = award.caseStudyUrl
-        ? `<span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 text-xs transition">
-             Details <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
-           </span>`
-        : '';
-
-      return `
-        <div class="award-card group p-6 rounded-2xl bg-white/30 dark:bg-slate-900/30 backdrop-blur-2xl border ${borderStyle} ring-1 ring-white/20 dark:ring-white/[0.05] shadow-[0_8px_32px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgb(0,0,0,0.35)] hover:bg-white/40 dark:hover:bg-slate-900/40 hover:border-brand-500/50 hover:shadow-[0_12px_36px_0_rgba(13,148,136,0.15)] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${cursorClass}" ${dataUrlAttr}>
-          ${championDecoration}
-          <div>
-            ${mediaBlock}
-            <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 mb-2">
-              <i class="${award.icon} text-base"></i>
-              <span class="text-xs font-mono font-bold uppercase tracking-wider">${award.rank}</span>
-            </div>
-            ${titleMarkup}
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-              ${award.event}
-            </p>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-              ${award.description}
-            </p>
-          </div>
-          <div class="mt-5 pt-3 border-t border-slate-200/70 dark:border-slate-800 text-xs font-mono text-slate-400 flex items-center justify-between">
-            <span>${award.date}</span>
-            ${footerExtra}
-          </div>
-        </div>
-      `;
-    }).join('');
-
-    // Attach click handlers for award cards with case study URLs
-    awardsContainer.querySelectorAll('.award-card').forEach(card => {
-      const url = card.dataset.url;
-      if (url) {
-        card.addEventListener('click', (e) => {
-          const clickedAnchor = e.target.closest('a');
-          if (clickedAnchor) return;
-          if (e.metaKey || e.ctrlKey) {
-            window.open(url, '_blank');
-          } else {
-            window.location.href = url;
-          }
-        });
-      }
-    });
-  }
+  // Render Awards & Competitions (Horizontal Expanding Accordion with Rich Media & Full Case Study Previews)
+  renderAwards(awardsData, 'awards-grid');
 
   // Render Experience
   const expContainer = document.getElementById('experience-list');

@@ -280,14 +280,20 @@
 
     <!-- Awards Section -->
     <section id="awards" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-28">
-      <div class="mb-8">
-        <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold">// Recognition</span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 font-display">
-          Competitions & Honors
-        </h2>
+      <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold">// Recognition</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 font-display">
+            Competitions &amp; Honors
+          </h2>
+        </div>
+        <p class="hidden lg:flex items-center gap-2 text-xs font-mono text-slate-400">
+          <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+          <span>Hover cards to expand details</span>
+        </p>
       </div>
 
-      <div id="awards-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"></div>
+      <div id="awards-grid" class="awards-expand-container"></div>
     </section>
 
     <!-- Experience Section (Mounted via JS) -->
