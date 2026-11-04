@@ -14,7 +14,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -26,6 +26,7 @@
             sans: ["Inter", "sans-serif"],
             display: ["Plus Jakarta Sans", "sans-serif"],
             mono: ["JetBrains Mono", "monospace"],
+            serif: ["'Cormorant Garamond'", "Georgia", "serif"],
           },
           colors: {
             brand: {
@@ -81,6 +82,76 @@
   </header>
 
   <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-24 w-full max-w-screen-2xl mx-auto space-y-12">
+
+    <!-- ==========================================================================
+         Grand Thesis Book Dedication Banner / Epigraph
+         ========================================================================== -->
+    <section class="relative overflow-hidden rounded-3xl p-6 sm:p-8 md:p-10 border border-brand-300/60 dark:border-brand-500/30 bg-gradient-to-br from-white/90 via-brand-50/25 to-white/70 dark:from-surface-card/90 dark:via-surface-dark/85 dark:to-brand-950/25 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(20,184,166,0.08)] dark:shadow-[0_12px_40px_0_rgba(0,0,0,0.45)] transition-all duration-300 group">
+      <!-- Ambient Decorative Glows -->
+      <div class="absolute -right-16 -top-16 w-72 h-72 bg-brand-500/15 dark:bg-brand-400/10 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-500/20 transition-all duration-700"></div>
+      <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Subtle Top Glowing Accent Line -->
+      <div class="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-brand-500/70 dark:via-brand-400/60 to-transparent"></div>
+
+      <!-- Watermark Stylized Quotation Mark -->
+      <div class="absolute right-4 sm:right-10 top-1/2 -translate-y-1/2 select-none pointer-events-none text-brand-600/[0.04] dark:text-brand-300/[0.03] font-serif text-[7rem] sm:text-[10rem] md:text-[12rem] leading-none italic font-bold">
+        ”
+      </div>
+
+      <div class="relative z-10 space-y-4 sm:space-y-5">
+        <!-- Top Metadata & Pill Bar -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 border border-brand-300/50 dark:border-brand-800/60 shadow-sm">
+              <i class="fa-solid fa-feather-pointed text-brand-500"></i>
+              Thesis Book Dedication
+            </span>
+            <span class="text-xs text-slate-300 dark:text-slate-700 hidden sm:inline select-none">•</span>
+            <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 tracking-wide">
+              Official Monograph Inscription
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono text-slate-600 dark:text-slate-300 bg-white/70 dark:bg-white/[0.04] border border-slate-200/80 dark:border-white/10 shadow-sm">
+              <i class="fa-solid fa-heart text-rose-500 text-[10px]"></i>
+              Human-Centered Assistive Bionics
+            </span>
+          </div>
+        </div>
+
+        <!-- The Grand Dedication Quote -->
+        <blockquote class="my-2 sm:my-3">
+          <p class="font-serif italic text-2xl sm:text-3xl md:text-4xl lg:text-[2.85rem] font-medium tracking-normal text-slate-900 dark:text-white leading-snug sm:leading-tight">
+            <span class="text-brand-600/70 dark:text-brand-400/80 font-serif not-italic mr-1 select-none text-2xl sm:text-3xl md:text-4xl">“</span>Raising our hands for the people who cannot.<span class="text-brand-600/70 dark:text-brand-400/80 font-serif not-italic ml-1 select-none text-2xl sm:text-3xl md:text-4xl">”</span>
+          </p>
+        </blockquote>
+
+        <!-- Inscription Context Note -->
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-sans leading-relaxed max-w-3xl">
+          Inscribed on the opening dedication page of the undergraduate thesis monograph — an enduring pledge that every circuit, neural inference, and tendon-driven articulation was engineered to restore functional autonomy to individuals with upper-limb differences.
+        </p>
+
+        <!-- Attribution and University Context -->
+        <div class="pt-3.5 border-t border-slate-200/70 dark:border-white/[0.08] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-slate-600 dark:text-slate-400 font-mono">
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span class="inline-flex items-center gap-1.5 font-semibold text-slate-800 dark:text-slate-200">
+              <i class="fa-solid fa-graduation-cap text-brand-500 text-sm"></i>
+              B.Sc. Capstone Thesis
+            </span>
+            <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+            <span>Dept. of Electrical and Electronic Engineering</span>
+            <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+            <span>JUST</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-brand-700 dark:text-brand-300 text-[11px] sm:text-xs">
+            <i class="fa-solid fa-hand-holding-heart text-xs text-rose-500"></i>
+            <span>Dedicated to Upper-Limb Amputees</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Hero Header -->
     <div class="max-w-5xl space-y-4">
