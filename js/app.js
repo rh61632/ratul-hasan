@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Projects (Cards with Image/GIF Support or Themed Tech Headers)
   renderProjects(projectsData, 'projects-grid');
 
-  // Render Research & Engineering Posters
-  renderPosters(postersData, 'posters-grid');
-
   // Render Awards & Competitions (Horizontal Expanding Accordion with Rich Media & Full Case Study Previews)
   renderAwards(awardsData, 'awards-grid');
+
+  // Render Research & Engineering Posters
+  renderPosters(postersData, 'posters-grid');
 
   // Render Experience
   const expContainer = document.getElementById('experience-list');
