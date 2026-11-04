@@ -99,37 +99,61 @@
         ”
       </div>
 
-      <div class="relative z-10 space-y-4 sm:space-y-5">
-        <!-- Top Metadata & Pill Bar -->
-        <div class="flex items-center">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 border border-brand-300/50 dark:border-brand-800/60 shadow-sm">
-            <i class="fa-solid fa-feather-pointed text-brand-500"></i>
-            Dedication
-          </span>
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Left Content: Epigraph & Inscription -->
+        <div class="lg:col-span-7 xl:col-span-8 space-y-4 sm:space-y-5">
+          <!-- Top Metadata & Pill Bar -->
+          <div class="flex items-center">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 border border-brand-300/50 dark:border-brand-800/60 shadow-sm">
+              <i class="fa-solid fa-feather-pointed text-brand-500"></i>
+              Dedication
+            </span>
+          </div>
+
+          <!-- The Grand Dedication Quote -->
+          <blockquote class="my-2 sm:my-3">
+            <p class="font-serif italic text-2xl sm:text-3xl md:text-4xl lg:text-[2.85rem] font-medium tracking-normal text-slate-900 dark:text-white leading-snug sm:leading-tight">
+              <span class="text-brand-600/70 dark:text-brand-400/80 font-serif not-italic mr-1 select-none text-2xl sm:text-3xl md:text-4xl">“</span>Raising our hands for the people who cannot.<span class="text-brand-600/70 dark:text-brand-400/80 font-serif not-italic ml-1 select-none text-2xl sm:text-3xl md:text-4xl">”</span>
+            </p>
+          </blockquote>
+
+          <!-- Dedication Context Note -->
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-sans leading-relaxed max-w-2xl">
+            An enduring pledge and a humble contribution to this field — that every circuit, neural inference, and mechanical motion was engineered to take a small step toward restoring functional autonomy to individuals with upper-limb differences.
+          </p>
+
+          <!-- Attribution and University Context -->
+          <div class="pt-3.5 border-t border-slate-200/70 dark:border-white/[0.08] flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-600 dark:text-slate-400 font-mono">
+            <span class="inline-flex items-center gap-1.5 font-semibold text-slate-800 dark:text-slate-200">
+              <i class="fa-solid fa-graduation-cap text-brand-500 text-sm"></i>
+              B.Sc. Capstone Thesis
+            </span>
+            <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+            <span>Dept. of Electrical and Electronic Engineering</span>
+            <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+            <span>JUST</span>
+          </div>
         </div>
 
-        <!-- The Grand Dedication Quote -->
-        <blockquote class="my-2 sm:my-3">
-          <p class="font-serif italic text-2xl sm:text-3xl md:text-4xl lg:text-[2.85rem] font-medium tracking-normal text-slate-900 dark:text-white leading-snug sm:leading-tight">
-            <span class="text-brand-600/70 dark:text-brand-400/80 font-serif not-italic mr-1 select-none text-2xl sm:text-3xl md:text-4xl">“</span>Raising our hands for the people who cannot.<span class="text-brand-600/70 dark:text-brand-400/80 font-serif not-italic ml-1 select-none text-2xl sm:text-3xl md:text-4xl">”</span>
-          </p>
-        </blockquote>
-
-        <!-- Dedication Context Note -->
-        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-sans leading-relaxed max-w-3xl">
-          An enduring pledge and a humble contribution to this field — that every circuit, neural inference, and mechanical motion was engineered to take a small step toward restoring functional autonomy to individuals with upper-limb differences.
-        </p>
-
-        <!-- Attribution and University Context -->
-        <div class="pt-3.5 border-t border-slate-200/70 dark:border-white/[0.08] flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-600 dark:text-slate-400 font-mono">
-          <span class="inline-flex items-center gap-1.5 font-semibold text-slate-800 dark:text-slate-200">
-            <i class="fa-solid fa-graduation-cap text-brand-500 text-sm"></i>
-            B.Sc. Capstone Thesis
-          </span>
-          <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
-          <span>Dept. of Electrical and Electronic Engineering</span>
-          <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
-          <span>JUST</span>
+        <!-- Right Content: Physical Prototype Preview Card -->
+        <div class="hidden lg:block lg:col-span-5 xl:col-span-4">
+          <div class="relative rounded-2xl overflow-hidden border border-white/80 dark:border-white/10 shadow-xl shadow-brand-900/5 group/img bg-slate-900 cursor-pointer"
+               onclick="openLightbox('assets/images/thumbnails/prosthetic.jpg', 'Physical Bionic Arm Prototype', 'Assembled 3D-printed bionic hand prototype in the laboratory with neural intent classification and tendon-driven actuation.')">
+            <img src="../assets/images/thumbnails/prosthetic.jpg" 
+                 alt="3D Printed Prosthetic Arm Prototype" 
+                 class="w-full h-48 xl:h-52 object-cover object-center group-hover/img:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none"></div>
+            <div class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md text-[10px] font-mono text-white/80 border border-white/10 flex items-center gap-1 opacity-0 group-hover/img:opacity-100 transition-opacity">
+              <i class="fa-solid fa-expand text-[9px]"></i> Expand
+            </div>
+            <div class="absolute bottom-2.5 inset-x-3 flex items-center justify-between text-[11px] font-mono text-white">
+              <span class="flex items-center gap-1.5 drop-shadow">
+                <i class="fa-solid fa-robot text-brand-400"></i>
+                Physical Prototype
+              </span>
+              <span class="text-white/70 text-[10px] drop-shadow">JUST MNIL Lab</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
