@@ -135,21 +135,25 @@
           </div>
         </div>
 
-        <!-- Right Content: Physical Prototype Preview Card -->
+        <!-- Right Content: Hardware Circuit & Microcontroller Prototype Card -->
         <div class="hidden lg:block lg:col-span-5 xl:col-span-4">
-          <div class="relative rounded-2xl overflow-hidden border border-white/80 dark:border-white/10 shadow-xl shadow-brand-900/5 group/img bg-slate-900 cursor-pointer"
-               onclick="openLightbox('assets/images/thumbnails/prosthetic.jpg', 'Physical Bionic Arm Prototype', 'Assembled 3D-printed bionic hand prototype in the laboratory with neural intent classification and tendon-driven actuation.')">
-            <img src="../assets/images/thumbnails/prosthetic.jpg" 
-                 alt="3D Printed Prosthetic Arm Prototype" 
+          <div class="relative rounded-2xl overflow-hidden border border-white/80 dark:border-white/10 shadow-xl shadow-brand-900/10 group/img bg-slate-900 cursor-pointer"
+               onclick="openLightbox('assets/images/projects/prosthetic/circuit_prototype.jpg', 'ESP32-S3 Embedded Rig &amp; 3-Channel sEMG Circuit', 'Raw hardware validation setup showing the 3-channel analog front-end conditioning boards, Ag/AgCl surface electrodes, and bare-metal ESP32-S3 TinyML microcontroller.')">
+            <img src="../assets/images/projects/prosthetic/circuit_prototype.jpg" 
+                 alt="ESP32-S3 sEMG Circuit Breadboard Prototype" 
                  class="w-full h-48 xl:h-52 object-cover object-center group-hover/img:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none"></div>
-            <div class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md text-[10px] font-mono text-white/80 border border-white/10 flex items-center gap-1 opacity-0 group-hover/img:opacity-100 transition-opacity">
+            <div class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-white/90 border border-white/15 flex items-center gap-1.5 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Live Inference Rig
+            </div>
+            <div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md text-[10px] font-mono text-white/80 border border-white/10 flex items-center gap-1 opacity-0 group-hover/img:opacity-100 transition-opacity">
               <i class="fa-solid fa-expand text-[9px]"></i> Expand
             </div>
             <div class="absolute bottom-2.5 inset-x-3 flex items-center justify-between text-[11px] font-mono text-white">
               <span class="flex items-center gap-1.5 drop-shadow">
-                <i class="fa-solid fa-robot text-brand-400"></i>
-                Physical Prototype
+                <i class="fa-solid fa-microchip text-brand-400"></i>
+                ESP32-S3 &amp; 3-Ch sEMG
               </span>
               <span class="text-white/70 text-[10px] drop-shadow">JUST MNIL Lab</span>
             </div>
