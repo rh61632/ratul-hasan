@@ -303,13 +303,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle initial hash navigation when returning from a case study or external link
-  if (window.location.hash) {
-    const targetElement = document.querySelector(window.location.hash);
-    if (targetElement) {
-      setTimeout(() => {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
+  // Save scroll position on portfolio page
+  window.addEventListener('scroll', () => {
+    sessionStorage.setItem('portfolio_scroll_y', String(window.scrollY));
+  }, { passive: true });
+
+  // Restore exact scroll position if returning via browser back or history.back()
+  const isBackNav = window.performance && 
+    window.performance.getEntriesByType && 
+    window.performance.getEntriesByType('navigation')[0] && 
+    window.performance.getEntriesByType('navigation')[0].type === 'back_forward';
+
+  const savedScrollY = sessionStorage.getItem('portfolio_scroll_y');
+  if (isBackNav && savedScrollY !== null) {
+    const targetY = parseInt(savedScrollY, 10);
+    window.scrollTo({ top: targetY, behavior: 'instant' });
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: targetY, behavior: 'instant' });
+    });
   }
 });
