@@ -52,23 +52,5 @@ export const awardsData = [
     mediaAlt: "INDCon 2025 Presentation Contest Recognition at IEEE Bangladesh Section Award Night",
     caseStudyUrl: "projects/indcon-2025.html",
     certificateUrl: "assets/docs/indcon-2025-certificate.pdf"
-  },
-  {
-    id: "skill-expedition-canva",
-    rank: "Honorary Speaker",
-    icon: "fa-solid fa-chalkboard-user",
-    title: "Basics of Creative Graphic Design on Canva",
-    category: "Capacity Building Masterclass",
-    event: "Skill Development Expedition 1.0 • IEEE JUST SB",
-    date: "Sep 2025",
-    isChampion: false,
-    badgeText: "Honorary Speaker",
-    shortSummary: "Co-launched the branch's flagship training initiative and conducted the inaugural offline masterclass on visual hierarchy and live Canva design.",
-    description: "Inaugural capacity-building masterclass of Skill Development Expedition 1.0 delivered live at the FET Gallery before IEEE members. Provided hands-on Canva demonstrations, color theory, and typographic principles for academic research posters and technical presentations, recognized with an official Crest of Honor.",
-    tags: ["Session Conductor", "Expedition 1.0 Kickoff", "Live Canva Demo", "Crest of Honor", "FET Gallery"],
-    media: "assets/images/thumbnails/canva-workshop.jpg",
-    mediaAlt: "Basics of Creative Graphic Design on Canva Masterclass Session Conductor",
-    caseStudyUrl: "projects/canva-workshop.html",
-    certificateUrl: null
   }
 ];

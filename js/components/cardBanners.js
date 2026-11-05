@@ -339,6 +339,59 @@ export function getThemedHeaderMarkup(item, context = 'general') {
     `;
   }
 
+  // 7. SR DREAM IT - “Elevate Your Career” Seminar (Stage Anchor & Host)
+  if (id.includes('sr-dream-it') || id.includes('elevate-your-career')) {
+    return `
+      <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 border border-indigo-400/30 dark:border-indigo-500/20 bg-gradient-to-br from-slate-950 via-indigo-950/60 to-slate-900 flex flex-col items-center justify-center select-none group-hover:border-indigo-400/60 transition-all duration-300 shadow-inner">
+        <!-- Ambient Stage Glow -->
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 -left-10 w-36 h-36 bg-cyan-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+        <!-- Stage Spotlight & Acoustic Radiance SVG -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="spotlight-sr" cx="50%" cy="0%" r="90%">
+              <stop offset="0%" stop-color="rgba(129, 140, 248, 0.22)" />
+              <stop offset="60%" stop-color="rgba(99, 102, 241, 0.08)" />
+              <stop offset="100%" stop-color="rgba(15, 23, 42, 0)" />
+            </radialGradient>
+            <pattern id="grid-sr" width="24" height="24" patternUnits="userSpaceOnUse">
+              <path d="M 0 12 L 24 12" fill="none" stroke="rgba(129, 140, 248, 0.06)" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid-sr)" />
+          <!-- Downward Stage Light Cones -->
+          <path d="M 120 0 L 20 225 L 380 225 L 280 0 Z" fill="url(#spotlight-sr)" />
+          <!-- Radiance rings around stage microphone -->
+          <circle cx="200" cy="98" r="42" stroke="rgba(129, 140, 248, 0.28)" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <circle cx="200" cy="98" r="56" stroke="rgba(56, 189, 248, 0.16)" stroke-width="1"/>
+        </svg>
+
+        <!-- Technical Corner Annotations -->
+        <div class="absolute top-3 left-4 text-[9px] font-mono text-indigo-300/80 tracking-wider flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+          <span>SR DREAM IT // CENTRAL GALLERY</span>
+        </div>
+        <div class="absolute top-3 right-4 text-[9px] font-mono text-indigo-300/80 tracking-wider">
+          [ STAGE ANCHOR & EMCEE ]
+        </div>
+
+        <!-- Central Glyph & Telemetry Pill -->
+        <div class="relative z-10 flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/15 border border-indigo-400/40 text-indigo-300 flex items-center justify-center text-xl shadow-[0_0_22px_rgba(99,102,241,0.3)] group-hover:scale-110 transition-transform duration-300">
+            <i class="fa-solid fa-microphone-lines"></i>
+          </div>
+          <span class="mt-2.5 text-[10px] font-mono tracking-wider uppercase font-bold text-indigo-100 px-3 py-0.5 rounded-full bg-indigo-950/85 border border-indigo-400/40 backdrop-blur-md shadow-sm">
+            Elevate Your Career • Stage Host
+          </span>
+          <span class="mt-1.5 text-[9px] font-mono text-slate-400 flex items-center gap-1">
+            <i class="fa-solid fa-camera-retro text-[8px] text-brand-400"></i> Event Photos Coming Soon
+          </span>
+        </div>
+      </div>
+    `;
+  }
+
   // Generic High-Tech Blueprint Fallback (Safe guard for any future entries)
   return `
     <div class="relative w-full h-36 sm:h-40 rounded-xl overflow-hidden mb-3.5 border border-slate-200/60 dark:border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950/70 flex flex-col items-center justify-center select-none group-hover:border-brand-500/50 transition-all duration-300 shadow-inner">

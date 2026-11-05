@@ -5,6 +5,8 @@ import { postersData } from './data/posters.js';
 import { renderPosters } from './components/renderPosters.js';
 import { awardsData } from './data/awards.js';
 import { renderAwards } from './components/renderAwards.js';
+import { speakingData } from './data/speaking.js';
+import { renderSpeaking } from './components/renderSpeaking.js';
 import { experienceData } from './data/experience.js';
 import { auditData, trainingCourses, industrialVisits } from './data/training.js';
 import { getThemedHeaderMarkup } from './components/cardBanners.js';
@@ -18,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Awards & Competitions (Horizontal Expanding Accordion with Rich Media & Full Case Study Previews)
   renderAwards(awardsData, 'awards-grid');
+
+  // Render Workshops & Speaking (Masterclasses, Capacity Building & Seminar Hosting)
+  renderSpeaking(speakingData, 'speaking-grid');
 
   // Render Research & Engineering Posters
   renderPosters(postersData, 'posters-grid');
