@@ -150,7 +150,11 @@ export function renderAwards(awards, targetElementId) {
       }
       if (window.innerWidth >= 1024) {
         if (url) {
-          window.location.href = url;
+          if (window.navigateToProject) {
+            window.navigateToProject(url);
+          } else {
+            window.location.href = url;
+          }
         }
       } else {
         const wasActive = card.classList.contains("is-active");
@@ -158,7 +162,11 @@ export function renderAwards(awards, targetElementId) {
         if (!wasActive) {
           card.classList.add("is-active");
         } else if (url) {
-          window.location.href = url;
+          if (window.navigateToProject) {
+            window.navigateToProject(url);
+          } else {
+            window.location.href = url;
+          }
         }
       }
     });

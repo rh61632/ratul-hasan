@@ -125,6 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (auditData.caseStudyUrl) {
         if (e.metaKey || e.ctrlKey) {
           window.open(auditData.caseStudyUrl, '_blank');
+        } else if (window.navigateToProject) {
+          window.navigateToProject(auditData.caseStudyUrl);
         } else {
           window.location.href = auditData.caseStudyUrl;
         }
@@ -195,6 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!e.target.closest('a')) {
           if (e.metaKey || e.ctrlKey) {
             window.open(card.dataset.url, '_blank');
+          } else if (window.navigateToProject) {
+            window.navigateToProject(card.dataset.url);
           } else {
             window.location.href = card.dataset.url;
           }
@@ -295,6 +299,8 @@ document.addEventListener('DOMContentLoaded', () => {
           if (clickedAnchor && clickedAnchor.getAttribute('href') !== url) return;
           if (e.metaKey || e.ctrlKey) {
             window.open(url, '_blank');
+          } else if (window.navigateToProject) {
+            window.navigateToProject(url);
           } else {
             window.location.href = url;
           }
@@ -303,9 +309,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Save scroll position on portfolio page
+  // Universal helper for opening project detail pages with scroll preservation & hash cleanup
+  window.navigateToProject = function(url, inNewTab = false) {
+    if (!url) return;
+    if (inNewTab) {
+      window.open(url, '_blank');
+      return;
+    }
+    sessionStorage.setItem('portfolio_scroll_y', String(window.scrollY));
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+    window.location.href = url;
+  };
+
+  // Intercept all project links across the page (buttons, cards, text links)
+  document.addEventListener('click', (e) => {
+    const projectLink = e.target.closest('a[href^="projects/"]');
+    if (projectLink && !e.metaKey && !e.ctrlKey) {
+      e.preventDefault();
+      window.navigateToProject(projectLink.getAttribute('href'));
+    }
+  });
+
+  // Intercept navigation links so clicking a headline smoothly scrolls without sticking hashes to the address bar
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#') return;
+      const target = document.querySelector(hash);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        // Strip the hash from the address bar so it never sticks in history
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    });
+  });
+
+  // Continuously record scroll position and clear any lingering hash so back navigation is never hijacked
   window.addEventListener('scroll', () => {
     sessionStorage.setItem('portfolio_scroll_y', String(window.scrollY));
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   }, { passive: true });
 
   // Restore exact scroll position if returning via browser back or history.back()
@@ -314,12 +359,17 @@ document.addEventListener('DOMContentLoaded', () => {
     window.performance.getEntriesByType('navigation')[0] && 
     window.performance.getEntriesByType('navigation')[0].type === 'back_forward';
 
-  const savedScrollY = sessionStorage.getItem('portfolio_scroll_y');
-  if (isBackNav && savedScrollY !== null) {
-    const targetY = parseInt(savedScrollY, 10);
-    window.scrollTo({ top: targetY, behavior: 'instant' });
-    requestAnimationFrame(() => {
+  if (isBackNav) {
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    const savedScrollY = sessionStorage.getItem('portfolio_scroll_y');
+    if (savedScrollY !== null) {
+      const targetY = parseInt(savedScrollY, 10);
       window.scrollTo({ top: targetY, behavior: 'instant' });
-    });
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: targetY, behavior: 'instant' });
+      });
+    }
   }
 });

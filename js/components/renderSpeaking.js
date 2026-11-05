@@ -106,6 +106,8 @@ export function renderSpeaking(speakingItems, targetElementId) {
         if (clickedAnchor && clickedAnchor.getAttribute('href') !== url) return;
         if (e.metaKey || e.ctrlKey) {
           window.open(url, '_blank');
+        } else if (window.navigateToProject) {
+          window.navigateToProject(url);
         } else {
           window.location.href = url;
         }
