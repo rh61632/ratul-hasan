@@ -302,4 +302,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Handle initial hash navigation when returning from a case study or external link
+  if (window.location.hash) {
+    const targetElement = document.querySelector(window.location.hash);
+    if (targetElement) {
+      setTimeout(() => {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }
 });
