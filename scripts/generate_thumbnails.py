@@ -61,6 +61,22 @@ def main():
                     dst = os.path.join(THUMB_DIR, fname)
                     process_image(src, dst)
 
+    # Also generate thumbnails for subdirectories in awards (e.g. sr-dream-it, canva-workshop)
+    awards_dir = "assets/images/awards"
+    if os.path.exists(awards_dir):
+        for item in os.listdir(awards_dir):
+            sub_path = os.path.join(awards_dir, item)
+            if os.path.isdir(sub_path):
+                dst_sub = os.path.join(THUMB_DIR, item)
+                os.makedirs(dst_sub, exist_ok=True)
+                for fname in os.listdir(sub_path):
+                    src = os.path.join(sub_path, fname)
+                    if os.path.isfile(src):
+                        ext = os.path.splitext(fname)[1].lower()
+                        if ext in [".jpg", ".jpeg", ".png", ".webp"]:
+                            dst = os.path.join(dst_sub, fname)
+                            process_image(src, dst)
+
     # Also generate thumbnails for Khulna 330MW gallery
     khulna_src = "assets/images/visits/khulna-330"
     khulna_dst = "assets/images/thumbnails/khulna-330"

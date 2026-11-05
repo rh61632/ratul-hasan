@@ -28,11 +28,11 @@ export const speakingData = [
     venue: "Central Gallery, Jashore University of Science and Technology (JUST)",
     badgeText: "Stage Anchor & Emcee",
     shortSummary: "Anchored and hosted the flagship on-campus career seminar at Central Gallery, steering speaker transitions, VIP facilitation, and audience engagement.",
-    description: "Served as the official Stage Anchor and Master of Ceremonies for the high-impact 'Elevate Your Career' seminar hosted at Central Gallery (JUST) in partnership with SR Dream IT. Coordinated stage choreography, introduced industry mentors, guided interactive audience dialogue, and facilitated institutional leadership.",
-    tags: ["Stage Anchor", "Master of Ceremonies", "Central Gallery", "SR Dream IT", "IEEE JUST SB", "Audience Engagement"],
-    media: null,
-    mediaAlt: "Elevate Your Career Seminar Stage Anchor and Host",
+    description: "Served as official Stage Anchor and Master of Ceremonies for the high-impact 'Elevate Your Career' seminar hosted at Central Gallery (JUST) in partnership with SR Dream IT. Coordinated stage choreography, introduced industry mentors, guided interactive audience dialogue, and facilitated the historic MoU signing between IEEE JUST SB and SR Dream IT.",
+    tags: ["Stage Anchor", "Master of Ceremonies", "Central Gallery", "SR Dream IT", "MoU Signing", "IEEE JUST SB"],
+    media: "assets/images/thumbnails/sr-dream-it.jpg",
+    mediaAlt: "Elevate Your Career Seminar Stage Anchor and Host Md. Ratul Hasan",
     caseStudyUrl: "projects/sr-dream-it.html",
-    photoCount: "Photos Coming Soon"
+    photoCount: "6 Event Photos"
   }
 ];
