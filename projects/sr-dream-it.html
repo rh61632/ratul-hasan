@@ -115,7 +115,10 @@
           <span>Visual Record &amp; Event Chronicle (6 High-Resolution Photos)</span>
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <button type="button" class="view-bubble active px-3 py-1 rounded-full text-xs font-medium bg-brand-600 text-white shadow-sm transition" data-view="view-stage">
+          <button type="button" class="view-bubble active px-3 py-1 rounded-full text-xs font-medium bg-brand-600 text-white shadow-sm transition" data-view="view-team">
+            Team &amp; Guests
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-stage">
             Stage Anchoring
           </button>
           <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-mou">
@@ -123,9 +126,6 @@
           </button>
           <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-audience">
             Central Gallery
-          </button>
-          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-team">
-            Team &amp; Guests
           </button>
           <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-chair">
             With Branch Chair
@@ -139,8 +139,26 @@
       <!-- Main Display Stage -->
       <div class="relative w-full rounded-2xl overflow-hidden border border-white/80 dark:border-white/10 bg-slate-950 shadow-2xl flex items-center justify-center min-h-[380px] sm:min-h-[540px] max-h-[720px] group cursor-pointer" id="galleryStage">
         
-        <!-- View 1: Stage Anchoring (Default) -->
-        <div id="view-stage" class="gallery-view w-full h-full flex flex-col items-center justify-center transition-all duration-500">
+        <!-- View 1: Team with Guests (Default Active) -->
+        <div id="view-team" class="gallery-view w-full h-full flex flex-col items-center justify-center transition-all duration-500">
+          <img 
+            src="../assets/images/awards/sr-dream-it/team-with-guests.jpg" 
+            alt="IEEE JUST Student Branch team with the guests from SR Dream IT" 
+            class="w-full h-full max-h-[660px] object-contain"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
+            <div class="flex items-center gap-2 text-xs font-mono text-amber-400 font-bold uppercase mb-1">
+              <i class="fa-solid fa-people-group"></i>
+              <span>Executive Committee &amp; Guests • Grand Commemoration</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
+              IEEE JUST Student Branch team alongside the visiting dignitaries and leaders from SR Dream IT on the Central Gallery stage following the successful seminar.
+            </p>
+          </div>
+        </div>
+
+        <!-- View 2: Stage Anchoring -->
+        <div id="view-stage" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
           <img 
             src="../assets/images/awards/sr-dream-it/stage-anchoring.jpg" 
             alt="Md. Ratul Hasan speaking on stage as Stage Anchor at Central Gallery" 
@@ -157,7 +175,7 @@
           </div>
         </div>
 
-        <!-- View 2: MoU Signing Ceremony -->
+        <!-- View 3: MoU Signing Ceremony -->
         <div id="view-mou" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
           <img 
             src="../assets/images/awards/sr-dream-it/mou-signing.jpg" 
@@ -175,7 +193,7 @@
           </div>
         </div>
 
-        <!-- View 3: Central Gallery Audience -->
+        <!-- View 4: Central Gallery Audience -->
         <div id="view-audience" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
           <img 
             src="../assets/images/awards/sr-dream-it/central-gallery-audience.jpg" 
@@ -189,24 +207,6 @@
             </div>
             <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
               A glimpse of the program in the Central Gallery auditorium at JUST, packed with eager engineering students, department attendees, and branch members.
-            </p>
-          </div>
-        </div>
-
-        <!-- View 4: Team with Guests -->
-        <div id="view-team" class="gallery-view hidden w-full h-full flex-col items-center justify-center transition-all duration-500">
-          <img 
-            src="../assets/images/awards/sr-dream-it/team-with-guests.jpg" 
-            alt="IEEE JUST Student Branch team with the guests from SR Dream IT" 
-            class="w-full h-full max-h-[660px] object-contain"
-          />
-          <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent backdrop-blur-[2px] text-white">
-            <div class="flex items-center gap-2 text-xs font-mono text-amber-400 font-bold uppercase mb-1">
-              <i class="fa-solid fa-people-group"></i>
-              <span>Executive Committee &amp; Guests • Grand Commemoration</span>
-            </div>
-            <p class="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed max-w-3xl">
-              IEEE JUST Student Branch team alongside the visiting dignitaries and leaders from SR Dream IT on the Central Gallery stage following the successful seminar.
             </p>
           </div>
         </div>
@@ -256,7 +256,15 @@
 
       <!-- Thumbnail Strip Navigation -->
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        <button type="button" class="thumb-btn active p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-2.5 transition text-left" data-view="view-stage">
+        <button type="button" class="thumb-btn active p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-brand-500/80 dark:border-brand-500/80 flex items-center gap-2.5 transition text-left" data-view="view-team">
+          <img src="../assets/images/thumbnails/sr-dream-it/team-with-guests.jpg" alt="Team thumbnail" class="w-11 h-11 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Team &amp; Guests</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Delegation</span>
+          </div>
+        </button>
+
+        <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-2.5 transition text-left opacity-70 hover:opacity-100" data-view="view-stage">
           <img src="../assets/images/thumbnails/sr-dream-it/stage-anchoring.jpg" alt="Stage thumbnail" class="w-11 h-11 rounded-lg object-cover shrink-0 border border-white/20">
           <div class="min-w-0">
             <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Stage Anchor</span>
@@ -280,14 +288,6 @@
           </div>
         </button>
 
-        <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-2.5 transition text-left opacity-70 hover:opacity-100" data-view="view-team">
-          <img src="../assets/images/thumbnails/sr-dream-it/team-with-guests.jpg" alt="Team thumbnail" class="w-11 h-11 rounded-lg object-cover shrink-0 border border-white/20">
-          <div class="min-w-0">
-            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Team &amp; Guests</span>
-            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Delegation</span>
-          </div>
-        </button>
-
         <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-2.5 transition text-left opacity-70 hover:opacity-100" data-view="view-chair">
           <img src="../assets/images/thumbnails/sr-dream-it/anchor-with-chair.jpg" alt="Chair thumbnail" class="w-11 h-11 rounded-lg object-cover shrink-0 border border-white/20">
           <div class="min-w-0">
@@ -298,6 +298,12 @@
 
         <button type="button" class="thumb-btn p-2.5 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-slate-200/70 dark:border-white/[0.08] flex items-center gap-2.5 transition text-left opacity-70 hover:opacity-100" data-view="view-portrait">
           <img src="../assets/images/thumbnails/sr-dream-it/anchor-portrait.jpg" alt="Portrait thumbnail" class="w-11 h-11 rounded-lg object-cover shrink-0 border border-white/20">
+          <div class="min-w-0">
+            <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Anchor Profile</span>
+            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Event Host</span>
+          </div>
+        </button>
+      </div>
           <div class="min-w-0">
             <span class="text-xs font-bold text-slate-900 dark:text-white block truncate">Anchor Profile</span>
             <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">Event Host</span>
