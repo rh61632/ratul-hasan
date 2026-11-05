@@ -18,6 +18,24 @@ export const speakingData = [
     photoCount: "4 Photos"
   },
   {
+    id: "techfrontiers",
+    role: "Co-Anchor & Designer",
+    icon: "fa-solid fa-microphone-lines",
+    title: "TechFrontiers: Technology for the Future",
+    category: "Departmental Seminar, Workshop & Training",
+    event: "Department of EEE, JUST",
+    date: "24 May 2025",
+    venue: "Central Gallery, JUST",
+    badgeText: "Co-Anchor & Designer",
+    shortSummary: "Co-anchored the EEE department's flagship seminar and technical workshop alongside Jannatun Nayeem, featuring Huawei keynote, Walton PCB workshop, and designed the volunteer ID cards.",
+    description: "Anchored the inaugural on-campus seminar, workshop, and training program organized by the Department of Electrical and Electronic Engineering (EEE), JUST. The day-long event featured a keynote address on future technologies by Chandra Shekhar (Huawei Technologies), a hands-on PCB design workshop by Md Nadim Mostafa (Walton Digi-Tech), student oral and poster presentations, and crest presentations. Also designed official volunteer ID cards.",
+    tags: ["Event Anchor", "Huawei & Walton", "Central Gallery", "ID Card Design"],
+    media: "assets/images/thumbnails/techfrontiers.jpg",
+    mediaAlt: "Department of EEE JUST faculty, dignitaries, guests from Huawei and Walton with students at Central Gallery",
+    caseStudyUrl: "projects/techfrontiers.html",
+    photoCount: "7 Photos"
+  },
+  {
     id: "sr-dream-it",
     role: "Co-Anchor",
     icon: "fa-solid fa-microphone-lines",

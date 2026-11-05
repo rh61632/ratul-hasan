@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFrontiers: Technology for the Future | Department of EEE, JUST | Md. Ratul Hasan</title>
+  <meta name="description" content="Event Anchoring and Volunteer ID Card Design for TechFrontiers: Technology for the Future 2025, organized by the Department of Electrical and Electronic Engineering (EEE), JUST.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="TechFrontiers 2025 — Department of EEE, JUST | Md. Ratul Hasan">
+  <meta property="og:description" content="Anchored the flagship seminar, workshop, and training alongside Jannatun Nayeem, featuring Huawei keynote, Walton PCB workshop, and designed official volunteer ID cards.">
+  <meta property="og:image" content="../assets/images/thumbnails/techfrontiers.jpg">
+  <meta property="og:type" content="article">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+              950: '#042f2e',
+            },
+            surface: {
+              light: '#f8fafc',
+              dark: '#0b0f17',
+              card: '#111726',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
+
+  <!-- Ambient Glassmorphism Glow Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-32 -left-32 w-[520px] h-[520px] bg-brand-500/15 dark:bg-brand-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute top-1/3 -right-32 w-[480px] h-[480px] bg-indigo-500/15 dark:bg-indigo-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-1/4 -left-32 w-[520px] h-[520px] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-[110px]"></div>
+    <div class="absolute bottom-10 right-1/4 w-[420px] h-[420px] bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-[100px]"></div>
+  </div>
+
+  <!-- Fixed Top Header -->
+  <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none">
+    <nav class="pointer-events-auto bg-white/75 dark:bg-surface-card/75 backdrop-blur-xl px-4 sm:px-6 py-2.5 rounded-full border border-white/80 dark:border-white/10 shadow-lg shadow-black/[0.03] dark:shadow-black/20 flex items-center justify-between gap-4 w-full max-w-[92vw] xl:max-w-screen-2xl">
+      <a href="../index.html#speaking" class="flex items-center gap-2 group text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition">
+        <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-1 transition"></i>
+        <span>Back to Portfolio</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">
+          <i class="fa-regular fa-sun text-sm dark:hidden"></i>
+          <i class="fa-regular fa-moon text-sm hidden dark:block text-brand-300"></i>
+        </button>
+        <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 bg-brand-500/10 dark:bg-brand-950/60 backdrop-blur-md border border-brand-300/40 dark:border-brand-800/40 flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-microphone-lines text-xs"></i> Event Anchor &amp; Designer
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
+    
+    <!-- Hero Header -->
+    <div class="mb-10 max-w-4xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
+        Departmental Seminar, Workshop &amp; Training • Central Gallery, JUST
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
+        TechFrontiers: Technology for the Future
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        On <strong>May 24, 2025</strong>, the <strong>Department of Electrical and Electronic Engineering (EEE)</strong> at <strong>Jashore University of Science and Technology (JUST)</strong> organized its flagship day-long technical event, <strong>“TechFrontiers: Technology for the Future”</strong> at Central Gallery, JUST. <strong>Md. Ratul Hasan</strong> anchored the entire program alongside co-anchor <strong>Jannatun Nayeem</strong>, steering the inaugural session, keynote address by Huawei Technologies, hands-on PCB design workshop by Walton Digi-Tech, student research presentations, and crest presentations. Additionally, Ratul designed the official ID cards for the event volunteers.
+      </p>
+
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Event Anchor</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Department of EEE, JUST</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Huawei Technologies</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Walton Digi-Tech</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">PCB Design Workshop</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Central Gallery, JUST</span>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Volunteer ID Card Design</span>
+      </div>
+    </div>
+
+    <!-- Interactive Visual Showcase & Photographic Record -->
+    <section class="mb-14 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <i class="fa-solid fa-camera-retro"></i>
+          <span>Event Photographs &amp; Documents (7 Views)</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button type="button" class="view-bubble active px-3 py-1 rounded-full text-xs font-medium bg-brand-600 text-white shadow-sm transition" data-view="view-students">
+            Students &amp; Guests
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-anchor">
+            Stage Anchoring
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-crest">
+            Crest Felicitation
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-keynote">
+            Keynote Address
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-gallery">
+            Central Gallery
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-glimpse">
+            Event Glimpse
+          </button>
+          <button type="button" class="view-bubble px-3 py-1 rounded-full text-xs font-medium bg-white/60 dark:bg-white/[0.05] hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10 transition" data-view="view-poster">
+            Official Poster
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Display Stage -->
+      <div class="relative w-full rounded-2xl overflow-hidden border border-white/80 dark:border-white/10 bg-slate-950 shadow-2xl flex items-center justify-center min-h-[380px] sm:min-h-[540px] max-h-[720px] group cursor-pointer" id="galleryStage">
+        
+        <!-- View 1: Students & Guests (Default) -->
+        <div class="gallery-view flex flex-col items-center justify-center w-full h-full" id="view-students">
+          <img 
+            src="../assets/images/thumbnails/techfrontiers/students-guests.jpg" 
+            alt="Department of EEE JUST faculty, dignitaries, guests from Huawei and Walton with students at Central Gallery" 
+            class="w-full h-full max-h-[700px] object-contain group-hover:scale-[1.01] transition-transform duration-500"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent p-4 sm:p-6 text-white flex items-end justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-widest text-brand-400 font-bold block mb-1">
+                // Dignitaries, Guests &amp; Participants
+              </span>
+              <p class="text-xs sm:text-sm text-slate-200 leading-snug">
+                Participants, keynote speaker Chandra Shekhar (Huawei Technologies), PCB trainer Md Nadim Mostafa (Walton Digi-Tech), Convenor Dr. Engr. Imran Khan, EEE faculty members, and student attendees gathered at Central Gallery, JUST.
+              </p>
+            </div>
+            <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white/10 backdrop-blur-md border border-white/20 text-slate-300 shrink-0">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </span>
+          </div>
+        </div>
+
+        <!-- View 2: Stage Anchoring -->
+        <div class="gallery-view hidden flex-col items-center justify-center w-full h-full" id="view-anchor">
+          <img 
+            src="../assets/images/thumbnails/techfrontiers/anchoring.jpg" 
+            alt="Md. Ratul Hasan and Jannatun Nayeem anchoring on stage at TechFrontiers 2025" 
+            class="w-full h-full max-h-[700px] object-contain group-hover:scale-[1.01] transition-transform duration-500"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent p-4 sm:p-6 text-white flex items-end justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-widest text-brand-400 font-bold block mb-1">
+                // Stage Anchoring
+              </span>
+              <p class="text-xs sm:text-sm text-slate-200 leading-snug">
+                Md. Ratul Hasan and Jannatun Nayeem anchoring on stage during the TechFrontiers 2025 seminar sessions at Central Gallery.
+              </p>
+            </div>
+            <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white/10 backdrop-blur-md border border-white/20 text-slate-300 shrink-0">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </span>
+          </div>
+        </div>
+
+        <!-- View 3: Crest Felicitation -->
+        <div class="gallery-view hidden flex-col items-center justify-center w-full h-full" id="view-crest">
+          <img 
+            src="../assets/images/thumbnails/techfrontiers/crest-handover.jpg" 
+            alt="Convener Dr. Engr. Imran Khan handing over crest of honor to keynote speaker Chandra Shekhar from Huawei Technologies" 
+            class="w-full h-full max-h-[700px] object-contain group-hover:scale-[1.01] transition-transform duration-500"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent p-4 sm:p-6 text-white flex items-end justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-widest text-brand-400 font-bold block mb-1">
+                // Crest Felicitation
+              </span>
+              <p class="text-xs sm:text-sm text-slate-200 leading-snug">
+                Program Convenor and EEE Department Chairman Dr. Engr. Imran Khan presenting an official Crest of Honor to keynote speaker Chandra Shekhar from Huawei Technologies Bangladesh Ltd.
+              </p>
+            </div>
+            <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white/10 backdrop-blur-md border border-white/20 text-slate-300 shrink-0">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </span>
+          </div>
+        </div>
+
+        <!-- View 4: Keynote Address -->
+        <div class="gallery-view hidden flex-col items-center justify-center w-full h-full" id="view-keynote">
+          <img 
+            src="../assets/images/thumbnails/techfrontiers/keynote-speech.jpg" 
+            alt="Keynote speech delivered by Chandra Shekhar from Huawei Technologies Bangladesh Ltd." 
+            class="w-full h-full max-h-[700px] object-contain group-hover:scale-[1.01] transition-transform duration-500"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent p-4 sm:p-6 text-white flex items-end justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-widest text-brand-400 font-bold block mb-1">
+                // Industry Keynote Speech
+              </span>
+              <p class="text-xs sm:text-sm text-slate-200 leading-snug">
+                Keynote address delivered by Chandra Shekhar, Principal Engineer at Huawei Technologies Bangladesh Ltd., focusing on future trends in technology, wireless connectivity, and industry innovation.
+              </p>
+            </div>
+            <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white/10 backdrop-blur-md border border-white/20 text-slate-300 shrink-0">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </span>
+          </div>
+        </div>
+
+        <!-- View 5: Central Gallery Audience -->
+        <div class="gallery-view hidden flex-col items-center justify-center w-full h-full" id="view-gallery">
+          <img 
+            src="../assets/images/thumbnails/techfrontiers/gallery-view.jpg" 
+            alt="Full gallery view of attendees at Central Gallery, JUST" 
+            class="w-full h-full max-h-[700px] object-contain group-hover:scale-[1.01] transition-transform duration-500"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent p-4 sm:p-6 text-white flex items-end justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-widest text-brand-400 font-bold block mb-1">
+                // Audience &amp; Gallery View
+              </span>
+              <p class="text-xs sm:text-sm text-slate-200 leading-snug">
+                Full audience view across Central Gallery at JUST, with faculty members, student researchers, and industry professionals in attendance.
+              </p>
+            </div>
+            <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white/10 backdrop-blur-md border border-white/20 text-slate-300 shrink-0">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </span>
+          </div>
+        </div>
+
+        <!-- View 6: Event Glimpse -->
+        <div class="gallery-view hidden flex-col items-center justify-center w-full h-full" id="view-glimpse">
+          <img 
+            src="../assets/images/thumbnails/techfrontiers/event-glimpse.jpg" 
+            alt="A glimpse of the event sessions at TechFrontiers 2025" 
+            class="w-full h-full max-h-[700px] object-contain group-hover:scale-[1.01] transition-transform duration-500"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent p-4 sm:p-6 text-white flex items-end justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-widest text-brand-400 font-bold block mb-1">
+                // Interactive Session Glimpse
+              </span>
+              <p class="text-xs sm:text-sm text-slate-200 leading-snug">
+                Interactive knowledge-sharing and audience participation during the technical presentation and workshop segment.
+              </p>
+            </div>
+            <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white/10 backdrop-blur-md border border-white/20 text-slate-300 shrink-0">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </span>
+          </div>
+        </div>
+
+        <!-- View 7: Official Poster -->
+        <div class="gallery-view hidden flex-col items-center justify-center w-full h-full" id="view-poster">
+          <img 
+            src="../assets/images/thumbnails/techfrontiers/official-poster.jpg" 
+            alt="Official Call for Abstract and Program Poster of TechFrontiers: Technology for the Future 2025" 
+            class="w-full h-full max-h-[700px] object-contain group-hover:scale-[1.01] transition-transform duration-500"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent p-4 sm:p-6 text-white flex items-end justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-widest text-brand-400 font-bold block mb-1">
+                // Program Poster &amp; Schedule
+              </span>
+              <p class="text-xs sm:text-sm text-slate-200 leading-snug">
+                Official Call for Abstract and Event Program Schedule poster for TechFrontiers: Technology for the Future, organized by Department of EEE, JUST.
+              </p>
+            </div>
+            <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white/10 backdrop-blur-md border border-white/20 text-slate-300 shrink-0">
+              <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Thumbnail Strip Navigation -->
+      <div class="grid grid-cols-4 sm:grid-cols-7 gap-2 pt-1">
+        <button type="button" class="thumb-btn active rounded-xl overflow-hidden border-2 border-brand-500/80 aspect-video bg-slate-900 transition" data-view="view-students">
+          <img src="../assets/images/thumbnails/techfrontiers/students-guests.jpg" alt="Thumb Students & Guests" class="w-full h-full object-cover">
+        </button>
+        <button type="button" class="thumb-btn rounded-xl overflow-hidden border-2 border-transparent hover:border-brand-500/50 aspect-video bg-slate-900 transition opacity-70 hover:opacity-100" data-view="view-anchor">
+          <img src="../assets/images/thumbnails/techfrontiers/anchoring.jpg" alt="Thumb Stage Anchoring" class="w-full h-full object-cover">
+        </button>
+        <button type="button" class="thumb-btn rounded-xl overflow-hidden border-2 border-transparent hover:border-brand-500/50 aspect-video bg-slate-900 transition opacity-70 hover:opacity-100" data-view="view-crest">
+          <img src="../assets/images/thumbnails/techfrontiers/crest-handover.jpg" alt="Thumb Crest Felicitation" class="w-full h-full object-cover">
+        </button>
+        <button type="button" class="thumb-btn rounded-xl overflow-hidden border-2 border-transparent hover:border-brand-500/50 aspect-video bg-slate-900 transition opacity-70 hover:opacity-100" data-view="view-keynote">
+          <img src="../assets/images/thumbnails/techfrontiers/keynote-speech.jpg" alt="Thumb Keynote Speech" class="w-full h-full object-cover">
+        </button>
+        <button type="button" class="thumb-btn rounded-xl overflow-hidden border-2 border-transparent hover:border-brand-500/50 aspect-video bg-slate-900 transition opacity-70 hover:opacity-100" data-view="view-gallery">
+          <img src="../assets/images/thumbnails/techfrontiers/gallery-view.jpg" alt="Thumb Central Gallery" class="w-full h-full object-cover">
+        </button>
+        <button type="button" class="thumb-btn rounded-xl overflow-hidden border-2 border-transparent hover:border-brand-500/50 aspect-video bg-slate-900 transition opacity-70 hover:opacity-100" data-view="view-glimpse">
+          <img src="../assets/images/thumbnails/techfrontiers/event-glimpse.jpg" alt="Thumb Event Glimpse" class="w-full h-full object-cover">
+        </button>
+        <button type="button" class="thumb-btn rounded-xl overflow-hidden border-2 border-transparent hover:border-brand-500/50 aspect-video bg-slate-900 transition opacity-70 hover:opacity-100" data-view="view-poster">
+          <img src="../assets/images/thumbnails/techfrontiers/official-poster.jpg" alt="Thumb Official Poster" class="w-full h-full object-cover">
+        </button>
+      </div>
+    </section>
+
+    <!-- Key Metrics & Overview Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 font-display">24 May 2025</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">10:30 AM – 5:00 PM</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Held at Central Gallery, Jashore University of Science and Technology.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 font-display">Dual Roles</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Anchor &amp; Designer</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Anchored on stage alongside Jannatun Nayeem and designed volunteer ID cards.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">Industry Leaders</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Huawei &amp; Walton</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Keynote address by Huawei Technologies and PCB workshop by Walton Digi-Tech.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
+        <div class="text-2xl font-extrabold text-purple-600 dark:text-purple-400 font-display">Department Event</div>
+        <div class="text-xs font-mono text-slate-400 uppercase mt-1">Dept. of EEE, JUST</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Flagship seminar, technical workshop, oral and poster research presentations.</p>
+      </div>
+    </div>
+
+    <!-- Main Content Details Layout (2 Columns) -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+      
+      <!-- Left Column: Narrative & Detailed Program Execution (2 Cols) -->
+      <div class="lg:col-span-2 space-y-10">
+        
+        <!-- Section 1: Event Scope & Institutional Context -->
+        <section class="space-y-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold block">
+            // 01. Context &amp; Objectives
+          </span>
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">
+            Departmental Flagship Seminar &amp; Technical Workshop
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            On May 24, 2025, the <strong>Department of Electrical and Electronic Engineering (EEE)</strong> at <strong>Jashore University of Science and Technology (JUST)</strong> organized <strong>“TechFrontiers: Technology for the Future”</strong> at Central Gallery, JUST. Under the convenorship of <strong>Dr. Engr. Imran Khan</strong>, Chairman of the Department of EEE, the event brought together university leadership, industry experts from multinational tech corporations, departmental faculty members, and student researchers to exchange technical insights, discuss emerging technologies, and provide practical engineering training.
+          </p>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            The program was honored by the presence of <strong>Professor Dr. Md. Abdul Mazid</strong>, Vice Chancellor of JUST, as Chief Guest; <strong>Professor Dr. Hossain Al Mamun</strong>, Treasurer of JUST, as Special Guest; and <strong>Dr. Engr. Md. Amzad Hossain</strong> as Guest of Honor.
+          </p>
+        </section>
+
+        <!-- Section 2: Stage Anchoring & Program Moderation -->
+        <section class="space-y-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold block">
+            // 02. Stage Anchoring &amp; Flow
+          </span>
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">
+            Stage Moderation Alongside Co-Anchor Jannatun Nayeem
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            <strong>Md. Ratul Hasan</strong> was the event anchor along with co-anchor <strong>Jannatun Nayeem</strong>. Together, they moderated the entire program from stage at Central Gallery across each scheduled segment of the day:
+          </p>
+          
+          <div class="space-y-3 pt-2">
+            <div class="p-4 rounded-xl bg-white/60 dark:bg-surface-card/50 border border-slate-200/80 dark:border-white/10 space-y-1">
+              <div class="text-xs font-mono font-semibold text-brand-600 dark:text-brand-400">10:30 AM – 11:00 AM • Inaugural Ceremony</div>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Opened the event, delivered welcome announcements, introduced university leaders—including Chief Guest Vice Chancellor Prof. Dr. Md. Abdul Mazid, Special Guest Treasurer Prof. Dr. Hossain Al Mamun, Guest of Honor Dr. Engr. Md. Amzad Hossain, and Convenor Dr. Engr. Imran Khan—and outlined the objectives of TechFrontiers 2025.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/60 dark:bg-surface-card/50 border border-slate-200/80 dark:border-white/10 space-y-1">
+              <div class="text-xs font-mono font-semibold text-brand-600 dark:text-brand-400">11:00 AM – 12:00 PM • Keynote Address by Huawei Technologies</div>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Introduced keynote speaker <strong>Chandra Shekhar</strong>, Principal Engineer at Huawei Technologies Bangladesh Ltd. (South Asia Service Experience &amp; System Integration), who presented an industry keynote on the future trajectories of communication, cloud, and smart infrastructure technologies.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/60 dark:bg-surface-card/50 border border-slate-200/80 dark:border-white/10 space-y-1">
+              <div class="text-xs font-mono font-semibold text-brand-600 dark:text-brand-400">12:00 PM – 4:45 PM • PCB Workshop &amp; Student Research Presentations</div>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Moderated the transition into the technical training workshop on <strong>PCB Design</strong>, conducted by industry expert <strong>Md Nadim Mostafa</strong> (Deputy Director, Computer R&amp;I Electronics, Walton Digi-Tech Industries Ltd.), and facilitated the schedule for parallel student oral and poster research presentations.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/60 dark:bg-surface-card/50 border border-slate-200/80 dark:border-white/10 space-y-1">
+              <div class="text-xs font-mono font-semibold text-brand-600 dark:text-brand-400">4:45 PM – 5:00 PM • Felicitations &amp; Vote of Thanks</div>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Conducted stage choreography for official crest presentations to the keynote speaker and industry trainer, announced the Best Poster and Best Paper awards, and concluded the program with the official vote of thanks.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Volunteer ID Card Design -->
+        <section class="space-y-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold block">
+            // 03. Creative Contribution
+          </span>
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">
+            Volunteer ID Card Design &amp; Visual Identity
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Beyond on-stage anchoring responsibilities, <strong>Md. Ratul Hasan</strong> designed the official ID cards for the event volunteers. The volunteer cards established clear departmental branding, official event designations, and role indicators for the organizing student team responsible for participant registration, auditorium logistics, stage coordination, and trainer assistance throughout Central Gallery.
+          </p>
+        </section>
+
+        <!-- Section 4: Keynote & Technical Workshop Breakdown -->
+        <section class="space-y-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold block">
+            // 04. Program Highlights
+          </span>
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">
+            Industry Sessions &amp; Research Competitions
+          </h2>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-surface-card/50 border border-slate-200/80 dark:border-white/10 space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-sm">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <h3 class="font-bold font-display text-slate-900 dark:text-white text-base">Keynote Address</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Delivered by Chandra Shekhar (Huawei Technologies Bangladesh Ltd.) on telecommunications infrastructure, modern connectivity ecosystems, and technological trends shaping electrical and electronic engineering.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-surface-card/50 border border-slate-200/80 dark:border-white/10 space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <h3 class="font-bold font-display text-slate-900 dark:text-white text-base">Hands-on PCB Design Workshop</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Conducted by Md Nadim Mostafa (Walton Digi-Tech Industries Ltd.), training students in schematic capture, component routing, multi-layer board constraints, and industrial manufacturing readiness.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-surface-card/50 border border-slate-200/80 dark:border-white/10 space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">
+                <i class="fa-solid fa-file-powerpoint"></i>
+              </div>
+              <h3 class="font-bold font-display text-slate-900 dark:text-white text-base">Oral &amp; Poster Presentations</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Students and researchers presented hardware prototypes and engineering research papers before faculty review panels, competing for Best Poster Award and Best Paper Award honors.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/60 dark:bg-surface-card/50 border border-slate-200/80 dark:border-white/10 space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-sm">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <h3 class="font-bold font-display text-slate-900 dark:text-white text-base">Institutional Recognition</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Official Crests of Honor presented to the keynote speaker and industry trainer by EEE Department Chairman Dr. Engr. Imran Khan in recognition of their contributions to student technical development.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right Column: Sticky Quick Facts & Leadership (1 Col) -->
+      <aside class="space-y-6">
+        <div class="sticky top-28 p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-lg space-y-5">
+          <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 border-b border-slate-200/60 dark:border-white/10 pb-3 flex items-center gap-2">
+            <i class="fa-solid fa-clipboard-list"></i>
+            Event Quick Facts
+          </h3>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">EVENT</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">TechFrontiers: Technology for the Future</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">ORGANIZED BY</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Department of Electrical and Electronic Engineering (EEE), JUST</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">EVENT ANCHORS</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Md. Ratul Hasan &amp; Jannatun Nayeem</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">CREATIVE DESIGN</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Official Volunteer ID Cards (Md. Ratul Hasan)</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">DATE &amp; TIME</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">24 May 2025 | 10:30 AM – 5:00 PM</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">VENUE</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Central Gallery, JUST</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">CHIEF GUEST</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Prof. Dr. Md. Abdul Mazid (Vice Chancellor, JUST)</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">SPECIAL GUEST</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Prof. Dr. Hossain Al Mamun (Treasurer, JUST)</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">GUEST OF HONOR</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Dr. Engr. Md. Amzad Hossain</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">PROGRAM CONVENOR</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Dr. Engr. Imran Khan (Chairman, Dept. of EEE)</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">KEYNOTE SPEAKER</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Chandra Shekhar (Principal Engineer, Huawei Technologies)</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">PCB WORKSHOP TRAINER</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Md Nadim Mostafa (Deputy Director, Walton Digi-Tech)</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-slate-400">APPRECIATION AWARDS</div>
+            <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Best Poster Award • Best Paper Award</div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="imageLightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-300">
+    <button id="lightboxClose" aria-label="Close Lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition z-20">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="max-w-5xl w-full flex flex-col items-center justify-center">
+      <div class="relative max-h-[75vh] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-slate-950">
+        <img id="lightboxImg" src="" alt="High-Res Inspection" class="max-w-full max-h-[75vh] object-contain">
+      </div>
+      <p id="lightboxCaption" class="mt-4 text-center text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl"></p>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="border-t border-slate-200/80 dark:border-white/10 py-10 bg-white/40 dark:bg-surface-card/40 backdrop-blur-md">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 text-center text-xs font-mono text-slate-500 dark:text-slate-400 space-y-2">
+      <p>© 2026 Md. Ratul Hasan • Electrical &amp; Electronic Engineering • JUST</p>
+      <p class="text-[11px] text-slate-400">Departmental Technical Seminar &amp; Workshop Case Study • <a href="../index.html#speaking" class="text-brand-600 dark:text-brand-400 hover:underline">Back to Portfolio</a></p>
+    </div>
+  </footer>
+
+  <script src="../js/theme.js"></script>
+  <script>
+    // Dark / Light Theme Sync
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.theme = 'light';
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.theme = 'dark';
+        }
+      });
+    }
+
+    // Interactive Gallery Switcher
+    const bubbles = document.querySelectorAll('.view-bubble');
+    const thumbBtns = document.querySelectorAll('.thumb-btn');
+    const views = document.querySelectorAll('.gallery-view');
+
+    function switchView(targetViewId) {
+      bubbles.forEach(b => {
+        if (b.dataset.view === targetViewId) {
+          b.classList.remove('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+          b.classList.add('bg-brand-600', 'text-white', 'active');
+        } else {
+          b.classList.remove('bg-brand-600', 'text-white', 'active');
+          b.classList.add('bg-white/60', 'dark:bg-white/[0.05]', 'text-slate-700', 'dark:text-slate-300');
+        }
+      });
+
+      thumbBtns.forEach(t => {
+        if (t.dataset.view === targetViewId) {
+          t.classList.add('active', 'border-brand-500/80');
+          t.classList.remove('opacity-70');
+        } else {
+          t.classList.remove('active', 'border-brand-500/80');
+          t.classList.add('opacity-70');
+        }
+      });
+
+      views.forEach(v => {
+        if (v.id === targetViewId) {
+          v.classList.remove('hidden');
+          v.classList.add('flex');
+        } else {
+          v.classList.add('hidden');
+          v.classList.remove('flex');
+        }
+      });
+    }
+
+    bubbles.forEach(b => b.addEventListener('click', () => switchView(b.dataset.view)));
+    thumbBtns.forEach(t => t.addEventListener('click', () => switchView(t.dataset.view)));
+
+    // Fullscreen Lightbox
+    const galleryStage = document.getElementById('galleryStage');
+    const imageLightbox = document.getElementById('imageLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    if (galleryStage && imageLightbox) {
+      galleryStage.addEventListener('click', () => {
+        const activeView = document.querySelector('.gallery-view:not(.hidden)');
+        if (activeView) {
+          const img = activeView.querySelector('img');
+          const cap = activeView.querySelector('p');
+          if (img) {
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = cap ? cap.textContent.trim() : img.alt;
+            imageLightbox.classList.remove('hidden');
+          }
+        }
+      });
+
+      lightboxClose.addEventListener('click', () => imageLightbox.classList.add('hidden'));
+      imageLightbox.addEventListener('click', (e) => {
+        if (e.target === imageLightbox) imageLightbox.classList.add('hidden');
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !imageLightbox.classList.contains('hidden')) {
+          imageLightbox.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
