@@ -178,8 +178,8 @@ body {
     overflow-y: hidden !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
-    gap: 1rem !important;
-    padding: 0.35rem 0.25rem 1rem 0.25rem !important;
+    gap: 0.85rem !important;
+    padding: 0.25rem 0.25rem 0.75rem 0.25rem !important;
     width: 100% !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
@@ -191,45 +191,71 @@ body {
 
   .projects-expand-container .project-expand-card,
   .awards-expand-container .award-expand-card {
-    flex: 0 0 84vw !important;
-    max-width: 330px !important;
-    min-width: 275px !important;
-    width: 84vw !important;
-    height: 485px !important;
-    min-height: 485px !important;
-    max-height: 485px !important;
+    flex: 0 0 76vw !important;
+    max-width: 290px !important;
+    min-width: 250px !important;
+    width: 76vw !important;
+    height: 410px !important;
+    min-height: 410px !important;
+    max-height: 410px !important;
     scroll-snap-align: start !important;
     scroll-snap-stop: normal !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     box-sizing: border-box !important;
-    border-radius: 1.5rem !important;
-    padding: 1.1rem !important;
+    border-radius: 1.25rem !important;
+    padding: 0.9rem !important;
   }
 
-  /* Media banner inside card */
+  /* Full uncropped 16:9 cover photo */
   .project-expand-card .aspect-video,
-  .award-expand-card .aspect-video,
+  .award-expand-card .aspect-video {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    max-height: none !important;
+    border-radius: 0.875rem !important;
+    margin-bottom: 0.45rem !important;
+    overflow: hidden !important;
+  }
+  .project-expand-card .aspect-video img,
+  .award-expand-card .aspect-video img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  /* Themed graphic banners */
   .project-expand-card .h-36,
   .award-expand-card .h-36,
   .project-expand-card .h-40,
   .award-expand-card .h-40 {
-    height: 140px !important;
-    max-height: 140px !important;
-    aspect-ratio: auto !important;
-    border-radius: 1rem !important;
-    margin-bottom: 0.5rem !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    max-height: none !important;
+    border-radius: 0.875rem !important;
+    margin-bottom: 0.45rem !important;
+  }
+
+  .project-expand-card h3,
+  .award-expand-card h3 {
+    font-size: 0.925rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.25rem !important;
   }
 
   .project-expand-card .project-summary-collapsed,
   .award-expand-card .award-summary-collapsed {
     display: -webkit-box !important;
-    -webkit-line-clamp: 3 !important;
+    -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
-    font-size: 0.825rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.35rem !important;
   }
   .project-expand-card .project-summary-expanded,
   .award-expand-card .award-summary-expanded {
@@ -257,6 +283,11 @@ body {
     margin-bottom: 3.5rem !important;
   }
 
+  /* Upward raised bottom navigation dock */
+  .mobile-nav-dock {
+    bottom: 4.75rem !important; /* ~76px clearly raised above screen bottom */
+  }
+
   /* Side-by-Side Horizontal Scroll for Domains / Focus */
   #focus .grid {
     display: flex !important;
@@ -273,16 +304,16 @@ body {
     display: none !important;
   }
   #focus .grid > div {
-    flex: 0 0 84vw !important;
-    max-width: 320px !important;
-    min-width: 270px !important;
+    flex: 0 0 76vw !important;
+    max-width: 290px !important;
+    min-width: 250px !important;
     scroll-snap-align: start !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    height: 310px !important;
-    padding: 1.1rem !important;
-    border-radius: 1.5rem !important;
+    height: 290px !important;
+    padding: 1rem !important;
+    border-radius: 1.25rem !important;
     box-sizing: border-box !important;
   }
   #focus .grid > div .w-11 {
@@ -321,39 +352,52 @@ body {
     display: none !important;
   }
   .speaking-card {
-    flex: 0 0 84vw !important;
-    max-width: 330px !important;
-    min-width: 275px !important;
-    height: 485px !important;
-    min-height: 485px !important;
-    max-height: 485px !important;
+    flex: 0 0 76vw !important;
+    max-width: 290px !important;
+    min-width: 250px !important;
+    height: 410px !important;
+    min-height: 410px !important;
+    max-height: 410px !important;
     scroll-snap-align: start !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     box-sizing: border-box !important;
-    border-radius: 1.5rem !important;
-    padding: 1.1rem !important;
+    border-radius: 1.25rem !important;
+    padding: 0.9rem !important;
   }
-  .speaking-card .aspect-video,
+  .speaking-card .aspect-video {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    max-height: none !important;
+    border-radius: 0.875rem !important;
+    margin-bottom: 0.45rem !important;
+    overflow: hidden !important;
+  }
+  .speaking-card .aspect-video img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
   .speaking-card .h-36,
   .speaking-card .h-40 {
-    height: 140px !important;
-    max-height: 140px !important;
-    aspect-ratio: auto !important;
-    border-radius: 1rem !important;
-    margin-bottom: 0.5rem !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    border-radius: 0.875rem !important;
+    margin-bottom: 0.45rem !important;
   }
   .speaking-card h3 {
-    font-size: 0.95rem !important;
+    font-size: 0.925rem !important;
     line-height: 1.3 !important;
     margin-bottom: 0.25rem !important;
   }
   .speaking-card p {
-    font-size: 0.825rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
     margin-bottom: 0.35rem !important;
-    -webkit-line-clamp: 3 !important;
+    -webkit-line-clamp: 2 !important;
     display: -webkit-box !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
@@ -379,35 +423,39 @@ body {
     display: none !important;
   }
   .poster-card {
-    flex: 0 0 84vw !important;
-    max-width: 330px !important;
-    min-width: 275px !important;
-    height: 485px !important;
-    min-height: 485px !important;
-    max-height: 485px !important;
+    flex: 0 0 76vw !important;
+    max-width: 290px !important;
+    min-width: 250px !important;
+    height: 410px !important;
+    min-height: 410px !important;
+    max-height: 410px !important;
     scroll-snap-align: start !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     box-sizing: border-box !important;
-    border-radius: 1.5rem !important;
-    padding: 1.1rem !important;
+    border-radius: 1.25rem !important;
+    padding: 0.9rem !important;
   }
   .poster-card .h-48,
   .poster-card .h-52 {
-    height: 155px !important;
-    margin-bottom: 0.5rem !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    max-height: none !important;
+    border-radius: 0.875rem !important;
+    margin-bottom: 0.45rem !important;
   }
   .poster-card h3 {
-    font-size: 0.95rem !important;
+    font-size: 0.925rem !important;
     line-height: 1.3 !important;
     margin-bottom: 0.25rem !important;
   }
   .poster-card p {
-    font-size: 0.825rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
     margin-bottom: 0.35rem !important;
-    -webkit-line-clamp: 3 !important;
+    -webkit-line-clamp: 2 !important;
     display: -webkit-box !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
@@ -432,22 +480,24 @@ body {
   }
   #training-courses > div,
   #field-visits > div {
-    flex: 0 0 84vw !important;
-    max-width: 330px !important;
-    min-width: 275px !important;
+    flex: 0 0 76vw !important;
+    max-width: 290px !important;
+    min-width: 250px !important;
     scroll-snap-align: start !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     box-sizing: border-box !important;
-    border-radius: 1.5rem !important;
-    padding: 1.1rem !important;
+    border-radius: 1.25rem !important;
+    padding: 0.9rem !important;
+    height: 380px !important;
   }
   #field-visits .aspect-video {
-    height: 140px !important;
-    max-height: 140px !important;
-    aspect-ratio: auto !important;
-    border-radius: 1rem !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    max-height: none !important;
+    border-radius: 0.875rem !important;
   }
 
   /* Feature Industrial Audit Card */
