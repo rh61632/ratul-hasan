@@ -54,8 +54,8 @@
     <div class="absolute bottom-10 right-1/4 w-[420px] h-[420px] bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-[100px]"></div>
   </div>
 
-  <!-- Fixed Top Navigation -->
-  <div class="fixed top-4 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
+  <!-- Fixed Desktop Top Navigation (>= 768px) -->
+  <div class="hidden md:flex fixed top-4 inset-x-0 z-50 justify-center px-3 sm:px-6 pointer-events-none">
     <nav class="pointer-events-auto bg-white/75 dark:bg-surface-card/75 backdrop-blur-xl px-4 sm:px-6 py-2.5 rounded-full border border-white/80 dark:border-white/10 shadow-lg shadow-black/[0.03] dark:shadow-black/20 flex items-center justify-between gap-3 sm:gap-8 w-full max-w-[92vw] xl:max-w-screen-2xl">
       
       <a href="#about" class="flex items-center gap-2 group shrink-0 whitespace-nowrap">
@@ -94,7 +94,70 @@
     </nav>
   </div>
 
-  <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-16 w-full">
+  <!-- Mobile Top Header Bar (< 768px) -->
+  <div class="md:hidden fixed top-3 inset-x-3 z-40 flex justify-center pointer-events-none">
+    <header class="pointer-events-auto w-full max-w-lg bg-white/85 dark:bg-surface-card/85 backdrop-blur-xl px-3.5 py-2 rounded-full border border-white/80 dark:border-white/10 shadow-md flex items-center justify-between">
+      <a href="#about" class="flex items-center gap-2 group shrink-0">
+        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-brand-700 via-brand-600 to-brand-400 flex items-center justify-center text-white font-display font-bold text-xs shadow-sm group-hover:scale-105 transition-transform shrink-0">
+          RH
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs font-bold tracking-tight text-slate-900 dark:text-white leading-tight font-display">Md. Ratul Hasan</span>
+          <span class="text-[9px] font-mono text-brand-600 dark:text-brand-400 leading-none">EEE • JUST</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="themeToggleBtnMobile" aria-label="Toggle Theme" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition shrink-0">
+          <i class="fa-regular fa-sun text-xs dark:hidden"></i>
+          <i class="fa-regular fa-moon text-xs hidden dark:block text-brand-300"></i>
+        </button>
+        <a href="#contact" class="px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r from-brand-600 to-brand-700 shadow-sm transition">
+          Contact
+        </a>
+      </div>
+    </header>
+  </div>
+
+  <!-- Mobile Swipeable Bottom Navigation Bar (< 768px) -->
+  <div class="md:hidden fixed bottom-3 inset-x-2 sm:inset-x-4 z-50 flex justify-center pointer-events-none">
+    <nav class="pointer-events-auto w-full max-w-md bg-white/90 dark:bg-[#12151e]/90 backdrop-blur-2xl p-1.5 rounded-full border border-white/80 dark:border-white/10 shadow-[0_12px_36px_rgba(0,0,0,0.25)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.65)] relative overflow-hidden">
+      <!-- Swipeable Nav Items Track -->
+      <div id="mobileBottomNavTrack" class="mobile-bottom-nav flex items-center gap-1 overflow-x-auto no-scrollbar scroll-smooth px-1 py-0.5 select-none touch-pan-x" style="-webkit-overflow-scrolling: touch;">
+        <a href="#about" class="mobile-nav-item active px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-brand-600 dark:text-brand-400 bg-brand-500/10 dark:bg-brand-500/20">
+          <i class="fa-solid fa-user text-[10px]"></i> <span>About</span>
+        </a>
+        <a href="#focus" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
+          <i class="fa-solid fa-layer-group text-[10px]"></i> <span>Domains</span>
+        </a>
+        <a href="#projects" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
+          <i class="fa-solid fa-code text-[10px]"></i> <span>Projects</span>
+        </a>
+        <a href="#awards" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
+          <i class="fa-solid fa-trophy text-[10px]"></i> <span>Awards</span>
+        </a>
+        <a href="#speaking" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
+          <i class="fa-solid fa-microphone-lines text-[10px]"></i> <span>Speaking</span>
+        </a>
+        <a href="#posters" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
+          <i class="fa-solid fa-newspaper text-[10px]"></i> <span>Posters</span>
+        </a>
+        <a href="#experience" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
+          <i class="fa-solid fa-briefcase text-[10px]"></i> <span>Experience</span>
+        </a>
+        <a href="#training" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
+          <i class="fa-solid fa-certificate text-[10px]"></i> <span>Training</span>
+        </a>
+        <a href="#education" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
+          <i class="fa-solid fa-graduation-cap text-[10px]"></i> <span>Education</span>
+        </a>
+        <a href="#contact" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
+          <i class="fa-solid fa-paper-plane text-[10px]"></i> <span>Contact</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="pt-20 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-28 sm:pb-16 w-full">
 
     <!-- About Section -->
     <section id="about" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-36">

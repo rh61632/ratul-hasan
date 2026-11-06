@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Intercept navigation links so clicking a headline smoothly scrolls without sticking hashes to the address bar
+  // Intercept navigation links so clicking smoothly scrolls without sticking hashes to the address bar
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       const hash = link.getAttribute('href');
@@ -339,10 +339,102 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });
+        if (typeof setActiveNavItem === 'function') {
+          setActiveNavItem(hash.substring(1));
+        }
         // Strip the hash from the address bar so it never sticks in history
         history.replaceState(null, '', window.location.pathname + window.location.search);
       }
     });
+  });
+
+  // =========================================================================
+  // Mobile Bottom Navigation Swiping, Centering & ScrollSpy
+  // =========================================================================
+  const mobileNavTrack = document.getElementById('mobileBottomNavTrack');
+  const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+
+  function setActiveNavItem(targetId) {
+    if (!targetId) return;
+
+    // Update mobile bottom bar items
+    mobileNavItems.forEach(item => {
+      const href = item.getAttribute('href');
+      if (href === `#${targetId}`) {
+        item.classList.add('active');
+        item.classList.remove('text-slate-600', 'dark:text-slate-300');
+        // Smoothly center the active pill within the swipable mobile track
+        item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      } else {
+        item.classList.remove('active');
+        item.classList.add('text-slate-600', 'dark:text-slate-300');
+      }
+    });
+
+    // Update desktop top bar items
+    document.querySelectorAll('a[href^="#"]:not(.mobile-nav-item)').forEach(item => {
+      const href = item.getAttribute('href');
+      if (href === `#${targetId}` && !item.classList.contains('group')) {
+        item.classList.add('text-brand-600', 'dark:text-brand-400', 'bg-brand-50/80', 'dark:bg-brand-950/40');
+      } else if (!item.classList.contains('group') && !item.getAttribute('href')?.includes('contact')) {
+        item.classList.remove('text-brand-600', 'dark:text-brand-400', 'bg-brand-50/80', 'dark:bg-brand-950/40');
+      }
+    });
+  }
+
+  // Smooth Drag-to-Scroll support for Mobile Bottom Navigation
+  if (mobileNavTrack) {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    mobileNavTrack.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - mobileNavTrack.offsetLeft;
+      scrollLeft = mobileNavTrack.scrollLeft;
+    });
+
+    mobileNavTrack.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+
+    mobileNavTrack.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+
+    mobileNavTrack.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - mobileNavTrack.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      mobileNavTrack.scrollLeft = scrollLeft - walk;
+    });
+  }
+
+  // ScrollSpy with IntersectionObserver
+  const sectionIds = [
+    'about', 'focus', 'projects', 'awards', 'speaking', 
+    'posters', 'experience', 'training', 'education', 'contact'
+  ];
+
+  let scrollSpyTimer;
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        clearTimeout(scrollSpyTimer);
+        scrollSpyTimer = setTimeout(() => {
+          setActiveNavItem(entry.target.id);
+        }, 60);
+      }
+    });
+  }, {
+    rootMargin: '-15% 0px -55% 0px',
+    threshold: 0
+  });
+
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) sectionObserver.observe(el);
   });
 
   // Continuously record scroll position and clear any lingering hash so back navigation is never hijacked
