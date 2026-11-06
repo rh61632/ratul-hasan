@@ -283,9 +283,9 @@ body {
     margin-bottom: 3.5rem !important;
   }
 
-  /* Upward raised bottom navigation dock */
+  /* Upward raised bottom navigation dock (balanced thumb position) */
   .mobile-nav-dock {
-    bottom: 4.75rem !important; /* ~76px clearly raised above screen bottom */
+    bottom: 3.25rem !important; /* ~52px above screen bottom (lowered by half the bar's height) */
   }
 
   /* Side-by-Side Horizontal Scroll for Domains / Focus */
