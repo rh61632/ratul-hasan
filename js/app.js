@@ -365,12 +365,65 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileDockTooltipArrow = document.getElementById('mobileDockTooltipArrow');
   const mobileNavDock = document.querySelector('.mobile-nav-dock');
 
-  function triggerHaptic(duration = 12) {
+  let iosHapticSwitch = null;
+  function initHapticEngine() {
+    try {
+      if (!iosHapticSwitch && typeof document !== 'undefined') {
+        const sw = document.createElement('input');
+        sw.type = 'checkbox';
+        sw.setAttribute('switch', '');
+        sw.style.position = 'fixed';
+        sw.style.top = '-9999px';
+        sw.style.left = '-9999px';
+        sw.style.opacity = '0';
+        sw.style.pointerEvents = 'none';
+        sw.tabIndex = -1;
+        document.body.appendChild(sw);
+        iosHapticSwitch = sw;
+      }
+    } catch (e) {}
+  }
+  initHapticEngine();
+
+  function triggerHaptic(duration = 20) {
+    // 1. Android / standard Vibration API
     if (typeof navigator !== 'undefined' && navigator.vibrate) {
       try {
         navigator.vibrate(duration);
       } catch (e) {}
     }
+
+    // 2. iOS Safari native Taptic Engine switch trigger (iOS 17.4+)
+    if (iosHapticSwitch) {
+      try {
+        iosHapticSwitch.checked = !iosHapticSwitch.checked;
+        iosHapticSwitch.dispatchEvent(new Event('change', { bubbles: true }));
+      } catch (e) {}
+    }
+
+    // 3. Web Audio tactile click fallback
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) {
+        if (!window.__hapticAudioCtx) {
+          window.__hapticAudioCtx = new AudioCtx();
+        }
+        const ctx = window.__hapticAudioCtx;
+        if (ctx.state === 'suspended') {
+          ctx.resume();
+        }
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(120, ctx.currentTime);
+        gain.gain.setValueAtTime(0.04, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.035);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.035);
+      }
+    } catch (e) {}
   }
 
   function setActiveNavItem(targetId) {
@@ -427,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const dockRect = mobileNavDock.getBoundingClientRect();
 
       // If finger moves too far above (cancelled peek) or below
-      if (clientY < trackRect.top - 120 || clientY > trackRect.bottom + 80) {
+      if (clientY < dockRect.top - 160 || clientY > dockRect.bottom + 90) {
         resetDockState();
         return;
       }
@@ -476,12 +529,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mobileDockTooltipText) {
           mobileDockTooltipText.textContent = targetItem.dataset.title || '';
         }
-        if (mobileDockTooltipIcon && targetItem.dataset.icon) {
-          mobileDockTooltipIcon.className = `${targetItem.dataset.icon} text-[10px] text-brand-300`;
-        }
 
         // Measure tooltip width to strictly clamp inside screen bounds (never clipped off-screen)
-        const tooltipWidth = mobileDockTooltip.offsetWidth || 135;
+        const tooltipWidth = mobileDockTooltip.offsetWidth || 120;
         const halfTooltip = tooltipWidth / 2;
         const idealLeft = targetCenterX - dockRect.left;
 
@@ -497,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Align tooltip pointer arrow with the actual icon's center
         if (mobileDockTooltipArrow) {
           const arrowOffset = idealLeft - clampedLeft;
-          const maxArrowOffset = halfTooltip - 16;
+          const maxArrowOffset = halfTooltip - 14;
           const clampedArrowOffset = Math.max(-maxArrowOffset, Math.min(maxArrowOffset, arrowOffset));
           mobileDockTooltipArrow.style.transform = `translateX(${clampedArrowOffset}px) rotate(45deg)`;
         }
@@ -505,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Haptic pulse when scrubbing over a new icon
         if (closestIdx !== activeHoverIndex) {
           activeHoverIndex = closestIdx;
-          triggerHaptic(14);
+          triggerHaptic(20);
         }
       }
     }
@@ -517,7 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (href && href.startsWith('#')) {
           const target = document.querySelector(href);
           if (target) {
-            triggerHaptic(20); // Confirmation haptic feedback
+            triggerHaptic(28); // Confirmation haptic feedback
             target.scrollIntoView({ behavior: 'smooth' });
             setActiveNavItem(href.replace('#', ''));
           }
@@ -526,31 +576,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Touch Interaction (Scrubbing / 3D Touch Press & Hold)
-    mobileNavTrack.addEventListener('touchstart', (e) => {
+    mobileNavDock.addEventListener('touchstart', (e) => {
       isInteracting = true;
+      initHapticEngine();
+      if (e.cancelable) e.preventDefault();
       const t = e.touches[0];
       updateDockMagnification(t.clientX, t.clientY);
-    }, { passive: true });
+    }, { passive: false });
 
-    mobileNavTrack.addEventListener('touchmove', (e) => {
+    window.addEventListener('touchmove', (e) => {
       if (!isInteracting) return;
       if (e.cancelable) e.preventDefault();
       const t = e.touches[0];
       updateDockMagnification(t.clientX, t.clientY);
     }, { passive: false });
 
-    mobileNavTrack.addEventListener('touchend', (e) => {
-      if (isInteracting && activeHoverIndex !== -1) {
+    window.addEventListener('touchend', (e) => {
+      if (isInteracting) {
         if (e.cancelable) e.preventDefault();
         const finalIdx = activeHoverIndex;
         resetDockState();
-        navigateToDockIndex(finalIdx);
-      } else {
-        resetDockState();
+        if (finalIdx !== -1) {
+          navigateToDockIndex(finalIdx);
+        }
       }
     }, { passive: false });
 
-    mobileNavTrack.addEventListener('touchcancel', () => {
+    window.addEventListener('touchcancel', () => {
       resetDockState();
     });
 
@@ -558,7 +610,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dockItems.forEach((item, idx) => {
       item.addEventListener('click', (e) => {
         e.preventDefault();
-        triggerHaptic(15);
+        triggerHaptic(20);
         navigateToDockIndex(idx);
       });
     });

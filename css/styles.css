@@ -202,7 +202,7 @@ body {
     overflow-y: hidden !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
-    touch-action: pan-x pinch-zoom !important;
+    touch-action: pan-x pan-y pinch-zoom !important;
     gap: 0.75rem !important;
     padding: 0.25rem 0.25rem 0.6rem 0.25rem !important;
     width: 100% !important;
