@@ -362,6 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileDockTooltip = document.getElementById('mobileDockTooltip');
   const mobileDockTooltipText = document.getElementById('mobileDockTooltipText');
   const mobileDockTooltipIcon = document.getElementById('mobileDockTooltipIcon');
+  const mobileDockTooltipArrow = document.getElementById('mobileDockTooltipArrow');
   const mobileNavDock = document.querySelector('.mobile-nav-dock');
 
   function triggerHaptic(duration = 12) {
@@ -411,8 +412,12 @@ document.addEventListener('DOMContentLoaded', () => {
       dockItems.forEach(item => {
         item.style.transform = '';
         item.style.zIndex = '';
+        item.classList.remove('dock-popping');
       });
       mobileDockTooltip.classList.remove('is-visible');
+      if (mobileDockTooltipArrow) {
+        mobileDockTooltipArrow.style.transform = '';
+      }
       activeHoverIndex = -1;
       isInteracting = false;
     }
@@ -422,12 +427,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const dockRect = mobileNavDock.getBoundingClientRect();
 
       // If finger moves too far above (cancelled peek) or below
-      if (clientY < trackRect.top - 100 || clientY > trackRect.bottom + 60) {
+      if (clientY < trackRect.top - 120 || clientY > trackRect.bottom + 80) {
         resetDockState();
         return;
       }
 
-      const maxDist = 75; // Influence radius in px
+      const maxDist = 80; // Influence radius in px
       let closestIdx = -1;
       let minDistance = Infinity;
 
@@ -444,10 +449,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (dist < maxDist) {
           // Parabolic cosine curve for authentic macOS dock magnification
           const factor = Math.cos((dist / maxDist) * (Math.PI / 2));
-          const scale = 1 + factor * 0.45;
-          const translateY = -12 * factor;
+          const scale = 1 + factor * 0.7; // Up to 1.7x magnification
+          const translateY = -28 * factor; // Up to -28px lift ABOVE the finger pad
           item.style.transform = `scale(${scale}) translateY(${translateY}px)`;
-          item.style.zIndex = String(Math.round(10 + factor * 10));
+          item.style.zIndex = String(Math.round(20 + factor * 20));
         } else {
           item.style.transform = '';
           item.style.zIndex = '';
@@ -455,27 +460,52 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (closestIdx !== -1) {
+        // Highlight active popping icon
+        dockItems.forEach((item, idx) => {
+          if (idx === closestIdx) {
+            item.classList.add('dock-popping');
+          } else {
+            item.classList.remove('dock-popping');
+          }
+        });
+
         const targetItem = dockItems[closestIdx];
         const targetRect = targetItem.getBoundingClientRect();
         const targetCenterX = targetRect.left + targetRect.width / 2;
-
-        // Position 3D Touch tooltip directly above the hovered icon
-        const relativeLeft = targetCenterX - dockRect.left;
-        mobileDockTooltip.style.left = `${relativeLeft}px`;
-        mobileDockTooltip.style.transform = 'translateX(-50%) translateY(0)';
-        mobileDockTooltip.classList.add('is-visible');
 
         if (mobileDockTooltipText) {
           mobileDockTooltipText.textContent = targetItem.dataset.title || '';
         }
         if (mobileDockTooltipIcon && targetItem.dataset.icon) {
-          mobileDockTooltipIcon.className = `${targetItem.dataset.icon} text-[11px] text-brand-400`;
+          mobileDockTooltipIcon.className = `${targetItem.dataset.icon} text-[10px] text-brand-300`;
+        }
+
+        // Measure tooltip width to strictly clamp inside screen bounds (never clipped off-screen)
+        const tooltipWidth = mobileDockTooltip.offsetWidth || 135;
+        const halfTooltip = tooltipWidth / 2;
+        const idealLeft = targetCenterX - dockRect.left;
+
+        // Viewport-safe bounds relative to dock container
+        const screenMargin = 12; // 12px margin from screen edges
+        const minLeft = (screenMargin - dockRect.left) + halfTooltip;
+        const maxLeft = (window.innerWidth - screenMargin - dockRect.left) - halfTooltip;
+        const clampedLeft = Math.max(minLeft, Math.min(idealLeft, maxLeft));
+
+        mobileDockTooltip.style.left = `${clampedLeft}px`;
+        mobileDockTooltip.classList.add('is-visible');
+
+        // Align tooltip pointer arrow with the actual icon's center
+        if (mobileDockTooltipArrow) {
+          const arrowOffset = idealLeft - clampedLeft;
+          const maxArrowOffset = halfTooltip - 16;
+          const clampedArrowOffset = Math.max(-maxArrowOffset, Math.min(maxArrowOffset, arrowOffset));
+          mobileDockTooltipArrow.style.transform = `translateX(${clampedArrowOffset}px) rotate(45deg)`;
         }
 
         // Haptic pulse when scrubbing over a new icon
         if (closestIdx !== activeHoverIndex) {
           activeHoverIndex = closestIdx;
-          triggerHaptic(12);
+          triggerHaptic(14);
         }
       }
     }

@@ -42,7 +42,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="css/styles.css?v=2.7">
+  <link rel="stylesheet" href="css/styles.css?v=2.8">
 </head>
 <body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
 
@@ -122,11 +122,13 @@
   <div class="md:hidden fixed inset-x-2 sm:inset-x-6 z-50 flex flex-col items-center pointer-events-none mobile-nav-dock" style="bottom: 3.25rem;">
     <!-- 3D Touch Peek Tooltip (Pops up above active dock icon) -->
     <div id="mobileDockTooltip" class="mobile-dock-tooltip pointer-events-none opacity-0 flex flex-col items-center">
-      <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold font-display text-white bg-slate-900/95 dark:bg-[#151926]/95 backdrop-blur-2xl border border-brand-500/40 shadow-[0_10px_25px_rgba(0,0,0,0.4)] dark:shadow-[0_10px_25px_rgba(13,148,136,0.3)]">
-        <i id="mobileDockTooltipIcon" class="fa-solid fa-user text-[11px] text-brand-400"></i>
-        <span id="mobileDockTooltipText" class="tracking-wide text-white">About</span>
+      <div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold font-display text-white bg-slate-950/95 dark:bg-[#0c0e17]/95 backdrop-blur-2xl border-2 border-brand-500 shadow-[0_14px_36px_rgba(0,0,0,0.5)]">
+        <span class="w-5 h-5 rounded-full bg-brand-500/25 border border-brand-400/40 flex items-center justify-center shrink-0">
+          <i id="mobileDockTooltipIcon" class="fa-solid fa-user text-[10px] text-brand-300"></i>
+        </span>
+        <span id="mobileDockTooltipText" class="tracking-wider text-white uppercase text-[11px] font-bold">About</span>
       </div>
-      <div class="w-2 h-2 rotate-45 bg-slate-900/95 dark:bg-[#151926]/95 border-r border-b border-brand-500/40 -mt-1 shadow-sm"></div>
+      <div id="mobileDockTooltipArrow" class="w-2.5 h-2.5 rotate-45 bg-slate-950/95 dark:bg-[#0c0e17]/95 border-r-2 border-b-2 border-brand-500 -mt-1.5 shadow-md"></div>
     </div>
 
     <!-- Mac Dock Capsule -->
@@ -546,6 +548,6 @@
 
   </main>
 
-  <script type="module" src="js/app.js?v=2.7"></script>
+  <script type="module" src="js/app.js?v=2.8"></script>
 </body>
 </html>
