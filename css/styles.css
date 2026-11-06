@@ -186,140 +186,14 @@ body {
   }
 }
 
-/* Mobile & Tablet Styles (< 1024px) - Horizontal Side-by-Side Scroll */
+/* Mobile & Tablet Styles (< 1024px) - Compact Horizontal Side-by-Side Scroll */
 @media (max-width: 1023px) {
   .projects-expand-container,
   .awards-expand-container,
-  .speaking-expand-container {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: stretch !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 0.85rem !important;
-    padding: 0.25rem 0.25rem 0.75rem 0.25rem !important;
-    width: 100% !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-  .projects-expand-container::-webkit-scrollbar,
-  .awards-expand-container::-webkit-scrollbar,
-  .speaking-expand-container::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .projects-expand-container .project-expand-card,
-  .awards-expand-container .award-expand-card,
-  .speaking-expand-container .speaking-expand-card {
-    flex: 0 0 76vw !important;
-    max-width: 290px !important;
-    min-width: 250px !important;
-    width: 76vw !important;
-    height: 410px !important;
-    min-height: 410px !important;
-    max-height: 410px !important;
-    scroll-snap-align: start !important;
-    scroll-snap-stop: normal !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    box-sizing: border-box !important;
-    border-radius: 1.25rem !important;
-    padding: 0.9rem !important;
-  }
-
-  /* Full uncropped 16:9 cover photo */
-  .project-expand-card .aspect-video,
-  .award-expand-card .aspect-video,
-  .speaking-expand-card .aspect-video {
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    height: auto !important;
-    max-height: none !important;
-    border-radius: 0.875rem !important;
-    margin-bottom: 0.45rem !important;
-    overflow: hidden !important;
-  }
-  .project-expand-card .aspect-video img,
-  .award-expand-card .aspect-video img,
-  .speaking-expand-card .aspect-video img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-  }
-
-  /* Themed graphic banners */
-  .project-expand-card .h-36,
-  .award-expand-card .h-36,
-  .speaking-expand-card .h-36,
-  .project-expand-card .h-40,
-  .award-expand-card .h-40,
-  .speaking-expand-card .h-40 {
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    height: auto !important;
-    max-height: none !important;
-    border-radius: 0.875rem !important;
-    margin-bottom: 0.45rem !important;
-  }
-
-  .project-expand-card h3,
-  .award-expand-card h3,
-  .speaking-expand-card h3 {
-    font-size: 0.925rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 0.25rem !important;
-  }
-
-  .project-expand-card .project-summary-collapsed,
-  .award-expand-card .award-summary-collapsed,
-  .speaking-expand-card .speaking-summary-collapsed {
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-    font-size: 0.8rem !important;
-    line-height: 1.35 !important;
-    margin-bottom: 0.35rem !important;
-  }
-  .project-expand-card .project-summary-expanded,
-  .award-expand-card .award-summary-expanded,
-  .speaking-expand-card .speaking-summary-expanded {
-    display: none !important;
-  }
-
-  /* Direct action buttons in footer on mobile */
-  .project-expand-card .card-collapsed-footer,
-  .award-expand-card .card-collapsed-footer,
-  .speaking-expand-card .card-collapsed-footer {
-    display: none !important;
-  }
-  .project-expand-card .card-expanded-footer,
-  .award-expand-card .card-expanded-footer,
-  .speaking-expand-card .card-expanded-footer {
-    display: flex !important;
-  }
-}
-
-/* ==========================================================================
-   Mobile-Only Horizontal Scrolling & Floating Navigation (< 768px)
-   Keeps desktop (>= 768px & >= 1024px) 100% UNCHANGED.
-   ========================================================================== */
-@media (max-width: 767px) {
-  /* Tighter section spacing */
-  section {
-    margin-bottom: 3.5rem !important;
-  }
-
-  /* Upward raised bottom navigation dock (balanced thumb position) */
-  .mobile-nav-dock {
-    bottom: 3.25rem !important; /* ~52px above screen bottom (lowered by half the bar's height) */
-  }
-
-  /* Side-by-Side Horizontal Scroll for Domains / Focus */
+  .speaking-expand-container,
+  #posters-grid,
+  #training-courses,
+  #field-visits,
   #focus .grid {
     display: flex !important;
     flex-direction: row !important;
@@ -329,160 +203,93 @@ body {
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
     touch-action: pan-x pinch-zoom !important;
-    gap: 0.85rem !important;
-    padding: 0.25rem 0.25rem 0.75rem 0.25rem !important;
+    gap: 0.75rem !important;
+    padding: 0.25rem 0.25rem 0.6rem 0.25rem !important;
+    width: 100% !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
   }
+  .projects-expand-container::-webkit-scrollbar,
+  .awards-expand-container::-webkit-scrollbar,
+  .speaking-expand-container::-webkit-scrollbar,
+  #posters-grid::-webkit-scrollbar,
+  #training-courses::-webkit-scrollbar,
+  #field-visits::-webkit-scrollbar,
   #focus .grid::-webkit-scrollbar {
     display: none !important;
   }
-  #focus .grid > div {
-    flex: 0 0 76vw !important;
-    max-width: 290px !important;
-    min-width: 250px !important;
+
+  /* Compact Uniform Cards across all sections (< 1024px) */
+  .projects-expand-container .project-expand-card,
+  .awards-expand-container .award-expand-card,
+  .speaking-expand-container .speaking-expand-card,
+  .poster-card,
+  #training-courses > div,
+  #field-visits > div {
+    flex: 0 0 74vw !important;
+    max-width: 275px !important;
+    min-width: 240px !important;
+    width: 74vw !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
     scroll-snap-align: start !important;
+    scroll-snap-stop: normal !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    height: 290px !important;
-    padding: 1rem !important;
-    border-radius: 1.25rem !important;
     box-sizing: border-box !important;
+    border-radius: 1.25rem !important;
+    padding: 0.75rem !important;
+    overflow: hidden !important;
+  }
+
+  /* Compact Focus / Domains Cards */
+  #focus .grid > div {
+    flex: 0 0 74vw !important;
+    max-width: 275px !important;
+    min-width: 240px !important;
+    width: 74vw !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: normal !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    border-radius: 1.25rem !important;
+    padding: 0.85rem !important;
     overflow: hidden !important;
   }
   #focus .grid > div .w-11 {
-    width: 2.25rem !important;
-    height: 2.25rem !important;
-    margin-bottom: 0.5rem !important;
-    font-size: 0.875rem !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    margin-bottom: 0.35rem !important;
+    font-size: 0.8rem !important;
   }
   #focus .grid > div h3 {
-    font-size: 0.95rem !important;
-    margin-bottom: 0.25rem !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 0.15rem !important;
   }
   #focus .grid > div p {
-    font-size: 0.8rem !important;
-    line-height: 1.35 !important;
-    margin-bottom: 0.5rem !important;
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.35rem !important;
     -webkit-line-clamp: 3 !important;
     display: -webkit-box !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
   }
 
-  /* Side-by-Side Horizontal Scroll for Posters */
-  #posters-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: stretch !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    touch-action: pan-x pinch-zoom !important;
-    gap: 0.85rem !important;
-    padding: 0.25rem 0.25rem 0.75rem 0.25rem !important;
-    width: 100% !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-  #posters-grid::-webkit-scrollbar {
-    display: none !important;
-  }
-  .poster-card {
-    flex: 0 0 76vw !important;
-    max-width: 290px !important;
-    min-width: 250px !important;
-    width: 76vw !important;
-    height: 410px !important;
-    min-height: 410px !important;
-    max-height: 410px !important;
-    scroll-snap-align: start !important;
-    scroll-snap-stop: normal !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    box-sizing: border-box !important;
-    border-radius: 1.25rem !important;
-    padding: 0.9rem !important;
-    overflow: hidden !important;
-  }
+  /* Full uncropped 16:9 cover photo on all cards */
+  .project-expand-card .aspect-video,
+  .award-expand-card .aspect-video,
+  .speaking-expand-card .aspect-video,
+  .poster-card .aspect-video,
   .poster-card .h-48,
-  .poster-card .h-52 {
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    height: auto !important;
-    max-height: none !important;
-    border-radius: 0.875rem !important;
-    margin-bottom: 0.45rem !important;
-    overflow: hidden !important;
-  }
-  .poster-card img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-  }
-  .poster-card h3 {
-    font-size: 0.925rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 0.25rem !important;
-  }
-  .poster-card p {
-    font-size: 0.8rem !important;
-    line-height: 1.35 !important;
-    margin-bottom: 0.35rem !important;
-    -webkit-line-clamp: 2 !important;
-    display: -webkit-box !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-  }
-  .poster-card .pt-3 {
-    padding-top: 0.45rem !important;
-    margin-top: auto !important;
-  }
-
-  /* Side-by-Side Horizontal Scroll for Training Courses & Field Visits */
-  #training-courses,
-  #field-visits {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: stretch !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    touch-action: pan-x pinch-zoom !important;
-    gap: 0.85rem !important;
-    padding: 0.25rem 0.25rem 0.75rem 0.25rem !important;
-    width: 100% !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-  #training-courses::-webkit-scrollbar,
-  #field-visits::-webkit-scrollbar {
-    display: none !important;
-  }
-  #training-courses > div,
-  #field-visits > div {
-    flex: 0 0 76vw !important;
-    max-width: 290px !important;
-    min-width: 250px !important;
-    width: 76vw !important;
-    height: 410px !important;
-    min-height: 410px !important;
-    max-height: 410px !important;
-    scroll-snap-align: start !important;
-    scroll-snap-stop: normal !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    box-sizing: border-box !important;
-    border-radius: 1.25rem !important;
-    padding: 0.9rem !important;
-    overflow: hidden !important;
-  }
+  .poster-card .h-52,
   #training-courses .h-36,
   #training-courses .h-40,
   #field-visits .h-36,
@@ -492,10 +299,16 @@ body {
     aspect-ratio: 16 / 9 !important;
     height: auto !important;
     max-height: none !important;
-    border-radius: 0.875rem !important;
-    margin-bottom: 0.45rem !important;
+    border-radius: 0.75rem !important;
+    margin-bottom: 0.35rem !important;
     overflow: hidden !important;
+    shrink: 0 !important;
+    flex-shrink: 0 !important;
   }
+  .project-expand-card .aspect-video img,
+  .award-expand-card .aspect-video img,
+  .speaking-expand-card .aspect-video img,
+  .poster-card img,
   #training-courses img,
   #field-visits img {
     width: 100% !important;
@@ -503,26 +316,118 @@ body {
     object-fit: cover !important;
     object-position: center !important;
   }
+
+  /* Compact Titles */
+  .project-expand-card h3,
+  .award-expand-card h3,
+  .speaking-expand-card h3,
+  .poster-card h3,
   #training-courses h4,
   #field-visits h3 {
-    font-size: 0.925rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 0.25rem !important;
-  }
-  #training-courses p,
-  #field-visits p {
-    font-size: 0.8rem !important;
-    line-height: 1.35 !important;
-    margin-bottom: 0.35rem !important;
-    -webkit-line-clamp: 2 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.15rem !important;
+    -webkit-line-clamp: 1 !important;
     display: -webkit-box !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
+    font-weight: 700 !important;
   }
-  #training-courses .pt-3,
-  #field-visits .pt-3 {
-    padding-top: 0.45rem !important;
+
+  /* Compact Summaries */
+  .project-expand-card .project-summary-collapsed,
+  .award-expand-card .award-summary-collapsed,
+  .speaking-expand-card .speaking-summary-collapsed,
+  .poster-card p,
+  #training-courses p,
+  #field-visits p {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    font-size: 0.74rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .project-expand-card .project-summary-expanded,
+  .award-expand-card .award-summary-expanded,
+  .speaking-expand-card .speaking-summary-expanded {
+    display: none !important;
+  }
+
+  /* Compact Tags Row */
+  .project-expand-card .flex-wrap,
+  .award-expand-card .flex-wrap,
+  .speaking-expand-card .flex-wrap,
+  .poster-card .flex-wrap,
+  #training-courses .flex-wrap,
+  #field-visits .flex-wrap {
+    max-height: 22px !important;
+    overflow: hidden !important;
+    gap: 0.25rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+  .project-expand-card .flex-wrap span,
+  .award-expand-card .flex-wrap span,
+  .speaking-expand-card .flex-wrap span,
+  .poster-card .flex-wrap span,
+  #training-courses .flex-wrap span,
+  #field-visits .flex-wrap span {
+    font-size: 0.62rem !important;
+    padding: 0.1rem 0.35rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Direct Action Footers on mobile - ALWAYS PINNED, NEVER CUT OFF */
+  .project-expand-card .card-collapsed-footer,
+  .award-expand-card .card-collapsed-footer,
+  .speaking-expand-card .card-collapsed-footer {
+    display: none !important;
+  }
+  .project-expand-card .card-expanded-footer,
+  .award-expand-card .card-expanded-footer,
+  .speaking-expand-card .card-expanded-footer,
+  .poster-card > div:last-child,
+  #training-courses > div > div:last-child,
+  #field-visits > div > div:last-child {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding-top: 0.35rem !important;
     margin-top: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Compact Action Buttons in Footers */
+  .card-expanded-footer a,
+  .card-expanded-footer button,
+  .poster-card button,
+  .poster-card a,
+  #training-courses a,
+  #field-visits a,
+  .project-action-link,
+  .award-action-link,
+  .speaking-action-link {
+    padding: 0.25rem 0.65rem !important;
+    font-size: 0.72rem !important;
+    border-radius: 0.625rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* ==========================================================================
+   Mobile-Only Specific Overrides (< 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* Tighter section spacing */
+  section {
+    margin-bottom: 3.5rem !important;
+  }
+
+  /* Upward raised bottom navigation dock */
+  .mobile-nav-dock {
+    bottom: 3.25rem !important;
   }
 
   /* Feature Industrial Audit Card */

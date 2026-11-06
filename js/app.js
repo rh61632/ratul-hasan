@@ -166,27 +166,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
       return `
         <div ${dataUrlAttr} class="${cursorClass} p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-          <div>
-            ${mediaBlock}
-            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1 mb-2">
-              <div>
-                <h4 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition leading-snug">${course.title}</h4>
-                <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-0.5">${course.institution}</p>
+          <div class="flex-1 min-h-0 overflow-hidden flex flex-col justify-between">
+            <div>
+              ${mediaBlock}
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1 mb-1.5">
+                <div>
+                  <h4 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg group-hover:text-brand-600 dark:group-hover:text-brand-400 transition leading-snug line-clamp-1 sm:line-clamp-2">${course.title}</h4>
+                  <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-0.5 truncate">${course.institution}</p>
+                </div>
+                <span class="text-xs font-mono text-slate-400 whitespace-nowrap self-start mt-1 sm:mt-0">${course.period}</span>
               </div>
-              <span class="text-xs font-mono text-slate-400 whitespace-nowrap self-start mt-1 sm:mt-0">${course.period}</span>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-2 line-clamp-2">${course.description}</p>
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${course.description}</p>
-          </div>
-          <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-200/60 dark:border-slate-800/80">
-            <div class="flex flex-wrap items-center gap-1.5">
+            <div class="flex flex-wrap items-center gap-1.5 shrink-0 mt-auto mb-1 overflow-hidden max-h-[24px]">
               <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-brand-500/10 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-300/40 dark:border-brand-800/40 shadow-sm">${course.durationTag}</span>
               ${course.tags.map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300">${tag}</span>`).join('')}
             </div>
+          </div>
+          <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-200/60 dark:border-slate-800/80 shrink-0 mt-auto">
+            <span class="text-[10px] font-mono text-slate-400 truncate min-w-0 flex-1">${course.period}</span>
             ${course.caseStudyUrl ? `
-              <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 text-xs transition whitespace-nowrap">
+              <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 text-xs transition whitespace-nowrap shrink-0">
                 Explore <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
               </span>
-            ` : ''}
+            ` : '<span></span>'}
           </div>
         </div>
       `;
@@ -249,40 +252,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const footerExtra = visit.caseStudyUrl
         ? `<span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-500 flex items-center gap-1.5 text-xs transition shrink-0">
-             Photos & Study <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
+             <span class="hidden sm:inline">Photos & </span>Study <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
            </span>`
         : '';
 
       return `
         <div class="visit-card ${cursorClass} p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:border-brand-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" ${dataUrlAttr}>
-          <div>
-            ${mediaBlock}
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 bg-brand-500/10 dark:bg-brand-950/60 px-2 py-0.5 rounded border border-brand-300/40 dark:border-brand-800/40 shadow-sm">
-                ${visit.badge || 'Field Study'}
-              </span>
-              <span class="text-xs font-mono text-slate-400">${visit.period}</span>
+          <div class="flex-1 min-h-0 overflow-hidden flex flex-col justify-between">
+            <div>
+              ${mediaBlock}
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 bg-brand-500/10 dark:bg-brand-950/60 px-2 py-0.5 rounded border border-brand-300/40 dark:border-brand-800/40 shadow-sm">
+                  ${visit.badge || 'Field Study'}
+                </span>
+                <span class="text-xs font-mono text-slate-400">${visit.period}</span>
+              </div>
+
+              ${titleMarkup}
+
+              <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1.5 truncate">
+                <i class="fa-solid fa-location-dot text-brand-500 text-[11px] shrink-0"></i>
+                <span class="truncate">${visit.type}</span>
+              </p>
+
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-2 line-clamp-2">
+                ${visit.description}
+              </p>
             </div>
 
-            ${titleMarkup}
-
-            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mb-2.5 flex items-center gap-1.5">
-              <i class="fa-solid fa-location-dot text-brand-500 text-[11px] shrink-0"></i>
-              <span>${visit.type}</span>
-            </p>
-
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-3.5">
-              ${visit.description}
-            </p>
-
-            <div class="flex flex-wrap gap-1.5 mb-4">
+            <div class="flex flex-wrap gap-1.5 shrink-0 mt-auto mb-1 overflow-hidden max-h-[24px]">
               ${tagPills}
             </div>
           </div>
 
-          <div class="pt-3 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-400 gap-2">
-            <span class="text-[11px] font-mono flex items-center gap-1.5 text-slate-500 dark:text-slate-400 truncate">
-              <i class="fa-solid fa-users-gear text-brand-500/80 shrink-0"></i> ${visit.organizer}
+          <div class="pt-2 border-t border-slate-200/60 dark:border-slate-800/80 shrink-0 mt-auto flex items-center justify-between text-xs text-slate-400 gap-2">
+            <span class="text-[11px] font-mono flex items-center gap-1.5 text-slate-500 dark:text-slate-400 truncate min-w-0 flex-1">
+              <i class="fa-solid fa-users-gear text-brand-500/80 shrink-0"></i>
+              <span class="truncate">${visit.organizer}</span>
             </span>
             ${footerExtra}
           </div>

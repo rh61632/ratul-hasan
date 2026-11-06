@@ -80,7 +80,7 @@ export function renderSpeaking(speakingItems, targetElementId) {
               <span class="truncate">${item.event}</span>
             </p>
 
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-1 truncate flex items-center gap-1.5">
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-1 truncate hidden sm:flex items-center gap-1.5">
               <i class="fa-solid fa-location-dot text-brand-500 text-[10px] shrink-0"></i>
               <span class="truncate">${item.venue}</span>
             </p>
@@ -122,7 +122,7 @@ export function renderSpeaking(speakingItems, targetElementId) {
             <div class="flex items-center gap-2">
               ${primaryLink}
             </div>
-            <span class="text-[11px] font-mono text-slate-400 hidden sm:inline flex items-center gap-1">
+            <span class="text-[11px] font-mono text-slate-400 hidden sm:inline-flex items-center gap-1">
               <i class="fa-solid fa-camera-retro text-brand-500/80"></i> ${item.photoCount || item.date}
             </span>
           </div>

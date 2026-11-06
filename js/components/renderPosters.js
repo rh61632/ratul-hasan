@@ -20,13 +20,13 @@ export function renderPosters(posters, targetElementId) {
       : '';
 
     const secondaryBtn = poster.awardUrl
-      ? `<a href="${poster.awardUrl}" class="px-2.5 py-1.5 rounded-xl text-xs font-semibold text-amber-800 dark:text-amber-200 bg-amber-500/15 hover:bg-amber-500/25 border border-amber-400/40 dark:border-amber-700/40 transition flex items-center gap-1 shrink-0" title="View Competition Win Case Study">
+      ? `<a href="${poster.awardUrl}" class="px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-semibold text-amber-800 dark:text-amber-200 bg-amber-500/15 hover:bg-amber-500/25 border border-amber-400/40 dark:border-amber-700/40 transition flex items-center gap-1 shrink-0" title="View Competition Win Case Study">
            <i class="fa-solid fa-trophy text-amber-500 text-[10px]"></i>
            <span>Award</span>
          </a>`
       : (poster.caseStudyUrl
-        ? `<a href="${poster.caseStudyUrl}" class="px-2.5 py-1.5 rounded-xl text-xs font-semibold text-brand-600 dark:text-brand-400 hover:bg-brand-50/60 dark:hover:bg-brand-950/40 border border-brand-300/40 dark:border-brand-800/40 transition flex items-center gap-1 shrink-0">
-             <span>Case Study</span>
+        ? `<a href="${poster.caseStudyUrl}" class="px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-semibold text-brand-600 dark:text-brand-400 hover:bg-brand-50/60 dark:hover:bg-brand-950/40 border border-brand-300/40 dark:border-brand-800/40 transition flex items-center gap-1 shrink-0">
+             <span><span class="hidden sm:inline">Case </span>Study</span>
              <i class="fa-solid fa-arrow-right text-[8px]"></i>
            </a>`
         : '');
@@ -43,64 +43,66 @@ export function renderPosters(posters, targetElementId) {
     return `
       <div class="poster-card group bg-white/30 dark:bg-slate-900/30 backdrop-blur-2xl rounded-2xl border ${cardBorder} ring-1 p-5 sm:p-6 flex flex-col justify-between hover:bg-white/40 dark:hover:bg-slate-900/40 hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden">
         ${poster.isWinner ? '<div class="absolute top-0 right-0 w-20 h-20 bg-amber-500/10 rounded-bl-full pointer-events-none"></div>' : ''}
-        <div>
-          <!-- Poster Preview Thumbnail with Expand Trigger -->
-          <div class="relative w-full h-48 sm:h-52 rounded-xl overflow-hidden mb-4 bg-slate-950 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center group/preview cursor-pointer" data-poster-id="${poster.id}" title="Click to view full poster">
-            <img 
-              src="${poster.thumbUrl}" 
-              alt="${poster.shortTitle || poster.title}" 
-              loading="lazy"
-              class="w-full h-full object-contain p-2 transition-transform duration-500 group-hover/preview:scale-[1.03]"
-            />
-            <!-- Ambient Overlay Pill -->
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/preview:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-              <span class="px-3.5 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-slate-900 dark:text-white text-xs font-semibold font-display shadow-lg flex items-center gap-1.5 transform translate-y-1 group-hover/preview:translate-y-0 transition-transform">
-                <i class="fa-solid fa-expand text-brand-500 text-xs"></i> View Poster
+        <div class="flex-1 min-h-0 overflow-hidden flex flex-col justify-between">
+          <div>
+            <!-- Poster Preview Thumbnail with Expand Trigger -->
+            <div class="relative w-full aspect-video sm:h-52 rounded-xl overflow-hidden mb-2 bg-slate-950 border border-slate-200/60 dark:border-slate-800 flex items-center justify-center group/preview cursor-pointer shrink-0" data-poster-id="${poster.id}" title="Click to view full poster">
+              <img 
+                src="${poster.thumbUrl}" 
+                alt="${poster.shortTitle || poster.title}" 
+                loading="lazy"
+                class="w-full h-full object-contain p-2 transition-transform duration-500 group-hover/preview:scale-[1.03]"
+              />
+              <!-- Ambient Overlay Pill -->
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/preview:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                <span class="px-3 py-1 rounded-full bg-white/95 dark:bg-slate-900/95 text-slate-900 dark:text-white text-xs font-semibold font-display shadow-lg flex items-center gap-1.5 transform translate-y-1 group-hover/preview:translate-y-0 transition-transform">
+                  <i class="fa-solid fa-expand text-brand-500 text-xs"></i> View Poster
+                </span>
+              </div>
+              <!-- Format Badge -->
+              <div class="absolute top-2 right-2 px-1.5 py-0.5 rounded-md bg-black/70 backdrop-blur-md text-[9px] font-mono font-bold text-white uppercase tracking-wider">
+                ${isLandscape ? 'Landscape' : 'Portrait'}
+              </div>
+            </div>
+
+            ${awardBadge}
+
+            <!-- Metadata Header -->
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 bg-brand-500/10 dark:bg-brand-950/60 px-2 py-0.5 rounded border border-brand-300/40 dark:border-brand-800/40">
+                ${poster.category}
               </span>
+              <span class="text-xs font-mono text-slate-400">${poster.year}</span>
             </div>
-            <!-- Format Badge -->
-            <div class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-md text-[9px] font-mono font-bold text-white uppercase tracking-wider">
-              ${isLandscape ? 'Landscape' : 'Portrait'}
+
+            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1 font-display line-clamp-1 sm:line-clamp-2 leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition" title="${poster.title}">
+              ${poster.shortTitle || poster.title}
+            </h3>
+
+            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-mono mb-1.5 flex items-center gap-1.5 truncate">
+              <i class="fa-solid fa-user-pen text-brand-500 text-[10px] shrink-0"></i>
+              <span class="truncate">${poster.authors} &bull; ${poster.affiliation}</span>
             </div>
+
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-2 line-clamp-2">
+              ${poster.summary}
+            </p>
           </div>
-
-          ${awardBadge}
-
-          <!-- Metadata Header -->
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 bg-brand-500/10 dark:bg-brand-950/60 px-2 py-0.5 rounded border border-brand-300/40 dark:border-brand-800/40">
-              ${poster.category}
-            </span>
-            <span class="text-xs font-mono text-slate-400">${poster.year}</span>
-          </div>
-
-          <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-1.5 font-display line-clamp-2 leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition" title="${poster.title}">
-            ${poster.shortTitle || poster.title}
-          </h3>
-
-          <div class="text-[11px] text-slate-500 dark:text-slate-400 font-mono mb-2.5 flex items-center gap-1.5 truncate">
-            <i class="fa-solid fa-user-pen text-brand-500 text-[10px] shrink-0"></i>
-            <span class="truncate">${poster.authors} &bull; ${poster.affiliation}</span>
-          </div>
-
-          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3 line-clamp-3">
-            ${poster.summary}
-          </p>
 
           <!-- Tags (Compact top 3) -->
-          <div class="flex flex-wrap items-center gap-1 mb-4">
+          <div class="flex flex-wrap items-center gap-1 shrink-0 mt-auto mb-1 overflow-hidden max-h-[24px]">
             ${tagPills}
             ${moreTags}
           </div>
         </div>
 
         <!-- Footer Action Buttons -->
-        <div class="pt-3 border-t border-slate-200/70 dark:border-slate-800/80 flex items-center justify-between gap-2 text-xs">
-          <div class="flex items-center gap-2">
-            <button class="open-poster-btn px-3 py-1.5 rounded-xl font-semibold text-white bg-slate-900 dark:bg-slate-800 hover:bg-brand-600 dark:hover:bg-brand-600 transition flex items-center gap-1.5 shadow-sm text-xs" data-poster-id="${poster.id}">
-              <i class="fa-solid fa-expand text-[10px]"></i> View Full
+        <div class="pt-2 border-t border-slate-200/70 dark:border-slate-800/80 shrink-0 mt-auto flex items-center justify-between gap-1.5 text-xs">
+          <div class="flex items-center gap-1.5">
+            <button class="open-poster-btn px-2 py-1 sm:px-2.5 sm:py-1 rounded-xl font-semibold text-white bg-slate-900 dark:bg-slate-800 hover:bg-brand-600 dark:hover:bg-brand-600 transition flex items-center gap-1 shadow-sm text-xs shrink-0" data-poster-id="${poster.id}">
+              <i class="fa-solid fa-expand text-[10px]"></i> View<span class="hidden sm:inline"> Full</span>
             </button>
-            <a href="${poster.pdfUrl}" target="_blank" rel="noopener noreferrer" download class="px-2.5 py-1.5 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center gap-1 shadow-sm text-xs" title="Download original PDF">
+            <a href="${poster.pdfUrl}" target="_blank" rel="noopener noreferrer" download class="px-2 py-1 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center gap-1 shadow-sm text-xs shrink-0" title="Download original PDF">
               <i class="fa-solid fa-file-pdf text-rose-500 text-[11px]"></i> PDF
             </a>
           </div>
