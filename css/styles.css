@@ -597,6 +597,7 @@ body {
     touch-action: none;
     user-select: none;
     -webkit-user-select: none;
+    -webkit-touch-callout: none !important;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -606,9 +607,11 @@ body {
 
   .mobile-dock-item {
     position: relative;
-    width: 33px;
-    height: 33px;
-    flex: 0 0 33px;
+    width: auto;
+    height: 36px;
+    flex: 1 1 0%;
+    max-width: 38px;
+    min-width: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -620,23 +623,10 @@ body {
     will-change: transform;
     touch-action: none;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none !important;
+    user-select: none;
+    -webkit-user-select: none;
     cursor: pointer;
-  }
-
-  @media (min-width: 375px) {
-    .mobile-dock-item {
-      width: 35px;
-      height: 35px;
-      flex: 0 0 35px;
-    }
-  }
-
-  @media (min-width: 410px) {
-    .mobile-dock-item {
-      width: 37px;
-      height: 37px;
-      flex: 0 0 37px;
-    }
   }
 
   .mobile-dock-item i {

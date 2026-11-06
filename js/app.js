@@ -498,19 +498,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mobileNavTrack.addEventListener('touchmove', (e) => {
       if (!isInteracting) return;
+      if (e.cancelable) e.preventDefault();
       const t = e.touches[0];
       updateDockMagnification(t.clientX, t.clientY);
-    }, { passive: true });
+    }, { passive: false });
 
     mobileNavTrack.addEventListener('touchend', (e) => {
       if (isInteracting && activeHoverIndex !== -1) {
+        if (e.cancelable) e.preventDefault();
         const finalIdx = activeHoverIndex;
         resetDockState();
         navigateToDockIndex(finalIdx);
       } else {
         resetDockState();
       }
-    });
+    }, { passive: false });
 
     mobileNavTrack.addEventListener('touchcancel', () => {
       resetDockState();
