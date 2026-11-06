@@ -52,11 +52,12 @@ body {
 }
 
 /* ==========================================================================
-   Horizontal Expanding Projects & Awards Accordion
+   Horizontal Expanding Projects, Awards & Speaking Accordion
    ========================================================================== */
 
 .projects-expand-container,
-.awards-expand-container {
+.awards-expand-container,
+.speaking-expand-container {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -65,7 +66,8 @@ body {
 
 @media (min-width: 1024px) {
   .projects-expand-container,
-  .awards-expand-container {
+  .awards-expand-container,
+  .speaking-expand-container {
     flex-direction: row;
     align-items: stretch;
     height: 580px;
@@ -73,9 +75,10 @@ body {
     max-height: 580px;
   }
 
-  /* Default (unhovered): all 4 cards are equal in size with consistent height */
+  /* Default (unhovered): all cards are equal in size with consistent height */
   .projects-expand-container .project-expand-card,
-  .awards-expand-container .award-expand-card {
+  .awards-expand-container .award-expand-card,
+  .speaking-expand-container .speaking-expand-card {
     flex: 1 1 0%;
     min-width: 0;
     height: 100%;
@@ -90,7 +93,8 @@ body {
 
   /* When the container is hovered, non-hovered sibling cards shrink horizontally only */
   .projects-expand-container:hover .project-expand-card,
-  .awards-expand-container:hover .award-expand-card {
+  .awards-expand-container:hover .award-expand-card,
+  .speaking-expand-container:hover .speaking-expand-card {
     flex: 0.75 1 0%;
     opacity: 0.88;
   }
@@ -99,7 +103,9 @@ body {
   .projects-expand-container .project-expand-card:hover,
   .projects-expand-container .project-expand-card.is-active,
   .awards-expand-container .award-expand-card:hover,
-  .awards-expand-container .award-expand-card.is-active {
+  .awards-expand-container .award-expand-card.is-active,
+  .speaking-expand-container .speaking-expand-card:hover,
+  .speaking-expand-container .speaking-expand-card.is-active {
     flex: 2.75 1 0%;
     opacity: 1;
     z-index: 10;
@@ -107,27 +113,33 @@ body {
 
   /* Summary toggle: collapsed view shows punchy summary, expanded view shows full technical architecture */
   .project-expand-card .project-summary-collapsed,
-  .award-expand-card .award-summary-collapsed {
+  .award-expand-card .award-summary-collapsed,
+  .speaking-expand-card .speaking-summary-collapsed {
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
   .project-expand-card .project-summary-expanded,
-  .award-expand-card .award-summary-expanded {
+  .award-expand-card .award-summary-expanded,
+  .speaking-expand-card .speaking-summary-expanded {
     display: none;
   }
 
   .projects-expand-container .project-expand-card:hover .project-summary-collapsed,
   .projects-expand-container .project-expand-card.is-active .project-summary-collapsed,
   .awards-expand-container .award-expand-card:hover .award-summary-collapsed,
-  .awards-expand-container .award-expand-card.is-active .award-summary-collapsed {
+  .awards-expand-container .award-expand-card.is-active .award-summary-collapsed,
+  .speaking-expand-container .speaking-expand-card:hover .speaking-summary-collapsed,
+  .speaking-expand-container .speaking-expand-card.is-active .speaking-summary-collapsed {
     display: none !important;
   }
   .projects-expand-container .project-expand-card:hover .project-summary-expanded,
   .projects-expand-container .project-expand-card.is-active .project-summary-expanded,
   .awards-expand-container .award-expand-card:hover .award-summary-expanded,
-  .awards-expand-container .award-expand-card.is-active .award-summary-expanded {
+  .awards-expand-container .award-expand-card.is-active .award-summary-expanded,
+  .speaking-expand-container .speaking-expand-card:hover .speaking-summary-expanded,
+  .speaking-expand-container .speaking-expand-card.is-active .speaking-summary-expanded {
     display: -webkit-box !important;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -136,31 +148,38 @@ body {
 
   /* Footer swap on desktop hover */
   .project-expand-card .card-collapsed-footer,
-  .award-expand-card .card-collapsed-footer {
+  .award-expand-card .card-collapsed-footer,
+  .speaking-expand-card .card-collapsed-footer {
     display: flex;
   }
   .project-expand-card .card-expanded-footer,
-  .award-expand-card .card-expanded-footer {
+  .award-expand-card .card-expanded-footer,
+  .speaking-expand-card .card-expanded-footer {
     display: none;
   }
 
   .project-expand-card:hover .card-collapsed-footer,
   .project-expand-card.is-active .card-collapsed-footer,
   .award-expand-card:hover .card-collapsed-footer,
-  .award-expand-card.is-active .card-collapsed-footer {
+  .award-expand-card.is-active .card-collapsed-footer,
+  .speaking-expand-card:hover .card-collapsed-footer,
+  .speaking-expand-card.is-active .card-collapsed-footer {
     display: none !important;
   }
   .project-expand-card:hover .card-expanded-footer,
   .project-expand-card.is-active .card-expanded-footer,
   .award-expand-card:hover .card-expanded-footer,
-  .award-expand-card.is-active .card-expanded-footer {
+  .award-expand-card.is-active .card-expanded-footer,
+  .speaking-expand-card:hover .card-expanded-footer,
+  .speaking-expand-card.is-active .card-expanded-footer {
     display: flex !important;
   }
 }
 
 @media (min-width: 1280px) {
   .projects-expand-container,
-  .awards-expand-container {
+  .awards-expand-container,
+  .speaking-expand-container {
     height: 600px;
     min-height: 600px;
     max-height: 600px;
@@ -170,7 +189,8 @@ body {
 /* Mobile & Tablet Styles (< 1024px) - Horizontal Side-by-Side Scroll */
 @media (max-width: 1023px) {
   .projects-expand-container,
-  .awards-expand-container {
+  .awards-expand-container,
+  .speaking-expand-container {
     display: flex !important;
     flex-direction: row !important;
     align-items: stretch !important;
@@ -185,12 +205,14 @@ body {
     -ms-overflow-style: none !important;
   }
   .projects-expand-container::-webkit-scrollbar,
-  .awards-expand-container::-webkit-scrollbar {
+  .awards-expand-container::-webkit-scrollbar,
+  .speaking-expand-container::-webkit-scrollbar {
     display: none !important;
   }
 
   .projects-expand-container .project-expand-card,
-  .awards-expand-container .award-expand-card {
+  .awards-expand-container .award-expand-card,
+  .speaking-expand-container .speaking-expand-card {
     flex: 0 0 76vw !important;
     max-width: 290px !important;
     min-width: 250px !important;
@@ -210,7 +232,8 @@ body {
 
   /* Full uncropped 16:9 cover photo */
   .project-expand-card .aspect-video,
-  .award-expand-card .aspect-video {
+  .award-expand-card .aspect-video,
+  .speaking-expand-card .aspect-video {
     width: 100% !important;
     aspect-ratio: 16 / 9 !important;
     height: auto !important;
@@ -220,7 +243,8 @@ body {
     overflow: hidden !important;
   }
   .project-expand-card .aspect-video img,
-  .award-expand-card .aspect-video img {
+  .award-expand-card .aspect-video img,
+  .speaking-expand-card .aspect-video img {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
@@ -230,8 +254,10 @@ body {
   /* Themed graphic banners */
   .project-expand-card .h-36,
   .award-expand-card .h-36,
+  .speaking-expand-card .h-36,
   .project-expand-card .h-40,
-  .award-expand-card .h-40 {
+  .award-expand-card .h-40,
+  .speaking-expand-card .h-40 {
     width: 100% !important;
     aspect-ratio: 16 / 9 !important;
     height: auto !important;
@@ -241,14 +267,16 @@ body {
   }
 
   .project-expand-card h3,
-  .award-expand-card h3 {
+  .award-expand-card h3,
+  .speaking-expand-card h3 {
     font-size: 0.925rem !important;
     line-height: 1.3 !important;
     margin-bottom: 0.25rem !important;
   }
 
   .project-expand-card .project-summary-collapsed,
-  .award-expand-card .award-summary-collapsed {
+  .award-expand-card .award-summary-collapsed,
+  .speaking-expand-card .speaking-summary-collapsed {
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
@@ -258,17 +286,20 @@ body {
     margin-bottom: 0.35rem !important;
   }
   .project-expand-card .project-summary-expanded,
-  .award-expand-card .award-summary-expanded {
+  .award-expand-card .award-summary-expanded,
+  .speaking-expand-card .speaking-summary-expanded {
     display: none !important;
   }
 
   /* Direct action buttons in footer on mobile */
   .project-expand-card .card-collapsed-footer,
-  .award-expand-card .card-collapsed-footer {
+  .award-expand-card .card-collapsed-footer,
+  .speaking-expand-card .card-collapsed-footer {
     display: none !important;
   }
   .project-expand-card .card-expanded-footer,
-  .award-expand-card .card-expanded-footer {
+  .award-expand-card .card-expanded-footer,
+  .speaking-expand-card .card-expanded-footer {
     display: flex !important;
   }
 }
@@ -336,76 +367,6 @@ body {
     overflow: hidden !important;
   }
 
-  /* Side-by-Side Horizontal Scroll for Speaking & Workshops */
-  #speaking-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 0.85rem !important;
-    padding: 0.25rem 0.25rem 0.75rem 0.25rem !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-  #speaking-grid::-webkit-scrollbar {
-    display: none !important;
-  }
-  .speaking-card {
-    flex: 0 0 76vw !important;
-    max-width: 290px !important;
-    min-width: 250px !important;
-    height: 410px !important;
-    min-height: 410px !important;
-    max-height: 410px !important;
-    scroll-snap-align: start !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    box-sizing: border-box !important;
-    border-radius: 1.25rem !important;
-    padding: 0.9rem !important;
-  }
-  .speaking-card .aspect-video {
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    height: auto !important;
-    max-height: none !important;
-    border-radius: 0.875rem !important;
-    margin-bottom: 0.45rem !important;
-    overflow: hidden !important;
-  }
-  .speaking-card .aspect-video img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-  .speaking-card .h-36,
-  .speaking-card .h-40 {
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    height: auto !important;
-    border-radius: 0.875rem !important;
-    margin-bottom: 0.45rem !important;
-  }
-  .speaking-card h3 {
-    font-size: 0.925rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 0.25rem !important;
-  }
-  .speaking-card p {
-    font-size: 0.8rem !important;
-    line-height: 1.35 !important;
-    margin-bottom: 0.35rem !important;
-    -webkit-line-clamp: 2 !important;
-    display: -webkit-box !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-  }
-  .speaking-card .pt-3 {
-    padding-top: 0.45rem !important;
-    margin-top: 0.35rem !important;
-  }
 
   /* Side-by-Side Horizontal Scroll for Posters */
   #posters-grid {

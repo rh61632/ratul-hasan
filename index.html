@@ -42,7 +42,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="css/styles.css?v=2.3">
+  <link rel="stylesheet" href="css/styles.css?v=2.4">
 </head>
 <body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
 
@@ -355,17 +355,27 @@
 
     <!-- Workshops & Speaking Section (Mounted via JS) -->
     <section id="speaking" class="w-full max-w-screen-2xl mx-auto mb-24 scroll-mt-28">
-      <div class="mb-8">
-        <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold">// Leadership & Public Speaking</span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 font-display">
-          Workshops &amp; Event Anchoring
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-3xl">
-          Conducting hands-on technical masterclasses, capacity-building workshops, and hosting on-campus career seminars and industry partner sessions.
+      <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-bold">// Leadership & Public Speaking</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 font-display">
+            Workshops &amp; Event Anchoring
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-3xl">
+            Conducting hands-on technical masterclasses, capacity-building workshops, and hosting on-campus career seminars and industry partner sessions.
+          </p>
+        </div>
+        <p class="hidden lg:flex items-center gap-2 text-xs font-mono text-slate-400">
+          <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+          <span>Hover cards to expand details</span>
+        </p>
+        <p class="flex lg:hidden items-center gap-1.5 text-xs font-mono text-brand-600 dark:text-brand-400 font-semibold bg-brand-500/10 dark:bg-brand-950/60 px-2.5 py-1 rounded-full border border-brand-300/40 dark:border-brand-800/40 self-start sm:self-auto">
+          <i class="fa-solid fa-arrows-left-right text-[11px] animate-pulse"></i>
+          <span>Swipe cards side-by-side</span>
         </p>
       </div>
 
-      <div id="speaking-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl"></div>
+      <div id="speaking-grid" class="speaking-expand-container"></div>
     </section>
 
     <!-- Posters Section (Mounted via JS) -->
@@ -516,6 +526,6 @@
 
   </main>
 
-  <script type="module" src="js/app.js?v=2.3"></script>
+  <script type="module" src="js/app.js?v=2.4"></script>
 </body>
 </html>
