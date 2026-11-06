@@ -323,9 +323,12 @@ body {
   #focus .grid {
     display: flex !important;
     flex-direction: row !important;
+    align-items: stretch !important;
     overflow-x: auto !important;
+    overflow-y: hidden !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x pinch-zoom !important;
     gap: 0.85rem !important;
     padding: 0.25rem 0.25rem 0.75rem 0.25rem !important;
     scrollbar-width: none !important;
@@ -346,6 +349,7 @@ body {
     padding: 1rem !important;
     border-radius: 1.25rem !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
   }
   #focus .grid > div .w-11 {
     width: 2.25rem !important;
@@ -367,16 +371,19 @@ body {
     overflow: hidden !important;
   }
 
-
   /* Side-by-Side Horizontal Scroll for Posters */
   #posters-grid {
     display: flex !important;
     flex-direction: row !important;
+    align-items: stretch !important;
     overflow-x: auto !important;
+    overflow-y: hidden !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x pinch-zoom !important;
     gap: 0.85rem !important;
     padding: 0.25rem 0.25rem 0.75rem 0.25rem !important;
+    width: 100% !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
   }
@@ -387,16 +394,19 @@ body {
     flex: 0 0 76vw !important;
     max-width: 290px !important;
     min-width: 250px !important;
+    width: 76vw !important;
     height: 410px !important;
     min-height: 410px !important;
     max-height: 410px !important;
     scroll-snap-align: start !important;
+    scroll-snap-stop: normal !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     box-sizing: border-box !important;
     border-radius: 1.25rem !important;
     padding: 0.9rem !important;
+    overflow: hidden !important;
   }
   .poster-card .h-48,
   .poster-card .h-52 {
@@ -406,6 +416,13 @@ body {
     max-height: none !important;
     border-radius: 0.875rem !important;
     margin-bottom: 0.45rem !important;
+    overflow: hidden !important;
+  }
+  .poster-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
   }
   .poster-card h3 {
     font-size: 0.925rem !important;
@@ -421,17 +438,25 @@ body {
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
   }
+  .poster-card .pt-3 {
+    padding-top: 0.45rem !important;
+    margin-top: auto !important;
+  }
 
   /* Side-by-Side Horizontal Scroll for Training Courses & Field Visits */
   #training-courses,
   #field-visits {
     display: flex !important;
     flex-direction: row !important;
+    align-items: stretch !important;
     overflow-x: auto !important;
+    overflow-y: hidden !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x pinch-zoom !important;
     gap: 0.85rem !important;
     padding: 0.25rem 0.25rem 0.75rem 0.25rem !important;
+    width: 100% !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
   }
@@ -444,21 +469,60 @@ body {
     flex: 0 0 76vw !important;
     max-width: 290px !important;
     min-width: 250px !important;
+    width: 76vw !important;
+    height: 410px !important;
+    min-height: 410px !important;
+    max-height: 410px !important;
     scroll-snap-align: start !important;
+    scroll-snap-stop: normal !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     box-sizing: border-box !important;
     border-radius: 1.25rem !important;
     padding: 0.9rem !important;
-    height: 380px !important;
+    overflow: hidden !important;
   }
+  #training-courses .h-36,
+  #training-courses .h-40,
+  #field-visits .h-36,
+  #field-visits .h-38,
   #field-visits .aspect-video {
     width: 100% !important;
     aspect-ratio: 16 / 9 !important;
     height: auto !important;
     max-height: none !important;
     border-radius: 0.875rem !important;
+    margin-bottom: 0.45rem !important;
+    overflow: hidden !important;
+  }
+  #training-courses img,
+  #field-visits img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  #training-courses h4,
+  #field-visits h3 {
+    font-size: 0.925rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.25rem !important;
+  }
+  #training-courses p,
+  #field-visits p {
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.35rem !important;
+    -webkit-line-clamp: 2 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  #training-courses .pt-3,
+  #field-visits .pt-3 {
+    padding-top: 0.45rem !important;
+    margin-top: auto !important;
   }
 
   /* Feature Industrial Audit Card */
@@ -500,21 +564,108 @@ body {
     font-size: 1rem !important;
   }
 
-  /* Swipeable Mobile Bottom Navigation Bar */
+  /* 3D Touch Mac Dock Bottom Navigation */
+  .mobile-nav-dock {
+    bottom: 3.25rem !important;
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  .mobile-dock-tooltip {
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: 0.65rem;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.75) translateY(8px);
+    transform-origin: bottom center;
+    transition: opacity 0.15s ease, transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform, opacity;
+    z-index: 60;
+  }
+
+  .mobile-dock-tooltip.is-visible {
+    opacity: 1 !important;
+    transform: scale(1) translateY(0) !important;
+  }
+
   .mobile-bottom-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    -webkit-overflow-scrolling: touch;
   }
   .mobile-bottom-nav::-webkit-scrollbar {
     display: none;
   }
-  .mobile-nav-item.active {
+
+  .mobile-dock-item {
+    position: relative;
+    width: 33px;
+    height: 33px;
+    flex: 0 0 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    transform-origin: bottom center;
+    transition: transform 0.12s cubic-bezier(0.2, 0.9, 0.3, 1),
+                background-color 0.2s ease,
+                color 0.2s ease;
+    will-change: transform;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+  }
+
+  @media (min-width: 375px) {
+    .mobile-dock-item {
+      width: 35px;
+      height: 35px;
+      flex: 0 0 35px;
+    }
+  }
+
+  @media (min-width: 410px) {
+    .mobile-dock-item {
+      width: 37px;
+      height: 37px;
+      flex: 0 0 37px;
+    }
+  }
+
+  .mobile-dock-item i {
+    pointer-events: none;
+    font-size: 0.85rem;
+    transition: transform 0.12s ease;
+  }
+
+  .mobile-dock-item.active {
     background-color: rgba(20, 184, 166, 0.18) !important;
     color: #0d9488 !important;
   }
-  .dark .mobile-nav-item.active {
+
+  .dark .mobile-dock-item.active {
     background-color: rgba(20, 184, 166, 0.28) !important;
     color: #2dd4bf !important;
+  }
+
+  .mobile-dock-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    background-color: #0d9488;
+  }
+
+  .dark .mobile-dock-item.active::after {
+    background-color: #2dd4bf;
   }
 }

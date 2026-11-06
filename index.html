@@ -42,7 +42,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="css/styles.css?v=2.4">
+  <link rel="stylesheet" href="css/styles.css?v=2.5">
 </head>
 <body class="bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
 
@@ -118,40 +118,60 @@
     </header>
   </div>
 
-  <!-- Mobile Swipeable Bottom Navigation Bar (< 768px) -->
-  <div class="md:hidden fixed bottom-12 sm:bottom-14 inset-x-3 sm:inset-x-6 z-50 flex justify-center pointer-events-none mobile-nav-dock" style="bottom: 3.25rem;">
-    <nav class="pointer-events-auto w-full max-w-md bg-white/90 dark:bg-[#12151e]/90 backdrop-blur-2xl p-1.5 rounded-full border border-white/80 dark:border-white/10 shadow-[0_12px_36px_rgba(0,0,0,0.25)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.65)] relative overflow-hidden">
-      <!-- Swipeable Nav Items Track -->
-      <div id="mobileBottomNavTrack" class="mobile-bottom-nav flex items-center gap-1 overflow-x-auto no-scrollbar scroll-smooth px-1 py-0.5 select-none touch-pan-x" style="-webkit-overflow-scrolling: touch;">
-        <a href="#about" class="mobile-nav-item active px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-brand-600 dark:text-brand-400 bg-brand-500/10 dark:bg-brand-500/20">
-          <i class="fa-solid fa-user text-[10px]"></i> <span>About</span>
+  <!-- Mobile 3D Touch Mac Dock Bottom Navigation (< 768px) -->
+  <div class="md:hidden fixed inset-x-2 sm:inset-x-6 z-50 flex flex-col items-center pointer-events-none mobile-nav-dock" style="bottom: 3.25rem;">
+    <!-- 3D Touch Peek Tooltip (Pops up above active dock icon) -->
+    <div id="mobileDockTooltip" class="mobile-dock-tooltip pointer-events-none opacity-0 flex flex-col items-center">
+      <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold font-display text-white bg-slate-900/95 dark:bg-[#151926]/95 backdrop-blur-2xl border border-brand-500/40 shadow-[0_10px_25px_rgba(0,0,0,0.4)] dark:shadow-[0_10px_25px_rgba(13,148,136,0.3)]">
+        <i id="mobileDockTooltipIcon" class="fa-solid fa-user text-[11px] text-brand-400"></i>
+        <span id="mobileDockTooltipText" class="tracking-wide text-white">About</span>
+      </div>
+      <div class="w-2 h-2 rotate-45 bg-slate-900/95 dark:bg-[#151926]/95 border-r border-b border-brand-500/40 -mt-1 shadow-sm"></div>
+    </div>
+
+    <!-- Mac Dock Capsule -->
+    <nav class="pointer-events-auto w-full max-w-sm sm:max-w-md bg-white/90 dark:bg-[#10131d]/90 backdrop-blur-2xl p-1.5 rounded-full border border-white/80 dark:border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.28)] dark:shadow-[0_16px_40px_rgba(0,0,0,0.7)] relative">
+      <!-- Dock Items Track -->
+      <div id="mobileBottomNavTrack" class="mobile-bottom-nav flex items-center justify-between px-1 py-0.5 select-none touch-none">
+        <a href="#about" data-title="About" data-icon="fa-solid fa-user" aria-label="About" class="mobile-nav-item mobile-dock-item active">
+          <i class="fa-solid fa-user"></i>
+          <span class="sr-only">About</span>
         </a>
-        <a href="#focus" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
-          <i class="fa-solid fa-layer-group text-[10px]"></i> <span>Domains</span>
+        <a href="#focus" data-title="Domains" data-icon="fa-solid fa-layer-group" aria-label="Domains" class="mobile-nav-item mobile-dock-item text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-layer-group"></i>
+          <span class="sr-only">Domains</span>
         </a>
-        <a href="#projects" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
-          <i class="fa-solid fa-code text-[10px]"></i> <span>Projects</span>
+        <a href="#projects" data-title="Projects" data-icon="fa-solid fa-code" aria-label="Projects" class="mobile-nav-item mobile-dock-item text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-code"></i>
+          <span class="sr-only">Projects</span>
         </a>
-        <a href="#awards" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
-          <i class="fa-solid fa-trophy text-[10px]"></i> <span>Awards</span>
+        <a href="#awards" data-title="Awards" data-icon="fa-solid fa-trophy" aria-label="Awards" class="mobile-nav-item mobile-dock-item text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-trophy"></i>
+          <span class="sr-only">Awards</span>
         </a>
-        <a href="#speaking" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
-          <i class="fa-solid fa-microphone-lines text-[10px]"></i> <span>Speaking</span>
+        <a href="#speaking" data-title="Speaking" data-icon="fa-solid fa-microphone-lines" aria-label="Speaking" class="mobile-nav-item mobile-dock-item text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-microphone-lines"></i>
+          <span class="sr-only">Speaking</span>
         </a>
-        <a href="#posters" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
-          <i class="fa-solid fa-newspaper text-[10px]"></i> <span>Posters</span>
+        <a href="#posters" data-title="Posters" data-icon="fa-solid fa-newspaper" aria-label="Posters" class="mobile-nav-item mobile-dock-item text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-newspaper"></i>
+          <span class="sr-only">Posters</span>
         </a>
-        <a href="#experience" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
-          <i class="fa-solid fa-briefcase text-[10px]"></i> <span>Experience</span>
+        <a href="#experience" data-title="Experience" data-icon="fa-solid fa-briefcase" aria-label="Experience" class="mobile-nav-item mobile-dock-item text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-briefcase"></i>
+          <span class="sr-only">Experience</span>
         </a>
-        <a href="#training" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
-          <i class="fa-solid fa-certificate text-[10px]"></i> <span>Training</span>
+        <a href="#training" data-title="Training" data-icon="fa-solid fa-certificate" aria-label="Training" class="mobile-nav-item mobile-dock-item text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-certificate"></i>
+          <span class="sr-only">Training</span>
         </a>
-        <a href="#education" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
-          <i class="fa-solid fa-graduation-cap text-[10px]"></i> <span>Education</span>
+        <a href="#education" data-title="Education" data-icon="fa-solid fa-graduation-cap" aria-label="Education" class="mobile-nav-item mobile-dock-item text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span class="sr-only">Education</span>
         </a>
-        <a href="#contact" class="mobile-nav-item px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400">
-          <i class="fa-solid fa-paper-plane text-[10px]"></i> <span>Contact</span>
+        <a href="#contact" data-title="Contact" data-icon="fa-solid fa-paper-plane" aria-label="Contact" class="mobile-nav-item mobile-dock-item text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span class="sr-only">Contact</span>
         </a>
       </div>
     </nav>
@@ -526,6 +546,6 @@
 
   </main>
 
-  <script type="module" src="js/app.js?v=2.4"></script>
+  <script type="module" src="js/app.js?v=2.5"></script>
 </body>
 </html>

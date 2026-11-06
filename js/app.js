@@ -349,10 +349,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // Mobile Bottom Navigation Swiping, Centering & ScrollSpy
+  // Mobile 3D Touch Mac Dock Bottom Navigation (with Haptic Feedback)
   // =========================================================================
   const mobileNavTrack = document.getElementById('mobileBottomNavTrack');
   const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+  const mobileDockTooltip = document.getElementById('mobileDockTooltip');
+  const mobileDockTooltipText = document.getElementById('mobileDockTooltipText');
+  const mobileDockTooltipIcon = document.getElementById('mobileDockTooltipIcon');
+  const mobileNavDock = document.querySelector('.mobile-nav-dock');
+
+  function triggerHaptic(duration = 12) {
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+      try {
+        navigator.vibrate(duration);
+      } catch (e) {}
+    }
+  }
 
   function setActiveNavItem(targetId) {
     if (!targetId) return;
@@ -363,8 +375,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (href === `#${targetId}`) {
         item.classList.add('active');
         item.classList.remove('text-slate-600', 'dark:text-slate-300');
-        // Smoothly center the active pill within the swipable mobile track
-        item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       } else {
         item.classList.remove('active');
         item.classList.add('text-slate-600', 'dark:text-slate-300');
@@ -381,6 +391,142 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  function initMobileMacDock() {
+    if (!mobileNavTrack || !mobileNavDock || !mobileDockTooltip) return;
+
+    const dockItems = Array.from(mobileNavTrack.querySelectorAll('.mobile-dock-item'));
+    if (!dockItems.length) return;
+
+    let activeHoverIndex = -1;
+    let isInteracting = false;
+
+    function resetDockState() {
+      dockItems.forEach(item => {
+        item.style.transform = '';
+        item.style.zIndex = '';
+      });
+      mobileDockTooltip.classList.remove('is-visible');
+      activeHoverIndex = -1;
+      isInteracting = false;
+    }
+
+    function updateDockMagnification(clientX, clientY) {
+      const trackRect = mobileNavTrack.getBoundingClientRect();
+      const dockRect = mobileNavDock.getBoundingClientRect();
+
+      // If finger moves too far above (cancelled peek) or below
+      if (clientY < trackRect.top - 100 || clientY > trackRect.bottom + 60) {
+        resetDockState();
+        return;
+      }
+
+      const maxDist = 75; // Influence radius in px
+      let closestIdx = -1;
+      let minDistance = Infinity;
+
+      dockItems.forEach((item, idx) => {
+        const itemRect = item.getBoundingClientRect();
+        const itemCenterX = itemRect.left + itemRect.width / 2;
+        const dist = Math.abs(clientX - itemCenterX);
+
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestIdx = idx;
+        }
+
+        if (dist < maxDist) {
+          // Parabolic cosine curve for authentic macOS dock magnification
+          const factor = Math.cos((dist / maxDist) * (Math.PI / 2));
+          const scale = 1 + factor * 0.45;
+          const translateY = -12 * factor;
+          item.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+          item.style.zIndex = String(Math.round(10 + factor * 10));
+        } else {
+          item.style.transform = '';
+          item.style.zIndex = '';
+        }
+      });
+
+      if (closestIdx !== -1) {
+        const targetItem = dockItems[closestIdx];
+        const targetRect = targetItem.getBoundingClientRect();
+        const targetCenterX = targetRect.left + targetRect.width / 2;
+
+        // Position 3D Touch tooltip directly above the hovered icon
+        const relativeLeft = targetCenterX - dockRect.left;
+        mobileDockTooltip.style.left = `${relativeLeft}px`;
+        mobileDockTooltip.style.transform = 'translateX(-50%) translateY(0)';
+        mobileDockTooltip.classList.add('is-visible');
+
+        if (mobileDockTooltipText) {
+          mobileDockTooltipText.textContent = targetItem.dataset.title || '';
+        }
+        if (mobileDockTooltipIcon && targetItem.dataset.icon) {
+          mobileDockTooltipIcon.className = `${targetItem.dataset.icon} text-[11px] text-brand-400`;
+        }
+
+        // Haptic pulse when scrubbing over a new icon
+        if (closestIdx !== activeHoverIndex) {
+          activeHoverIndex = closestIdx;
+          triggerHaptic(12);
+        }
+      }
+    }
+
+    function navigateToDockIndex(idx) {
+      if (idx >= 0 && idx < dockItems.length) {
+        const item = dockItems[idx];
+        const href = item.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const target = document.querySelector(href);
+          if (target) {
+            triggerHaptic(20); // Confirmation haptic feedback
+            target.scrollIntoView({ behavior: 'smooth' });
+            setActiveNavItem(href.replace('#', ''));
+          }
+        }
+      }
+    }
+
+    // Touch Interaction (Scrubbing / 3D Touch Press & Hold)
+    mobileNavTrack.addEventListener('touchstart', (e) => {
+      isInteracting = true;
+      const t = e.touches[0];
+      updateDockMagnification(t.clientX, t.clientY);
+    }, { passive: true });
+
+    mobileNavTrack.addEventListener('touchmove', (e) => {
+      if (!isInteracting) return;
+      const t = e.touches[0];
+      updateDockMagnification(t.clientX, t.clientY);
+    }, { passive: true });
+
+    mobileNavTrack.addEventListener('touchend', (e) => {
+      if (isInteracting && activeHoverIndex !== -1) {
+        const finalIdx = activeHoverIndex;
+        resetDockState();
+        navigateToDockIndex(finalIdx);
+      } else {
+        resetDockState();
+      }
+    });
+
+    mobileNavTrack.addEventListener('touchcancel', () => {
+      resetDockState();
+    });
+
+    // Tap fallback (mouse or quick click)
+    dockItems.forEach((item, idx) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        triggerHaptic(15);
+        navigateToDockIndex(idx);
+      });
+    });
+  }
+
+  initMobileMacDock();
 
   // Smooth Touch & Drag-to-Scroll support for horizontal tracks on mobile
   function enableDragScroll(selector) {
@@ -426,7 +572,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  enableDragScroll('#mobileBottomNavTrack');
   enableDragScroll('.projects-expand-container');
   enableDragScroll('.awards-expand-container');
   enableDragScroll('#focus .grid');
