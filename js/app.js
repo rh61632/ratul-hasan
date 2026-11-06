@@ -382,34 +382,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Smooth Drag-to-Scroll support for Mobile Bottom Navigation
-  if (mobileNavTrack) {
-    let isDown = false;
-    let startX = 0;
-    let scrollLeft = 0;
+  // Smooth Touch & Drag-to-Scroll support for horizontal tracks on mobile
+  function enableDragScroll(selector) {
+    document.querySelectorAll(selector).forEach(track => {
+      let isDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+      let hasDragged = false;
 
-    mobileNavTrack.addEventListener('mousedown', (e) => {
-      isDown = true;
-      startX = e.pageX - mobileNavTrack.offsetLeft;
-      scrollLeft = mobileNavTrack.scrollLeft;
-    });
+      track.addEventListener('mousedown', (e) => {
+        if (track.scrollWidth <= track.clientWidth) return;
+        isDown = true;
+        hasDragged = false;
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+      });
 
-    mobileNavTrack.addEventListener('mouseleave', () => {
-      isDown = false;
-    });
+      track.addEventListener('mouseleave', () => {
+        isDown = false;
+      });
 
-    mobileNavTrack.addEventListener('mouseup', () => {
-      isDown = false;
-    });
+      track.addEventListener('mouseup', () => {
+        isDown = false;
+      });
 
-    mobileNavTrack.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - mobileNavTrack.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      mobileNavTrack.scrollLeft = scrollLeft - walk;
+      track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        if (Math.abs(walk) > 6) {
+          hasDragged = true;
+        }
+        track.scrollLeft = scrollLeft - walk;
+      });
+
+      track.addEventListener('click', (e) => {
+        if (hasDragged) {
+          e.preventDefault();
+          e.stopPropagation();
+          hasDragged = false;
+        }
+      }, true);
     });
   }
+
+  enableDragScroll('#mobileBottomNavTrack');
+  enableDragScroll('.projects-expand-container');
+  enableDragScroll('.awards-expand-container');
+  enableDragScroll('#focus .grid');
+  enableDragScroll('#speaking-grid');
+  enableDragScroll('#posters-grid');
+  enableDragScroll('#field-visits');
+  enableDragScroll('#training-courses');
 
   // ScrollSpy with IntersectionObserver
   const sectionIds = [
