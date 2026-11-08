@@ -582,4 +582,333 @@ body {
   .dark .mobile-dock-item.active::after {
     background-color: #2dd4bf;
   }
+
+  /* ==========================================================================
+     Project Detail Pages Mobile Overhaul (< 768px)
+     Applies to all 13 case study & expedition detail pages
+     ========================================================================== */
+  
+  /* Global text justification reset on mobile (fixes awkward word-spacing gaps) */
+  .text-justify {
+    text-align: left !important;
+    text-justify: auto !important;
+    hyphens: auto;
+  }
+
+  /* Target Project Detail Pages specifically */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) {
+    overflow-x: hidden !important;
+  }
+
+  /* Fixed Top Header on Mobile */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) header.fixed {
+    top: 0.5rem !important;
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) header.fixed nav {
+    padding: 0.35rem 0.75rem !important;
+    gap: 0.5rem !important;
+    border-radius: 9999px !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) header.fixed nav a {
+    font-size: 0.75rem !important;
+    white-space: nowrap !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) header.fixed nav span {
+    font-size: 0.72rem !important;
+  }
+
+  /* Main Viewport Container Padding: Reclaim valuable vertical height */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) main {
+    padding-top: 4.75rem !important;
+    padding-left: 0.875rem !important;
+    padding-right: 0.875rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Headings & Typography Hierarchy */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) h1 {
+    font-size: 1.55rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+    margin-top: 0.35rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.015em !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) h3 {
+    font-size: 1.05rem !important;
+    line-height: 1.35 !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) p {
+    text-align: left !important;
+    text-justify: auto !important;
+    hyphens: auto;
+    word-break: break-word;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .text-base,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .text-lg {
+    font-size: 0.875rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Category / Intro Micro-Pills */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .inline-flex.items-center.gap-2.px-3\.5 {
+    padding: 0.25rem 0.65rem !important;
+    font-size: 0.68rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Tech Stack Badges & Keywords */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .flex.flex-wrap.gap-2 {
+    gap: 0.35rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .flex.flex-wrap.gap-2 span {
+    font-size: 0.68rem !important;
+    padding: 0.2rem 0.55rem !important;
+    border-radius: 0.5rem !important;
+  }
+
+  /* Academic Metadata & Supervisor 4-Grid */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4.gap-4 {
+    display: grid !important;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 0.6rem !important;
+    padding: 0.75rem !important;
+    border-radius: 1rem !important;
+  }
+
+  /* Hero Performance Highlights Grid: Transform 4 massive stacked cards into 2x2 executive matrix */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-2.md\:grid-cols-4,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-3 {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 > div,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-2.md\:grid-cols-4 > div,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-3 > div {
+    padding: 0.75rem !important;
+    border-radius: 0.875rem !important;
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Hero Stat Numbers */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 .text-3xl,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-2.md\:grid-cols-4 .text-3xl,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-3 .text-3xl {
+    font-size: 1.25rem !important;
+    line-height: 1.2 !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 .w-8.h-8,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-3 .w-8.h-8 {
+    width: 1.65rem !important;
+    height: 1.65rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 .text-xs.font-mono.uppercase,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-3 .text-xs.font-mono.uppercase {
+    font-size: 0.625rem !important;
+    margin-top: 0.25rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 p.text-xs,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .grid.grid-cols-1.sm\:grid-cols-3 p.text-xs {
+    font-size: 0.68rem !important;
+    line-height: 1.35 !important;
+    margin-top: 0.3rem !important;
+  }
+
+  /* Multi-Column Performance Tables: Smooth horizontal touch scroll & compact cells */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .overflow-x-auto {
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x pan-y pinch-zoom !important;
+    margin-left: -0.25rem !important;
+    margin-right: -0.25rem !important;
+    padding-bottom: 0.5rem !important;
+    scrollbar-width: thin !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) table {
+    min-width: 500px !important;
+    font-size: 0.72rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) table th,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) table td {
+    padding: 0.45rem 0.55rem !important;
+    line-height: 1.35 !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) table th {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Interactive Gallery Filter Buttons & View Mode Controls */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #galleryFilters,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .gallery-filters,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) div:has(> .view-bubble),
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) div:has(> .filter-btn) {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x pan-y pinch-zoom !important;
+    gap: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    width: 100% !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #galleryFilters::-webkit-scrollbar,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) div:has(> .view-bubble)::-webkit-scrollbar,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) div:has(> .filter-btn)::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .filter-btn,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .view-bubble {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    font-size: 0.72rem !important;
+    padding: 0.35rem 0.65rem !important;
+    border-radius: 9999px !important;
+  }
+
+  /* Interactive Gallery Stage & Description Overlay */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #galleryStage {
+    min-height: 220px !important;
+    max-height: 340px !important;
+    border-radius: 1rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #galleryStage .gallery-view img {
+    max-height: 340px !important;
+    object-contain: true;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #galleryStage .absolute.bottom-0 {
+    padding: 0.65rem 0.75rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #galleryStage .absolute.bottom-0 p {
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #galleryStage .absolute.top-4 {
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.65rem !important;
+  }
+
+  /* Gallery Thumbnail Strip */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .thumb-btn {
+    padding: 0.4rem 0.5rem !important;
+    gap: 0.45rem !important;
+    border-radius: 0.75rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .thumb-btn img {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    border-radius: 0.5rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .thumb-btn span.text-xs {
+    font-size: 0.68rem !important;
+  }
+
+  /* Tour / Expedition 3-Row Slider Track: Reconfigure for smooth mobile browsing */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #sliderTrack {
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-columns: 210px !important;
+    gap: 0.5rem !important;
+    padding: 0.25rem 0 !important;
+    touch-action: pan-x pan-y pinch-zoom !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #sliderTrack > div {
+    height: 135px !important;
+    border-radius: 0.75rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #sliderPrevBtn,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) #sliderNextBtn {
+    display: none !important;
+  }
+
+  /* General Card Padding & Layout Gaps */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .p-6,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .p-8,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .p-10 {
+    padding: 0.85rem !important;
+    border-radius: 1rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .mb-14,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .mb-16 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .mb-10,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .mb-12 {
+    margin-bottom: 1.25rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .space-y-12 > :not([hidden]) ~ :not([hidden]),
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .space-y-10 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.35rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.15rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .gap-10,
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .gap-8 {
+    gap: 1.25rem !important;
+  }
+
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) .rounded-3xl {
+    border-radius: 1.25rem !important;
+  }
+
+  /* Code & Telemetry Monospace Pre Blocks */
+  :is(.project-detail-body, body:has(header nav a[href*="index.html"])) pre {
+    padding: 0.65rem 0.75rem !important;
+    font-size: 0.7rem !important;
+    border-radius: 0.75rem !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
 }
