@@ -6,7 +6,7 @@ updated: 2026-11-10T10:36:00+06:00
 
 # Roadmap
 
-> **Current Phase:** Milestone Complete (Phases 1–2)
+> **Current Phase:** Milestone Complete (Phases 1–3)
 > **Status:** complete
 
 ## Must-Haves (from SPEC)
@@ -15,6 +15,7 @@ updated: 2026-11-10T10:36:00+06:00
 - [x] All secret paper sections, equations, KaTeX dependencies, terminology, and citations stripped cleanly from `projects/voc-telecom.html`, `js/data/projects.js`, `css/styles.css`, and `.gsd/`
 - [x] Portfolio synchronized cleanly with public project capabilities (`README.md`, `3d9f889` `LanguageClassifier`, surge/dominance/threshold/version project scripts, filtering ablation, Colab notebooks, and `655,649` / `3,713-day` benchmark)
 - [x] Phase 2 end-to-end HTTP/DOM/Edge/390px/theme verification and zero-paper-leak audit passed cleanly (`8/8` must-haves)
+- [x] Hardcoded `"96 Words • Executive Narrative"` label removed cleanly from Story card; 3-perspective switcher (`Overall` [default], `Technical`, `Business`) implemented, verified in Headless Edge across all 3 views (`1440px` & `390px`, light & dark), and free of jargon in `Business` mode & free of paper leaks (`11/11` must-haves)
 
 ---
 
@@ -41,9 +42,21 @@ updated: 2026-11-10T10:36:00+06:00
 
 ---
 
+### Phase 3: Interactive Perspective Switcher & Story Card Polish
+**Status:** ✅ Complete
+**Objective:** Remove hardcoded Story meta label (`"96 Words • Executive Narrative"`) and implement the 3-button Perspective Switcher (`Overall Perspective` default, `Technical Perspective`, and jargon-free `Business Perspective`) on `projects/voc-telecom.html`, verifying all 3 perspectives in Headless Edge (`1440px` & `390px`, light & dark) plus zero-leak compliance.
+**Depends on:** Phase 2
+**Requirements:** REQ-06, REQ-07, NFR-01, NFR-02, NFR-03
+
+**Plans:**
+- [x] 3-PLAN.md: Story card polish, 3-perspective switcher, deep tech blueprint, jargon-free business suite (`26721ad` + calibration)
+
+---
+
 ## Progress Summary
 
 | Phase | Status | Plans | Complete |
 |-------|--------|-------|----------|
 | 1 | ✅ | 1/1 | 2026-11-10 |
 | 2 | ✅ | 1/1 | 2026-11-10 |
+| 3 | ✅ | 1/1 | 2026-11-10 |
