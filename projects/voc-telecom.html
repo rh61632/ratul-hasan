@@ -965,6 +965,86 @@
             </tbody>
           </table>
         </div>
+
+        <!-- Dual-Track Surge-Filtered Volatility & Threshold Invariance Deep Dive -->
+        <div class="mt-4 pt-4 border-t border-slate-200/60 dark:border-slate-800 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h4 class="font-display font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
+              <i class="fa-solid fa-filter text-purple-500"></i> Dual-Track Surge-Filtered Volatility &amp; Econometric Invariance
+            </h4>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 font-bold">Surge Filter: |&Delta;V/V| &ge; 50%</span>
+          </div>
+
+          <!-- Surge-Filtered Comparison Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+              <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
+                <tr>
+                  <th class="p-2.5">Operator Platform</th>
+                  <th class="p-2.5 text-center">Raw MoM RMSSD</th>
+                  <th class="p-2.5 text-center">95% CI (Raw)</th>
+                  <th class="p-2.5 text-center text-purple-600 dark:text-purple-400">Surge-Filtered RMSSD</th>
+                  <th class="p-2.5 text-center">95% CI (Filtered)</th>
+                  <th class="p-2.5 text-center font-bold">Volatility Shift</th>
+                  <th class="p-2.5 text-center">Transitions Kept</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200/60 dark:divide-white/5 font-mono">
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-2.5 font-semibold text-[#ff7a00]">Banglalink (MyBL)</td>
+                  <td class="p-2.5 text-center font-bold text-rose-500">13.61 pts</td>
+                  <td class="p-2.5 text-center text-slate-400">[8.53, 18.77]</td>
+                  <td class="p-2.5 text-center font-bold text-emerald-600 dark:text-emerald-400">7.56 pts</td>
+                  <td class="p-2.5 text-center text-slate-400">[6.15, 8.93]</td>
+                  <td class="p-2.5 text-center font-bold text-emerald-600 dark:text-emerald-400">-44.5%</td>
+                  <td class="p-2.5 text-center text-slate-500">67 non-surge</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-2.5 font-semibold text-[#0090ff]">Grameenphone (MyGP)</td>
+                  <td class="p-2.5 text-center font-bold">6.28 pts</td>
+                  <td class="p-2.5 text-center text-slate-400">[4.33, 7.93]</td>
+                  <td class="p-2.5 text-center font-bold text-brand-600 dark:text-brand-400">5.14–5.15 pts</td>
+                  <td class="p-2.5 text-center text-slate-400">[3.86, 6.29]</td>
+                  <td class="p-2.5 text-center font-bold text-slate-700 dark:text-slate-300">-18.0%</td>
+                  <td class="p-2.5 text-center text-slate-500">69 non-surge</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-2.5 font-semibold text-[#e60000]">Robi (My Robi)</td>
+                  <td class="p-2.5 text-center font-bold">5.61 pts</td>
+                  <td class="p-2.5 text-center text-slate-400">[3.88, 7.16]</td>
+                  <td class="p-2.5 text-center font-bold text-rose-600 dark:text-rose-400">4.53 pts</td>
+                  <td class="p-2.5 text-center text-slate-400">[3.44, 5.67]</td>
+                  <td class="p-2.5 text-center font-bold text-slate-700 dark:text-slate-300">-19.3%</td>
+                  <td class="p-2.5 text-center text-slate-500">72 non-surge</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Volatility Insight Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
+            <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+              <span class="text-[10px] font-mono font-bold uppercase text-purple-600 dark:text-purple-400 block">Surge Ratio Compression</span>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+                Under raw MoM transitions, Banglalink appears $2.43\times$ more volatile than Robi ($p = 0.0008$). When filtering out artificial promotional review surges ($|\Delta V/V| \ge 50\%$), the BL/Robi volatility ratio compresses from <strong>$2.43\times$</strong> down to <strong>1.67&times;</strong> ($-31.3\%$ compression), revealing that nearly half of Banglalink's apparent volatility stemmed from marketing campaigns rather than underlying software instability.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+              <span class="text-[10px] font-mono font-bold uppercase text-purple-600 dark:text-purple-400 block">Volume Surge Overlap &amp; Elasticity</span>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+                Empirically, <strong>45.7%</strong> of all acute shocks (16 of 35) occur during review volume surges ($|\Delta V/V| \ge 50\%$), compared to only 13.3% (32 of 240) across normal transitions. Linear regression against log-volume changes ($\Delta\ln(\text{Vol})$) confirms high elasticity for <em>General Appreciation</em> ($R^2 = 0.5601, \beta = 11.52$) versus operational functional domains ($R^2 = 0.4323, \beta = 5.94$).
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+              <span class="text-[10px] font-mono font-bold uppercase text-purple-600 dark:text-purple-400 block">Classifier Invariance &amp; Thresholds</span>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+                Audited against calibrated LinearSVC across multi-level shock thresholds: at $|\Delta\text{NSS}| \ge 8\text{ pp}$, <strong>44</strong> shocks (Ensemble) vs <strong>46</strong> (LinearSVC); at baseline $|\Delta\text{NSS}| \ge 10\text{ pp}$, <strong>35</strong> (Ensemble) vs <strong>32</strong> (LinearSVC); at $|\Delta\text{NSS}| \ge 12\text{ pp}$, <strong>23</strong> (Ensemble) vs <strong>24</strong> (LinearSVC). Banglalink displays $3.1\times$–$3.8\times$ higher shock frequency across every threshold, with near-identical RMSSD (GP 6.24 vs 6.28, Robi 5.43 vs 5.61, BL 13.76 vs 13.61).
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- 2-Column Visual Grid: Operational Complaints & Category Sentiment Composition -->
@@ -1119,6 +1199,219 @@
           </tbody>
         </table>
       </div>
+
+      <!-- Publication Visuals: Figure 1 & Figure 2 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4">
+        
+        <!-- Figure 1: Monthly NSS Trajectory -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-chart-line text-brand-500"></i> Monthly NSS Trajectory (122 Months)
+            </h3>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-50 dark:bg-brand-950/50 text-brand-700 dark:text-brand-300 font-bold border border-brand-300/40">Figure 1</span>
+          </div>
+          <div class="rounded-xl overflow-hidden bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5">
+            <img 
+              src="../assets/images/projects/voc/figure1_monthly_nss_trajectory.png" 
+              alt="Figure 1: Monthly NSS Trajectory Across 122 Months with Central Limit Theorem Floor" 
+              loading="lazy"
+              class="w-full h-auto object-contain hover:scale-[1.01] transition-transform duration-300"
+            />
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-justify">
+            <strong class="font-semibold text-slate-700 dark:text-slate-300">Continuous Trajectory:</strong> Monthly Net Sentiment Score across 122 continuous months (Aug 2016 – Sep 2026) with Central Limit Theorem sample size threshold ($N \ge 30$). Highlights volatile early adoption, the 2018 4G tariff shock, the pandemic digital surge, and modern divergence.
+          </p>
+        </div>
+
+        <!-- Figure 2: Yearly Leadership Strip -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-flag-checkered text-brand-500"></i> Yearly Leadership Strip (2016–2026)
+            </h3>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-50 dark:bg-brand-950/50 text-brand-700 dark:text-brand-300 font-bold border border-brand-300/40">Figure 2</span>
+          </div>
+          <div class="rounded-xl overflow-hidden bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5">
+            <img 
+              src="../assets/images/projects/voc/figure2_yearly_leadership_strip.png" 
+              alt="Figure 2: Yearly Sentiment Leadership Strip Across 11 Calendar Years" 
+              loading="lazy"
+              class="w-full h-auto object-contain hover:scale-[1.01] transition-transform duration-300"
+            />
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-justify">
+            <strong class="font-semibold text-slate-700 dark:text-slate-300">Market Crown Evolution:</strong> Tracks annual market leadership transitions. Banglalink led early adoption (2016–2017), Grameenphone dominated the 4G transition (2018–2019) and super-app expansion (2023–2024), Robi secured 2020–2022 and 2025, before Banglalink reclaimed leadership in 2026 (+81.9% NSS).
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Reconciled 4 Market Eras Breakdown -->
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
+          <div>
+            <h3 class="font-display font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-clock-rotate-left text-brand-500"></i> The Four Empirical Market Eras (2016 – 2026)
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Reconciled longitudinal market regimes computed from canonical volume-weighted and unweighted annual trends ($N = 655,649$).</p>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold self-start sm:self-auto">4 Macro Regimes</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- Era 1 -->
+          <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-slate-900 dark:text-white">Era 1: Early Adoption</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/50 text-[#0090ff] font-bold">2016–2017</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Initial digital self-care rollout characterized by acute friction for Robi ($-54.3$ unweighted, $-52.5$ weighted, $N=493$) due to unhandled authentication crashes, while Banglalink launched favorably ($+45.9$ unweighted, $+45.7$ weighted, $N=3,280$); Grameenphone established moderate baseline ($+8.0$ unweighted, $+8.8$ weighted, $N=1,028$).
+            </p>
+          </div>
+
+          <!-- Era 2 -->
+          <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-slate-900 dark:text-white">Era 2: 4G &amp; Lockdown</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 font-bold">2018–2020</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              The 2018 4G tariff dip (GP $-46.31$ pts drop on Feb 19, 2018: $+15.60 \to -30.71$) followed by $+616\%$ YoY pandemic digital surge in 2020 ($77,471$ reviews; GP Mar 2020 shock $+26.41$ pts). Unweighted means: GP $+16.4$ ($+42.4$ weighted, $N=30,597$), Robi $+17.1$ ($+55.0$ weighted, $N=37,937$), BL $+26.1$ ($+32.8$ weighted, $N=24,814$).
+            </p>
+          </div>
+
+          <!-- Era 3 -->
+          <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-slate-900 dark:text-white">Era 3: Post-Pandemic</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 font-bold">2021–2022</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Maturity and stability across mature mobile app platforms ($N = 197,864$). Sustained customer sentiment with GP achieving $+62.6$ unweighted ($+62.7$ weighted, $N=86,237$), Robi reaching $+66.1$ unweighted ($+66.2$ weighted, $N=64,714$), and Banglalink consolidating at $+51.1$ unweighted ($+50.6$ weighted, $N=46,913$).
+            </p>
+          </div>
+
+          <!-- Era 4 -->
+          <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-slate-900 dark:text-white">Era 4: SuperApp &amp; Reversal</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-orange-50 dark:bg-orange-950/50 text-[#ff7a00] font-bold">2023–2026</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Super-app divergence ($N = 359,657$). GP $+66.9$ unweighted ($+69.4$ weighted, $N=202,281$), Robi $+67.4$ unweighted ($+70.6$ weighted, $N=95,234$), and BL $+61.4$ unweighted ($+63.3$ weighted, $N=62,142$). Key milestone: 5G launch on Sep 1, 2025 (GP $-18.06$, BL $+27.69$), culminating in Banglalink's 2026 peak of $+81.9\%$.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Banglalink 2026 Turnaround Decomposition (Figure 4) -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
+          <div>
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-code-fork text-[#ff7a00]"></i> Dual-Track Turnaround Decomposition: Banglalink 2026 Resurgence
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Empirically isolating genuine engineering optimizations from promotional surface volume distortions in Banglalink's 2025 &rarr; 2026 leap.</p>
+          </div>
+          <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-orange-50 dark:bg-orange-950/50 text-[#ff7a00] border border-orange-300/40 font-bold self-start sm:self-auto">Figure 4 • Additive Decomposition</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- Figure 4 Image -->
+          <div class="lg:col-span-6 rounded-xl overflow-hidden bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 p-2">
+            <img 
+              src="../assets/images/projects/voc/figure4_banglalink_reversal_decomposition.png" 
+              alt="Figure 4: Banglalink 2026 Turnaround Decomposition" 
+              loading="lazy"
+              class="w-full h-auto object-contain hover:scale-[1.01] transition-transform duration-300 rounded-lg"
+            />
+          </div>
+
+          <!-- Decomposition Narrative & Metrics -->
+          <div class="lg:col-span-6 space-y-4">
+            <div class="p-4 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/60 dark:border-orange-500/20 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold uppercase text-[#ff7a00]">Annual Reversal Milestone</span>
+                <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">+15.54 pts Net Gain</span>
+              </div>
+              <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
+                Between 2025 ($N = 10,238$, NSS $= +66.39\%$) and Jan–Sep 2026 ($N = 21,810$, NSS $= +81.93\%$), Banglalink achieved an aggregate net gain of <strong>+15.54</strong> percentage points on a $2.13\times$ review volume expansion. Decomposing this shift reveals two distinct drivers:
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Track B: Promotional Surface -->
+              <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400">Track B (Promo Surface)</span>
+                  <span class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">66.5%</span>
+                </div>
+                <div class="text-base font-bold font-mono text-slate-900 dark:text-white">+10.33 pts</div>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed text-justify">
+                  <em>General Appreciation / Other</em> expanded from 87.36% to 92.71% (+5.35 pp), absorbing <strong>+10.33</strong> pts (<strong>66.5%</strong>) of the net increase via short 5-star praise strings.
+                </p>
+              </div>
+
+              <!-- Track A: Operational Engineering -->
+              <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400">Track A (Engineering)</span>
+                  <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">33.5%</span>
+                </div>
+                <div class="text-base font-bold font-mono text-slate-900 dark:text-white">+5.21 pts</div>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed text-justify">
+                  Genuine engineering and operational optimizations contributed <strong>+5.21</strong> pts (<strong>33.5%</strong>) combined across four core functional domains.
+                </p>
+              </div>
+            </div>
+
+            <!-- Operational Sub-Domain Breakdown Table -->
+            <div class="overflow-x-auto rounded-lg border border-slate-200/60 dark:border-white/5">
+              <table class="w-full text-left text-[11px] font-mono text-slate-600 dark:text-slate-300">
+                <thead class="bg-slate-100/80 dark:bg-slate-800/60 uppercase text-slate-700 dark:text-slate-200">
+                  <tr>
+                    <th class="p-2">Track A Operational Domain</th>
+                    <th class="p-2 text-center">NSS Contribution</th>
+                    <th class="p-2 text-center">Share of Gain</th>
+                    <th class="p-2">Underlying Defect Reduction</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200/60 dark:divide-white/5">
+                  <tr>
+                    <td class="p-2 font-semibold">App Login &amp; Technical Bugs</td>
+                    <td class="p-2 text-center font-bold text-emerald-600 dark:text-emerald-400">+2.80 pts</td>
+                    <td class="p-2 text-center font-bold">18.0%</td>
+                    <td class="p-2 font-sans">Complaint rate dropped from 4.62% (473) to 1.38% (301 reviews), a -3.24 pp reduction.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 font-semibold">Network Speed &amp; 4G Latency</td>
+                    <td class="p-2 text-center font-bold text-emerald-600 dark:text-emerald-400">+1.07 pts</td>
+                    <td class="p-2 text-center font-bold">6.9%</td>
+                    <td class="p-2 font-sans">Edge CDN deployment and urban 4G small-cell densification.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 font-semibold">Offers &amp; Data Packs</td>
+                    <td class="p-2 text-center font-bold text-emerald-600 dark:text-emerald-400">+0.98 pts</td>
+                    <td class="p-2 text-center font-bold">6.3%</td>
+                    <td class="p-2 font-sans">Transparent personalized bundle validity rollover policies.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 font-semibold">Billing &amp; Airtime Deductions</td>
+                    <td class="p-2 text-center font-bold text-emerald-600 dark:text-emerald-400">+0.36 pts</td>
+                    <td class="p-2 text-center font-bold">2.3%</td>
+                    <td class="p-2 font-sans">Automated VAS cancellation self-service toggles.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════ -->
@@ -1242,6 +1535,219 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Cross-Layer Decoupling Econometric Proofs Card -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
+          <div>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">// Econometric Proof</span>
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mt-0.5 flex items-center gap-2">
+              <i class="fa-solid fa-calculator text-purple-500"></i> Cross-Layer Subsystem Decoupling: Statistical Proofs
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Formal hypothesis testing proving that acute brand shocks originate overwhelmingly in client software rather than core cellular infrastructure.</p>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded bg-purple-500/10 text-purple-700 dark:text-purple-300 font-bold self-start sm:self-auto">Modern Era · 240 Transitions</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="p-4 rounded-xl bg-purple-50/50 dark:bg-purple-950/20 border border-purple-200/60 dark:border-purple-500/20 space-y-1">
+            <span class="text-[11px] font-mono text-purple-600 dark:text-purple-400 uppercase font-bold block">Pearson Chi-Square</span>
+            <div class="text-lg font-bold font-mono text-slate-900 dark:text-white">$\chi^2(1) = 12.83$</div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">$p = 0.0003$ (Yates: $11.55, p = 0.0007$)</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-brand-50/50 dark:bg-brand-950/20 border border-brand-200/60 dark:border-brand-500/20 space-y-1">
+            <span class="text-[11px] font-mono text-brand-600 dark:text-brand-400 uppercase font-bold block">Fisher's Exact Odds Ratio</span>
+            <div class="text-lg font-bold font-mono text-slate-900 dark:text-white">$\text{OR} = 4.23$</div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">95% CI: $[1.78, 10.51], p = 0.0004$</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-500/20 space-y-1">
+            <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 uppercase font-bold block">Relative Risk (RR)</span>
+            <div class="text-lg font-bold font-mono text-slate-900 dark:text-white">$\text{RR} = 1.74$</div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">95% CI: $[1.34, 2.25]$</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-sky-50/50 dark:bg-sky-950/20 border border-sky-200/60 dark:border-sky-500/20 space-y-1">
+            <span class="text-[11px] font-mono text-sky-600 dark:text-sky-400 uppercase font-bold block">Non-Surge Robustness</span>
+            <div class="text-lg font-bold font-mono text-slate-900 dark:text-white">$\text{OR} = 3.65$</div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">$\chi^2(1) = 6.38, p = 0.0116$</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 pt-1">
+          <div class="lg:col-span-7 space-y-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            <p>
+              Across the Modern Scale Era (Jan 2020 – Sep 2026, 81 months, 80 transitions per operator = <strong>240 total transitions</strong>), we identify <strong>35 acute shocks</strong> ($|\Delta\text{NSS}| \ge 10.0\text{ pp}$; 20 positive rises, 15 negative drops; Banglalink 22, Robi 7, Grameenphone 6).
+            </p>
+            <p>
+              <em>App Login &amp; Technical Bugs</em> led functional operational domains in <strong>27 of 35 shocks (77.1%)</strong>, compared to only <strong>91 of 205 normal transitions (44.4%)</strong>. This cross-tabulation demonstrates overwhelming statistical significance ($\chi^2(1) = 12.83, p = 0.0003$; Yates-corrected $11.55, p = 0.0007$; Fisher's Exact $\text{OR} = 4.23$, $\text{RR} = 1.74$). In layman's terms: when consumer brand perception experiences a severe swing, the odds that client-side software defects led the shift are over $4.2\times$ higher than during normal months.
+            </p>
+            <p>
+              <strong>Non-Surge Invariance:</strong> Removing all 32 review volume surges ($|\Delta V/V| \ge 50\%$) leaves 208 clean non-surge transitions. App Login still led 14 of 19 non-surge shocks (73.7%) vs 82 of 189 non-surge normal transitions (43.4%), preserving statistical significance ($\chi^2(1) = 6.38, p = 0.0116$; Fisher $\text{OR} = 3.65, p = 0.0150$).
+            </p>
+          </div>
+
+          <div class="lg:col-span-5 p-4 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-2.5">
+            <span class="text-xs font-mono font-bold uppercase text-slate-800 dark:text-slate-200 block border-b border-slate-200/60 dark:border-white/5 pb-1.5">Operator-Specific Decoupling Odds</span>
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-[#ff7a00]">Banglalink (MyBL):</span>
+                <span class="font-mono font-bold text-rose-500">Fisher OR = 10.00 ($p = 0.0007$)</span>
+              </div>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                20 of 22 shocks (90.9%) vs 29 of 58 normal (50.0%). Non-surge subset: $\text{OR} = 11.41$ ($p = 0.0088$).
+              </p>
+
+              <div class="flex items-center justify-between pt-1 border-t border-slate-200/40 dark:border-white/5">
+                <span class="font-semibold text-[#e60000]">Robi (My Robi):</span>
+                <span class="font-mono font-bold text-slate-700 dark:text-slate-300">Fisher OR = 1.71 ($p = 0.6949$)</span>
+              </div>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                4 of 7 shocks (57.1%) vs 32 of 73 normal transitions (43.8%).
+              </p>
+
+              <div class="flex items-center justify-between pt-1 border-t border-slate-200/40 dark:border-white/5">
+                <span class="font-semibold text-[#0090ff]">Grameenphone (MyGP):</span>
+                <span class="font-mono font-bold text-slate-700 dark:text-slate-300">Fisher OR = 1.47 ($p = 0.6866$)</span>
+              </div>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                3 of 6 shocks (50.0%) vs 30 of 74 normal transitions (40.5%).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spring 2024 Build Crash Telemetry Deep-Dive -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
+          <div>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">// Natural Experiment Case Study</span>
+            <h3 class="font-display font-bold text-base text-slate-900 dark:text-white mt-0.5 flex items-center gap-2">
+              <i class="fa-solid fa-bug text-rose-500"></i> Spring 2024 Build Crash Telemetry: <code class="font-mono text-sm font-bold text-rose-600 dark:text-rose-400">v11.8.0</code> vs. <code class="font-mono text-sm font-bold text-emerald-600 dark:text-emerald-400">v11.9.1</code>
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Empirically isolating a software client crash shock and hotfix recovery using app-store build metadata.</p>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded bg-rose-500/10 text-rose-700 dark:text-rose-300 font-bold self-start sm:self-auto">Counterfactual Telemetry</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- March Baseline -->
+          <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-slate-800 dark:text-slate-200">2024-03 Baseline</span>
+              <span class="text-[11px] font-mono font-bold text-brand-600 dark:text-brand-400">N = 1,093</span>
+            </div>
+            <div class="text-base font-bold font-mono text-slate-900 dark:text-white">NSS = +42.82%</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-justify">
+              Stable pre-crisis operating baseline across builds: <code class="text-[10px] font-mono">v11.7.1</code> ($n=170$, $15.6\%$, NSS $+42.9\%$), legacy versions ($n=205$, $+42.0\%$), and unversioned reviews ($n=718$, $+43.0\%$).
+            </p>
+          </div>
+
+          <!-- April Crash -->
+          <div class="p-4 rounded-xl bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200/60 dark:border-rose-500/20 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-rose-700 dark:text-rose-300">2024-04 Crash Shock</span>
+              <span class="text-[11px] font-mono font-bold text-rose-600 dark:text-rose-400">N = 1,315</span>
+            </div>
+            <div class="text-base font-bold font-mono text-rose-600 dark:text-rose-400">&Delta;NSS = -11.18 pts</div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Newly deployed <strong><code class="font-mono text-rose-600 dark:text-rose-400">v11.8.0</code></strong> ($n=158$, $12.0\%$ of month / $34.1\%$ of versioned reviews) collapsed to <strong>NSS -7.59% (95% CI $[-22.3, +7.1]$)</strong> due to splash-screen freezes and authentication token timeouts. <em>App Login</em> alone contributed $-8.74\text{ pts}$ ($78.2\%$ of total downturn). Counterfactual isolation: replacing <code class="text-[10px] font-mono">v11.8.0</code> with the monthly balance lifts NSS by $+5.36$ pts (~48% of downturn directly traceable to the defect).
+            </p>
+          </div>
+
+          <!-- May Recovery -->
+          <div class="p-4 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-500/20 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-300">2024-05 Hotfix &amp; Rebound</span>
+              <span class="text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400">N = 2,265</span>
+            </div>
+            <div class="text-base font-bold font-mono text-emerald-600 dark:text-emerald-400">&Delta;NSS = +32.8 pts</div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Emergency patch <strong><code class="font-mono text-emerald-600 dark:text-emerald-400">v11.9.1</code></strong> ($n=708$) resolved login crashes, rebounding to <strong>+77.0% (95% CI $[72.9, 81.0]$)</strong>, restoring $+13.73\text{ pts}$ in App Login sentiment alongside a $+72.2\%$ promotional volume surge.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strategic Priority Matrix (Figure 3) -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
+          <div>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// 2x2 Decision Matrix</span>
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mt-0.5 flex items-center gap-2">
+              <i class="fa-solid fa-table-cells-large text-brand-500"></i> Strategic Priority Matrix: Prevalence vs. Negativity Index
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Categorizing functional operational domains across $N = 88,181$ reviews to guide executive CapEx/OpEx allocation.</p>
+          </div>
+          <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-brand-50 dark:bg-brand-950/50 text-brand-700 dark:text-brand-300 border border-brand-300/40 font-bold self-start sm:self-auto">Figure 3 • N = 88,181 Reviews</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- Figure 3 Image -->
+          <div class="lg:col-span-6 rounded-xl overflow-hidden bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 p-2">
+            <img 
+              src="../assets/images/projects/voc/figure3_priority_matrix.png" 
+              alt="Figure 3: Strategic Priority Matrix (Prevalence vs. Negativity Rate)" 
+              loading="lazy"
+              class="w-full h-auto object-contain hover:scale-[1.01] transition-transform duration-300 rounded-lg"
+            />
+          </div>
+
+          <!-- Quadrant Definitions & Odds Ratios -->
+          <div class="lg:col-span-6 space-y-3">
+            <div class="p-3 rounded-lg bg-slate-100/70 dark:bg-slate-800/60 font-mono text-[11px] text-slate-700 dark:text-slate-300 flex items-center justify-between">
+              <span>Heterogeneity Contingency Test:</span>
+              <span class="font-bold">$\chi^2(3) = 11,027.6, p < 0.0001$ (Cramér's $V = 0.3536$)</span>
+            </div>
+
+            <!-- Quadrant I -->
+            <div class="p-3.5 rounded-xl bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200/60 dark:border-rose-500/20 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-rose-700 dark:text-rose-300">Quadrant I — Urgent Crisis</span>
+                <span class="text-xs font-mono font-bold text-rose-600 dark:text-rose-400">High Prev &gt; 4.5% | Severe Neg &gt; 75%</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+                <strong>App Login &amp; Technical Bugs:</strong> Pooled $88.5\%$ negative ($28,955 / 32,701$). <strong>$\text{OR} = 6.44$ (95% CI: $[6.18, 6.70]$)</strong> vs. Offers, and $\text{OR} = 2.57$ (95% CI: $[2.45, 2.70]$) vs. Network. Immediate client software patch required.
+              </p>
+            </div>
+
+            <!-- Quadrant II -->
+            <div class="p-3.5 rounded-xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-500/20 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-amber-700 dark:text-amber-300">Quadrant II — Severe Latent Churn</span>
+                <span class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">Low Prev &lt; 4.5% | Extreme Neg &gt; 85%</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+                <strong>Billing &amp; Airtime Deductions:</strong> Pooled $91.9\%$ negative ($5,787 / 6,295$). <strong>$\text{OR} = 9.49$ (95% CI: $[8.64, 10.42]$)</strong> vs. Offers. Highest dissatisfaction toxicity in the telecom sector; demands transparent balance deduction logs.
+              </p>
+            </div>
+
+            <!-- Quadrant III -->
+            <div class="p-3.5 rounded-xl bg-sky-50/50 dark:bg-sky-950/20 border border-sky-200/60 dark:border-sky-500/20 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-sky-700 dark:text-sky-300">Quadrant III — Infrastructure Parity</span>
+                <span class="text-xs font-mono font-bold text-sky-600 dark:text-sky-400">Low Prev &lt; 4.5% | Boundary Neg ~75%</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+                <strong>Network Speed &amp; 4G Latency:</strong> Pooled $75.0\%$ negative ($12,083 / 16,108$). $\text{OR} = 2.50$ (95% CI: $[2.40, 2.61]$) vs. Offers. Baseline cellular infrastructure expectation; stable across all operators.
+              </p>
+            </div>
+
+            <!-- Quadrant IV -->
+            <div class="p-3.5 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-500/20 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-300">Quadrant IV — Feature Optimization</span>
+                <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">High Prev &gt; 4.5% | Moderate Neg &lt; 75%</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+                <strong>Offers &amp; Data Packs:</strong> Pooled $54.6\%$ negative ($18,046 / 33,077$). Reference category ($\text{OR} = 1.00$). High commercial engagement with significant positive commendations for promotional pricing.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
