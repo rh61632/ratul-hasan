@@ -6,15 +6,15 @@ updated: 2026-11-10T10:36:00+06:00
 
 # Roadmap
 
-> **Current Phase:** 2 - End-to-End Verification & Zero-Paper-Leak Audit
-> **Status:** planning
+> **Current Phase:** Milestone Complete (Phases 1–2)
+> **Status:** complete
 
 ## Must-Haves (from SPEC)
 
 - [x] All 5 paper PNGs removed from git and `assets/images/projects/voc/`
 - [x] All secret paper sections, equations, KaTeX dependencies, terminology, and citations stripped cleanly from `projects/voc-telecom.html`, `js/data/projects.js`, `css/styles.css`, and `.gsd/`
 - [x] Portfolio synchronized cleanly with public project capabilities (`README.md`, `3d9f889` `LanguageClassifier`, surge/dominance/threshold/version project scripts, filtering ablation, Colab notebooks, and `655,649` / `3,713-day` benchmark)
-- [ ] Phase 2 end-to-end HTTP/DOM/Edge/390px/theme verification and zero-paper-leak audit pass cleanly
+- [x] Phase 2 end-to-end HTTP/DOM/Edge/390px/theme verification and zero-paper-leak audit passed cleanly (`8/8` must-haves)
 
 ---
 
@@ -31,13 +31,13 @@ updated: 2026-11-10T10:36:00+06:00
 ---
 
 ### Phase 2: End-to-End Verification & Zero-Paper-Leak Audit
-**Status:** 🔄 In Progress
+**Status:** ✅ Complete
 **Objective:** Execute full local HTTP asset checks, HTML/anchor validation, headless Microsoft Edge DOM/hydration/dark-light/true-390px viewport checks, and automated zero-paper-leak grep audits across all tracked files.
 **Depends on:** Phase 1
 **Requirements:** REQ-05, NFR-01, NFR-02, NFR-03
 
 **Plans:**
-- Planning `/plan 2`
+- [x] 2-PLAN.md: End-to-End Verification & Zero-Paper-Leak Audit (`a21665f`)
 
 ---
 
@@ -46,4 +46,4 @@ updated: 2026-11-10T10:36:00+06:00
 | Phase | Status | Plans | Complete |
 |-------|--------|-------|----------|
 | 1 | ✅ | 1/1 | 2026-11-10 |
-| 2 | 🔄 | 0/1 | — |
+| 2 | ✅ | 1/1 | 2026-11-10 |
