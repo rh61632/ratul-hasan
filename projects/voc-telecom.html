@@ -92,29 +92,58 @@
   <!-- Main Case Study Content -->
   <main class="pt-28 sm:pt-36 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-20 w-full max-w-screen-2xl mx-auto">
     <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- PERSPECTIVE SWITCHER: GLASSMORPHIC SEGMENTED CONTROL        -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="mb-8 p-2 rounded-2xl bg-white/70 dark:bg-surface-card/70 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5 px-3 py-1">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse"></span>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">View Perspective:</span>
+      </div>
+      <div class="inline-flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200/60 dark:border-white/5" role="group" aria-label="Perspective Switcher">
+        <button id="btn-perspective-overall" data-perspective="overall" aria-pressed="true" class="perspective-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center gap-2 bg-brand-600 text-white shadow-md">
+          <i class="fa-solid fa-layer-group text-xs"></i> <span>Overall Perspective</span>
+        </button>
+        <button id="btn-perspective-technical" data-perspective="technical" aria-pressed="false" class="perspective-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/5">
+          <i class="fa-solid fa-microchip text-xs"></i> <span>Technical Perspective</span>
+        </button>
+        <button id="btn-perspective-business" data-perspective="business" aria-pressed="false" class="perspective-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/5">
+          <i class="fa-solid fa-briefcase text-xs"></i> <span>Business Perspective</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
     <!-- SECTION 1: HERO HEADER & OFFICIAL OPERATOR INTRODUCTION     -->
     <!-- ═══════════════════════════════════════════════════════════ -->
     <div class="mb-10 max-w-4xl space-y-4">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
+      <div data-perspective-group="overall-tech" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
         <i class="fa-solid fa-tower-cell text-brand-500"></i> Research Case Study • Production Telecom NLP &amp; Business Intelligence
+      </div>
+      <div data-perspective-group="business" class="hidden inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
+        <i class="fa-solid fa-briefcase text-brand-500"></i> Executive Intelligence Report • Bangladesh Telecom Market Benchmark
       </div>
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight">
         Telecom Voice-of-Customer (VoC) Intelligence Engine
       </h1>
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+      <p data-perspective-group="overall-tech" class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
         An enterprise end-to-end NLP and Business Intelligence pipeline analyzing customer sentiment, operational complaints, and product trajectories across Bangladesh’s premier telecommunications operators:
+        <strong class="text-[#0090ff] font-semibold">Grameenphone Ltd.</strong> (operating the MyGP platform), 
+        <strong class="text-[#e60000] font-semibold">Robi Axiata Limited</strong> (operating the My Robi platform), and 
+        <strong class="text-[#ff7a00] font-semibold">Banglalink Digital Communications Limited</strong> (operating the MyBL platform).
+      </p>
+      <p data-perspective-group="business" class="hidden text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        A comprehensive customer experience and market intelligence study analyzing subscriber sentiment, service inquiries, and product satisfaction across Bangladesh’s premier telecommunications operators:
         <strong class="text-[#0090ff] font-semibold">Grameenphone Ltd.</strong> (operating the MyGP platform), 
         <strong class="text-[#e60000] font-semibold">Robi Axiata Limited</strong> (operating the My Robi platform), and 
         <strong class="text-[#ff7a00] font-semibold">Banglalink Digital Communications Limited</strong> (operating the MyBL platform).
       </p>
 
       <!-- Executive Narrative Story (<140 words, flowing prose) -->
-      <div class="relative overflow-hidden p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-brand-500/10 via-white/85 to-purple-500/10 dark:from-brand-950/40 dark:via-surface-card/85 dark:to-purple-950/30 backdrop-blur-xl border border-brand-300/60 dark:border-brand-500/30 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)]">
+      <div data-perspective-group="overall-only" class="relative overflow-hidden p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-brand-500/10 via-white/85 to-purple-500/10 dark:from-brand-950/40 dark:via-surface-card/85 dark:to-purple-950/30 backdrop-blur-xl border border-brand-300/60 dark:border-brand-500/30 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)]">
         <div class="flex items-center justify-between gap-2 mb-3">
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-100 dark:bg-brand-900/60 border border-brand-300/50 dark:border-brand-700/50">
             <i class="fa-solid fa-book-open text-brand-600 dark:text-brand-400"></i> The Story Behind the Data
           </span>
-          <span class="text-[11px] font-mono text-slate-400 dark:text-slate-500">96 Words • Executive Narrative</span>
         </div>
 
         <p class="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed text-justify">
@@ -122,7 +151,20 @@
         </p>
       </div>
 
-      <div class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/[0.08] text-xs space-y-2 text-slate-600 dark:text-slate-300">
+      <!-- Executive Narrative Story - Jargon-Free Business Mode -->
+      <div data-perspective-group="business" class="hidden relative overflow-hidden p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-brand-500/10 via-white/85 to-purple-500/10 dark:from-brand-950/40 dark:via-surface-card/85 dark:to-purple-950/30 backdrop-blur-xl border border-brand-300/60 dark:border-brand-500/30 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)]">
+        <div class="flex items-center justify-between gap-2 mb-3">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-brand-100 dark:bg-brand-900/60 border border-brand-300/50 dark:border-brand-700/50">
+            <i class="fa-solid fa-book-open text-brand-600 dark:text-brand-400"></i> The Story Behind the Data
+          </span>
+        </div>
+
+        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed text-justify">
+          Over 180 million subscribers voice daily frustrations across app stores, yet their feedback remained buried in noisy colloquial remarks and deceptively simple star ratings. We assumed standard commercial tools could easily parse bilingual slang, and that negative reviews simply tracked network coverage drops. The reality was startling: abrupt app interface redesigns and unexpected tariff shifts triggered far more user churn than poor signal ever did. By deploying an automated customer-voice system across 655,000+ customer reviews, we transformed raw feedback into instant root-cause attribution—empowering telecom leaders to diagnose and fix breaking customer pain points within hours instead of quarters.
+        </p>
+      </div>
+
+      <div data-perspective-group="overall-tech" class="p-4 rounded-xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/[0.08] text-xs space-y-2 text-slate-600 dark:text-slate-300">
         <div class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
           <i class="fa-solid fa-scale-balanced text-brand-600 dark:text-brand-400"></i>
           Methodological Equity &amp; Sampling Standards:
@@ -135,7 +177,7 @@
         </p>
       </div>
 
-      <div class="flex flex-wrap gap-2 pt-2">
+      <div data-perspective-group="overall-tech" class="flex flex-wrap gap-2 pt-2">
         <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">Python 3.10+</span>
         <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">655,649 Common Benchmark</span>
         <span class="text-xs font-mono px-3 py-1 rounded-lg bg-white/60 dark:bg-white/[0.05] backdrop-blur-md border border-slate-200/70 dark:border-white/10 text-slate-700 dark:text-slate-300 shadow-sm">3,713-Day Window (Aug 2016–Sep 2026)</span>
@@ -149,7 +191,7 @@
     </div>
 
     <!-- Key Performance Highlights Grid (Hero Numbers) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+    <div data-perspective-group="overall-tech" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
       <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)]">
         <div class="flex items-center justify-between">
           <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">655,649</div>
@@ -185,11 +227,93 @@
         <div class="text-xs font-mono text-slate-400 uppercase mt-2">Soft-Voting Ensemble</div>
         <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">Sub-millisecond CPU inference (>80&times; speedup) with ComplementNB Bayesian probability calibration.</p>
       </div>
-    </div>
+    </div>    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- TECHNICAL PERSPECTIVE: SYSTEM & PIPELINE ARCHITECTURE      -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="tech-architecture-block hidden mb-16 space-y-8" data-perspective-group="tech-only">
+      <div class="border-b border-slate-200/70 dark:border-slate-800 pb-3">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">// Deep Engineering Specification</span>
+        <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Production Machine Learning Pipeline &amp; Data Architecture Blueprint</h2>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+          End-to-end technical specification of data pipelines, weak supervision formulations, n-gram vectorizers, calibrated soft-voting ensembles, neural transformers, and linguistic routing modules.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <!-- Component 1 -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/40 flex items-center justify-center text-brand-600 dark:text-brand-400 font-mono font-bold text-xs">01</span>
+            <h3 class="font-bold text-sm text-slate-900 dark:text-white">Parallel Ingestion &amp; Primary-Key Deduplication</h3>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Multi-threaded review ingestion (<code class="text-[11px] font-mono text-brand-600 dark:text-brand-400">scraped_data_global/pipeline/run_parallel_scrapers.py</code>) harvests raw Play Store streams with canonical metadata (<code class="text-[11px] font-mono">review_id</code>, <code class="text-[11px] font-mono">app_version</code>, <code class="text-[11px] font-mono">thumbs_up</code>, <code class="text-[11px] font-mono">timestamp</code>). Strict primary-key deduplication on canonical <code class="text-[11px] font-mono">review_id</code> compresses the 661,160 master raw reviews into the continuous 3,713-day common window (<strong class="text-slate-800 dark:text-white">655,649 reviews</strong>, Aug 1, 2016 – Sep 30, 2026).
+          </p>
+        </div>
+
+        <!-- Component 2 -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center text-purple-600 dark:text-purple-400 font-mono font-bold text-xs">02</span>
+            <h3 class="font-bold text-sm text-slate-900 dark:text-white">Weak Supervision &amp; Groq Seed Formulation</h3>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Groq cloud inference (<code class="text-[11px] font-mono text-purple-600 dark:text-purple-400">qwen/qwen3.8-27b</code>) provides high-throughput weak supervision for 4,500 balanced multi-operator seed records across Grameenphone, Robi, and Banglalink. Weak pseudo-labels are validated through an independent double-blind human ground-truth protocol achieving substantial inter-rater reliability (<strong class="text-slate-800 dark:text-white">&kappa; = 0.77 Cohen's Kappa</strong>).
+          </p>
+        </div>
+
+        <!-- Component 3 -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-mono font-bold text-xs">03</span>
+            <h3 class="font-bold text-sm text-slate-900 dark:text-white">Dual Character N-Gram Feature Engineering</h3>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Sub-word representation uses <code class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 5), min_df=3, sublinear_tf=True)</code>. Slicing sub-word character n-grams across word boundaries directly captures invariant phonetic stems across wildly inconsistent Banglish transliterations (<code class="text-[11px] font-mono">faltu</code>, <code class="text-[11px] font-mono">faaltu</code>, <code class="text-[11px] font-mono">faltoo</code>, <code class="text-[11px] font-mono">baje</code>, <code class="text-[11px] font-mono">vaalo</code>) while mapping native Bengali Unicode (<code class="text-[11px] font-mono">U+0980–U+09FF</code>) and English into one unified sparse feature space.
+          </p>
+        </div>
+
+        <!-- Component 4 -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-cyan-100 dark:bg-cyan-900/40 flex items-center justify-center text-cyan-600 dark:text-cyan-400 font-mono font-bold text-xs">04</span>
+            <h3 class="font-bold text-sm text-slate-900 dark:text-white">Calibrated Soft-Voting Ensemble [2, 2, 1]</h3>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Production classification deploys <code class="text-[11px] font-mono text-cyan-600 dark:text-cyan-400">VotingClassifier(voting="soft", weights=[2, 2, 1])</code> uniting: (1) Multinomial Logistic Regression (<code class="text-[11px] font-mono">weight=2</code>) for regularized posterior bounds on minority neutral classes; (2) Platt-calibrated LinearSVC (<code class="text-[11px] font-mono">weight=2</code>) for maximum margin hyperplane separation; and (3) ComplementNB (<code class="text-[11px] font-mono">weight=1</code>) acting as a Bayesian prior regularizer that tames overconfident tail probabilities (<strong class="text-slate-800 dark:text-white">84.76% down to 74.47%</strong>). Benchmarked against statistical baseline floor <code class="text-[11px] font-mono">DummyClassifier(strategy="most_frequent")</code> under <code class="text-[11px] font-mono">StratifiedKFold(n_splits=5, shuffle=True, random_state=42)</code>.
+          </p>
+        </div>
+
+        <!-- Component 5 -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400 font-mono font-bold text-xs">05</span>
+            <h3 class="font-bold text-sm text-slate-900 dark:text-white">BanglaBERT &amp; Deep Representation Learning</h3>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            End-to-end backpropagation through BUET BanglaBERT (<code class="text-[11px] font-mono text-blue-600 dark:text-blue-400">csebuetnlp/banglabert</code>, 110M params, 12 layers) establishes the state-of-the-art benchmark: <strong class="text-slate-800 dark:text-white">91.60% Accuracy / 0.8598 Macro-F1</strong> on Sentiment and <strong class="text-slate-800 dark:text-white">85.27% Accuracy</strong> on Operational Categories (+10.39% over frozen feature baseline). Multilingual MiniLM (384-dim dense embeddings) and PyTorch BiLSTM + Bahdanau Attention serve as neural comparison baselines.
+          </p>
+        </div>
+
+        <!-- Component 6 -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-amber-600 dark:text-amber-400 font-mono font-bold text-xs">06</span>
+            <h3 class="font-bold text-sm text-slate-900 dark:text-white">Linguistic Cohort Router &amp; Telemetry</h3>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Rule-based language classifier (<code class="text-[11px] font-mono text-amber-600 dark:text-amber-400">ml/language_detector.py</code>) integrates exact verified thresholds: Bengali script threshold <strong class="text-slate-800 dark:text-white">&ge; 25%</strong> (<code class="text-[11px] font-mono">script_threshold = 0.25</code>, Unicode <code class="text-[11px] font-mono">U+0980–U+09FF</code>) and English lexical dominance threshold <strong class="text-slate-800 dark:text-white">&ge; 70%</strong> (<code class="text-[11px] font-mono">dominance_threshold = 0.70</code>) evaluated against <code class="text-[11px] font-mono">nltk.corpus.words</code>, telecom domain vocabulary, and <strong class="text-slate-800 dark:text-white">80+ Romanized Banglish phonetic markers</strong> with code-mixed telemetry.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ═══════════════════════════════════════════════════════════ -->
     <!-- SECTION 2: PUBLICATION VISUAL SUITE (300 DPI)               -->
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <section class="mb-16 space-y-8">
+    <section data-perspective-group="overall-tech" class="mb-16 space-y-8">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Visual Analytics // High-Resolution Suite (300 DPI)</span>
@@ -627,7 +751,7 @@
     <!-- ═══════════════════════════════════════════════════════════ -->
     <!-- SECTION 3: 10-YEAR LONGITUDINAL TRAJECTORY (2016 – 2026)     -->
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <section class="mb-16 space-y-6">
+    <section data-perspective-group="overall-tech" class="mb-16 space-y-6">
       <div class="border-b border-slate-200/70 dark:border-slate-800 pb-3">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Historical Macro Trends</span>
         <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Year-by-Year Strategic Inflection Points (2016 – 2026)</h2>
@@ -733,7 +857,7 @@
     <!-- ═══════════════════════════════════════════════════════════ -->
     <!-- SECTION 4: SIGNIFICANT SHOCK ATTRIBUTION ENGINE (NEW!)      -->
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <section class="mb-16 space-y-6">
+    <section data-perspective-group="overall-tech" class="mb-16 space-y-6">
       <div class="border-b border-slate-200/70 dark:border-slate-800 pb-3">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Root-Cause Attribution Engine</span>
         <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Significant Shock Detection &amp; Additive Category Attribution</h2>
@@ -1067,7 +1191,7 @@
     <!-- ═══════════════════════════════════════════════════════════ -->
     <!-- SECTION 5: MODEL BENCHMARKS & HUMAN GROUND TRUTH VALIDATION -->
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <section class="mb-16 space-y-8">
+    <section data-perspective-group="overall-tech" class="mb-16 space-y-8">
       <div class="border-b border-slate-200/70 dark:border-slate-800 pb-3">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Model Benchmarks &amp; Ablation Suite</span>
         <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Empirical Multi-Paradigm Benchmark Suite</h2>
@@ -1351,7 +1475,7 @@
     <!-- ═══════════════════════════════════════════════════════════ -->
     <!-- SECTION 6: OPERATOR STRATEGIC ROADMAPS                      -->
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <section class="mb-16 space-y-6">
+    <section data-perspective-group="overall-only" class="mb-16 space-y-6">
       <div class="border-b border-slate-200/70 dark:border-slate-800 pb-3">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Strategic Advisory</span>
         <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Operator Strategic Roadmaps &amp; Competitive Levers</h2>
@@ -1366,12 +1490,12 @@
             <span class="text-xs font-mono px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/50 text-[#0090ff] font-bold">Scale Anchor</span>
           </div>
           <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
-            <div><strong>Common Period NSS:</strong> <span class="font-mono font-bold">+64.4%</span> (320,138 reviews)</div>
-            <div><strong>2026 Snapshot:</strong> <span class="font-mono font-bold text-emerald-500">+59.4%</span></div>
+            <div><strong>Common Period NSS:</strong> <span class="font-mono font-bold">+64.9%</span> (320,140 reviews)</div>
+            <div><strong>2026 Snapshot:</strong> <span class="font-mono font-bold text-slate-700 dark:text-slate-300">+56.8%</span></div>
             <div><strong>Core Vulnerability:</strong> Balance deductions &amp; VAS (1.11%) and data pack pricing complaints (5.27%).</div>
           </div>
           <p class="text-xs text-slate-600 dark:text-slate-300 pt-1 leading-relaxed border-t border-slate-100 dark:border-slate-800">
-            <strong>Strategic Lever:</strong> Deploy proactive billing alert webhooks and transparent micro-pack validity extensions to mitigate persistent tariff dissatisfaction.
+            <strong>Strategic Lever:</strong> Deploy dynamic micro-packs with rollover validity and a zero-click "Where Did My Balance Go?" transaction timeline.
           </p>
         </div>
 
@@ -1387,7 +1511,7 @@
             <div><strong>Core Vulnerability:</strong> Offers &amp; data pack friction (5.18%) and app login session bugs (4.60%).</div>
           </div>
           <p class="text-xs text-slate-600 dark:text-slate-300 pt-1 leading-relaxed border-t border-slate-100 dark:border-slate-800">
-            <strong>Strategic Lever:</strong> Overhaul biometric login token caching to resolve recurring session timeout crashes, and simplify automated VAS cancellation toggles.
+            <strong>Strategic Lever:</strong> Overhaul biometric login session caching to resolve recurring session timeout crashes, and simplify automated VAS cancellation toggles.
           </p>
         </div>
 
@@ -1398,12 +1522,12 @@
             <span class="text-xs font-mono px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/50 text-[#ff7a00] font-bold">Agile Value Leader</span>
           </div>
           <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
-            <div><strong>Common Period NSS:</strong> <span class="font-mono font-bold">+56.2%</span> (137,133 reviews)</div>
+            <div><strong>Common Period NSS:</strong> <span class="font-mono font-bold">+53.0%</span> (137,131 reviews)</div>
             <div><strong>2026 Snapshot:</strong> <span class="font-mono font-bold text-emerald-500">+81.9%</span> (Peak)</div>
             <div><strong>Core Vulnerability:</strong> Elevated App Login failure rate (8.12%) and network speed grievances (3.64%).</div>
           </div>
           <p class="text-xs text-slate-600 dark:text-slate-300 pt-1 leading-relaxed border-t border-slate-100 dark:border-slate-800">
-            <strong>Strategic Lever:</strong> Institutionalize robust staged release gating to eliminate recurring login crash cycles while sustaining gamified daily engagement rewards.
+            <strong>Strategic Lever:</strong> Leverage surging brand sentiment to transition promotional micro-rechargers into recurring monthly commitments while optimizing 4G edge caching.
           </p>
         </div>
 
@@ -1412,7 +1536,7 @@
     <!-- ═══════════════════════════════════════════════════════════ -->
     <!-- SECTION 7: OPEN REPLICATION, CLI & GOOGLE COLAB NOTEBOOKS    -->
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <section class="p-6 sm:p-8 rounded-2xl bg-white/60 dark:bg-surface-card/50 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm mb-16 space-y-6">
+    <section data-perspective-group="overall-tech" class="p-6 sm:p-8 rounded-2xl bg-white/60 dark:bg-surface-card/50 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm mb-16 space-y-6">
       <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
         <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
           <i class="fa-brands fa-github text-sm"></i> Codebase, Production CLI &amp; Google Colab GPU Suites
@@ -1480,6 +1604,374 @@
       </div>
     </section>
 
+        <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- BUSINESS PERSPECTIVE: EXECUTIVE INTELLIGENCE SUITE          -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div id="view-business" class="hidden mb-16 space-y-12" data-perspective-group="business">
+
+      <!-- Executive Header & Overview -->
+      <div class="border-b border-slate-200/70 dark:border-slate-800 pb-5">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Executive Summary</span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white mt-1">
+          Telecom Customer Experience &amp; Strategic Market Intelligence
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2 max-w-4xl leading-relaxed text-justify">
+          Executive insights and operational playbooks derived from 655,649 verified subscriber feedback records over a continuous 3,713-day observation period across Bangladesh's three leading telecom operators.
+        </p>
+      </div>
+
+      <!-- 4 Plain-English KPI Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 font-display">655,649</span>
+            <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/40 flex items-center justify-center text-brand-600 dark:text-brand-400"><i class="fa-solid fa-users text-sm"></i></span>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Total Customer Feedback</div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            Verified subscriber reviews analyzed over 3,713 continuous days (August 2016 to September 2026, 122 continuous months) across the three major operators.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">+65.9%</span>
+            <span class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400"><i class="fa-solid fa-medal text-sm"></i></span>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Market Satisfaction Leader</div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            Robi leads long-term net customer approval at +65.9% (198,378 reviews; surging to +76.2% in 2026), closely followed by Grameenphone at +64.9% (320,140 reviews).
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-display">77.1%</span>
+            <span class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-amber-600 dark:text-amber-400"><i class="fa-solid fa-mobile-screen-button text-sm"></i></span>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Primary Satisfaction Shock Driver</div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            App Login and software failures drove 77.1% of major monthly satisfaction drops (27 of 35 sharp swings from 2020 to 2026) and caused 2.4× more negative reviews than network speed complaints.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl font-extrabold text-rose-600 dark:text-rose-400 font-display">&gt;90%</span>
+            <span class="w-8 h-8 rounded-lg bg-rose-100 dark:bg-rose-900/40 flex items-center justify-center text-rose-600 dark:text-rose-400"><i class="fa-solid fa-receipt text-sm"></i></span>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Critical Friction Point</div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            Over 90% of all customer inquiries regarding unexpected balance deductions and billing express critical dissatisfaction (90.3% to 93.4% negative across operators).
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Operator Market Standing Comparison Table -->
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-4">
+        <div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Operator Benchmark</span>
+          <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white mt-0.5">Operator Market Standing &amp; Strategic Positioning</h3>
+        </div>
+        <div class="overflow-x-auto min-w-0">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 dark:border-slate-800 text-slate-400 uppercase font-mono">
+                <th class="py-3 px-3">Operator</th>
+                <th class="py-3 px-3">Market Standing</th>
+                <th class="py-3 px-3">Customer Approval Rating</th>
+                <th class="py-3 px-3">Core Commendation</th>
+                <th class="py-3 px-3">Primary Friction Point</th>
+                <th class="py-3 px-3">2026 Trend</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800/60 text-slate-700 dark:text-slate-200">
+              <tr>
+                <td class="py-3.5 px-3 font-semibold text-[#0090ff]">Grameenphone Ltd. (MyGP)</td>
+                <td class="py-3.5 px-3"><span class="px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/50 text-[#0090ff] font-bold">Scale Anchor</span></td>
+                <td class="py-3.5 px-3 font-bold">+64.9% <span class="font-normal text-slate-400">(320,140 reviews)</span></td>
+                <td class="py-3.5 px-3">Expansive feature set, account management, and reliable everyday utility</td>
+                <td class="py-3.5 px-3">Unexpected balance deductions and data package pricing</td>
+                <td class="py-3.5 px-3 text-slate-600 dark:text-slate-300">+56.8%</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-3 font-semibold text-[#e60000]">Robi Axiata Limited (My Robi)</td>
+                <td class="py-3.5 px-3"><span class="px-2 py-0.5 rounded bg-red-50 dark:bg-red-950/50 text-[#e60000] font-bold">Customer Experience Leader</span></td>
+                <td class="py-3.5 px-3 font-bold">+65.9% <span class="font-normal text-slate-400">(198,378 reviews)</span></td>
+                <td class="py-3.5 px-3">Consistent user experience and modern digital lifestyle design</td>
+                <td class="py-3.5 px-3">Login session timeouts, authentication friction, and package confusion</td>
+                <td class="py-3.5 px-3 text-emerald-600 dark:text-emerald-400 font-bold">+76.2%</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-3 font-semibold text-[#ff7a00]">Banglalink Digital Communications Limited (MyBL)</td>
+                <td class="py-3.5 px-3"><span class="px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/50 text-[#ff7a00] font-bold">Fast-Growing Challenger</span></td>
+                <td class="py-3.5 px-3 font-bold">+53.0% <span class="font-normal text-slate-400">(137,131 reviews)</span></td>
+                <td class="py-3.5 px-3">Agile promotional campaigns, gamified rewards, and affordable packages</td>
+                <td class="py-3.5 px-3">App launch crashes during major version updates and indoor connectivity</td>
+                <td class="py-3.5 px-3 text-emerald-600 dark:text-emerald-400 font-bold">+81.9%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 6 Intuitive Visual Charts -->
+      <div class="space-y-6">
+        <div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Visual Performance Gallery</span>
+          <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Visual Market Benchmarks &amp; Departmental Trends</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+            Empirical visual evidence highlighting customer satisfaction distribution, multi-year performance trajectories, and department complaint intensity.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Chart 1 -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+            <h4 class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between">
+              <span>Customer Satisfaction Comparison</span>
+              <span class="text-[11px] font-normal text-slate-400">10-Year Benchmark</span>
+            </h4>
+            <div class="rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-slate-100 dark:border-white/5">
+              <img src="../assets/images/projects/voc/net_sentiment_score_comparison_bars.png" alt="Net Customer Approval comparison across Grameenphone, Robi, and Banglalink" class="w-full h-auto object-contain" loading="eager">
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Net customer approval across the 10-year common window showing Robi leading at +65.9%, followed by Grameenphone at +64.9% and Banglalink at +53.0%.
+            </p>
+          </div>
+
+          <!-- Chart 2 -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+            <h4 class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between">
+              <span>Customer Sentiment Share</span>
+              <span class="text-[11px] font-normal text-slate-400">Share of Voice</span>
+            </h4>
+            <div class="rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-slate-100 dark:border-white/5">
+              <img src="../assets/images/projects/voc/operator_sentiment_distribution_bars.png" alt="Customer sentiment breakdown across positive, neutral, and dissatisfied ratings" class="w-full h-auto object-contain" loading="eager">
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Distribution of customer sentiment illustrating that 70% to 78% of all app store reviews are positive, with dissatisfaction concentrated around specific operational friction points.
+            </p>
+          </div>
+
+          <!-- Chart 3 -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+            <h4 class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between">
+              <span>10-Year Long-Term Customer Trajectory</span>
+              <span class="text-[11px] font-normal text-slate-400">2016 – 2026</span>
+            </h4>
+            <div class="rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-slate-100 dark:border-white/5">
+              <img src="../assets/images/projects/voc/multi_year_sentiment_trend_line.png" alt="Long-term multi-year customer sentiment trajectory from 2016 to 2026" class="w-full h-auto object-contain" loading="eager">
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Longitudinal satisfaction curves demonstrating the steady maturation of Bangladesh's digital telecom apps from early adoption through modern daily engagement.
+            </p>
+          </div>
+
+          <!-- Chart 4 -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+            <h4 class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between">
+              <span>Month-to-Month Service Consistency in the Modern Era</span>
+              <span class="text-[11px] font-normal text-slate-400">2020 – 2026</span>
+            </h4>
+            <div class="rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-slate-100 dark:border-white/5">
+              <img src="../assets/images/projects/voc/monthly_nss_trend_modern_era.png" alt="Monthly customer satisfaction trends in the modern digital era from 2020 through 2026" class="w-full h-auto object-contain" loading="eager">
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Continuous monthly satisfaction monitoring across 81 consecutive months revealing acute operational swings caused by software updates and marketing campaigns.
+            </p>
+          </div>
+
+          <!-- Chart 5 -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+            <h4 class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between">
+              <span>Where Customers Voice Grievances</span>
+              <span class="text-[11px] font-normal text-slate-400">Department Breakdown</span>
+            </h4>
+            <div class="rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-slate-100 dark:border-white/5">
+              <img src="../assets/images/projects/voc/operator_category_complaint_distribution_bars.png" alt="Distribution of customer complaints across functional departments" class="w-full h-auto object-contain" loading="eager">
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Operational complaint distributions showing that mobile application bugs and login issues generate the single largest share of user grievances for all three providers.
+            </p>
+          </div>
+
+          <!-- Chart 6 -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+            <h4 class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between">
+              <span>Grievance Intensity by Department</span>
+              <span class="text-[11px] font-normal text-slate-400">Satisfaction vs Dissatisfaction</span>
+            </h4>
+            <div class="rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-slate-100 dark:border-white/5">
+              <img src="../assets/images/projects/voc/category_sentiment_stacked_bars.png" alt="Sentiment proportion across service departments illustrating billing friction" class="w-full h-auto object-contain" loading="eager">
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Proportion of positive versus negative feedback by category, demonstrating that billing and balance inquiries are severe customer pain points with over 90% negative sentiment.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 4 Core Business Discoveries -->
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-6">
+        <div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Strategic Findings</span>
+          <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Four Core Business Discoveries</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-md bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold text-xs">1</span>
+              <h4 class="font-bold text-sm text-slate-900 dark:text-white">Software Stability Outweighs Network Strength</h4>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              App Login and software failures drove 77.1% of major monthly satisfaction drops (27 of 35 sharp swings from 2020 to 2026) and accounted for roughly 2.4× more negative reviews across the market (28,956 vs 12,083) than cellular network speed complaints. When an application update crashes on launch, subscribers immediately voice severe frustration regardless of their cellular signal.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-md bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-xs">2</span>
+              <h4 class="font-bold text-sm text-slate-900 dark:text-white">Review Surges Mask Chronic Dissatisfaction</h4>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Promotional marketing campaigns flood app stores with short, superficial praise (accounting for 45.7% of volume during campaign waves). These surges artificially elevate overall customer approval, temporarily concealing recurring billing and account management grievances that promptly resurface once promotional incentives conclude.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-md bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-xs">3</span>
+              <h4 class="font-bold text-sm text-slate-900 dark:text-white">Billing Deductions Generate Universal Dissatisfaction</h4>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Over 90% of all customer reviews concerning balance deductions and unexpected value-added charges express severe dissatisfaction (ranging from 90.3% to 93.4% negative across providers). Unexplained balance reductions destroy customer goodwill faster than any other operational issue.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-md bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">4</span>
+              <h4 class="font-bold text-sm text-slate-900 dark:text-white">Abrupt Interface Changes Trigger Immediate User Churn</h4>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Unannounced user interface overhauls and authentication resets consistently cause steep double-digit declines in customer satisfaction. This was prominently demonstrated when Banglalink released version 11.8.0, causing monthly approval to plummet to -72.6%, which required subsequent hotfix releases (version 11.9.1) to stabilize and recover.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Cross-Industry Executive Implications -->
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-5">
+        <div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Cross-Industry Strategic Value</span>
+          <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Cross-Industry Executive Implications</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+            Core management takeaways applicable to digital banks, mobile fintech wallets, and consumer subscription apps:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-code-branch text-brand-500"></i> Staged Rollouts &amp; Crash Monitoring
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              The dramatic customer backlash observed during Banglalink version 11.8.0 demonstrates that major application overhauls must be deployed through graduated phased rollouts with rapid hotfix rollouts before reaching all users.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-shield-halved text-emerald-500"></i> Transparent Billing Audits
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              With billing inquiries driving 90%+ customer dissatisfaction across all market participants, mobile financial and subscription applications should offer an instant "Where Did My Balance Go?" transaction breakdown to prevent balance confusion.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 space-y-2">
+            <div class="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-chart-pie text-purple-500"></i> Promotional Campaign Segmentation
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Promotional reward campaigns generate 45.7% spikes in positive ratings that conceal core operational defects. Executive leaders must separate promotional praise from genuine service feedback to avoid distorted customer experience metrics.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Operator Strategic Action Playbooks -->
+      <div class="space-y-6">
+        <div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Operator Action Playbooks</span>
+          <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Operator Strategic Action Playbooks</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          
+          <!-- GP Playbook -->
+          <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <h4 class="font-display font-bold text-base text-[#0090ff]">Grameenphone (MyGP)</h4>
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/50 text-[#0090ff] font-bold">Scale Anchor</span>
+            </div>
+            <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+              <div><strong>Common Period Approval:</strong> <span class="font-bold">+64.9%</span> (320,140 reviews)</div>
+              <div><strong>2026 Snapshot:</strong> <span class="font-bold text-slate-700 dark:text-slate-300">+56.8%</span></div>
+              <div><strong>Core Vulnerabilities:</strong> Balance deduction transparency (1.11%) and data pack pricing complaints (5.27%).</div>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 pt-1 leading-relaxed border-t border-slate-100 dark:border-slate-800 text-justify">
+              <strong>Strategic Lever:</strong> Deploy dynamic micro-packs with rollover validity and a zero-click "Where Did My Balance Go?" transaction timeline to eliminate recurring tariff confusion.
+            </p>
+          </div>
+
+          <!-- Robi Playbook -->
+          <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <h4 class="font-display font-bold text-base text-[#e60000]">Robi (My Robi)</h4>
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-red-50 dark:bg-red-950/50 text-[#e60000] font-bold">Customer Experience Leader</span>
+            </div>
+            <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+              <div><strong>Common Period Approval:</strong> <span class="font-bold">+65.9%</span> (198,378 reviews)</div>
+              <div><strong>2026 Snapshot:</strong> <span class="font-bold text-emerald-600 dark:text-emerald-400">+76.2%</span></div>
+              <div><strong>Core Vulnerabilities:</strong> Offers and data pack friction (5.18%) and app login bugs (4.60%).</div>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 pt-1 leading-relaxed border-t border-slate-100 dark:border-slate-800 text-justify">
+              <strong>Strategic Lever:</strong> Overhaul biometric login session caching to eliminate authentication timeouts, and simplify automated value-added subscription cancellation toggles.
+            </p>
+          </div>
+
+          <!-- Banglalink Playbook -->
+          <div class="p-5 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <h4 class="font-display font-bold text-base text-[#ff7a00]">Banglalink (MyBL)</h4>
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/50 text-[#ff7a00] font-bold">Fast-Growing Challenger</span>
+            </div>
+            <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+              <div><strong>Common Period Approval:</strong> <span class="font-bold">+53.0%</span> (137,131 reviews)</div>
+              <div><strong>2026 Snapshot:</strong> <span class="font-bold text-emerald-600 dark:text-emerald-400">+81.9%</span></div>
+              <div><strong>Core Vulnerabilities:</strong> Indoor and suburban 4G signal (3.64%) and technical login glitches (8.12%).</div>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 pt-1 leading-relaxed border-t border-slate-100 dark:border-slate-800 text-justify">
+              <strong>Strategic Lever:</strong> Leverage surging brand sentiment to transition promotional micro-rechargers into recurring monthly commitments while optimizing local network caching.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
     <!-- Footer Back to Top -->
     <div class="text-center pt-8 border-t border-slate-200/60 dark:border-slate-800">
       <a href="#" class="inline-flex items-center gap-2 text-xs font-mono font-semibold text-slate-500 hover:text-brand-600 dark:hover:text-brand-400 transition">
@@ -1489,24 +1981,96 @@
 
   </main>
 
-  <script>
+    <script>
     // Dark / Light Theme Sync
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
-    themeToggleBtn.addEventListener('click', () => {
-      if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.theme = 'light';
-      } else {
+    (function initThemeSync() {
+      const themeParam = new URLSearchParams(window.location.search).get('theme');
+      const themeToggleBtn = document.getElementById('themeToggleBtn');
+      if (themeParam === 'dark' || (!themeParam && (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)))) {
         document.documentElement.classList.add('dark');
-        localStorage.theme = 'dark';
+      } else {
+        document.documentElement.classList.remove('dark');
       }
-    });
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+          if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.theme = 'light';
+          } else {
+            document.documentElement.classList.add('dark');
+            localStorage.theme = 'dark';
+          }
+        });
+      }
+    })();
+
+    // Perspective Switcher Controller
+    (function initPerspectiveSwitcher() {
+      const perspectiveButtons = {
+        overall: document.getElementById('btn-perspective-overall'),
+        technical: document.getElementById('btn-perspective-technical'),
+        business: document.getElementById('btn-perspective-business'),
+      };
+
+      if (!perspectiveButtons.overall || !perspectiveButtons.technical || !perspectiveButtons.business) {
+        return;
+      }
+
+      const perspectiveElements = document.querySelectorAll('[data-perspective-group]');
+
+      function setPerspective(perspective, updateUrl = true) {
+        const mode = ['overall', 'technical', 'business'].includes(perspective) ? perspective : 'overall';
+
+        // Update button visual & ARIA states
+        Object.entries(perspectiveButtons).forEach(([key, btn]) => {
+          const isActive = (key === mode);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+          if (isActive) {
+            btn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+            btn.classList.remove('text-slate-600', 'dark:text-slate-300', 'hover:bg-white/60', 'dark:hover:bg-white/5');
+          } else {
+            btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+            btn.classList.add('text-slate-600', 'dark:text-slate-300');
+          }
+        });
+
+        // Toggle visibility of DOM elements by group
+        perspectiveElements.forEach((el) => {
+          const group = el.getAttribute('data-perspective-group');
+          let visible = false;
+          if (mode === 'overall') {
+            visible = (group === 'overall-tech' || group === 'overall-only');
+          } else if (mode === 'technical') {
+            visible = (group === 'overall-tech' || group === 'tech-only');
+          } else if (mode === 'business') {
+            visible = (group === 'business');
+          }
+
+          if (visible) {
+            el.classList.remove('hidden');
+          } else {
+            el.classList.add('hidden');
+          }
+        });
+
+        // Synchronize URL query parameter without page reload
+        if (updateUrl && window.history && window.history.replaceState) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('view', mode);
+          window.history.replaceState({}, '', url.toString());
+        }
+      }
+
+      // Attach click listeners
+      Object.entries(perspectiveButtons).forEach(([key, btn]) => {
+        btn.addEventListener('click', () => setPerspective(key, true));
+      });
+
+      // Initialize from URL query parameter (?view=technical, ?view=business, ?view=overall)
+      const initialView = new URLSearchParams(window.location.search).get('view');
+      setPerspective(initialView || 'overall', false);
+    })();
   </script>
 </body>
 </html>
