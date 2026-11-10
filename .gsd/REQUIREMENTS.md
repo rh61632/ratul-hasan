@@ -15,9 +15,9 @@ Requirements derived from `.gsd/SPEC.md` for synchronizing the portfolio with th
 
 | ID | Requirement | Source | Phase | Status |
 |----|-------------|--------|-------|--------|
-| REQ-01 | Sync regenerated 300 DPI plots (including timeless `early_era` & `modern_era` names) and copy 5 new ESWA figures (`figure0`–`figure4`) into `assets/images/projects/voc/` | SPEC Goal 2 | 1 | Pending |
-| REQ-02 | Update `js/data/projects.js` (`voc-telecom` entry: summary, description, highlights, tags) with calibrated `655,649` / `3,713-day` metrics and key new breakthroughs | SPEC Goal 1 | 1 | Pending |
-| REQ-03 | Update `projects/voc-telecom.html` metadata, hero tags/cards, common duration scorecard, and yearly trajectory table to `655,649` / `3,713 days` / `122 months` while preserving the <140-word flowing story card | SPEC Goal 1 | 1 | Pending |
+| REQ-01 | Sync regenerated 300 DPI plots (including timeless `early_era` & `modern_era` names) and copy 5 new ESWA figures (`figure0`–`figure4`) into `assets/images/projects/voc/` | SPEC Goal 2 | 1 | Complete |
+| REQ-02 | Update `js/data/projects.js` (`voc-telecom` entry: summary, description, highlights, tags) with calibrated `655,649` / `3,713-day` metrics and key new breakthroughs | SPEC Goal 1 | 1 | Complete |
+| REQ-03 | Update `projects/voc-telecom.html` metadata, hero tags/cards, common duration scorecard, and yearly trajectory table to `655,649` / `3,713 days` / `122 months` while preserving the <140-word flowing story card | SPEC Goal 1 | 1 | Complete |
 | REQ-04 | Add 4-Stage VoC-Intelligence System Architecture (`figure0`), Code-Mixed Text Normalization, Rogan-Gladen correction, complexity/throughput (`1.42 ms` / `450 rps`), and ComplementNB Bayesian calibration (`84.76% → 74.47%`) sections | SPEC Goal 3 | 2 | Pending |
 | REQ-05 | Add Automated Language Detector (`ml/language_detector.py`), Linguistic Sub-Cohort benchmarks ($N=661,160$ distribution + 5-fold CV table), and Qualitative Error Analysis (4 socio-linguistic failure modes) | SPEC Goal 3 | 2 | Pending |
 | REQ-06 | Expand Shock Attribution & Analytics sections with Cross-Layer Decoupling proof ($\chi^2(1)=12.83, \text{OR}=4.23, \text{RR}=1.74$), Non-Surge robustness ($\text{OR}=3.65$), Threshold Sensitivity audit (`8/10/12 pp`), Surge-Filtered RMSSD (`-44.5%` BL), Spring 2024 `v11.8.0`/`v11.9.1` build telemetry, 2026 Dual-Track reversal (`figure4`), 4 Eras (`figure1`/`figure2`), and $2 \times 2$ Strategic Priority Matrix (`figure3`) | SPEC Goal 3 | 2 | Pending |
@@ -51,9 +51,9 @@ Requirements derived from `.gsd/SPEC.md` for synchronizing the portfolio with th
 
 | Requirement | Plans | Verification | Status |
 |-------------|-------|--------------|--------|
-| REQ-01 | 1.1 | Asset hash/existence check | Pending |
-| REQ-02 | 1.2 | Grep + JSON/JS metric verification | Pending |
-| REQ-03 | 1.2 | Grep + HTML table reconciliation | Pending |
+| REQ-01 | 1.1 | Asset hash/existence check | Complete |
+| REQ-02 | 1.1 | Grep + JSON/JS metric verification | Complete |
+| REQ-03 | 1.2 | Grep + HTML table reconciliation | Complete |
 | REQ-04 | 2.1 | DOM & math formula check | Pending |
 | REQ-05 | 2.1 | Sub-cohort table metric check | Pending |
 | REQ-06 | 2.2 | Statistical & figure embed check | Pending |
