@@ -1928,27 +1928,379 @@
         </div>
 
       </div>
+
+      <!-- Executive Operational Decision Matrix (Alert Levels 1–4) -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
+          <div>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Production Governance</span>
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mt-0.5 flex items-center gap-2">
+              <i class="fa-solid fa-traffic-light text-brand-500"></i> Executive Operational Decision Matrix: Alert Levels 1–4
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Translating real-time VoC telemetry into formal operational SLAs, preventing misrouted CapEx field dispatches.</p>
+          </div>
+          <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-brand-50 dark:bg-brand-950/50 text-brand-700 dark:text-brand-300 border border-brand-300/40 font-bold self-start sm:self-auto">4-Tier Governance</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+            <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
+              <tr>
+                <th class="p-3">Alert Level</th>
+                <th class="p-3 text-center">Statistical Trigger</th>
+                <th class="p-3">Primary Subsystem</th>
+                <th class="p-3">Diagnostic Symptom Profile</th>
+                <th class="p-3">Prescriptive Operational Triage Action</th>
+                <th class="p-3">Strategic Business Objective</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200/60 dark:divide-white/5">
+              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                <td class="p-3 font-semibold font-mono text-emerald-600 dark:text-emerald-400">Level 1 (Routine)</td>
+                <td class="p-3 text-center font-mono">$p \ge 0.05, |\Delta\text{NSS}| < 5.0$</td>
+                <td class="p-3 font-semibold">Balanced across categories</td>
+                <td class="p-3">Normal background feedback; non-systemic friction.</td>
+                <td class="p-3">Standard customer service queue; routine sprint backlog logging.</td>
+                <td class="p-3 text-slate-500 dark:text-slate-400">Maintain baseline satisfaction.</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                <td class="p-3 font-semibold font-mono text-amber-500">Level 2 (Warning)</td>
+                <td class="p-3 text-center font-mono">$p < 0.05, 5.0 \le |\Delta\text{NSS}| < 10.0$</td>
+                <td class="p-3 font-semibold">Offers &amp; Data Packs</td>
+                <td class="p-3">Price sensitivity backlash; promo validity expiration friction.</td>
+                <td class="p-3">Alert Commercial Division; re-evaluate bundle validity &amp; pricing.</td>
+                <td class="p-3 text-slate-500 dark:text-slate-400">Commercial churn mitigation &amp; pricing retention.</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] bg-rose-50/30 dark:bg-rose-950/10">
+                <td class="p-3 font-semibold font-mono text-rose-600 dark:text-rose-400">Level 3 (Critical Circuit)</td>
+                <td class="p-3 text-center font-mono text-rose-600 dark:text-rose-400">$p < 0.01, \Delta\text{NSS} \le -10.0$</td>
+                <td class="p-3 font-semibold text-rose-600 dark:text-rose-400">Client App Software</td>
+                <td class="p-3">Fatal build crash; authentication gateway token timeout.</td>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Immediate CI/CD canary freeze; rollback to previous stable APK; <strong>zero RF field dispatch</strong>.</td>
+                <td class="p-3 font-bold text-rose-600 dark:text-rose-400">Protect high-CLV digital subscribers.</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                <td class="p-3 font-semibold font-mono text-purple-600 dark:text-purple-400">Level 4 (Promotional Distortion)</td>
+                <td class="p-3 text-center font-mono">$\Delta V \ge 50\%, \Delta\text{Gen} \ge 5.0$</td>
+                <td class="p-3 font-semibold">General Appreciation</td>
+                <td class="p-3">Sudden review rate surge; cluster of generic 5-star praise strings.</td>
+                <td class="p-3">Deploy Dual-Track Surge-Adjust Filter (Rule 2); isolate Track A for engineering evaluation.</td>
+                <td class="p-3 text-slate-500 dark:text-slate-400">Prevent executive complacency from promo noise.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 4 Managerial Rules Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+          <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1.5">
+            <span class="text-xs font-mono font-bold text-brand-600 dark:text-brand-400 block">Rule 1: SLA Decoupling</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Establish independent Service Level Agreements: Core Infrastructure SLA (tower uptime, RF throughput) vs. Digital Gateway SLA (app login latency, token refresh stability).
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1.5">
+            <span class="text-xs font-mono font-bold text-purple-600 dark:text-purple-400 block">Rule 2: Dual-Track Triage</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Dual-Track Surge-Adjusted Triage: separate Track A operational engineering metrics from Track B promotional surges to prevent marketing noise from masking software defects.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1.5">
+            <span class="text-xs font-mono font-bold text-rose-600 dark:text-rose-400 block">Rule 3: Canary Telemetry Gating</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Automate CI/CD release gating (Algorithm 1) to abort rollout immediately upon detecting statistically significant spikes in authentication crashes.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1.5">
+            <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 block">Rule 4: Prompt Transparency</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Audit in-app feedback prompt timing to prevent inorganic rating manipulation following success events (e.g. prompt immediately after recharge vs after failed login).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Canary Release Gating Protocol — Algorithm 1 Card -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
+          <div>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">// Automated CI/CD Safety Protocol</span>
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mt-0.5 flex items-center gap-2">
+              <i class="fa-solid fa-shield-halved text-rose-500"></i> Canary Release Gating Protocol: Algorithm 1
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Real-time semantic circuit breaker operating alongside APM crash reporters for silent authentication degradation.</p>
+          </div>
+          <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 border border-rose-300/40 font-bold self-start sm:self-auto">Algorithm 1 • Exact Binomial Test</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Algorithm Pseudo-Code Display -->
+          <div class="lg:col-span-7 rounded-xl bg-slate-900 text-slate-200 p-5 font-mono text-xs space-y-3 overflow-x-auto shadow-inner">
+            <div class="text-slate-400 border-b border-slate-800 pb-2 flex items-center justify-between">
+              <span class="text-emerald-400 font-bold">Algorithm 1: Real-Time Canary Release Gating</span>
+              <span class="text-[10px] text-slate-500">Automated Circuit Breaker</span>
+            </div>
+            <div class="space-y-1 text-[11px] leading-relaxed">
+              <div><strong class="text-purple-400">Require:</strong> Incoming canary review stream $\mathcal{R}_{\text{canary}} = \{r_1, \dots, r_n\}$</div>
+              <div><strong class="text-purple-400">Parameters:</strong> Window $W \in [30, 100]$, significance $\alpha = 0.01$, baseline rate $p_{\text{base}} = 0.046$, abort threshold $\tau_{\text{abort}} = 0.12$</div>
+              <div class="text-slate-500 pt-1">// 1. Accumulate Canary Ingestion</div>
+              <div>$N_{\text{canary}} \leftarrow 0,\; N_{\text{login\_neg}} \leftarrow 0$</div>
+              <div><strong class="text-sky-400">for each</strong> incoming review $r_i$ <strong class="text-sky-400">do</strong></div>
+              <div class="pl-4">$(\hat{c}_i, \hat{s}_i) \leftarrow \text{PredictEnsemble}(r_i)$</div>
+              <div class="pl-4">$N_{\text{canary}} \leftarrow N_{\text{canary}} + 1$</div>
+              <div class="pl-4"><strong class="text-sky-400">if</strong> $\hat{c}_i = \text{App Login}$ <strong class="text-amber-400">and</strong> $\hat{s}_i = \text{Negative}$ <strong class="text-sky-400">then</strong></div>
+              <div class="pl-8">$N_{\text{login\_neg}} \leftarrow N_{\text{login\_neg}} + 1$</div>
+              <div class="pl-4"><strong class="text-sky-400">end if</strong></div>
+              <div class="text-slate-500 pt-1">// 2. Statistical Decision Gate</div>
+              <div class="pl-4"><strong class="text-sky-400">if</strong> $N_{\text{canary}} \ge W$ <strong class="text-sky-400">then</strong></div>
+              <div class="pl-8">$p_{\text{val}} \leftarrow \text{BinomialTest}(k = N_{\text{login\_neg}}, n = N_{\text{canary}}, p = p_{\text{base}})$</div>
+              <div class="pl-8"><strong class="text-sky-400">if</strong> $p_{\text{val}} < \alpha$ <strong class="text-amber-400">and</strong> $(N_{\text{login\_neg}} / N_{\text{canary}}) \ge \tau_{\text{abort}}$ <strong class="text-sky-400">then</strong></div>
+              <div class="pl-12 text-rose-400 font-bold"><strong class="text-rose-400">return</strong> ROLLBACK <span class="text-slate-400">// Halt rollout; revert traffic to stable build</span></div>
+              <div class="pl-8"><strong class="text-sky-400">else if</strong> $p_{\text{val}} < \alpha$ <strong class="text-sky-400">then</strong></div>
+              <div class="pl-12 text-amber-400 font-bold"><strong class="text-amber-400">return</strong> HOLD <span class="text-slate-400">// Level 2 Alert; freeze expansion &amp; triage</span></div>
+              <div class="pl-8"><strong class="text-sky-400">else</strong></div>
+              <div class="pl-12 text-emerald-400 font-bold"><strong class="text-emerald-400">return</strong> PROCEED <span class="text-slate-400">// Advance to next rollout cohort tier</span></div>
+              <div class="pl-8"><strong class="text-sky-400">end if</strong></div>
+              <div class="pl-4"><strong class="text-sky-400">end if</strong></div>
+              <div><strong class="text-sky-400">end for</strong></div>
+            </div>
+          </div>
+
+          <!-- Parameter Rationale & APM Complementarity -->
+          <div class="lg:col-span-5 space-y-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+              <span class="text-[11px] font-mono font-bold uppercase text-slate-800 dark:text-slate-200 block">Semantic APM Complementarity</span>
+              <p>
+                Traditional APM crash loggers (e.g., Firebase Crashlytics) only catch fatal uncaught exceptions. They remain blind to semantic failures: infinite splash-screen freezes, silent OTP timeouts, or broken biometric prompts. Algorithm 1 serves as an automated early-warning circuit breaker for these user-facing disruptions.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+              <span class="text-[11px] font-mono font-bold uppercase text-slate-800 dark:text-slate-200 block">Calibrated Parameter Choices</span>
+              <ul class="list-disc list-inside space-y-1 text-[11px] font-mono pt-1">
+                <li><strong>Baseline $p_{\text{base}} = 0.046$:</strong> Historical 4.6% complaint rate for login issues across stable periods.</li>
+                <li><strong>Abort $\tau_{\text{abort}} = 0.12$:</strong> Emergency circuit breaks when defect frequency exceeds 12%.</li>
+                <li><strong>Window $W \in [30, 100]$:</strong> Sufficient statistical power while detecting issues within minutes of canary deployment.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- SECTION 7: OPEN REPLICATION & REPOSITORY                     -->
+    <!-- SECTION 7: INTERACTIVE DEMO, TOOLING & REPLICATION AUDIT    -->
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <section class="p-6 sm:p-8 rounded-2xl bg-white/60 dark:bg-surface-card/50 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm mb-16 space-y-4">
-      <div class="flex items-center justify-between flex-wrap gap-2">
-        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
-          <i class="fa-brands fa-github text-sm"></i> Codebase &amp; Reproduction Pipeline
+    <section class="mb-16 space-y-8" id="replication-and-tooling">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
+        <div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">// Enterprise Deliverables</span>
+          <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white mt-0.5">Interactive Gradio Demo, Cloud Tooling &amp; 8-Module Integrity Audit</h2>
         </div>
-        <a href="https://github.com/rh61632/telecom-Voice-of-Customer_intelligence" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-slate-900 dark:bg-slate-800 hover:bg-brand-600 transition flex items-center gap-2">
-          <i class="fa-brands fa-github"></i> View GitHub Repository
-        </a>
+        <span class="text-xs font-mono text-slate-400">Production-Ready Replication Suite</span>
       </div>
-      
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
-        The complete automated scraping harness, bilingual preprocessing pipeline, model training suites (BanglaBERT, RoBERTa, FastText, and voting ensembles), statistical shock attribution calculations, and Power BI semantic data models are open-sourced for research reproduction and auditing.
-      </p>
 
-      <div class="p-4 rounded-xl bg-slate-900 text-slate-200 font-mono text-xs overflow-x-auto select-all">
-        <code>git clone https://github.com/rh61632/telecom-Voice-of-Customer_intelligence.git</code>
+      <!-- 2-Column Grid: Gradio Demo & Colab / Hugging Face Hub -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- Card 1: Gradio Interactive Web Demo -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-laptop-code text-brand-500"></i> Interactive Web Demo (<code class="text-xs font-mono">demo/app.py</code>)
+            </h3>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-50 dark:bg-brand-950/50 text-brand-700 dark:text-brand-300 font-bold border border-brand-300/40">Gradio 4.0+</span>
+          </div>
+
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            A standalone real-time diagnostic web GUI implemented with <code class="text-[11px] font-mono">gradio.Blocks</code> in <code class="text-[11px] font-mono">demo/app.py</code>. The interface preloads the calibrated Tri-Classifier Ensemble and Language Detector, providing instant inference with sub-millisecond CPU execution:
+          </p>
+
+          <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-2 text-xs">
+            <div class="font-mono text-[11px] font-bold text-slate-800 dark:text-slate-200 flex items-center justify-between border-b border-slate-200/60 dark:border-white/5 pb-1">
+              <span>Diagnostic Output Pipeline:</span>
+              <span class="text-brand-600 dark:text-brand-400">1.42 ms / 450 rps CPU</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-300 text-[11px] font-mono">
+              <li><strong>Language &amp; Code-Mixing:</strong> Auto-detects Bangla, Banglish, English, or intra-sentential mixing.</li>
+              <li><strong>Sentiment Polarity:</strong> Top-3 probability distribution (Positive, Neutral, Negative).</li>
+              <li><strong>Operational Domain:</strong> Top-5 category distribution with Platt-calibrated confidences.</li>
+              <li><strong>Subsystem Attribution:</strong> Routes to Client App vs Core Cellular RF vs Commercial billing triage.</li>
+            </ul>
+          </div>
+
+          <div class="space-y-1.5">
+            <span class="text-[11px] font-mono font-bold text-slate-500 uppercase block">5 Benchmark Evaluation Inputs Built-In:</span>
+            <div class="space-y-1 text-[11px] font-mono text-slate-600 dark:text-slate-300">
+              <div class="p-1.5 rounded bg-slate-100 dark:bg-slate-800/60 truncate">"bhai login korte gele app crash kore keno?" &rarr; <span class="text-rose-500 font-bold">App Login / Neg</span></div>
+              <div class="p-1.5 rounded bg-slate-100 dark:bg-slate-800/60 truncate">"আমার এলাকায় ফোরজি স্পিড একদম খারাপ, ভিডিও বাফার করে" &rarr; <span class="text-amber-500 font-bold">Network / Neg</span></div>
+              <div class="p-1.5 rounded bg-slate-100 dark:bg-slate-800/60 truncate">"taka kete nilo kintu MB pelam na, shob batpari" &rarr; <span class="text-purple-500 font-bold">Billing / Neg</span></div>
+              <div class="p-1.5 rounded bg-slate-100 dark:bg-slate-800/60 truncate">"onek sundor offer, 10 tk te 1 gb peyechi dhonnobad" &rarr; <span class="text-emerald-500 font-bold">Offers / Pos</span></div>
+              <div class="p-1.5 rounded bg-slate-100 dark:bg-slate-800/60 truncate">"Super smooth UI and instant balance recharge, loving the update!" &rarr; <span class="text-emerald-500 font-bold">General / Pos</span></div>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-lg bg-slate-900 text-slate-200 font-mono text-xs overflow-x-auto select-all">
+            <code>python demo/app.py --server_port 7860</code>
+          </div>
+        </div>
+
+        <!-- Card 2: Colab GPU Suites & Hugging Face Hub Model Cards -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-cloud text-sky-500"></i> Cloud GPU Suites &amp; HF Deployment Helper
+            </h3>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-50 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300 font-bold border border-sky-300/40">Colab &amp; HF Hub</span>
+          </div>
+
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            Cloud acceleration suites configured for reproducible GPU training on NVIDIA T4 instances alongside automated Hugging Face Hub packaging tools:
+          </p>
+
+          <div class="space-y-2">
+            <span class="text-[11px] font-mono font-bold text-slate-500 uppercase block">Active Google Colab Notebooks:</span>
+            <div class="p-3 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1.5 text-xs font-mono">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-amber-500 text-[11px]"></i>
+                <code class="text-slate-800 dark:text-slate-200 font-bold">telecom_voc_master_unified_colab.ipynb</code>
+              </div>
+              <p class="text-[11px] text-slate-500 font-sans pl-5">Unified end-to-end ML, BiLSTM+Attention, and MiniLM training with 1-click artifact export.</p>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1.5 text-xs font-mono">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-emerald-500 text-[11px]"></i>
+                <code class="text-slate-800 dark:text-slate-200 font-bold">telecom_voc_banglabert_finetuning_colab.ipynb</code>
+              </div>
+              <p class="text-[11px] text-slate-500 font-sans pl-5">5-Fold Stratified CV &amp; full 12-layer fine-tuning of <code class="text-[10px] font-mono">csebuetnlp/banglabert</code> (110M parameters).</p>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1.5 text-xs font-mono">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-sky-500 text-[11px]"></i>
+                <code class="text-slate-800 dark:text-slate-200 font-bold">dl/telecom_voc_deep_learning_colab.ipynb</code>
+              </div>
+              <p class="text-[11px] text-slate-500 font-sans pl-5">Dedicated sentiment deep-learning benchmarking suite running on PyTorch CUDA.</p>
+            </div>
+          </div>
+
+          <!-- Hugging Face CLI & Pipeline -->
+          <div class="space-y-1.5 pt-1 border-t border-slate-200/60 dark:border-slate-800">
+            <span class="text-[11px] font-mono font-bold text-slate-500 uppercase block">Model Card Generator &amp; Hub Tool (<code class="text-[11px] font-mono">scripts/upload_to_huggingface.py</code>):</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              CLI tool generating automated model cards with 2-line <code class="font-mono text-[11px]">transformers.pipeline("text-classification", model=...)</code> usage snippets for production deployment.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 8-Module Automated Integrity Audit Architecture Card -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
+          <div>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">// Empirical Verification Harness</span>
+            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mt-0.5 flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-emerald-500"></i> 8-Module Automated Project Integrity Audit (<code class="text-xs font-mono">scripts/audit_project_integrity.py</code>)
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Comprehensive regression test suite asserting exact mathematical invariants across the entire 655,649-review research codebase.</p>
+          </div>
+          <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40 font-bold self-start sm:self-auto">All Assertions PASSED (100%)</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          
+          <!-- Module 1 -->
+          <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-[11px] font-mono font-bold text-brand-600 dark:text-brand-400 block">Module 1: Dataset Boundaries</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 text-justify">
+              Verifies row integrity ($N = 655,649$), operator splits (GP $320,140$, Robi $198,378$, BL $137,131$), exact common dates (2016-08-01 to 2026-09-30), and zero null labels.
+            </p>
+          </div>
+
+          <!-- Module 2 -->
+          <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-[11px] font-mono font-bold text-purple-600 dark:text-purple-400 block">Module 2: Gold Independence</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 text-justify">
+              Verifies zero data leakage between seed training sets ($N = 4,499$) and blind human gold sets ($N = 300$, inter-annotator agreement $\kappa = 0.5762$ sentiment, $\kappa = 0.5369$ category).
+            </p>
+          </div>
+
+          <!-- Module 3 -->
+          <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-[11px] font-mono font-bold text-sky-600 dark:text-sky-400 block">Module 3: Benchmark Recalibration</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 text-justify">
+              Verifies 5-fold cross-validation accuracies and Macro-F1 across all models, ensuring exact reproducibility of leaderboard benchmarks.
+            </p>
+          </div>
+
+          <!-- Module 4 -->
+          <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 block">Module 4: Invariant NSS Decomposition</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 text-justify">
+              Verifies linear additivity with exact zero residual ($|\text{residual}| < 10^{-5}$) across all 240 modern month-over-month transitions.
+            </p>
+          </div>
+
+          <!-- Module 5 -->
+          <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400 block">Module 5: Surge-Filtered RMSSD</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 text-justify">
+              Asserts time-series aggregation stability and mathematically validates the $-44.5\%$ Banglalink volatility compression under surge filtering.
+            </p>
+          </div>
+
+          <!-- Module 6 -->
+          <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-[11px] font-mono font-bold text-rose-600 dark:text-rose-400 block">Module 6: Decoupling Proofs</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 text-justify">
+              Executes live hypothesis tests confirming Proposition 1 &amp; 2 ($\chi^2(1) = 12.83, p = 0.0003, \text{OR} = 4.23$, non-surge $\text{OR} = 3.65$).
+            </p>
+          </div>
+
+          <!-- Module 7 -->
+          <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-[11px] font-mono font-bold text-indigo-600 dark:text-indigo-400 block">Module 7: Build Telemetry</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 text-justify">
+              Validates version-level telemetry isolation across the Spring 2024 natural experiment (<code class="text-[10px] font-mono">v11.8.0</code> crash shock vs <code class="text-[10px] font-mono">v11.9.1</code> hotfix).
+            </p>
+          </div>
+
+          <!-- Module 8 -->
+          <div class="p-3.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-[11px] font-mono font-bold text-teal-600 dark:text-teal-400 block">Module 8: Deliverable Completeness</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 text-justify">
+              Performs strict automated scanning of manuscript deliverables, code modules, and figure vector exports for zero anonymization leakage.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-900 text-slate-200 font-mono text-xs overflow-x-auto space-y-2">
+          <div class="text-slate-400">// Run comprehensive 8-module integrity audit:</div>
+          <div><code>python scripts/audit_project_integrity.py</code></div>
+        </div>
+      </div>
+
+      <!-- Git Clone Repository Card -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-white/60 dark:bg-surface-card/50 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-sm space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+            <i class="fa-brands fa-github text-sm"></i> Codebase &amp; Reproduction Pipeline
+          </div>
+          <a href="https://github.com/rh61632/telecom-Voice-of-Customer_intelligence" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-slate-900 dark:bg-slate-800 hover:bg-brand-600 transition flex items-center gap-2">
+            <i class="fa-brands fa-github"></i> View GitHub Repository
+          </a>
+        </div>
+        
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+          The complete automated scraping harness, bilingual preprocessing pipeline, model training suites (BanglaBERT, RoBERTa, FastText, and voting ensembles), statistical shock attribution calculations, and Power BI semantic data models are open-sourced for research reproduction and auditing.
+        </p>
+
+        <div class="p-4 rounded-xl bg-slate-900 text-slate-200 font-mono text-xs overflow-x-auto select-all">
+          <code>git clone https://github.com/rh61632/telecom-Voice-of-Customer_intelligence.git</code>
+        </div>
       </div>
     </section>
 
