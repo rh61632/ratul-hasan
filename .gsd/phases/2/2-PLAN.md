@@ -94,8 +94,7 @@ Load for context:
          - Theoretical framework terms, triage protocol labels, and priority quadrant names
          - Split-track turnaround designations and non-project operational throughput claims
          - Academic literature author citations
-         - LaTeX formula patterns (`$$` and `$...$`)
-         - KaTeX CDN links (`katex.min.css`, `katex.min.js`, `auto-render.min.js`) and `.katex` CSS class names
+         - LaTeX formula delimiters and math rendering CDN stylesheet/script URLs or CSS classes in VoC files
          - Non-project figure filenames (`figure0` through `figure4`)
        - Scan `projects/voc-telecom.html`, `js/data/projects.js`, `css/styles.css`, `assets/images/projects/voc/`, and `.gsd/`.
        - Confirm 0 occurrences across all categories.
