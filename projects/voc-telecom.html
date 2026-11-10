@@ -252,8 +252,11 @@
           </tbody>
         </table>
       </div>
-      <div class="px-6 py-3 border-t border-slate-200/70 dark:border-slate-800 bg-slate-50/50 dark:bg-white/[0.01] text-xs text-slate-500 dark:text-slate-400 font-mono">
-        <strong>Net Sentiment Score (NSS) Formula:</strong> NSS = ((N_Positive - N_Negative) / N_Total) &times; 100
+      <div class="px-6 py-3 border-t border-slate-200/70 dark:border-slate-800 bg-slate-50/50 dark:bg-white/[0.01] text-xs text-slate-500 dark:text-slate-400 font-mono flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <span><strong>Net Sentiment Score (NSS) Definition:</strong></span>
+        <div class="text-slate-800 dark:text-slate-200 overflow-x-auto">
+          $$\mathrm{NSS} = \left(\frac{N_{\text{Positive}} - N_{\text{Negative}}}{N_{\text{Total}}}\right) \times 100$$
+        </div>
       </div>
     </div>
 
@@ -975,6 +978,10 @@
             <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 font-bold">Surge Filter: |&Delta;V/V| &ge; 50%</span>
           </div>
 
+          <div class="p-3 rounded-xl bg-slate-900 text-slate-100 dark:bg-black/40 border border-slate-800 dark:border-white/10 overflow-x-auto text-center font-mono text-xs">
+            $$\mathrm{RMSSD} = \sqrt{\frac{1}{K-1}\sum_{k=1}^{K-1} \left(\mathrm{NSS}_{k+1} - \mathrm{NSS}_k\right)^2}, \quad \mathrm{SSI} = 100 - \mathrm{RMSSD}$$
+          </div>
+
           <!-- Surge-Filtered Comparison Table -->
           <div class="overflow-x-auto">
             <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
@@ -1442,8 +1449,10 @@
           </div>
           <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
             Because Net Sentiment Score is linearly additive across categories, the month-over-month shift decomposes additively without approximation:
-            <code class="font-mono text-[11px] block mt-1 p-1.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">&Delta; NSS = &sum; &Delta; Contribution_c = &sum; [ (Pos_c - Neg_c) / N_Total ] &times; 100</code>
           </p>
+          <div class="p-3 rounded-xl bg-slate-900 text-slate-100 dark:bg-black/40 border border-slate-800 dark:border-white/10 overflow-x-auto text-center font-mono text-xs my-2">
+            $$\Delta \mathrm{NSS} = \sum_{c} \Delta \mathrm{Contribution}_c = \sum_{c} \left(\frac{\mathrm{Pos}_c - \mathrm{Neg}_c}{N_{\text{Total}}}\right) \times 100$$
+          </div>
         </div>
       </div>
 

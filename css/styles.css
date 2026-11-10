@@ -912,3 +912,31 @@ body {
     -webkit-overflow-scrolling: touch !important;
   }
 }
+
+/* ==========================================================================
+   KaTeX Publication Math Styling & Responsive Overflow Safeguards
+   ========================================================================== */
+
+.katex {
+  color: inherit;
+  font-size: 1.05em;
+}
+
+.dark .katex {
+  color: #f1f5f9;
+}
+
+.katex-display {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  max-width: 100% !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding: 0.25rem 0 !important;
+  margin: 0.5rem 0 !important;
+}
+
+.katex-display > .katex {
+  max-width: 100%;
+  text-align: center;
+}
+
