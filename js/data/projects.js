@@ -8,10 +8,10 @@ export const projectsData = [
     description: "Enterprise NLP & Business Intelligence architecture analyzing 655,649 standardized customer reviews across <span class=\"text-[#0090ff] dark:text-[#38bdf8] font-semibold\">Grameenphone Ltd.</span>, <span class=\"text-[#e60000] dark:text-[#ff4d4d] font-semibold\">Robi Axiata Limited</span>, and <span class=\"text-[#ff7a00] dark:text-[#ff922b] font-semibold\">Banglalink Digital Communications Limited</span> over a continuous 3,713-day common horizon (2016–2026) within a 661.2k master corpus. Features fine-tuned SOTA BUET BanglaBERT (91.6% CV Acc), low-latency Soft-Voting Ensemble (87.4% Category Acc), longitudinal NSS stability modeling, and additive shock attribution.",
     highlights: [
       "BUET BanglaBERT SOTA: 91.60% CV Acc (0.8598 F1)",
-      "Hero Soft-Voting: 1.42 ms / 450 rps CPU (87.4% Acc)",
-      "Cross-Layer Decoupling: χ²(1)=12.83, OR=4.23 (p=0.0003)"
+      "Soft-Voting Ensemble: 87.5% Sent / 87.4% Cat (Sub-ms CPU)",
+      "Surge-Filtered Stability: -44.5% BL noise (κ=0.77 Gold)"
     ],
-    tags: ["BUET BanglaBERT", "Hero Ensemble", "Cross-Layer Decoupling", "Canary Gating", "655.6k Benchmark"],
+    tags: ["Python 3.10", "BUET BanglaBERT", "Soft-Voting Ensemble", "Banglish NLP", "655.6k Benchmark"],
     media: "assets/images/thumbnails/voc-dashboard.png",
     mediaAlt: "Power BI VoC intelligence preview",
     githubUrl: "https://github.com/rh61632/telecom-Voice-of-Customer_intelligence",
