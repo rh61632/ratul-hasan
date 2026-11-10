@@ -6,15 +6,15 @@ updated: 2026-11-10T07:18:30+06:00
 
 # Roadmap
 
-> **Current Phase:** 3 - End-to-End Verification & Visual Polish
-> **Status:** planning
+> **Current Phase:** Milestone Complete (Phases 1–3)
+> **Status:** complete
 
 ## Must-Haves (from SPEC)
 
 - [x] Canonical **3,713-day** common window (`Aug 1, 2016 – Sep 30, 2026`, `122 months`, `N = 655,649`) reflected across `js/data/projects.js` and `projects/voc-telecom.html`
 - [x] All updated 300 DPI plots and 5 new publication figures (`figure0`–`figure4`) synced to `assets/images/projects/voc/` and rendered cleanly
 - [x] New technical & research modules integrated into `projects/voc-telecom.html` (4-Stage Architecture, Rogan-Gladen & ComplementNB calibration, Language Detector & Linguistic Sub-Cohorts, Cross-Layer Decoupling proofs, Surge-Filtered RMSSD & Dual-Track Turnaround, Priority Matrix, Canary Gating Algorithm 1, Gradio Demo, 8-Module Audit)
-- [ ] Upfront <140-word flowing Executive Story preserved intact; zero double-blind PDF leaks; all Phase 3 browser/DOM/theme/link verification checks pass
+- [x] Upfront <140-word flowing Executive Story preserved intact; zero double-blind PDF leaks; all Phase 3 browser/DOM/theme/link verification checks pass
 
 ---
 
@@ -44,13 +44,13 @@ updated: 2026-11-10T07:18:30+06:00
 ---
 
 ### Phase 3: End-to-End Verification & Visual Polish
-**Status:** 🔄 In Progress
+**Status:** ✅ Complete
 **Objective:** Execute independent verification across `index.html`, `js/data/projects.js`, `projects/voc-telecom.html`, and `assets/images/projects/voc/`, confirming zero broken images/links, KaTeX formula rendering, dark/light theme parity, responsive layout, and zero stale benchmark figures.
 **Depends on:** Phase 2
 **Requirements:** REQ-08, NFR-01, NFR-02, NFR-03
 
 **Plans:**
-- Planning `/plan 3`
+- [x] Plan 3.1: Automated HTTP asset/DOM audit, headless Microsoft Edge KaTeX/hydration/theme verification, true `390px` mobile iframe layout polish, and explicit git commits (`c70e695`, `86c0d19`)
 
 ---
 
@@ -60,7 +60,7 @@ updated: 2026-11-10T07:18:30+06:00
 |-------|--------|-------|----------|
 | 1 | ✅ | 2/2 | 2026-11-10 |
 | 2 | ✅ | 2/2 | 2026-11-10 |
-| 3 | 🔄 | 0/1 | — |
+| 3 | ✅ | 1/1 | 2026-11-10 |
 
 ---
 
@@ -70,4 +70,4 @@ updated: 2026-11-10T07:18:30+06:00
 |-------|---------|-----------|----------|
 | 1 | 2026-11-10 | 2026-11-10 | ~39m |
 | 2 | 2026-11-10 | 2026-11-10 | ~55m |
-| 3 | 2026-11-10 | — | — |
+| 3 | 2026-11-10 | 2026-11-10 | ~70m |

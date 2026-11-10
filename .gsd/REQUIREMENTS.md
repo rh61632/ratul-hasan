@@ -22,7 +22,7 @@ Requirements derived from `.gsd/SPEC.md` for synchronizing the portfolio with th
 | REQ-05 | Add Automated Language Detector (`ml/language_detector.py`), Linguistic Sub-Cohort benchmarks ($N=661,160$ distribution + 5-fold CV table), and Qualitative Error Analysis (4 socio-linguistic failure modes) | SPEC Goal 3 | 2 | Complete |
 | REQ-06 | Expand Shock Attribution & Analytics sections with Cross-Layer Decoupling proof ($\chi^2(1)=12.83, \text{OR}=4.23, \text{RR}=1.74$), Non-Surge robustness ($\text{OR}=3.65$), Threshold Sensitivity audit (`8/10/12 pp`), Surge-Filtered RMSSD (`-44.5%` BL), Spring 2024 `v11.8.0`/`v11.9.1` build telemetry, 2026 Dual-Track reversal (`figure4`), 4 Eras (`figure1`/`figure2`), and $2 \times 2$ Strategic Priority Matrix (`figure3`) | SPEC Goal 3 | 2 | Complete |
 | REQ-07 | Add Canary Release Gating protocol (Algorithm 1), Executive Decision Matrix (Levels 1–4), Interactive Gradio Demo (`demo/app.py`), HF Hub upload pipeline, Colab notebooks, and 8-Module Automated Integrity Audit | SPEC Goal 3 | 2 | Complete |
-| REQ-08 | Verify zero broken asset paths, accurate math rendering (KaTeX), zero stale `655,670`/`3,716` strings, valid HTML structure, and responsive/theme-safe rendering across `index.html` and `projects/voc-telecom.html` | SPEC Goal 1–3 | 3 | Pending |
+| REQ-08 | Verify zero broken asset paths, accurate math rendering (KaTeX), zero stale `655,670`/`3,716` strings, valid HTML structure, and responsive/theme-safe rendering across `index.html` and `projects/voc-telecom.html` | SPEC Goal 1–3 | 3 | Complete |
 
 ---
 
@@ -30,9 +30,9 @@ Requirements derived from `.gsd/SPEC.md` for synchronizing the portfolio with th
 
 | ID | Requirement | Category | Phase | Status |
 |----|-------------|----------|-------|--------|
-| NFR-01 | Responsive layout parity across desktop (`xl`) and mobile viewports using Tailwind utility classes | UX | 3 | Pending |
-| NFR-02 | Full dark/light mode support matching `css/styles.css?v=3.0` and glassmorphic design language | Theme | All | Pending |
-| NFR-03 | Explicit git staging only (zero `git add -A`, no `temp/` or unrequested root files committed) | Safety | All | Pending |
+| NFR-01 | Responsive layout parity across desktop (`xl`) and mobile viewports using Tailwind utility classes | UX | 3 | Complete |
+| NFR-02 | Full dark/light mode support matching `css/styles.css?v=3.0` and glassmorphic design language | Theme | All | Complete |
+| NFR-03 | Explicit git staging only (zero `git add -A`, no `temp/` or unrequested root files committed) | Safety | All | Complete |
 
 ---
 
@@ -58,4 +58,4 @@ Requirements derived from `.gsd/SPEC.md` for synchronizing the portfolio with th
 | REQ-05 | 2.1 | Sub-cohort table metric check | Complete |
 | REQ-06 | 2.2 | Statistical & figure embed check | Complete |
 | REQ-07 | 2.2 | Algorithm/Demo/Audit section check | Complete |
-| REQ-08 | 3.1 | Local server HTTP + Playwright/browser + grep verification | Pending |
+| REQ-08 | 3.1 | Local server HTTP + headless Edge + DOM/390px + grep verification | Complete |
