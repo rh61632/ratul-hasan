@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Telecom Voice-of-Customer (VoC) Intelligence Engine | Research Case Study</title>
+
+  <!-- Early Theme Sync to prevent flash and enforce deterministic theme rendering -->
+  <script>
+    const urlTheme = new URLSearchParams(window.location.search).get('theme');
+    if (urlTheme === 'dark' || (!urlTheme && (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)))) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 
   <!-- OpenGraph Metadata -->
   <meta property="og:title" content="Telecom Voice-of-Customer (VoC) Intelligence Engine">
@@ -49,7 +59,7 @@
   </script>
   <link rel="stylesheet" href="../css/styles.css?v=3.0">
 </head>
-<body class="project-detail-body bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative">
+<body class="project-detail-body bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 min-h-screen bg-grid transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white relative overflow-x-hidden max-w-full">
 
   <!-- Ambient Glassmorphism Glow Background -->
   <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
@@ -344,7 +354,7 @@
           />
         </div>
 
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto max-w-full min-w-0">
           <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
             <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
               <tr>
@@ -445,7 +455,7 @@
           <h4 class="text-xs font-mono uppercase font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
             <i class="fa-solid fa-list-check text-brand-500"></i> 1. Operational Category Distribution (All Sentiments · <i>N</i> = 655,649)
           </h4>
-          <div class="overflow-x-auto">
+          <div class="overflow-x-auto max-w-full min-w-0">
             <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
               <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
                 <tr>
@@ -502,7 +512,7 @@
           <h4 class="text-xs font-mono uppercase font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
             <i class="fa-solid fa-triangle-exclamation text-rose-500"></i> 2. True Operational Complaint Rates (Negative Reviews Only · Plotted Metric Option A)
           </h4>
-          <div class="overflow-x-auto">
+          <div class="overflow-x-auto max-w-full min-w-0">
             <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
               <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
                 <tr>
@@ -552,7 +562,7 @@
           <h4 class="text-xs font-mono uppercase font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
             <i class="fa-solid fa-bullseye text-cyan-500"></i> 3. Within-Category Grievance Concentration (Option B Benchmark)
           </h4>
-          <div class="overflow-x-auto">
+          <div class="overflow-x-auto max-w-full min-w-0">
             <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
               <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
                 <tr>
@@ -627,7 +637,7 @@
       </div>
 
       <!-- Complete 10-Year Annual Benchmark Table -->
-      <div class="overflow-x-auto rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl shadow-sm">
+      <div class="overflow-x-auto max-w-full min-w-0 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl shadow-sm">
         <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
           <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
             <tr>
@@ -755,7 +765,7 @@
       </div>
 
       <!-- 10 Historical Shocks Table -->
-      <div class="overflow-x-auto rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl shadow-sm">
+      <div class="overflow-x-auto max-w-full min-w-0 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl shadow-sm">
         <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
           <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
             <tr>
@@ -870,7 +880,7 @@
           When review volumes surge (e.g., following marketing campaigns, forced update prompts, or viral social media complaints), the influx is dominated by casual raters who leave short praise or general greetings (<em>"good"</em>, <em>"nice"</em>, <em>"ok"</em>). Consequently, month-over-month shifts in the <strong>General Appreciation / Other</strong> category track review volume shifts with an <i>R</i><sup>2</sup> = 0.5601 across shocks. Filtering out volume-surge transitions decouples true operational volatility from reviewer-mix fluctuations:
         </p>
 
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto max-w-full min-w-0">
           <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
             <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
               <tr>
@@ -969,7 +979,7 @@
           To verify that our empirical shock conclusions are not artifacts of the chosen |&Delta;NSS| &ge; 10.0 percentage point cutoff, sensitivity audits were performed across multiple thresholds (8.0, 10.0, and 12.0 pp) comparing the Soft-Voting Ensemble against a baseline Linear Support Vector Machine:
         </p>
 
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto max-w-full min-w-0">
           <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
             <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
               <tr>
@@ -1080,7 +1090,7 @@
           <div class="rounded-xl overflow-hidden border border-slate-200/60 dark:border-white/5">
             <img src="../assets/images/projects/voc/sentiment_model_benchmark_bars.png" alt="Sentiment Model Benchmark" class="w-full h-auto" loading="lazy" />
           </div>
-          <div class="overflow-x-auto">
+          <div class="overflow-x-auto max-w-full min-w-0">
             <table class="w-full text-left text-xs font-mono">
               <thead class="text-slate-500 uppercase border-b border-slate-200/70 dark:border-slate-800">
                 <tr><th class="py-2">Model</th><th class="py-2 text-center">Accuracy</th><th class="py-2 text-center">Macro-F1</th><th class="py-2">Latency</th></tr>
@@ -1110,7 +1120,7 @@
           <div class="rounded-xl overflow-hidden border border-slate-200/60 dark:border-white/5">
             <img src="../assets/images/projects/voc/category_model_benchmark_bars.png" alt="Category Model Benchmark" class="w-full h-auto" loading="lazy" />
           </div>
-          <div class="overflow-x-auto">
+          <div class="overflow-x-auto max-w-full min-w-0">
             <table class="w-full text-left text-xs font-mono">
               <thead class="text-slate-500 uppercase border-b border-slate-200/70 dark:border-slate-800">
                 <tr><th class="py-2">Model</th><th class="py-2 text-center">Accuracy</th><th class="py-2 text-center">Macro-F1</th><th class="py-2">Latency</th></tr>
@@ -1226,7 +1236,7 @@
           In mobile app review datasets, 1-word and 2-word reviews (e.g., <em>"Good"</em>, <em>"Nice app"</em>, <em>"valo"</em>, single emojis) account for <strong>13.6% to 34.8%</strong> of all scraped reviews. These short reviews overwhelmingly default to generic praise (<em>General Appreciation / Other</em>) and lack actionable operational substance.
         </p>
 
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto max-w-full min-w-0">
           <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
             <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
               <tr>
