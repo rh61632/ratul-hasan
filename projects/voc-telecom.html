@@ -115,7 +115,7 @@
     <!-- ═══════════════════════════════════════════════════════════ -->
     <!-- SECTION 1: HERO HEADER & OFFICIAL OPERATOR INTRODUCTION     -->
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <div class="mb-10 max-w-4xl space-y-4">
+    <div class="mb-10 w-full space-y-4">
       <div data-perspective-group="overall-tech" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300 bg-white/70 dark:bg-brand-950/50 backdrop-blur-md border border-brand-300/50 dark:border-brand-800/50 shadow-sm">
         <i class="fa-solid fa-tower-cell text-brand-500"></i> Research Case Study • Production Telecom NLP &amp; Business Intelligence
       </div>
@@ -127,15 +127,15 @@
       </h1>
       <p data-perspective-group="overall-tech" class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
         An enterprise end-to-end NLP and Business Intelligence pipeline analyzing customer sentiment, operational complaints, and product trajectories across Bangladesh’s premier telecommunications operators:
-        <strong class="text-[#0090ff] font-semibold">Grameenphone Ltd.</strong> (operating the MyGP platform), 
-        <strong class="text-[#e60000] font-semibold">Robi Axiata Limited</strong> (operating the My Robi platform), and 
-        <strong class="text-[#ff7a00] font-semibold">Banglalink Digital Communications Limited</strong> (operating the MyBL platform).
+        <a href="https://www.grameenphone.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#0090ff] hover:underline underline-offset-4 decoration-[#0090ff]/60 transition">Grameenphone Ltd.</a> (operating the MyGP platform), 
+        <a href="https://www.robi.com.bd" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#e60000] hover:underline underline-offset-4 decoration-[#e60000]/60 transition">Robi Axiata Limited</a> (operating the My Robi platform), and 
+        <a href="https://www.banglalink.net" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#ff7a00] hover:underline underline-offset-4 decoration-[#ff7a00]/60 transition">Banglalink Digital Communications Limited</a> (operating the MyBL platform).
       </p>
       <p data-perspective-group="business" class="hidden text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
         A comprehensive customer experience and market intelligence study analyzing subscriber sentiment, service inquiries, and product satisfaction across Bangladesh’s premier telecommunications operators:
-        <strong class="text-[#0090ff] font-semibold">Grameenphone Ltd.</strong> (operating the MyGP platform), 
-        <strong class="text-[#e60000] font-semibold">Robi Axiata Limited</strong> (operating the My Robi platform), and 
-        <strong class="text-[#ff7a00] font-semibold">Banglalink Digital Communications Limited</strong> (operating the MyBL platform).
+        <a href="https://www.grameenphone.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#0090ff] hover:underline underline-offset-4 decoration-[#0090ff]/60 transition">Grameenphone Ltd.</a> (operating the MyGP platform), 
+        <a href="https://www.robi.com.bd" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#e60000] hover:underline underline-offset-4 decoration-[#e60000]/60 transition">Robi Axiata Limited</a> (operating the My Robi platform), and 
+        <a href="https://www.banglalink.net" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#ff7a00] hover:underline underline-offset-4 decoration-[#ff7a00]/60 transition">Banglalink Digital Communications Limited</a> (operating the MyBL platform).
       </p>
 
       <!-- Executive Narrative Story (<140 words, flowing prose) -->
@@ -226,6 +226,327 @@
         </div>
         <div class="text-xs font-mono text-slate-400 uppercase mt-2">Soft-Voting Ensemble</div>
         <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">Sub-millisecond CPU inference (>80&times; speedup) with ComplementNB Bayesian probability calibration.</p>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- LIVE INTERACTIVE COMMENT ANALYZER (CLIENT-SIDE INFERENCE)   -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="live-voc-analyzer" class="mb-14 p-5 sm:p-8 rounded-3xl bg-white/75 dark:bg-surface-card/75 backdrop-blur-xl border border-brand-200/80 dark:border-brand-500/25 shadow-[0_12px_40px_rgb(0,0,0,0.06)] dark:shadow-[0_12px_40px_rgb(0,0,0,0.35)] space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-200/70 dark:border-slate-800 pb-4">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Interactive Inference Demo</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white mt-1">
+            Live Telecom Comment Sentiment &amp; Category Analyzer
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+            Test any customer review in <strong>Bangla</strong>, <strong>Romanized Banglish</strong>, or <strong>English</strong> using the production Soft-Voting Ensemble and rule-based <code>LanguageClassifier</code>.
+          </p>
+        </div>
+        <div class="shrink-0 flex flex-wrap items-center gap-2">
+          <span class="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-900/90 border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-300">
+            Soft-Voting Ensemble ML
+          </span>
+          <span class="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-900/90 border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-300">
+            3 Sentiments · 5 Categories
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Input & Benchmark Exemplars -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="space-y-2">
+            <label for="voc-demo-input" class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+              Customer Review / Comment Input
+            </label>
+            <textarea
+              id="voc-demo-input"
+              rows="4"
+              placeholder="e.g., App khule na, bar bar crash kore login er shomoy..."
+              class="w-full rounded-2xl p-4 text-sm bg-white/90 dark:bg-slate-950/70 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition resize-y"
+            ></textarea>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <button
+              id="voc-demo-submit"
+              type="button"
+              class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed transition shadow-md shadow-brand-600/20 flex items-center gap-2"
+            >
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+              <span>Analyze Comment</span>
+            </button>
+            <button
+              id="voc-demo-clear"
+              type="button"
+              class="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 bg-slate-100/90 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
+            >
+              Clear
+            </button>
+            <span class="text-[11px] font-mono text-slate-400 ml-auto hidden sm:inline">Ctrl + Enter</span>
+          </div>
+
+          <div id="voc-demo-status" class="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+            Loading model weights...
+          </div>
+
+          <!-- Quick Benchmark Exemplar Chips -->
+          <div class="pt-2 border-t border-slate-200/60 dark:border-slate-800 space-y-2">
+            <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              Sample Reviews
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <button
+                type="button"
+                data-voc-example="App khule na, bar bar crash kore login er shomoy"
+                class="px-2.5 py-1.5 rounded-lg text-[11px] font-medium bg-slate-100/90 dark:bg-white/[0.06] hover:bg-brand-50 dark:hover:bg-brand-950/60 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 hover:border-brand-300 dark:hover:border-brand-700 transition text-left"
+              >
+                <span class="font-mono text-brand-600 dark:text-brand-400">[Banglish]</span> Login Crash
+              </button>
+              <button
+                type="button"
+                data-voc-example="নেট স্পিড একদম স্লো, ফোরজি পেয়েও ভিডিও বাফারিং করে"
+                class="px-2.5 py-1.5 rounded-lg text-[11px] font-medium bg-slate-100/90 dark:bg-white/[0.06] hover:bg-brand-50 dark:hover:bg-brand-950/60 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 hover:border-brand-300 dark:hover:border-brand-700 transition text-left"
+              >
+                <span class="font-mono text-brand-600 dark:text-brand-400">[Bangla]</span> 4G Buffering
+              </button>
+              <button
+                type="button"
+                data-voc-example="রিচার্জ করার পর টাকা কেটে নিয়েছে কোন কারণ ছাড়াই"
+                class="px-2.5 py-1.5 rounded-lg text-[11px] font-medium bg-slate-100/90 dark:bg-white/[0.06] hover:bg-brand-50 dark:hover:bg-brand-950/60 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 hover:border-brand-300 dark:hover:border-brand-700 transition text-left"
+              >
+                <span class="font-mono text-brand-600 dark:text-brand-400">[Bangla]</span> Balance Cut
+              </button>
+              <button
+                type="button"
+                data-voc-example="Onek shundor offer ar kom dame bhalo internet pack"
+                class="px-2.5 py-1.5 rounded-lg text-[11px] font-medium bg-slate-100/90 dark:bg-white/[0.06] hover:bg-brand-50 dark:hover:bg-brand-950/60 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 hover:border-brand-300 dark:hover:border-brand-700 transition text-left"
+              >
+                <span class="font-mono text-brand-600 dark:text-brand-400">[Banglish]</span> Data Pack Praise
+              </button>
+              <button
+                type="button"
+                data-voc-example="Very smooth app, recharge and balance check is super fast!"
+                class="px-2.5 py-1.5 rounded-lg text-[11px] font-medium bg-slate-100/90 dark:bg-white/[0.06] hover:bg-brand-50 dark:hover:bg-brand-950/60 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 hover:border-brand-300 dark:hover:border-brand-700 transition text-left"
+              >
+                <span class="font-mono text-brand-600 dark:text-brand-400">[English]</span> Smooth UX
+              </button>
+              <button
+                type="button"
+                data-voc-example="Valo app but sometimes login takes too long"
+                class="px-2.5 py-1.5 rounded-lg text-[11px] font-medium bg-slate-100/90 dark:bg-white/[0.06] hover:bg-brand-50 dark:hover:bg-brand-950/60 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 hover:border-brand-300 dark:hover:border-brand-700 transition text-left"
+              >
+                <span class="font-mono text-brand-600 dark:text-brand-400">[Code-Mixed]</span> Mixed Feedback
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Inference Panel -->
+        <div class="lg:col-span-7">
+          <!-- Idle Placeholder -->
+          <div id="voc-demo-placeholder" class="h-full min-h-[260px] rounded-2xl p-6 bg-slate-50/80 dark:bg-black/25 border border-dashed border-slate-300 dark:border-white/15 flex flex-col items-center justify-center text-center space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+              <i class="fa-solid fa-microchip text-xl"></i>
+            </div>
+            <div class="space-y-1 max-w-md">
+              <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200">Enter a Review to Classify</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                Submit a review or choose a sample to inspect predicted <strong>Sentiment Polarity</strong>, <strong>Operational Category</strong>, <strong>Detected Language</strong>, and <strong>Subsystem Triage</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Live Results -->
+          <div id="voc-demo-results" class="hidden space-y-4">
+            <!-- Telemetry Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-white/10 text-xs">
+              <div class="flex items-center gap-2 min-w-0">
+                <i class="fa-solid fa-language text-brand-500 shrink-0"></i>
+                <span class="text-slate-500 dark:text-slate-400 shrink-0">Detected Language:</span>
+                <span id="voc-out-language" class="font-mono font-bold text-slate-800 dark:text-slate-100 truncate">—</span>
+              </div>
+              <span id="voc-out-latency" class="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 shrink-0">—</span>
+            </div>
+
+            <!-- Primary Sentiment & Category Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-4 rounded-2xl bg-slate-50/90 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 space-y-2">
+                <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400">Predicted Sentiment</div>
+                <div class="flex items-center justify-between gap-2 flex-wrap">
+                  <span id="voc-out-sentiment" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold border">—</span>
+                  <span id="voc-out-sentiment-conf" class="text-xs font-mono text-slate-500 dark:text-slate-400">—</span>
+                </div>
+                <div id="voc-out-sentiment-bars" class="pt-2 space-y-2"></div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-50/90 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 space-y-2">
+                <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400">Operational Category</div>
+                <div class="flex items-start justify-between gap-2 flex-wrap">
+                  <span id="voc-out-category" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white leading-snug">—</span>
+                  <span id="voc-out-category-conf" class="text-xs font-mono text-slate-500 dark:text-slate-400 shrink-0">—</span>
+                </div>
+                <div id="voc-out-category-bars" class="pt-2 space-y-2"></div>
+              </div>
+            </div>
+
+            <!-- Subsystem Triage Card -->
+            <div class="p-4 rounded-2xl bg-brand-50/70 dark:bg-brand-950/30 border border-brand-200/70 dark:border-brand-800/40 flex items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-brand-500/15 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-route text-xs"></i>
+              </div>
+              <div class="space-y-0.5 min-w-0">
+                <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300">
+                  Subsystem Triage · <span id="voc-out-triage-title">—</span>
+                </div>
+                <p id="voc-out-triage-detail" class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">—</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-2 border-t border-slate-200/60 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 space-y-1">
+        <div>
+          <strong>Active Model:</strong> Classical <strong>Soft-Voting Ensemble ML</strong> (Logistic Regression + Calibrated LinearSVC + ComplementNB) with rule-based
+          <button
+            id="voc-lang-rules-trigger"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="voc-lang-rules-modal"
+            class="inline-flex items-center gap-1 font-semibold text-brand-600 dark:text-brand-400 underline decoration-brand-500/40 underline-offset-2 hover:text-brand-700 dark:hover:text-brand-300 hover:decoration-brand-500 transition cursor-pointer"
+          ><code>LanguageClassifier</code> rules</button>.
+        </div>
+        <div>
+          <strong>Note:</strong> Because of the high storage space required by the fine-tuned BUET BanglaBERT checkpoints (~422 MB per head, ~844 MB total), the lightweight Soft-Voting Ensemble is deployed here instead of the deep learning model.
+        </div>
+      </div>
+    </section>
+
+    <!-- Apple-Style Detail Sheet Modal for LanguageClassifier Rules -->
+    <div
+      id="voc-lang-rules-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="voc-lang-modal-title"
+      class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-slate-950/45 dark:bg-black/75 backdrop-blur-md opacity-0 transition-opacity duration-200"
+    >
+      <div
+        id="voc-lang-rules-card"
+        class="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-[28px] bg-white/95 dark:bg-[#161922]/95 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_32px_90px_rgba(0,0,0,0.28)] transform scale-95 opacity-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+      >
+        <!-- Sticky Frosted Top Bar -->
+        <div class="sticky top-0 z-10 flex items-start justify-between gap-4 px-6 sm:px-8 pt-6 pb-4 bg-white/85 dark:bg-[#161922]/85 backdrop-blur-xl border-b border-slate-200/70 dark:border-white/10">
+          <div>
+            <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+              Linguistic Routing · Rule Specification
+            </span>
+            <h3 id="voc-lang-modal-title" class="text-xl sm:text-2xl font-extrabold font-display text-slate-900 dark:text-white mt-0.5">
+              LanguageClassifier Decision Rules
+            </h3>
+          </div>
+          <button
+            id="voc-lang-rules-close"
+            type="button"
+            aria-label="Close Language Classifier Rules"
+            class="w-9 h-9 rounded-full bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300/90 dark:hover:bg-white/20 text-slate-700 dark:text-slate-200 flex items-center justify-center transition shrink-0 cursor-pointer"
+          >
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Detail Body -->
+        <div class="p-6 sm:p-8 space-y-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+          <!-- Summary Metric Tiles -->
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3.5 rounded-2xl bg-slate-100/80 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/10">
+              <div class="text-xl sm:text-2xl font-extrabold font-display text-brand-600 dark:text-brand-400">7</div>
+              <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 mt-0.5">Decision Rules</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-100/80 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/10">
+              <div class="text-xl sm:text-2xl font-extrabold font-display text-purple-600 dark:text-purple-400">122 / 155</div>
+              <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 mt-0.5">Banglish / Telecom</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-100/80 dark:bg-white/[0.04] border border-slate-200/70 dark:border-white/10">
+              <div class="text-xl sm:text-2xl font-extrabold font-display text-emerald-600 dark:text-emerald-400">234k+</div>
+              <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 mt-0.5">English Lexicon</div>
+            </div>
+          </div>
+
+          <!-- Stage 1 -->
+          <div class="space-y-2.5">
+            <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              Stage 1 · Script &amp; Boundary Guards
+            </div>
+            <div class="space-y-2 text-xs">
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
+                <span class="w-6 h-6 rounded-lg bg-slate-200 dark:bg-white/10 font-mono font-bold text-[11px] flex items-center justify-center shrink-0 text-slate-700 dark:text-slate-200">1</span>
+                <div><strong class="text-slate-900 dark:text-white">Empty Guard:</strong> Apply <code>NFKD</code> Unicode normalization; if zero non-whitespace characters remain &rarr; <code>Symbolic / Emoticons</code>.</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
+                <span class="w-6 h-6 rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-400 font-mono font-bold text-[11px] flex items-center justify-center shrink-0">2</span>
+                <div><strong class="text-slate-900 dark:text-white">Bengali Unicode Threshold (&ge; 25%):</strong> If Bengali script (<code>U+0980–U+09FF</code>) comprises &ge; 25% of non-whitespace characters &rarr; <code>Bangla (Native Script)</code>. Flags <strong>Code-Mixed</strong> if &ge; 2 Latin tokens appear.</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
+                <span class="w-6 h-6 rounded-lg bg-slate-200 dark:bg-white/10 font-mono font-bold text-[11px] flex items-center justify-center shrink-0 text-slate-700 dark:text-slate-200">3</span>
+                <div><strong class="text-slate-900 dark:text-white">No-Latin-Token Guard:</strong> If no <code>[a-zA-Z]+</code> alphabetic tokens remain &rarr; <code>Symbolic / Emoticons</code>.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="space-y-2.5">
+            <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              Stage 2 · Banglish vs. English Lexical Rules
+            </div>
+            <div class="space-y-2 text-xs">
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
+                <span class="w-6 h-6 rounded-lg bg-purple-500/15 text-purple-600 dark:text-purple-400 font-mono font-bold text-[11px] flex items-center justify-center shrink-0">4</span>
+                <div><strong class="text-slate-900 dark:text-white">Banglish Ratio (&ge; 15%):</strong> Any phonetic marker match with <code>banglish_ratio &ge; 0.15</code> &rarr; <code>Romanized Banglish</code>.</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
+                <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-bold text-[11px] flex items-center justify-center shrink-0">5</span>
+                <div><strong class="text-slate-900 dark:text-white">English Dominance (&ge; 70%):</strong> <code>english_ratio &ge; 0.70</code> with zero Banglish marker matches &rarr; <code>English</code>.</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
+                <span class="w-6 h-6 rounded-lg bg-purple-500/15 text-purple-600 dark:text-purple-400 font-mono font-bold text-[11px] flex items-center justify-center shrink-0">6</span>
+                <div><strong class="text-slate-900 dark:text-white">Marker Presence Override:</strong> If at least one Banglish marker matches (&lt; 15% share) &rarr; <code>Romanized Banglish</code>.</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
+                <span class="w-6 h-6 rounded-lg bg-slate-200 dark:bg-white/10 font-mono font-bold text-[11px] flex items-center justify-center shrink-0 text-slate-700 dark:text-slate-200">7</span>
+                <div><strong class="text-slate-900 dark:text-white">Secondary Threshold &amp; Fallback:</strong> <code>english_ratio &ge; 0.60</code> &rarr; <code>English</code>; otherwise fallback to <code>Romanized Banglish</code>. Flags <strong>Code-Mixed</strong> whenever both Banglish &amp; English matches occur.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dictionary Preview -->
+          <div class="p-4 rounded-2xl bg-slate-100/70 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/10 space-y-2">
+            <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              Sample Phonetic &amp; Domain Markers
+            </div>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">kore</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">bhalo</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">faltu</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">kete</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">nai</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">khub</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">onek</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">hobe</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">kharap</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">taka</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">recharge</span>
+              <span class="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-slate-200/80 dark:border-white/10">4g / mb</span>
+            </div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 pt-1">
+              Grounded in Barman et al. (2014) script heuristics and Gamb&auml;ck &amp; Das (2016) Code-Mixing Index (CMI &le; 30 / &ge; 70% dominance) from <code>ml/language_detector.py</code>.
+            </p>
+          </div>
+        </div>
       </div>
     </div>    <!-- ═══════════════════════════════════════════════════════════ -->
     <!-- TECHNICAL PERSPECTIVE: SYSTEM & PIPELINE ARCHITECTURE      -->
@@ -1615,7 +1936,7 @@
         <h2 class="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white mt-1">
           Telecom Customer Experience &amp; Strategic Market Intelligence
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2 max-w-4xl leading-relaxed text-justify">
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2 leading-relaxed text-justify">
           Executive insights and operational playbooks derived from 655,649 verified subscriber feedback records over a continuous 3,713-day observation period across Bangladesh's three leading telecom operators.
         </p>
       </div>
@@ -2072,5 +2393,6 @@
       setPerspective(initialView || 'overall', false);
     })();
   </script>
+  <script src="../js/voc-analyzer.js"></script>
 </body>
 </html>

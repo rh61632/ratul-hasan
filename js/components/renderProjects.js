@@ -42,7 +42,13 @@ export function renderProjects(projects, targetElementId) {
     // Tech tags
     const tagPills = (project.tags || [])
       .slice(0, 4)
-      .map(tag => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300 whitespace-nowrap">${tag}</span>`)
+      .map(tag => {
+        const isFeatured = project.featuredTag && tag === project.featuredTag;
+        if (isFeatured) {
+          return `<span class="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-brand-600 text-white dark:bg-brand-500/20 dark:text-brand-300 border border-brand-600 dark:border-brand-400/50 shadow-sm whitespace-nowrap"><span class="w-1.5 h-1.5 rounded-full bg-white dark:bg-brand-400 animate-pulse"></span>${tag}</span>`;
+        }
+        return `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/60 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/10 text-slate-600 dark:text-slate-300 whitespace-nowrap">${tag}</span>`;
+      })
       .join("");
 
     return `
@@ -105,7 +111,7 @@ export function renderProjects(projects, targetElementId) {
         <div class="relative z-10 pt-3 border-t border-slate-200/70 dark:border-white/[0.08] shrink-0 mt-2">
           <!-- Collapsed Minimal Footer -->
           <div class="card-collapsed-footer flex items-center justify-between text-xs font-mono text-slate-400">
-            <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">${project.badgeText}</span>
+            <span class="text-[11px] font-semibold ${project.featuredTag ? 'text-brand-600 dark:text-brand-400' : 'text-slate-500 dark:text-slate-400'}">${project.badgeText}</span>
             <span class="flex items-center gap-1 text-brand-600 dark:text-brand-400 font-semibold text-[11px] group-hover:translate-x-1 transition-transform">
               <span>Explore</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </span>
@@ -117,7 +123,7 @@ export function renderProjects(projects, targetElementId) {
               ${primaryLink}
               ${repoLink}
             </div>
-            <span class="text-[11px] font-mono text-slate-400 hidden sm:inline">${project.badgeText}</span>
+            <span class="text-[11px] font-mono ${project.featuredTag ? 'font-semibold text-brand-600 dark:text-brand-400' : 'text-slate-400'} hidden sm:inline">${project.badgeText}</span>
           </div>
         </div>
 

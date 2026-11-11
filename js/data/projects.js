@@ -4,19 +4,20 @@ export const projectsData = [
     title: "Telecom Voice-of-Customer (VoC) Intelligence Engine",
     category: "NLP & Production Intelligence",
     year: "2026",
-    shortSummary: "Enterprise NLP analyzing 655,649 customer reviews across <span class=\"text-[#0090ff] dark:text-[#38bdf8] font-semibold\">Grameenphone</span>, <span class=\"text-[#e60000] dark:text-[#ff4d4d] font-semibold\">Robi</span>, and <span class=\"text-[#ff7a00] dark:text-[#ff922b] font-semibold\">Banglalink</span> over a continuous 3,713-day common horizon. Features fine-tuned SOTA BUET BanglaBERT and a low-latency Soft-Voting ensemble.",
-    description: "Enterprise NLP & Business Intelligence architecture analyzing 655,649 standardized customer reviews across <span class=\"text-[#0090ff] dark:text-[#38bdf8] font-semibold\">Grameenphone Ltd.</span>, <span class=\"text-[#e60000] dark:text-[#ff4d4d] font-semibold\">Robi Axiata Limited</span>, and <span class=\"text-[#ff7a00] dark:text-[#ff922b] font-semibold\">Banglalink Digital Communications Limited</span> over a continuous 3,713-day common horizon (2016–2026) within a 661.2k master corpus. Features fine-tuned SOTA BUET BanglaBERT (91.6% CV Acc), low-latency Soft-Voting Ensemble (87.4% Category Acc), longitudinal NSS stability modeling, and additive shock attribution.",
+    shortSummary: "Analyzing 655,649 telecom reviews across <span class=\"text-[#0090ff] dark:text-[#38bdf8] font-semibold\">Grameenphone</span>, <span class=\"text-[#e60000] dark:text-[#ff4d4d] font-semibold\">Robi</span>, and <span class=\"text-[#ff7a00] dark:text-[#ff922b] font-semibold\">Banglalink</span> (2016–2026) with an interactive live comment classifier.",
+    description: "Enterprise NLP & Business Intelligence architecture analyzing 655,649 reviews across <span class=\"text-[#0090ff] dark:text-[#38bdf8] font-semibold\">Grameenphone Ltd.</span>, <span class=\"text-[#e60000] dark:text-[#ff4d4d] font-semibold\">Robi Axiata Limited</span>, and <span class=\"text-[#ff7a00] dark:text-[#ff922b] font-semibold\">Banglalink Digital Communications Limited</span> (2016–2026) with an interactive live comment classifier, fine-tuned BUET BanglaBERT (91.6% Acc), and Soft-Voting Ensemble (87.4% Cat).",
     highlights: [
       "BUET BanglaBERT SOTA: 91.60% CV Acc (0.8598 F1)",
       "Soft-Voting Ensemble: 87.5% Sent / 87.4% Cat (Sub-ms CPU)",
       "Surge-Filtered Stability: -44.5% BL noise (κ=0.77 Gold)"
     ],
-    tags: ["Python 3.10", "BUET BanglaBERT", "Soft-Voting Ensemble", "Banglish NLP", "655.6k Benchmark"],
+    tags: ["Interactive Classifier", "BUET BanglaBERT", "Soft-Voting Ensemble", "Banglish NLP", "655.6k Benchmark"],
+    featuredTag: "Interactive Classifier",
     media: "assets/images/thumbnails/voc-dashboard.png",
     mediaAlt: "Power BI VoC intelligence preview",
     githubUrl: "https://github.com/rh61632/telecom-Voice-of-Customer_intelligence",
     caseStudyUrl: "projects/voc-telecom.html",
-    badgeText: "Enterprise NLP"
+    badgeText: "NLP · Live Classifier"
   },
   {
     id: "prosthetic-thesis",
