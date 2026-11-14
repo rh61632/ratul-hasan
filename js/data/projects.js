@@ -9,7 +9,7 @@ export const projectsData = [
     highlights: [
       "BUET BanglaBERT SOTA: 91.60% CV Acc (0.8598 F1)",
       "Soft-Voting Ensemble: 87.5% Sent / 87.4% Cat (Sub-ms CPU)",
-      "Surge-Filtered Stability: -44.5% BL noise (κ=0.77 Gold)"
+      "Trilingual Reliability: Cohen's κ=0.77 (661k Corpus)"
     ],
     tags: ["Interactive Classifier", "BUET BanglaBERT", "Soft-Voting Ensemble", "Banglish NLP", "655.6k Benchmark"],
     featuredTag: "Interactive Classifier",

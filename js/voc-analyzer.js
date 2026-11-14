@@ -404,13 +404,13 @@
     const isCodeMixed = banglishMatches > 0 && englishMatches > 0;
 
     let language;
-    if (banglishMatches > 0 && banglishRatio >= 0.15) {
+    if (banglishMatches > 0) {
       language = "Romanized Banglish";
-    } else if (englishRatio >= 0.7 && banglishMatches === 0) {
+    } else if (englishRatio >= 0.70) {
       language = "English";
-    } else if (banglishMatches > 0) {
-      language = "Romanized Banglish";
-    } else if (englishRatio >= 0.6) {
+    } else if (englishRatio >= 0.60) {
+      // Secondary fallback: allows minor spelling typos in short Latin text
+      // with 0 Banglish dictionary hits (e.g. 'Veary High price')
       language = "English";
     } else {
       language = "Romanized Banglish";

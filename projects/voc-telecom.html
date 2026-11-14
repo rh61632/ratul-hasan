@@ -506,19 +506,19 @@
             <div class="space-y-2 text-xs">
               <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
                 <span class="w-6 h-6 rounded-lg bg-purple-500/15 text-purple-600 dark:text-purple-400 font-mono font-bold text-[11px] flex items-center justify-center shrink-0">4</span>
-                <div><strong class="text-slate-900 dark:text-white">Banglish Ratio (&ge; 15%):</strong> Any phonetic marker match with <code>banglish_ratio &ge; 0.15</code> &rarr; <code>Romanized Banglish</code>.</div>
+                <div><strong class="text-slate-900 dark:text-white">Banglish Marker Match:</strong> Any phonetic marker hit (<code>banglish_matches &gt; 0</code>) &rarr; <code>Romanized Banglish</code>.</div>
               </div>
               <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
                 <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-bold text-[11px] flex items-center justify-center shrink-0">5</span>
-                <div><strong class="text-slate-900 dark:text-white">English Dominance (&ge; 70%):</strong> <code>english_ratio &ge; 0.70</code> with zero Banglish marker matches &rarr; <code>English</code>.</div>
+                <div><strong class="text-slate-900 dark:text-white">Primary English Dominance (&ge; 70%):</strong> With zero Banglish marker hits and <code>english_ratio &ge; 0.70</code> &rarr; <code>English</code> (Gamb&auml;ck &amp; Das 2016 CMI &le; 30).</div>
               </div>
               <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
-                <span class="w-6 h-6 rounded-lg bg-purple-500/15 text-purple-600 dark:text-purple-400 font-mono font-bold text-[11px] flex items-center justify-center shrink-0">6</span>
-                <div><strong class="text-slate-900 dark:text-white">Marker Presence Override:</strong> If at least one Banglish marker matches (&lt; 15% share) &rarr; <code>Romanized Banglish</code>.</div>
+                <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-bold text-[11px] flex items-center justify-center shrink-0">6</span>
+                <div><strong class="text-slate-900 dark:text-white">Secondary Typo-Tolerance Fallback (&ge; 60%):</strong> <code>english_ratio &ge; 0.60</code> with zero Banglish hits &rarr; <code>English</code> (tolerates minor spelling typos in short customer feedback like <em>"Veary High price"</em>).</div>
               </div>
               <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-black/25 border border-slate-200/70 dark:border-white/10 flex gap-3">
                 <span class="w-6 h-6 rounded-lg bg-slate-200 dark:bg-white/10 font-mono font-bold text-[11px] flex items-center justify-center shrink-0 text-slate-700 dark:text-slate-200">7</span>
-                <div><strong class="text-slate-900 dark:text-white">Secondary Threshold &amp; Fallback:</strong> <code>english_ratio &ge; 0.60</code> &rarr; <code>English</code>; otherwise fallback to <code>Romanized Banglish</code>. Flags <strong>Code-Mixed</strong> whenever both Banglish &amp; English matches occur.</div>
+                <div><strong class="text-slate-900 dark:text-white">Residual Fallback:</strong> Otherwise &rarr; <code>Romanized Banglish</code>. Flags <strong>Code-Mixed</strong> whenever both Banglish &amp; English matches occur.</div>
               </div>
             </div>
           </div>
@@ -624,7 +624,7 @@
             <h3 class="font-bold text-sm text-slate-900 dark:text-white">Linguistic Cohort Router &amp; Telemetry</h3>
           </div>
           <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
-            Rule-based language classifier (<code class="text-[11px] font-mono text-amber-600 dark:text-amber-400">ml/language_detector.py</code>) integrates exact verified thresholds: Bengali script threshold <strong class="text-slate-800 dark:text-white">&ge; 25%</strong> (<code class="text-[11px] font-mono">script_threshold = 0.25</code>, Unicode <code class="text-[11px] font-mono">U+0980–U+09FF</code>) and English lexical dominance threshold <strong class="text-slate-800 dark:text-white">&ge; 70%</strong> (<code class="text-[11px] font-mono">dominance_threshold = 0.70</code>) evaluated against <code class="text-[11px] font-mono">nltk.corpus.words</code>, telecom domain vocabulary, and <strong class="text-slate-800 dark:text-white">80+ Romanized Banglish phonetic markers</strong> with code-mixed telemetry.
+            Rule-based language classifier (<code class="text-[11px] font-mono text-amber-600 dark:text-amber-400">ml/language_detector.py</code>) integrates a two-tier decision heuristic grounded in Gamb&auml;ck &amp; Das (2016): Bengali script threshold <strong class="text-slate-800 dark:text-white">&ge; 25%</strong> (<code class="text-[11px] font-mono">script_threshold = 0.25</code>, Unicode <code class="text-[11px] font-mono">U+0980–U+09FF</code>), primary English lexical dominance <strong class="text-slate-800 dark:text-white">&ge; 70%</strong>, and a secondary <strong class="text-slate-800 dark:text-white">0.60 token ratio fallback</strong> for typo-tolerant short reviews, evaluated against 234k+ English words, <strong class="text-slate-800 dark:text-white">155 telecom terms</strong>, and <strong class="text-slate-800 dark:text-white">122 Romanized Banglish markers</strong> with code-mixed telemetry.
           </p>
         </div>
 
@@ -771,7 +771,7 @@
           <div class="space-y-2">
             <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 font-bold uppercase block">Monthly Trajectory: Modern Era (Jan 2020 – Sep 2026 · 81 Consecutive Months)</span>
             <div class="rounded-lg overflow-hidden border border-slate-200/60 dark:border-white/5">
-              <img src="../assets/images/projects/voc/monthly_nss_trend_modern_era.png" alt="Monthly Modern Era Trajectory" class="w-full h-auto" loading="lazy" />
+              <img src="../assets/images/projects/voc/monthly_nss_trend_modern_era.png?v=3.2" alt="Monthly Modern Era Trajectory" class="w-full h-auto" loading="lazy" />
             </div>
             <p class="text-[11px] text-slate-500">High-volume super-app stability tracking seasonal festival recharges, regulatory shifts, and app release cycles.</p>
           </div>
@@ -1307,6 +1307,94 @@
         </table>
       </div>
 
+      <!-- 3. Discriminative Shock Grievance Keyword Attribution (Z-Score Standardized Evidence) -->
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
+          <div>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Statistical Grievance Attribution // Z-Score Evidence</span>
+            <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white mt-0.5">Discriminative Grievance Term Over-Representation</h3>
+          </div>
+          <span class="text-xs font-mono text-slate-400 font-bold">Audit Engine: scripts/extract_shock_grievances.py</span>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+          To isolate the exact causal vocabulary behind acute operational shocks, standardized <em>Z</em>-scores compare n-gram grievance frequencies in target shock months against the multi-year baseline corpus (<em>N</em> = 655,649). This isolates genuine operational triggers from conversational background noise:
+        </p>
+
+        <div class="overflow-x-auto max-w-full min-w-0 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl shadow-sm">
+          <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+            <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
+              <tr>
+                <th class="p-3">Operator</th>
+                <th class="p-3">Operational Shock Event</th>
+                <th class="p-3 text-center">Shock Window</th>
+                <th class="p-3">Category</th>
+                <th class="p-3 text-center">Target <i>N</i></th>
+                <th class="p-3">Top Discriminative Grievance Terms (Standardized <i>Z</i>-Score)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200/60 dark:divide-white/5 font-mono">
+              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                <td class="p-3 font-semibold text-[#0090ff]">Grameenphone</td>
+                <td class="p-3 font-sans font-semibold text-slate-800 dark:text-slate-200">BTRC Package Restructuring &amp; 5G Tariff Backlash</td>
+                <td class="p-3 text-center text-slate-500">2025-08, 09; 2026-06</td>
+                <td class="p-3 font-sans text-xs">Offers &amp; Data Packs</td>
+                <td class="p-3 text-center font-bold">448</td>
+                <td class="p-3 font-sans text-xs flex flex-wrap gap-1.5">
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">মিনিটের দাম (z=+1.48)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">98 taka (z=+1.55)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">50 min (z=+1.30)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">budget friendly (z=+1.29)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">মিনিটের (z=+1.02)</span>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                <td class="p-3 font-semibold text-[#ff7a00]">Banglalink</td>
+                <td class="p-3 font-sans font-semibold text-slate-800 dark:text-slate-200">MyBL v11.8.0 Splash Crash &amp; Authentication Loop</td>
+                <td class="p-3 text-center text-slate-500">2024-03 &rarr; 2024-05</td>
+                <td class="p-3 font-sans text-xs">App Login &amp; Bugs</td>
+                <td class="p-3 text-center font-bold">363</td>
+                <td class="p-3 font-sans text-xs flex flex-wrap gap-1.5">
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">এপের (z=+2.02)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">মাইবিএল (z=+1.88)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">দিছেন (z=+1.86)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">even see (z=+1.65)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">talked (z=+1.65)</span>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                <td class="p-3 font-semibold text-[#ff7a00]">Banglalink</td>
+                <td class="p-3 font-sans font-semibold text-slate-800 dark:text-slate-200">Monsoon Fiber Cut &amp; Base Station Backhaul Outage</td>
+                <td class="p-3 text-center text-slate-500">2021-04 &rarr; 2021-07</td>
+                <td class="p-3 font-sans text-xs">Network Speed &amp; 4G Latency</td>
+                <td class="p-3 text-center font-bold">358</td>
+                <td class="p-3 font-sans text-xs flex flex-wrap gap-1.5">
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">network system (z=+2.20)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">cant (z=+2.19)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">নেট থাক (z=+2.10)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">condition network (z=+1.80)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">system (z=+1.86)</span>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                <td class="p-3 font-semibold text-[#e60000]">Robi</td>
+                <td class="p-3 font-sans font-semibold text-slate-800 dark:text-slate-200">4G Commercial Tariff Realignment Backlash</td>
+                <td class="p-3 text-center text-slate-500">2018-01 &rarr; 2018-03</td>
+                <td class="p-3 font-sans text-xs">Offers &amp; Data Packs</td>
+                <td class="p-3 text-center font-bold">30</td>
+                <td class="p-3 font-sans text-xs flex flex-wrap gap-1.5">
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">hok (z=+1.81)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">60 (z=+1.68)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">pack দাম (z=+1.60)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">সিম ভেঙ (z=+1.60)</span>
+                  <span class="inline-block px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-mono text-[11px]">নাহল (z=+1.60)</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       <!-- 4. Review Volume Surge Diagnostics & Filtered Volatility -->
       <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
@@ -1731,40 +1819,184 @@
         </p>
       </div>
 
-      <!-- Automated Language & Code-Mixing Detector -->
-      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-4">
+      <!-- Automated Language & Code-Mixing Detector + Linguistic Sub-Cohort Benchmarks -->
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/70 dark:border-slate-800 pb-3">
           <div>
-            <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Linguistic Routing // Pre-Processing Engine</span>
-            <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white mt-0.5">Automated Rule-Based Language &amp; Code-Mixing Detector</h3>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Linguistic Routing &amp; Sub-Cohort Evaluation</span>
+            <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white mt-0.5">Automated Language Attribution &amp; Trilingual Sub-Cohort Benchmarks</h3>
           </div>
           <span class="text-xs font-mono text-slate-400 font-bold">Module: ml/language_detector.py</span>
         </div>
 
         <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
-          Customer reviews in the Bangladesh telecommunications ecosystem arrive in multiple scripts and transliterated dialects. To provide real-time language attribution and route inputs cleanly, our production pipeline integrates a standalone rule-based detector (<code class="font-mono bg-white/60 dark:bg-white/10 px-1 py-0.5 rounded">LanguageClassifier</code> in <code class="font-mono bg-white/60 dark:bg-white/10 px-1 py-0.5 rounded">ml/predict.py</code>):
+          Customer reviews in the Bangladesh telecommunications ecosystem arrive in multiple scripts and transliterated dialects. Grounded in the multilingual text processing framework of <strong>Barman et al. (2014, EMNLP)</strong> and the Code-Mixing Index (CMI) dominance criteria of <strong>Gamb&auml;ck &amp; Das (2016, LREC)</strong>, our production pipeline integrates an automated rule-based detector (<code class="font-mono bg-white/60 dark:bg-white/10 px-1 py-0.5 rounded">LanguageClassifier</code> in <code class="font-mono bg-white/60 dark:bg-white/10 px-1 py-0.5 rounded">ml/predict.py</code>):
         </p>
 
+        <!-- Two-Stage Architecture Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600 dark:text-slate-300">
           <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 space-y-1.5">
             <div class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
-              <i class="fa-solid fa-code text-brand-500"></i> Stage 1: Bengali Unicode Script Verification
+              <i class="fa-solid fa-code text-brand-500"></i> Stage 1: Bengali Unicode Script Verification (&ge; 25%)
             </div>
             <p>
-              Scans incoming text against the official Bengali Unicode script range (<code class="font-mono text-[11px] bg-white/60 dark:bg-white/10 px-1 py-0.5 rounded">U+0980</code> to <code class="font-mono text-[11px] bg-white/60 dark:bg-white/10 px-1 py-0.5 rounded">U+09FF</code>). If Bengali characters comprise &ge; 20% of all alphabetic characters, the text is routed as <strong>Bangla (Native Script)</strong>.
+              Scans incoming text against the official Bengali Unicode script range (<code class="font-mono text-[11px] bg-white/60 dark:bg-white/10 px-1 py-0.5 rounded">U+0980</code> to <code class="font-mono text-[11px] bg-white/60 dark:bg-white/10 px-1 py-0.5 rounded">U+09FF</code>). If Bengali characters comprise &ge; 25% of all non-whitespace characters, the review routes as <strong>Bangla (Native Script)</strong>. Flags <strong>Code-Mixed</strong> if &ge; 2 Latin tokens appear.
             </p>
           </div>
 
           <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 space-y-1.5">
             <div class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
-              <i class="fa-solid fa-language text-purple-500"></i> Stage 2: Lexical Banglish &amp; English Disambiguation
+              <i class="fa-solid fa-language text-purple-500"></i> Stage 2: Two-Tier Banglish &amp; English Disambiguation
             </div>
             <p>
-              For Latin-script text, tokenizes words and evaluates against a dual vocabulary: standard English words (<code class="font-mono text-[11px] bg-white/60 dark:bg-white/10 px-1 py-0.5 rounded">nltk.corpus.words</code> + telecom domain terminology) vs. an extensive dictionary of <strong>80+ high-frequency Romanized Banglish phonetic markers</strong> (e.g., <em>"valo"</em>, <em>"onek"</em>, <em>"kete"</em>, <em>"nei"</em>, <em>"hobe"</em>, <em>"khub"</em>).
+              Evaluates Latin text against dual lexicons: 234k+ English words (<code class="font-mono text-[11px] bg-white/60 dark:bg-white/10 px-1 py-0.5 rounded">nltk.corpus.words</code>) + 155 telecom domain terms vs. <strong>122 Romanized Banglish phonetic markers</strong>. Enforces a primary <strong>70% English dominance threshold</strong> (Gamb&auml;ck &amp; Das 2016 CMI &le; 30) and a secondary <strong>60% typo-tolerance fallback</strong> for short feedback (e.g., <em>"Veary High price"</em>).
             </p>
           </div>
         </div>
 
+        <!-- 1. Full Corpus Linguistic Distribution Table (N = 661,160) -->
+        <div class="space-y-2 pt-2">
+          <div class="flex items-center justify-between">
+            <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-globe text-brand-500"></i> 1. Full Corpus Linguistic Distribution (<i>N</i> = 661,160 Reviews · 2014–2026)
+            </h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-500/10 text-brand-600 dark:text-brand-400 font-bold">10-Year Master Corpus</span>
+          </div>
+          <div class="overflow-x-auto max-w-full min-w-0 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl shadow-sm">
+            <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+              <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
+                <tr>
+                  <th class="p-3">Linguistic Cohort</th>
+                  <th class="p-3 text-center">Total Volume</th>
+                  <th class="p-3 text-center">Corpus Share (%)</th>
+                  <th class="p-3 text-center text-[#ff7a00]">Banglalink (139.1k)</th>
+                  <th class="p-3 text-center text-[#0090ff]">Grameenphone (321.4k)</th>
+                  <th class="p-3 text-center text-[#e60000]">Robi (200.7k)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200/60 dark:divide-white/5 font-mono">
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-3 font-semibold text-slate-800 dark:text-slate-200 font-sans">English (Standard Latin Script)</td>
+                  <td class="p-3 text-center font-bold">509,887</td>
+                  <td class="p-3 text-center font-bold text-brand-600 dark:text-brand-400">77.12%</td>
+                  <td class="p-3 text-center">73.56%</td>
+                  <td class="p-3 text-center">78.46%</td>
+                  <td class="p-3 text-center">77.44%</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-3 font-semibold text-slate-800 dark:text-slate-200 font-sans">Romanized Banglish (Phonetic Latin)</td>
+                  <td class="p-3 text-center font-bold">74,515</td>
+                  <td class="p-3 text-center font-bold text-purple-600 dark:text-purple-400">11.27%</td>
+                  <td class="p-3 text-center font-bold text-[#ff7a00]">13.32%</td>
+                  <td class="p-3 text-center">10.86%</td>
+                  <td class="p-3 text-center">10.50%</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-3 font-semibold text-slate-800 dark:text-slate-200 font-sans">Bangla (Native Unicode Script)</td>
+                  <td class="p-3 text-center font-bold">62,296</td>
+                  <td class="p-3 text-center font-bold text-emerald-600 dark:text-emerald-400">9.42%</td>
+                  <td class="p-3 text-center">10.95%</td>
+                  <td class="p-3 text-center">8.43%</td>
+                  <td class="p-3 text-center">9.95%</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-3 font-semibold text-slate-800 dark:text-slate-200 font-sans">Symbolic / Emoticons Only</td>
+                  <td class="p-3 text-center font-bold">14,462</td>
+                  <td class="p-3 text-center text-slate-500">2.19%</td>
+                  <td class="p-3 text-center">2.17%</td>
+                  <td class="p-3 text-center">2.25%</td>
+                  <td class="p-3 text-center">2.11%</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] bg-slate-50/60 dark:bg-white/[0.02] text-xs">
+                  <td class="p-3 font-sans italic text-slate-500 dark:text-slate-400">↳ Code-Mixed Sub-segment (Latin + Bengali)</td>
+                  <td class="p-3 text-center italic text-slate-500">16,615</td>
+                  <td class="p-3 text-center italic text-slate-500">2.51%</td>
+                  <td class="p-3 text-center italic text-slate-500">2.84%</td>
+                  <td class="p-3 text-center italic text-slate-500">2.31%</td>
+                  <td class="p-3 text-center italic text-slate-500">2.62%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 2. 5-Fold Stratified Cross-Validation Benchmark by Linguistic Sub-Cohort (N = 4,500) -->
+        <div class="space-y-2 pt-2">
+          <div class="flex items-center justify-between">
+            <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-chart-simple text-purple-500"></i> 2. 5-Fold Stratified Cross-Validation Benchmark by Linguistic Sub-Cohort (<i>N</i> = 4,500)
+            </h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 font-bold">Trilingual Robustness</span>
+          </div>
+          <div class="overflow-x-auto max-w-full min-w-0 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/70 dark:bg-surface-card/60 backdrop-blur-xl shadow-sm">
+            <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+              <thead class="bg-slate-100/80 dark:bg-slate-800/60 font-mono uppercase text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/10">
+                <tr>
+                  <th class="p-3">Linguistic Sub-Cohort</th>
+                  <th class="p-3 text-center">Samples (<i>N</i>)</th>
+                  <th class="p-3 text-center">Share</th>
+                  <th class="p-3 text-center">Category Acc (CV)</th>
+                  <th class="p-3 text-center">Category Macro-F1</th>
+                  <th class="p-3 text-center">Sentiment Acc (CV)</th>
+                  <th class="p-3 text-center">Sentiment Macro-F1</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200/60 dark:divide-white/5 font-mono">
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-3 font-semibold text-slate-800 dark:text-slate-200 font-sans">English (Standard Latin)</td>
+                  <td class="p-3 text-center font-bold">3,005</td>
+                  <td class="p-3 text-center text-slate-500">66.8%</td>
+                  <td class="p-3 text-center font-bold text-brand-600 dark:text-brand-400">90.18%</td>
+                  <td class="p-3 text-center">0.7900</td>
+                  <td class="p-3 text-center font-bold text-emerald-600 dark:text-emerald-400">90.82%</td>
+                  <td class="p-3 text-center">0.7671</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-3 font-semibold text-slate-800 dark:text-slate-200 font-sans">Bangla (Native Unicode Script)</td>
+                  <td class="p-3 text-center font-bold">1,091</td>
+                  <td class="p-3 text-center text-slate-500">24.2%</td>
+                  <td class="p-3 text-center font-bold text-brand-600 dark:text-brand-400">80.11%</td>
+                  <td class="p-3 text-center">0.7503</td>
+                  <td class="p-3 text-center font-bold text-emerald-600 dark:text-emerald-400">82.68%</td>
+                  <td class="p-3 text-center font-bold text-emerald-600 dark:text-emerald-400">0.7835</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-3 font-semibold text-slate-800 dark:text-slate-200 font-sans">Romanized Banglish</td>
+                  <td class="p-3 text-center font-bold">390</td>
+                  <td class="p-3 text-center text-slate-500">8.7%</td>
+                  <td class="p-3 text-center font-bold text-brand-600 dark:text-brand-400">85.13%</td>
+                  <td class="p-3 text-center">0.7305</td>
+                  <td class="p-3 text-center font-bold text-emerald-600 dark:text-emerald-400">79.23%</td>
+                  <td class="p-3 text-center">0.7567</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02]">
+                  <td class="p-3 font-semibold text-slate-800 dark:text-slate-200 font-sans">Symbolic / Emoticons</td>
+                  <td class="p-3 text-center font-bold">14</td>
+                  <td class="p-3 text-center text-slate-500">0.3%</td>
+                  <td class="p-3 text-center font-bold text-brand-600 dark:text-brand-400">100.00%</td>
+                  <td class="p-3 text-center">1.0000</td>
+                  <td class="p-3 text-center font-bold text-emerald-600 dark:text-emerald-400">92.86%</td>
+                  <td class="p-3 text-center">0.4815</td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] bg-brand-500/5 font-bold">
+                  <td class="p-3 text-brand-700 dark:text-brand-300 font-sans">Overall 5-Fold Cross-Validation</td>
+                  <td class="p-3 text-center">4,500</td>
+                  <td class="p-3 text-center">100.0%</td>
+                  <td class="p-3 text-center text-brand-600 dark:text-brand-400">87.33%</td>
+                  <td class="p-3 text-center">0.7800</td>
+                  <td class="p-3 text-center text-emerald-600 dark:text-emerald-400">87.84%</td>
+                  <td class="p-3 text-center">0.7823</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-justify">
+          <strong class="font-semibold text-slate-700 dark:text-slate-300">Literature Contrast &amp; Low-Resource Handling:</strong> Whereas prior telecommunications customer review benchmarks (e.g., <em>Dra&scaron;kovi&#263; &amp; Milanovi&#263; 2025</em>) completely discarded non-English data (achieving 65.64% accuracy and 0.5213 Macro-F1 on English tweets), our VoC engine evaluates trilingual and code-mixed inputs natively without token omission, sustaining high cross-validation stability across all linguistic sub-cohorts.
+        </p>
+
+        <!-- Supported Output Classifications & Telemetry Metadata -->
         <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-200/60 dark:border-white/5 text-xs space-y-2 text-slate-600 dark:text-slate-300">
           <div class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <i class="fa-solid fa-tags text-cyan-500"></i> Supported Output Classifications &amp; Telemetry Metadata:
@@ -2099,7 +2331,7 @@
               <span class="text-[11px] font-normal text-slate-400">2020 – 2026</span>
             </h4>
             <div class="rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-slate-100 dark:border-white/5">
-              <img src="../assets/images/projects/voc/monthly_nss_trend_modern_era.png" alt="Monthly customer satisfaction trends in the modern digital era from 2020 through 2026" class="w-full h-auto object-contain" loading="eager">
+              <img src="../assets/images/projects/voc/monthly_nss_trend_modern_era.png?v=3.2" alt="Monthly customer satisfaction trends in the modern digital era from 2020 through 2026" class="w-full h-auto object-contain" loading="eager">
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
               Continuous monthly satisfaction monitoring across 81 consecutive months revealing acute operational swings caused by software updates and marketing campaigns.
@@ -2393,6 +2625,6 @@
       setPerspective(initialView || 'overall', false);
     })();
   </script>
-  <script src="../js/voc-analyzer.js"></script>
+  <script src="../js/voc-analyzer.js?v=3.2"></script>
 </body>
 </html>
