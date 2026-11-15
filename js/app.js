@@ -1,6 +1,6 @@
 import { initThemeToggle } from './theme.js';
-import { projectsData } from './data/projects.js?v=3.2';
-import { renderProjects } from './components/renderProjects.js?v=3.2';
+import { projectsData } from './data/projects.js?v=3.3';
+import { renderProjects } from './components/renderProjects.js?v=3.3';
 import { postersData } from './data/posters.js';
 import { renderPosters } from './components/renderPosters.js';
 import { awardsData } from './data/awards.js';

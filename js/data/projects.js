@@ -43,16 +43,17 @@ export const projectsData = [
     title: "Hall Dining Operations & Inventory Management System",
     category: "Operations Analytics",
     year: "2025 – 2026",
-    shortSummary: "Automated dining operations and inventory system for 1,102 residents across 210 rooms. Replaced paper registers with real-time Student ID meal booking, ledger-backed accounts, 71,600+ formulas, and next-day kitchen protein forecasting with Provost oversight.",
-    description: "Spearheaded the complete digital transformation of Shaheed Mashiur Rahman Hall dining, replacing bulky paper registers with an automated spreadsheet system. Mapped 1,102 residents across 210 four-student rooms, introduced direct Student ID meal booking, personal credit/deposit balance accounts to eliminate student churn, next-day kitchen protein forecasting, and real-time oversight for the Provost Body.",
+    shortSummary: "Automated dining operations and inventory system for hall residents. Replaced paper registers with real-time Student ID meal booking, ledger-backed accounts, 71,600+ formulas, and next-day kitchen protein forecasting with Provost oversight.",
+    description: "Spearheaded the complete digital transformation of Shaheed Mashiur Rahman Hall dining, replacing bulky paper registers with an automated spreadsheet system. Mapped resident accounts, introduced direct Student ID meal booking, personal credit/deposit balance accounts to eliminate student churn, next-day kitchen protein forecasting, and real-time oversight for the Provost Body.",
     highlights: [
-      "Operations Scale: 1,102 active residents in 210 rooms",
+      "Operations Scale: Around 9,000 monthly meals tracked",
       "Formula Matrix: 71,600+ multi-criteria formulas",
       "Provost Oversight: Real-time meal headcounts & audit"
     ],
     tags: ["Google Sheets ERP", "71,600+ Formulas", "Token Audit", "bKash Balancing"],
     media: "assets/images/thumbnails/dining-erp.png",
     mediaAlt: "Hall dining operations ERP preview",
+    mediaClass: "object-cover object-left",
     githubUrl: "https://docs.google.com/spreadsheets/d/1YMRC2m48c165kfrgP7JzAwUkWMylTQVxI6k5dHKIv54/edit?usp=sharing",
     caseStudyUrl: "projects/hall-dining-erp.html",
     badgeText: "Operations ERP"

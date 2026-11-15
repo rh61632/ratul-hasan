@@ -314,7 +314,12 @@ body {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center !important;
+    object-position: center;
+  }
+
+  .project-expand-card .aspect-video img.object-left,
+  img.object-left {
+    object-position: left center !important;
   }
 
   /* Compact Titles */

@@ -17,7 +17,7 @@ export function renderProjects(projects, targetElementId) {
             src="${project.media}" 
             alt="${project.mediaAlt || project.title}" 
             loading="lazy"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            class="w-full h-full ${project.mediaClass || 'object-cover object-center'} group-hover:scale-105 transition-transform duration-700 ${project.mediaClass && project.mediaClass.includes('object-left') ? 'origin-left' : 'origin-center'}"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent opacity-40"></div>
         </div>
